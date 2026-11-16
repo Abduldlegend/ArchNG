@@ -1,0 +1,1182 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Verification Queue — ArchNG Admin Console</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#fdf8f5",
+            "error": "#ba1a1a",
+            "tertiary-fixed": "#e7e2d8",
+            "secondary": "#036c4d",
+            "inverse-on-surface": "#f5f0ec",
+            "secondary-fixed-dim": "#82d7b1",
+            "on-surface": "#1c1b19",
+            "on-secondary-fixed-variant": "#005139",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#faf5eb",
+            "secondary-container": "#9ef4cc",
+            "surface-container": "#f2ede9",
+            "surface-bright": "#fdf8f5",
+            "surface-variant": "#e6e2de",
+            "on-primary-fixed-variant": "#812807",
+            "inverse-surface": "#32302e",
+            "on-secondary-fixed": "#002115",
+            "on-tertiary-fixed": "#1d1c16",
+            "on-background": "#1c1b19",
+            "secondary-fixed": "#9ef4cc",
+            "surface": "#fdf8f5",
+            "surface-tint": "#a13f1e",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "tertiary": "#5a5850",
+            "surface-container-highest": "#e6e2de",
+            "on-error-container": "#93000a",
+            "surface-container-low": "#f7f3ef",
+            "tertiary-container": "#737068",
+            "outline": "#8a726b",
+            "surface-container-high": "#ece7e4",
+            "on-primary-fixed": "#3a0b00",
+            "on-surface-variant": "#57423c",
+            "on-primary-container": "#fff2ef",
+            "on-tertiary-fixed-variant": "#494740",
+            "primary-fixed": "#ffdbd0",
+            "inverse-primary": "#ffb59e",
+            "primary-container": "#b8502d",
+            "surface-dim": "#ddd9d6",
+            "on-secondary": "#ffffff",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-secondary-container": "#127253",
+            "primary": "#983917",
+            "outline-variant": "#ddc0b8",
+            "tertiary-fixed-dim": "#cac6bd",
+            "primary-fixed-dim": "#ffb59e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "margin": "3rem",
+            "margin-mobile": "1.25rem",
+            "gutter-mobile": "1rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Newsreader", "serif"],
+            "label-caps": ["Inter", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "title-md": ["Inter", "sans-serif"],
+            "headline-lg-mobile": ["Newsreader", "serif"],
+            "headline-sm": ["Newsreader", "serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "headline-lg": ["Newsreader", "serif"],
+            "display-lg": ["Newsreader", "serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "display-lg-mobile": ["Newsreader", "serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "numeric-metric": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "46px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "numeric-metric": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #F2EDE9;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #DDC0B8;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-low text-on-surface antialiased min-h-screen flex flex-col font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- ================= TOP APP BAR ================= -->
+<header class="bg-surface border-b border-outline-variant sticky top-0 z-40 w-full">
+<div class="flex justify-between items-center w-full px-space-lg h-16">
+<!-- Left: Logo & Breadcrumbs -->
+<div class="flex items-center gap-space-lg">
+<a href="{{DATA:SCREEN:SCREEN_9}}" class="flex items-center gap-2 cursor-pointer">
+<span class="font-headline-md text-headline-md text-on-surface tracking-tight font-bold">ArchNG</span>
+<span class="bg-primary-container text-on-primary-container text-[10px] font-bold px-1.5 py-0.5 rounded tracking-wider uppercase">ADMIN</span>
+</a>
+<div class="hidden lg:flex items-center gap-2 text-on-surface-variant font-label-md text-label-md pl-4 border-l border-outline-variant">
+<span class="hover:text-primary transition-colors cursor-pointer">Registry Administration</span>
+<span class="material-symbols-outlined text-outline text-sm">chevron_right</span>
+<span class="text-on-surface font-semibold">Verification Queue</span>
+</div>
+</div>
+<!-- Center: Regulatory Chapter Live Indicator -->
+<div class="hidden xl:flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-body-sm font-body-sm text-tertiary">
+<span class="w-2 h-2 rounded-full bg-secondary inline-block animate-pulse"></span>
+<span class="text-on-surface font-medium">All Chapters Active</span>
+<span class="text-outline-variant">·</span>
+<span class="text-xs">Lagos / Abuja / PH / Ibadan / Enugu</span>
+</div>
+<!-- Right: Search & Registrar Profile -->
+<div class="flex items-center gap-space-md">
+<!-- Search bar input -->
+<div class="relative hidden md:block w-64">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-tertiary text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-sm text-on-surface placeholder:text-tertiary focus:border-on-surface focus:ring-0 outline-none transition-colors" placeholder="Search license or firm..." type="text">
+</div>
+<!-- Notification Bell -->
+<button class="relative p-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" title="Notifications">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<!-- User Profile Pill -->
+<div class="flex items-center gap-3 pl-2 border-l border-outline-variant">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center font-bold text-xs text-primary font-label-caps">
+            BS
+          </div>
+<div class="hidden sm:flex flex-col text-left">
+<span class="text-xs font-semibold text-on-surface leading-tight">Arc. Babatunde Sanusi</span>
+<span class="text-[11px] text-tertiary font-label-caps">Registrar General ARCON</span>
+</div>
+<span class="material-symbols-outlined text-outline text-sm">expand_more</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ================= APP SHELL LAYOUT ================= -->
+<div class="flex flex-1 overflow-hidden">
+<!-- LEFT SIDEBAR: Admin Governance Console -->
+<aside class="w-64 bg-surface-container-lowest border-r border-outline-variant flex-shrink-0 flex flex-col justify-between hidden md:flex">
+<!-- Primary Nav Items -->
+<div class="p-space-md flex flex-col gap-6">
+<div>
+<span class="font-label-caps text-label-caps text-tertiary tracking-widest block px-3 mb-2">REGISTRY OVERSIGHT</span>
+<nav class="flex flex-col gap-1"><a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors font-label-md text-label-md" href="{{DATA:SCREEN:SCREEN_9}}">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container border border-outline-variant text-primary font-semibold font-label-md text-label-md shadow-none" href="{{DATA:SCREEN:SCREEN_7}}">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span>Verification / Providers</span>
+</div>
+<span class="bg-primary text-on-primary text-[11px] font-bold px-2 py-0.5 rounded-full font-label-caps">12</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors font-label-md text-label-md opacity-70 cursor-not-allowed" href="javascript:void(0)" title="Coming soon">
+<span class="material-symbols-outlined text-[20px]">apartment</span>
+<span>Projects</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors font-label-md text-label-md opacity-70 cursor-not-allowed" href="javascript:void(0)" title="Coming soon">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+<span>Inquiries &amp; Leads</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors font-label-md text-label-md opacity-70 cursor-not-allowed" href="javascript:void(0)" title="Coming soon">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span>Users &amp; Registry</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors font-label-md text-label-md opacity-70 cursor-not-allowed" href="javascript:void(0)" title="Coming soon">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+<span>System Audit / Settings</span>
+</a></nav>
+</div>
+<!-- Territorial Chapters Monitor -->
+<div class="pt-4 border-t border-outline-variant">
+<div class="flex items-center justify-between px-3 mb-2">
+<span class="font-label-caps text-label-caps text-tertiary tracking-widest">TERRITORIAL CHAPTERS</span>
+<span class="text-[10px] text-secondary font-bold font-label-caps">LIVE</span>
+</div>
+<div class="flex flex-col gap-1.5 px-3 font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-center justify-between py-1">
+<span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Lagos State</span>
+<span class="text-xs font-mono text-tertiary">Active</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Abuja FCT</span>
+<span class="text-xs font-mono text-tertiary">Active</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Port Harcourt</span>
+<span class="text-xs font-mono text-tertiary">Active</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom ARCON Decree Card -->
+<div class="p-space-md border-t border-outline-variant bg-surface-container-low">
+<div class="p-3 bg-surface-container-lowest border border-outline-variant rounded-lg">
+<div class="flex items-center gap-2 text-primary mb-1">
+<span class="material-symbols-outlined text-[16px]">gavel</span>
+<span class="font-label-caps text-[10px] tracking-wider uppercase font-bold">Decree No. 10 of 1969</span>
+</div>
+<p class="font-body-sm text-[11px] text-tertiary leading-relaxed">
+            Statutory governance of the Architects Registration Council of Nigeria (CAP A19 LFN 2004). Mandatory digital license verification.
+          </p>
+</div>
+</div>
+</aside>
+<!-- ================= MAIN CONTENT WORKSPACE ================= -->
+<main class="flex-1 flex overflow-hidden">
+<!-- Verification Queue Table Container (Left / Center Pane) -->
+<div class="flex-1 flex flex-col overflow-y-auto custom-scroll p-space-md lg:p-space-lg">
+<!-- Header Section -->
+<div class="mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-primary font-bold text-xs tracking-widest font-label-caps uppercase">Statutory Licensing Oversight</span>
+<span class="text-outline-variant">/</span>
+<span class="text-xs text-tertiary">Batch 2025-Q1</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-on-surface">Practitioner Verification Queue</h1>
+<p class="font-body-sm text-body-sm text-tertiary mt-1">
+              ARCON Statutory Council Verification &amp; Licensing Review (Act CAP A19 LFN 2004).
+            </p>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-surface-container-lowest border border-outline-variant text-on-surface px-3 py-2 rounded-lg font-label-md text-label-md flex items-center gap-2 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Export Gazette Log</span>
+</button>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md flex items-center gap-2 hover:bg-[#9C3E1F] transition-colors">
+<span class="material-symbols-outlined text-[18px]">checklist</span>
+<span>Bulk Actions (1 selected)</span>
+</button>
+</div>
+</div>
+<!-- Filter Chips & Search Bar -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-3 mb-6 flex flex-col md:flex-row md:items-center justify-between gap-3"><!-- Category Chips -->
+<div class="flex flex-wrap items-center gap-2" id="filter-chip-group">
+<button data-filter="pending" class="filter-chip px-3.5 py-1.5 rounded-full bg-on-surface text-surface-container-lowest font-label-md text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer">
+<span>Pending Review</span>
+<span class="bg-primary px-1.5 py-0.2 rounded-full text-[10px] text-white" id="pending-count-badge">12</span>
+</button>
+<button data-filter="verified" class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container text-tertiary hover:text-on-surface font-label-md text-xs font-medium transition-colors cursor-pointer">
+  Verified (348)
+</button>
+<button data-filter="rejected" class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container text-tertiary hover:text-on-surface font-label-md text-xs font-medium transition-colors cursor-pointer">
+  Rejected (19)
+</button>
+<button data-filter="all" class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container text-tertiary hover:text-on-surface font-label-md text-xs font-medium transition-colors cursor-pointer">
+  All Submissions
+</button>
+</div>
+<!-- Quick Filter Search inside card with Terracotta focus ring -->
+<div class="relative w-full md:w-80">
+<span class="material-symbols-outlined absolute left-3 top-2 text-tertiary text-[18px]">filter_list</span>
+<input id="practitioner-search-input" class="w-full pl-9 pr-3 py-1.5 bg-surface-container-low border border-outline-variant rounded-lg text-body-sm text-on-surface placeholder:text-tertiary text-xs outline-none focus:ring-2 focus:ring-[#B8502D] focus:border-[#B8502D] transition-all" placeholder="Search practitioner, firm, ARCON #..." type="text" value="">
+</div></div>
+<!-- Verification Queue Data Table -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-none flex-1">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant font-label-caps text-label-caps text-tertiary">
+<th class="py-3 px-4 w-10 text-center">
+<input class="rounded border-outline-variant text-primary focus:ring-0" type="checkbox">
+</th>
+<th class="py-3 px-4 font-semibold">PROVIDER &amp; FIRM</th>
+<th class="py-3 px-4 font-semibold">CHAPTER / STATE</th>
+<th class="py-3 px-4 font-semibold">ARCON LICENSE</th>
+<th class="py-3 px-4 font-semibold">SUBMITTED</th>
+<th class="py-3 px-4 font-semibold">STATUS</th>
+<th class="py-3 px-4 text-right">ACTION</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant font-body-sm text-body-sm"><!-- Row 1: Arc. Chukwuma Obi & Partners -->
+<tr class="queue-row bg-surface-container hover:bg-surface-container transition-colors cursor-pointer border-l-4 border-l-primary" data-provider-id="co" data-status="pending" data-name="Arc. Chukwuma Obi &amp; Partners" data-cat="Corporate Architectural Practice" data-principal="Arc. Chukwuma Obi, FNIA" data-email="chukwuma.obi@obipartners.ng" data-phone="+234 (0) 802 319 8840" data-location="Victoria Island, Lagos State" data-license="#F-4421" data-gazette="Gazetted 2012" data-nia="Fellow #1842 · UNILAG (B.Arch, M.Arch)">
+<td class="py-3 px-4 text-center">
+<input checked="" class="row-checkbox rounded border-outline-variant text-primary focus:ring-0 cursor-pointer" type="checkbox">
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest border border-outline-variant flex items-center justify-center font-bold text-primary text-sm font-headline-sm flex-shrink-0">
+  CO
+</div>
+<div>
+<div class="font-title-md text-body-md font-semibold text-on-surface flex items-center gap-1.5">
+<span>Arc. Chukwuma Obi &amp; Partners</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" title="Documents Attached">attachment</span>
+</div>
+<span class="text-xs text-tertiary">Corporate Architectural Practice · Principal: Arc. C. Obi, FNIA</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Lagos Chapter</span>
+</div>
+<span class="text-[11px] text-tertiary">Victoria Island Hub</span>
+</td>
+<td class="py-3 px-4">
+<span class="font-mono text-xs font-semibold px-2 py-0.5 bg-surface-container-highest border border-outline-variant rounded text-on-surface">#F-4421</span>
+</td>
+<td class="py-3 px-4 text-tertiary text-xs">
+2 days ago
+</td>
+<td class="py-3 px-4 status-cell">
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-800 text-[11px] font-semibold font-label-caps">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+<span>SLA: 48h Remaining</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<span class="text-primary font-semibold text-xs flex items-center justify-end gap-1 hover:underline">
+Review <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</span>
+</td>
+</tr>
+
+<!-- Row 2: Arc. Amina Al-Hassan Design Studio -->
+<tr class="queue-row hover:bg-surface-container-low transition-colors cursor-pointer" data-provider-id="aa" data-status="pending" data-name="Arc. Amina Al-Hassan Design Studio" data-cat="Individual Practitioner" data-principal="Arc. Amina Al-Hassan, MNIA" data-email="amina.alhassan@aadesign.ng" data-phone="+234 (0) 803 551 2290" data-location="Maitama District, Abuja FCT" data-license="#A-5109" data-gazette="Gazetted 2017" data-nia="Member #3910 · ABU Zaria (B.Sc, M.Sc)">
+<td class="py-3 px-4 text-center">
+<input class="row-checkbox rounded border-outline-variant text-primary focus:ring-0 cursor-pointer" type="checkbox">
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low border border-outline-variant flex items-center justify-center font-bold text-tertiary text-sm font-headline-sm flex-shrink-0">
+  AA
+</div>
+<div>
+<div class="font-semibold text-on-surface">Arc. Amina Al-Hassan Design Studio</div>
+<span class="text-xs text-tertiary">Individual Practitioner · Arc. Amina Al-Hassan, MNIA</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Abuja FCT Hub</span>
+</div>
+<span class="text-[11px] text-tertiary">Maitama District</span>
+</td>
+<td class="py-3 px-4">
+<span class="font-mono text-xs font-semibold px-2 py-0.5 bg-surface-container border border-outline-variant rounded text-on-surface">#A-5109</span>
+</td>
+<td class="py-3 px-4 text-tertiary text-xs">
+3 days ago
+</td>
+<td class="py-3 px-4 status-cell">
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant text-tertiary text-[11px] font-semibold font-label-caps">
+<span>Pending Form B</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</td>
+</tr>
+
+<!-- Row 3: Niger Delta Eco-Structures Ltd -->
+<tr class="queue-row hover:bg-surface-container-low transition-colors cursor-pointer" data-provider-id="ne" data-status="pending" data-name="Niger Delta Eco-Structures Ltd" data-cat="Consortium Partnership" data-principal="Arc. Ebiere Tari, FNIA" data-email="ebiere.tari@ecostructures.ng" data-phone="+234 (0) 805 772 1109" data-location="GRA Phase 2, Port Harcourt, Rivers" data-license="#P-3882" data-gazette="Gazetted 2009" data-nia="Fellow #1104 · RSUST (B.Tech, M.Arch)">
+<td class="py-3 px-4 text-center">
+<input class="row-checkbox rounded border-outline-variant text-primary focus:ring-0 cursor-pointer" type="checkbox">
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low border border-outline-variant flex items-center justify-center font-bold text-tertiary text-sm font-headline-sm flex-shrink-0">
+  NE
+</div>
+<div>
+<div class="font-semibold text-on-surface">Niger Delta Eco-Structures Ltd</div>
+<span class="text-xs text-tertiary">Consortium Partnership · Arc. Ebiere Tari, FNIA</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Port Harcourt</span>
+</div>
+<span class="text-[11px] text-tertiary">GRA Phase 2</span>
+</td>
+<td class="py-3 px-4">
+<span class="font-mono text-xs font-semibold px-2 py-0.5 bg-surface-container border border-outline-variant rounded text-on-surface">#P-3882</span>
+</td>
+<td class="py-3 px-4 text-tertiary text-xs">
+4 days ago
+</td>
+<td class="py-3 px-4 status-cell">
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-800 text-[11px] font-semibold font-label-caps">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+<span>SLA: 24h Remaining</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</td>
+</tr>
+
+<!-- Row 4: Ogun & Balogun Heritage Architects -->
+<tr class="queue-row hover:bg-surface-container-low transition-colors cursor-pointer" data-provider-id="ob" data-status="pending" data-name="Ogun &amp; Balogun Heritage Architects" data-cat="Corporate Practice" data-principal="Arc. F. Balogun, FNIA" data-email="balogun@ogunbalogun.com" data-phone="+234 (0) 802 443 9912" data-location="Bodija Estate, Ibadan Hub, Oyo" data-license="#I-2914" data-gazette="Gazetted 2005" data-nia="Fellow #0892 · OAU Ife (B.Sc, M.Sc)">
+<td class="py-3 px-4 text-center">
+<input class="row-checkbox rounded border-outline-variant text-primary focus:ring-0 cursor-pointer" type="checkbox">
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low border border-outline-variant flex items-center justify-center font-bold text-tertiary text-sm font-headline-sm flex-shrink-0">
+  OB
+</div>
+<div>
+<div class="font-semibold text-on-surface">Ogun &amp; Balogun Heritage Architects</div>
+<span class="text-xs text-tertiary">Corporate Practice · Arc. F. Balogun</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Ibadan Hub</span>
+</div>
+<span class="text-[11px] text-tertiary">Bodija Estate</span>
+</td>
+<td class="py-3 px-4">
+<span class="font-mono text-xs font-semibold px-2 py-0.5 bg-surface-container border border-outline-variant rounded text-on-surface">#I-2914</span>
+</td>
+<td class="py-3 px-4 text-tertiary text-xs">
+5 days ago
+</td>
+<td class="py-3 px-4 status-cell">
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant text-tertiary text-[11px] font-semibold font-label-caps">
+<span>Under Gazette Cross-check</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</td>
+</tr>
+
+<!-- Row 5: Enugu Atelier for Tropical Architecture -->
+<tr class="queue-row hover:bg-surface-container-low transition-colors cursor-pointer" data-provider-id="ea" data-status="pending" data-name="Enugu Atelier for Tropical Architecture" data-cat="Principal Fellow Practice" data-principal="Arc. K. Nnamani, FNIA" data-email="nnamani@enuguatelier.ng" data-phone="+234 (0) 803 881 7720" data-location="Independence Layout, Enugu District" data-license="#E-1190" data-gazette="Gazetted 2001" data-nia="Fellow #0521 · UNN (B.Arch, M.Arch)">
+<td class="py-3 px-4 text-center">
+<input class="row-checkbox rounded border-outline-variant text-primary focus:ring-0 cursor-pointer" type="checkbox">
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low border border-outline-variant flex items-center justify-center font-bold text-tertiary text-sm font-headline-sm flex-shrink-0">
+  EA
+</div>
+<div>
+<div class="font-semibold text-on-surface">Enugu Atelier for Tropical Architecture</div>
+<span class="text-xs text-tertiary">Principal Fellow Practice · Arc. K. Nnamani</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Enugu District</span>
+</div>
+<span class="text-[11px] text-tertiary">Independence Layout</span>
+</td>
+<td class="py-3 px-4">
+<span class="font-mono text-xs font-semibold px-2 py-0.5 bg-surface-container border border-outline-variant rounded text-on-surface">#E-1190</span>
+</td>
+<td class="py-3 px-4 text-tertiary text-xs">
+6 days ago
+</td>
+<td class="py-3 px-4 status-cell">
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant text-tertiary text-[11px] font-semibold font-label-caps">
+<span>Seal Stamp Resubmitted</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</td>
+</tr>
+
+<!-- Row 6: Kano Zenith Spatial Planners -->
+<tr class="queue-row hover:bg-surface-container-low transition-colors cursor-pointer" data-provider-id="kz" data-status="pending" data-name="Kano Zenith Spatial Planners" data-cat="Urban &amp; Architectural Firm" data-principal="Arc. U. Bello, MNIA" data-email="u.bello@kanozenith.ng" data-phone="+234 (0) 806 220 9011" data-location="Nassarawa Hub, Kano State" data-license="#K-7012" data-gazette="Gazetted 2019" data-nia="Member #4480 · BUK (B.Sc, M.Sc)">
+<td class="py-3 px-4 text-center">
+<input class="row-checkbox rounded border-outline-variant text-primary focus:ring-0 cursor-pointer" type="checkbox">
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low border border-outline-variant flex items-center justify-center font-bold text-tertiary text-sm font-headline-sm flex-shrink-0">
+  KZ
+</div>
+<div>
+<div class="font-semibold text-on-surface">Kano Zenith Spatial Planners</div>
+<span class="text-xs text-tertiary">Urban &amp; Architectural Firm · Arc. U. Bello</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Kano State</span>
+</div>
+<span class="text-[11px] text-tertiary">Nassarawa Hub</span>
+</td>
+<td class="py-3 px-4">
+<span class="font-mono text-xs font-semibold px-2 py-0.5 bg-surface-container border border-outline-variant rounded text-on-surface">#K-7012</span>
+</td>
+<td class="py-3 px-4 text-tertiary text-xs">
+1 week ago
+</td>
+<td class="py-3 px-4 status-cell">
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant text-tertiary text-[11px] font-semibold font-label-caps">
+<span>Awaiting Payment Reciept</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</td>
+</tr></tbody>
+</table>
+</div>
+<!-- Table Pagination Footer -->
+<div class="bg-surface-container-low p-3 px-4 border-t border-outline-variant flex items-center justify-between font-body-sm text-xs text-tertiary">
+<span>Showing 1 to 6 of 12 pending practitioners</span>
+<div class="flex items-center gap-1">
+<button class="px-2 py-1 rounded border border-outline-variant bg-surface-container-lowest text-on-surface disabled:opacity-40" disabled="">Previous</button>
+<button class="px-2.5 py-1 rounded border border-primary bg-primary text-on-primary font-bold">1</button>
+<button class="px-2.5 py-1 rounded border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container">2</button>
+<button class="px-2 py-1 rounded border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container">Next</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= RIGHT DETAIL DRAWER: Selected Provider Dossier ================= -->
+<!-- ================= DRAWER D1 & BACKDROP CONTAINER ================= -->
+<div id="drawer-d1-backdrop" class="fixed inset-0 z-50 transition-opacity duration-300 flex justify-end" style="background-color: rgba(28, 27, 25, 0.45);">
+<aside id="drawer-d1-panel" class="w-full max-w-[480px] h-full bg-surface-container-lowest border-l border-outline-variant flex flex-col flex-shrink-0 z-50 overflow-y-auto custom-scroll shadow-2xl transition-transform duration-300 transform translate-x-0">
+<!-- Drawer Header -->
+<div class="p-5 border-b border-outline-variant bg-surface-container-low sticky top-0 z-10 flex items-center justify-between">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase font-bold">Verification Dossier</span>
+<span id="drawer-sla-badge" class="px-2 py-0.5 rounded-full bg-amber-50 border border-amber-300 text-amber-800 text-[10px] font-bold font-label-caps">
+  SLA: 48H REMAINING
+</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">ARCON License Review</h2>
+</div>
+<button id="drawer-close-btn" class="p-1 rounded-lg text-tertiary hover:text-on-surface hover:bg-surface-container transition-colors cursor-pointer" title="Close dossier (Esc)">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Drawer Content -->
+<div class="p-5 flex flex-col gap-6">
+<!-- Provider Identity Summary Card -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-4">
+<div class="flex items-start gap-4">
+<!-- Crest / Monogram -->
+<div id="drawer-avatar" class="w-14 h-14 rounded-lg bg-surface-container-highest border border-outline-variant flex items-center justify-center font-bold text-primary text-xl font-headline-sm flex-shrink-0">
+  CO
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<h3 id="drawer-provider-name" class="font-headline-sm text-lg font-bold text-on-surface">Arc. Chukwuma Obi &amp; Partners</h3>
+</div>
+<p id="drawer-practice-cat" class="font-body-sm text-xs text-primary font-medium mt-0.5">Corporate Architectural Practice</p>
+<div class="mt-2 flex flex-col gap-1 text-xs text-tertiary">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">person</span>
+<span id="drawer-principal">Principal: Arc. Chukwuma Obi, FNIA</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">mail</span>
+<span id="drawer-email" class="text-on-surface">chukwuma.obi@obipartners.ng</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">call</span>
+<span id="drawer-phone">+234 (0) 802 319 8840</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span id="drawer-location">Victoria Island, Lagos State</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Credentials Grid Box -->
+<div class="mt-4 pt-3 border-t border-outline-variant grid grid-cols-2 gap-2 text-xs">
+<div class="p-2 rounded bg-surface-container-lowest border border-outline-variant">
+<span class="text-[10px] text-tertiary block font-label-caps uppercase">Claimed ARCON License</span>
+<span id="drawer-license-no" class="font-mono font-bold text-on-surface">#F-4421</span>
+<span id="drawer-gazette-yr" class="text-[10px] text-secondary block font-medium">Gazetted 2012</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest border border-outline-variant">
+<span class="text-[10px] text-tertiary block font-label-caps uppercase">NIA Accreditation</span>
+<span id="drawer-nia-accred" class="font-bold text-on-surface">Fellow #1842</span>
+<span id="drawer-institution" class="text-[10px] text-tertiary block">UNILAG (B.Arch, M.Arch)</span>
+</div>
+</div>
+</div>
+<!-- Document Inspection Preview Section -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps text-tertiary tracking-widest uppercase">STATUTORY DOCUMENT PREVIEW</span>
+<button id="open-lightbox-btn" class="text-xs text-primary font-semibold flex items-center gap-1 hover:underline cursor-pointer bg-transparent border-0 p-0">
+<span>Open full size</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</button>
+</div>
+<!-- High Fidelity Document Canvas Card with Blueprint/Watermark Style -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 relative overflow-hidden group cursor-pointer" id="card-doc-preview-trigger">
+<!-- Corner Crosshair Drafting Accents -->
+<span class="absolute top-1 left-1 text-[10px] font-mono text-tertiary select-none opacity-40">+</span>
+<span class="absolute top-1 right-1 text-[10px] font-mono text-tertiary select-none opacity-40">+</span>
+<span class="absolute bottom-1 left-1 text-[10px] font-mono text-tertiary select-none opacity-40">+</span>
+<span class="absolute bottom-1 right-1 text-[10px] font-mono text-tertiary select-none opacity-40">+</span>
+<!-- Mock Gazette Form Document Header -->
+<div class="border-2 border-tertiary/20 p-4 rounded bg-[#FAFAF7] relative">
+<!-- Watermark Emblem in Background -->
+<div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[140px]">shield</span>
+</div>
+<div class="text-center pb-3 border-b border-tertiary/20">
+<div class="flex items-center justify-center gap-1 mb-1">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-[10px] font-bold text-tertiary tracking-widest">FEDERAL REPUBLIC OF NIGERIA</span>
+</div>
+<h4 class="font-headline-sm text-sm font-bold text-on-surface">ARCHITECTS REGISTRATION COUNCIL OF NIGERIA</h4>
+<p class="font-label-caps text-[9px] text-tertiary tracking-wider mt-0.5">FORM B — ANNUAL PRACTICING LICENCE &amp; SEAL (2025)</p>
+</div>
+<!-- Document Body Details -->
+<div class="py-3 text-[11px] font-mono space-y-1.5 text-on-surface-variant">
+<div class="flex justify-between border-b border-dashed border-outline-variant/60 pb-1">
+<span class="text-tertiary">Registered Body:</span>
+<span id="doc-registered-body" class="font-semibold text-on-surface">CHUKWUMA OBI &amp; PARTNERS</span>
+</div>
+<div class="flex justify-between border-b border-dashed border-outline-variant/60 pb-1">
+<span class="text-tertiary">Principal Architect:</span>
+<span id="doc-principal-arch" class="font-semibold text-on-surface">ARC. C. OBI (REG. #A-2018)</span>
+</div>
+<div class="flex justify-between border-b border-dashed border-outline-variant/60 pb-1">
+<span class="text-tertiary">Category:</span>
+<span id="doc-category-display" class="font-semibold text-on-surface">CORPORATE PRACTICE (#F-4421)</span>
+</div>
+<div class="flex justify-between border-b border-dashed border-outline-variant/60 pb-1">
+<span class="text-tertiary">Valid Until:</span>
+<span class="font-semibold text-secondary">31ST DECEMBER 2025</span>
+</div>
+</div>
+<!-- Official Stamp Graphic Mockup -->
+<div class="mt-2 flex items-center justify-between pt-2">
+<div class="w-16 h-16 rounded-full border-2 border-secondary/40 flex flex-col items-center justify-center rotate-[-12deg] p-1 bg-secondary/5 text-secondary">
+<span class="text-[7px] font-bold font-label-caps text-center leading-none">ARCON SEAL</span>
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="text-[6px] font-mono">2025 APPROVED</span>
+</div>
+<div class="text-right">
+<span class="font-label-caps text-[8px] text-tertiary block">GAZETTED SIGNATORY</span>
+<span class="font-headline-sm text-xs italic text-on-surface">Babatunde Sanusi</span>
+<span class="text-[9px] text-tertiary block font-mono">ARCON/REG/HQ/2025</span>
+</div>
+</div>
+</div>
+<!-- Quick Verification Checklist Checkboxes -->
+<div class="mt-3 flex flex-col gap-1.5 text-xs">
+<label class="flex items-center gap-2 text-on-surface cursor-pointer">
+<input checked="" class="rounded border-outline-variant text-secondary focus:ring-0" type="checkbox">
+<span class="text-[12px]">ARCON 2025 physical embossment verified</span>
+</label>
+<label class="flex items-center gap-2 text-on-surface cursor-pointer">
+<input checked="" class="rounded border-outline-variant text-secondary focus:ring-0" type="checkbox">
+<span class="text-[12px]">Principal partner identity matches NIA database</span>
+</label>
+<label class="flex items-center gap-2 text-on-surface cursor-pointer">
+<input checked="" class="rounded border-outline-variant text-secondary focus:ring-0" type="checkbox">
+<span class="text-[12px]">ARCON Gazette Decree 1969 schedule verified</span>
+</label>
+</div>
+</div>
+<!-- Additional Supporting Documents -->
+<div class="mt-3 space-y-2">
+<span class="text-[11px] font-label-caps text-tertiary uppercase tracking-wider block">SUPPORTING FILINGS</span>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low border border-outline-variant hover:border-on-surface transition-colors cursor-pointer">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">description</span>
+<div class="flex flex-col">
+<span class="text-xs font-medium text-on-surface">CAC Form 1.1 (Incorporation Certificate)</span>
+<span class="text-[10px] text-tertiary">RC 892014 · Verified against Nigerian CAC API</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low border border-outline-variant hover:border-on-surface transition-colors cursor-pointer">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">verified_user</span>
+<div class="flex flex-col">
+<span class="text-xs font-medium text-on-surface">Professional Indemnity Policy</span>
+<span class="text-[10px] text-tertiary">Leadway Assurance ₦500,000,000 Cover · Active</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Action Controls & Rejection Note Area -->
+<div class="pt-4 border-t border-outline-variant flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<!-- Approve Primary Action -->
+<button id="btn-approve-verify" class="flex-1 bg-[#1F7A5A] text-white py-2.5 px-4 rounded-lg font-label-md text-label-md font-semibold flex items-center justify-center gap-2 hover:bg-[#165a42] transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span>Approve &amp; Verify</span>
+</button>
+<!-- Reject Secondary Trigger -->
+<button id="btn-reject-toggle" class="px-4 py-2.5 border border-error/30 bg-error/5 text-error rounded-lg font-label-md text-label-md font-semibold hover:bg-error/10 transition-colors flex items-center gap-1.5 cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">close</span>
+<span>Reject</span>
+</button>
+</div>
+<!-- Rejection Expanded Form Drawer / Reason Text Area -->
+<div id="rejection-panel" class="hidden p-3 bg-surface-container-low border border-outline-variant rounded-lg flex-col gap-2.5">
+<label class="block font-label-caps text-label-caps text-tertiary uppercase tracking-wider">
+  Statutory Rejection Reason (Required)
+</label>
+<textarea id="rejection-reason-textarea" class="w-full text-xs p-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface placeholder:text-tertiary/70 focus:border-on-surface focus:ring-0 outline-none" placeholder="Enter statutory reason (e.g. Expired indemnity policy, illegible ARCON stamp, mismatching Form B)..." rows="2"></textarea>
+<div class="flex items-center justify-between gap-2">
+<p class="text-[11px] text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">info</span>
+<span>Provider will be instantly notified with official ARCON citation.</span>
+</p>
+<button id="btn-confirm-rejection" class="px-3 py-1.5 bg-error text-white font-label-md text-xs font-semibold rounded-lg opacity-40 pointer-events-none transition-all flex items-center gap-1 flex-shrink-0" disabled="">
+<span>Confirm rejection</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+
+<!-- ================= LIGHTBOX M3: FULL-SIZE STATUTORY FORM B ================= -->
+<div id="lightbox-m3" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 transition-opacity duration-200" style="background-color: rgba(28, 27, 25, 0.75);">
+<div class="relative bg-surface-container-lowest border border-outline-variant rounded-2xl max-w-2xl w-full p-6 sm:p-8 max-h-[90vh] overflow-y-auto custom-scroll shadow-2xl">
+<div class="flex items-center justify-between pb-4 mb-4 border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+<div>
+<h3 class="font-headline-sm text-base font-bold text-on-surface">ARCON Official Practicing Certificate (Form B)</h3>
+<p class="text-[11px] text-tertiary font-mono">Statutory Record · Schedule Decree 1969 / Act CAP A19 LFN 2004</p>
+</div>
+</div>
+<button id="lightbox-close-btn" class="p-1.5 rounded-lg text-tertiary hover:text-on-surface hover:bg-surface-container transition-colors cursor-pointer" title="Close certificate preview">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+</div>
+<!-- Certificate Body Display -->
+<div class="border-4 border-double border-tertiary/30 p-6 rounded-xl bg-[#FAFAF7] relative select-none">
+<div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[200px]">shield</span>
+</div>
+<div class="text-center pb-4 border-b-2 border-tertiary/20">
+<span class="font-label-caps text-xs font-bold text-tertiary tracking-widest block mb-1">FEDERAL REPUBLIC OF NIGERIA</span>
+<h2 class="font-headline-sm text-xl font-bold text-on-surface">ARCHITECTS REGISTRATION COUNCIL OF NIGERIA</h2>
+<p class="font-label-caps text-xs text-primary font-semibold tracking-wider mt-1">ANNUAL PRACTICING LICENCE &amp; COUNCIL SEAL — 2025</p>
+</div>
+<div class="py-6 text-sm font-mono space-y-3 text-on-surface">
+<div class="flex justify-between border-b border-dashed border-outline-variant/80 pb-1">
+<span class="text-tertiary">Registered Entity:</span>
+<span id="lightbox-entity-name" class="font-bold">CHUKWUMA OBI &amp; PARTNERS</span>
+</div>
+<div class="flex justify-between border-b border-dashed border-outline-variant/80 pb-1">
+<span class="text-tertiary">Principal Practitioner:</span>
+<span id="lightbox-principal-name" class="font-bold">ARC. C. OBI (REG. #A-2018)</span>
+</div>
+<div class="flex justify-between border-b border-dashed border-outline-variant/80 pb-1">
+<span class="text-tertiary">Licence Classification:</span>
+<span id="lightbox-category-name" class="font-bold">CORPORATE PRACTICE (#F-4421)</span>
+</div>
+<div class="flex justify-between border-b border-dashed border-outline-variant/80 pb-1">
+<span class="text-tertiary">Gazetted Accreditation:</span>
+<span class="font-bold text-secondary">2012 BATCH SCHEDULE VALID</span>
+</div>
+<div class="flex justify-between border-b border-dashed border-outline-variant/80 pb-1">
+<span class="text-tertiary">Validity Duration:</span>
+<span class="font-bold text-secondary">01 JAN 2025 – 31 DEC 2025</span>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-tertiary/20">
+<div class="w-20 h-20 rounded-full border-2 border-secondary/50 flex flex-col items-center justify-center rotate-[-10deg] p-1 bg-secondary/5 text-secondary">
+<span class="text-[8px] font-bold font-label-caps text-center leading-none">ARCON SEAL</span>
+<span class="material-symbols-outlined text-[24px]">verified</span>
+<span class="text-[7px] font-mono mt-0.5">2025 OFFICIAL</span>
+</div>
+<div class="text-right">
+<span class="font-label-caps text-[9px] text-tertiary block">REGISTRAR GENERAL SIGNATORY</span>
+<span class="font-headline-sm text-sm italic text-on-surface">Arc. Babatunde Sanusi</span>
+<span class="text-[10px] text-tertiary block font-mono">ARCON/REG/HQ/2025/VERIFIED</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ================= INK TOAST NOTIFICATION ================= -->
+<div id="ink-toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden items-center gap-3 px-5 py-3 rounded-xl bg-inverse-surface text-inverse-on-surface shadow-xl text-body-sm text-xs font-medium transition-all duration-300">
+<span class="material-symbols-outlined text-secondary-fixed text-lg" id="toast-icon">check_circle</span>
+<span id="toast-message">Provider verified. They've been notified.</span>
+</div>
+
+<!-- Interactive Controller Script for Drawer D1, Lightbox M3, and Row Actions -->
+<script>
+(function initVerificationInteractions() {
+  let activeRow = document.querySelector('.queue-row[data-provider-id="co"]');
+  const backdrop = document.getElementById('drawer-d1-backdrop');
+  const drawerPanel = document.getElementById('drawer-d1-panel');
+  const closeBtn = document.getElementById('drawer-close-btn');
+  const lightbox = document.getElementById('lightbox-m3');
+  const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+  const openLightboxBtn = document.getElementById('open-lightbox-btn');
+  const cardDocPreview = document.getElementById('card-doc-preview-trigger');
+  const toast = document.getElementById('ink-toast');
+  const toastMessage = document.getElementById('toast-message');
+  const toastIcon = document.getElementById('toast-icon');
+  const approveBtn = document.getElementById('btn-approve-verify');
+  const rejectToggle = document.getElementById('btn-reject-toggle');
+  const rejectPanel = document.getElementById('rejection-panel');
+  const reasonTextarea = document.getElementById('rejection-reason-textarea');
+  const confirmRejectBtn = document.getElementById('btn-confirm-rejection');
+  const searchInput = document.getElementById('practitioner-search-input');
+  const filterChips = document.querySelectorAll('.filter-chip');
+
+  function showToast(msg, isError) {
+    if (!toast) return;
+    toastMessage.textContent = msg;
+    toastIcon.textContent = isError ? 'cancel' : 'check_circle';
+    toastIcon.className = isError ? 'material-symbols-outlined text-error text-lg' : 'material-symbols-outlined text-secondary-fixed text-lg';
+    toast.classList.remove('hidden');
+    toast.classList.add('flex');
+    setTimeout(() => {
+      toast.classList.add('hidden');
+      toast.classList.remove('flex');
+    }, 3800);
+  }
+
+  function openDrawer(row) {
+    activeRow = row;
+    document.querySelectorAll('.queue-row').forEach(r => {
+      r.classList.remove('bg-surface-container', 'border-l-4', 'border-l-primary');
+    });
+    row.classList.add('bg-surface-container', 'border-l-4', 'border-l-primary');
+
+    const name = row.dataset.name || 'Practitioner';
+    const cat = row.dataset.cat || 'Architectural Practice';
+    const principal = row.dataset.principal || '';
+    const email = row.dataset.email || 'practice@archng.org';
+    const phone = row.dataset.phone || '+234 800 000 0000';
+    const loc = row.dataset.location || 'Nigeria';
+    const license = row.dataset.license || '#F-0000';
+    const gazette = row.dataset.gazette || 'Gazetted Record';
+    const nia = row.dataset.nia || 'NIA Member';
+
+    const nameEl = document.getElementById('drawer-provider-name');
+    if (nameEl) nameEl.textContent = name;
+    const catEl = document.getElementById('drawer-practice-cat');
+    if (catEl) catEl.textContent = cat;
+    const princEl = document.getElementById('drawer-principal');
+    if (princEl) princEl.textContent = 'Principal: ' + principal;
+    const mailEl = document.getElementById('drawer-email');
+    if (mailEl) mailEl.textContent = email;
+    const phoneEl = document.getElementById('drawer-phone');
+    if (phoneEl) phoneEl.textContent = phone;
+    const locEl = document.getElementById('drawer-location');
+    if (locEl) locEl.textContent = loc;
+    const licEl = document.getElementById('drawer-license-no');
+    if (licEl) licEl.textContent = license;
+    const gazEl = document.getElementById('drawer-gazette-yr');
+    if (gazEl) gazEl.textContent = gazette;
+    const niaEl = document.getElementById('drawer-nia-accred');
+    if (niaEl) niaEl.textContent = nia.split('·')[0].trim();
+    const instEl = document.getElementById('drawer-institution');
+    if (instEl && nia.includes('·')) instEl.textContent = nia.split('·')[1].trim();
+    const avatarEl = document.getElementById('drawer-avatar');
+    if (avatarEl) {
+      const initials = name.replace(/Arc\.\s*/i, '').split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
+      avatarEl.textContent = initials || 'AR';
+    }
+
+    const docRegBody = document.getElementById('doc-registered-body');
+    if (docRegBody) docRegBody.textContent = name.toUpperCase();
+    const docPrinc = document.getElementById('doc-principal-arch');
+    if (docPrinc) docPrinc.textContent = principal.toUpperCase();
+    const docCat = document.getElementById('doc-category-display');
+    if (docCat) docCat.textContent = cat.toUpperCase() + ' (' + license + ')';
+
+    const lbEntity = document.getElementById('lightbox-entity-name');
+    if (lbEntity) lbEntity.textContent = name.toUpperCase();
+    const lbPrinc = document.getElementById('lightbox-principal-name');
+    if (lbPrinc) lbPrinc.textContent = principal.toUpperCase();
+    const lbCat = document.getElementById('lightbox-category-name');
+    if (lbCat) lbCat.textContent = cat.toUpperCase() + ' (' + license + ')';
+
+    if (rejectPanel) {
+      rejectPanel.classList.add('hidden');
+      rejectPanel.classList.remove('flex');
+    }
+    if (reasonTextarea) reasonTextarea.value = '';
+    if (confirmRejectBtn) {
+      confirmRejectBtn.disabled = true;
+      confirmRejectBtn.classList.add('opacity-40', 'pointer-events-none');
+    }
+
+    backdrop.classList.remove('hidden');
+    backdrop.classList.add('flex');
+  }
+
+  function closeDrawer() {
+    if (!backdrop) return;
+    backdrop.classList.add('hidden');
+    backdrop.classList.remove('flex');
+  }
+
+  // Row click listeners
+  document.querySelectorAll('.queue-row').forEach(row => {
+    row.addEventListener('click', (e) => {
+      if (e.target.closest('.row-checkbox')) return;
+      openDrawer(row);
+    });
+  });
+
+  // Row checkbox independent toggle
+  document.querySelectorAll('.row-checkbox').forEach(cb => {
+    cb.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  });
+
+  // Backdrop & close button dismissal
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (backdrop) {
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) closeDrawer();
+    });
+  }
+
+  // Escape key closes Drawer & Lightbox
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (lightbox && !lightbox.classList.contains('hidden')) {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+      } else {
+        closeDrawer();
+      }
+    }
+  });
+
+  // Lightbox M3 open/close
+  function openLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+  }
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+  }
+  if (openLightboxBtn) openLightboxBtn.addEventListener('click', openLightbox);
+  if (cardDocPreview) cardDocPreview.addEventListener('click', (e) => {
+    if (!e.target.closest('label') && !e.target.closest('input')) {
+      openLightbox();
+    }
+  });
+  if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
+
+  // Approve and Verify Action with spinner & toast
+  if (approveBtn) {
+    approveBtn.addEventListener('click', () => {
+      const originalHTML = approveBtn.innerHTML;
+      approveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span><span>Verifying...</span>';
+      approveBtn.disabled = true;
+      setTimeout(() => {
+        approveBtn.innerHTML = originalHTML;
+        approveBtn.disabled = false;
+        if (activeRow) {
+          activeRow.dataset.status = 'verified';
+          const statusCell = activeRow.querySelector('.status-cell');
+          if (statusCell) {
+            statusCell.innerHTML = '<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary/10 border border-secondary/30 text-secondary text-[11px] font-semibold font-label-caps"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span><span>Verified</span></div>';
+          }
+        }
+        showToast("Provider verified. They've been notified.", false);
+        setTimeout(() => {
+          closeDrawer();
+        }, 1000);
+      }, 600);
+    });
+  }
+
+  // Reject Action Toggle & Validation
+  if (rejectToggle) {
+    rejectToggle.addEventListener('click', () => {
+      if (!rejectPanel) return;
+      if (rejectPanel.classList.contains('hidden')) {
+        rejectPanel.classList.remove('hidden');
+        rejectPanel.classList.add('flex');
+        if (reasonTextarea) reasonTextarea.focus();
+      } else {
+        rejectPanel.classList.add('hidden');
+        rejectPanel.classList.remove('flex');
+      }
+    });
+  }
+
+  if (reasonTextarea && confirmRejectBtn) {
+    reasonTextarea.addEventListener('input', () => {
+      const hasText = reasonTextarea.value.trim().length > 0;
+      confirmRejectBtn.disabled = !hasText;
+      if (hasText) {
+        confirmRejectBtn.classList.remove('opacity-40', 'pointer-events-none');
+      } else {
+        confirmRejectBtn.classList.add('opacity-40', 'pointer-events-none');
+      }
+    });
+  }
+
+  if (confirmRejectBtn) {
+    confirmRejectBtn.addEventListener('click', () => {
+      if (activeRow) {
+        activeRow.dataset.status = 'rejected';
+        const statusCell = activeRow.querySelector('.status-cell');
+        if (statusCell) {
+          statusCell.innerHTML = '<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-error/10 border border-error/30 text-error text-[11px] font-semibold font-label-caps"><span class="w-1.5 h-1.5 rounded-full bg-error"></span><span>Rejected</span></div>';
+        }
+      }
+      showToast("Provider rejected. They've been notified.", true);
+      closeDrawer();
+    });
+  }
+
+  // Filter Chips Logic
+  let currentFilter = 'pending';
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      filterChips.forEach(c => {
+        c.className = 'filter-chip px-3.5 py-1.5 rounded-full bg-surface-container text-tertiary hover:text-on-surface font-label-md text-xs font-medium transition-colors cursor-pointer';
+      });
+      chip.className = 'filter-chip px-3.5 py-1.5 rounded-full bg-on-surface text-surface-container-lowest font-label-md text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer';
+      currentFilter = chip.dataset.filter;
+      applyFilters();
+    });
+  });
+
+  // Search Input Filter
+  if (searchInput) {
+    searchInput.addEventListener('input', applyFilters);
+  }
+
+  function applyFilters() {
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    document.querySelectorAll('.queue-row').forEach(row => {
+      const text = row.textContent.toLowerCase();
+      const status = row.dataset.status;
+      const matchesFilter = (currentFilter === 'all') || (status === currentFilter);
+      const matchesQuery = !query || text.includes(query);
+      if (matchesFilter && matchesQuery) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+})();
+</script>
+</main>
+</div>
+<!-- ================= COMPONENT: FOOTER ================= -->
+<!-- Conforms verbatim to the Shared Components JSON Footer specification -->
+<footer class="bg-surface-container-high dark:bg-inverse-surface border-t border-outline-variant dark:border-tertiary w-full mt-auto">
+<div class="w-full px-space-xl py-space-xl max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Brand & Regulatory Mission -->
+<div class="flex flex-col gap-3 md:col-span-1">
+<span class="font-headline-sm text-headline-sm text-on-surface dark:text-inverse-on-surface tracking-tight font-bold">ArchNG</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-tertiary-fixed leading-relaxed">
+          The official digital directory and statutory verification portal for licensed architectural practices across Nigeria.
+        </p>
+<span class="text-xs text-secondary font-semibold font-label-caps tracking-wide">ARCON COMPLIANT PORTAL</span>
+</div>
+<!-- Nigerian Chapter Registries -->
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface dark:text-inverse-on-surface tracking-widest uppercase mb-1">TERRITORIAL CHAPTERS</span>
+<a class="text-on-surface-variant dark:text-tertiary-fixed font-body-sm text-body-sm hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Lagos Registry</a>
+<a class="text-on-surface-variant dark:text-tertiary-fixed font-body-sm text-body-sm hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Abuja Central</a>
+<a class="text-on-surface-variant dark:text-tertiary-fixed font-body-sm text-body-sm hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Port Harcourt</a>
+<a class="text-on-surface-variant dark:text-tertiary-fixed font-body-sm text-body-sm hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Ibadan Hub</a>
+<a class="text-on-surface-variant dark:text-tertiary-fixed font-body-sm text-body-sm hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Enugu District</a>
+</div>
+<!-- Practice Governance & Verification -->
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface dark:text-inverse-on-surface tracking-widest uppercase mb-1">PRACTICE STANDARDS</span>
+<a class="text-on-surface-variant dark:text-tertiary-fixed font-body-sm text-body-sm hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Directory Guidelines</a>
+<a class="text-on-surface-variant dark:text-tertiary-fixed font-body-sm text-body-sm hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Verification Criteria</a>
+<a class="text-on-surface-variant dark:text-tertiary-fixed font-body-sm text-body-sm hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Fee Schedules</a>
+<a class="text-on-surface-variant dark:text-tertiary-fixed font-body-sm text-body-sm hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Press &amp; Monograph</a>
+<a class="text-on-surface-variant dark:text-tertiary-fixed font-body-sm text-body-sm hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Privacy Policy</a>
+</div>
+<!-- Statutory Disclaimer -->
+<div class="flex flex-col gap-2 md:col-span-1">
+<span class="font-label-caps text-label-caps text-on-surface dark:text-inverse-on-surface tracking-widest uppercase mb-1">STATUTORY NOTICE</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-tertiary-fixed leading-relaxed">
+          © 2025 ArchNG. All rights reserved. Registered architectural registry under Nigerian ARCON standards.
+        </p>
+<div class="mt-2 pt-2 border-t border-outline-variant/60 text-xs text-tertiary font-mono">
+          Licensing Act CAP A19 LFN 2004
+        </div>
+</div>
+</div>
+</footer>
+
+
+</body></html>

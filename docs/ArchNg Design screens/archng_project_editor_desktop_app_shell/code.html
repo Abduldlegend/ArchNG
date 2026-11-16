@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Project Monograph · ArchNG</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Editorial Serif and Precise Clean Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-variant": "#e6e2de",
+            "error": "#ba1a1a",
+            "surface-dim": "#ddd9d6",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#9ef4cc",
+            "surface-container-low": "#f7f3ef",
+            "on-tertiary-fixed": "#1d1c16",
+            "on-primary-fixed-variant": "#812807",
+            "tertiary-fixed-dim": "#cac6bd",
+            "surface-container-highest": "#e6e2de",
+            "on-error-container": "#93000a",
+            "primary-container": "#b8502d",
+            "error-container": "#ffdad6",
+            "on-surface-variant": "#57423c",
+            "surface-tint": "#a13f1e",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed": "#9ef4cc",
+            "surface-container": "#f2ede9",
+            "on-tertiary-fixed-variant": "#494740",
+            "on-secondary-fixed": "#002115",
+            "primary-fixed": "#ffdbd0",
+            "inverse-primary": "#ffb59e",
+            "on-error": "#ffffff",
+            "on-surface": "#1c1b19",
+            "primary": "#983917",
+            "secondary-fixed-dim": "#82d7b1",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed-variant": "#005139",
+            "primary-fixed-dim": "#ffb59e",
+            "on-background": "#1c1b19",
+            "surface": "#fdf8f5",
+            "secondary": "#036c4d",
+            "tertiary-fixed": "#e7e2d8",
+            "inverse-on-surface": "#f5f0ec",
+            "tertiary-container": "#737068",
+            "on-primary-container": "#fff2ef",
+            "on-primary": "#ffffff",
+            "on-tertiary-container": "#faf5eb",
+            "outline": "#8a726b",
+            "inverse-surface": "#32302e",
+            "surface-bright": "#fdf8f5",
+            "tertiary": "#5a5850",
+            "on-secondary-container": "#127253",
+            "outline-variant": "#ddc0b8",
+            "surface-container-high": "#ece7e4",
+            "on-primary-fixed": "#3a0b00",
+            "background": "#fdf8f5"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1.25rem",
+            "gutter": "1.5rem",
+            "margin": "3rem",
+            "gutter-mobile": "1rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Inter"],
+            "display-lg": ["Newsreader"],
+            "headline-lg-mobile": ["Newsreader"],
+            "label-caps": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-md": ["Newsreader"],
+            "numeric-metric": ["Inter"],
+            "title-md": ["Inter"],
+            "headline-lg": ["Newsreader"],
+            "headline-sm": ["Newsreader"],
+            "display-lg-mobile": ["Newsreader"],
+            "label-md": ["Inter"],
+            "body-lg": ["Inter"]
+          },
+          "fontSize": {
+            "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "numeric-metric": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "500" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "46px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-border {
+      border-color: #E3DDD0;
+    }
+    .bg-paper {
+      background-color: #F7F4EE;
+    }
+    .bg-sand {
+      background-color: #EFEAE0;
+    }
+    .bg-terracotta {
+      background-color: #B8502D;
+    }
+    .bg-terracotta-hover:hover {
+      background-color: #9C3E1F;
+    }
+    .text-terracotta {
+      color: #B8502D;
+    }
+    .text-verified-green {
+      color: #1F7A5A;
+    }
+    .bg-verified-green-soft {
+      background-color: #E8F4F0;
+    }
+    .border-verified-green {
+      border-color: rgba(31, 122, 90, 0.25);
+    }
+    /* Drafting Corner Marks */
+    .crosshair-corner {
+      position: relative;
+    }
+    .crosshair-corner::before {
+      content: "+";
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      font-family: monospace;
+      font-size: 13px;
+      color: #8a726b;
+      opacity: 0.6;
+    }
+    .crosshair-corner::after {
+      content: "+";
+      position: absolute;
+      bottom: -8px;
+      right: -8px;
+      font-family: monospace;
+      font-size: 13px;
+      color: #8a726b;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body class="bg-paper text-on-surface antialiased font-body-md text-body-md h-full flex overflow-hidden">
+<!-- ========================================================================= -->
+<!-- FIXED LEFT SIDEBAR (~260px wide) -->
+<!-- ========================================================================= -->
+<aside class="w-64 min-w-[260px] max-w-[260px] h-screen bg-surface-container-lowest border-r custom-border flex flex-col justify-between z-30 select-none">
+<!-- Top Brand & Practitioner Profile Area -->
+<div class="flex flex-col">
+<!-- Brand Header -->
+<div class="h-20 px-5 flex items-center justify-between border-b custom-border">
+<div class="flex items-center space-x-2">
+<span class="font-headline-md text-headline-md tracking-tight text-on-surface">ArchNG</span>
+<div class="flex items-center space-x-1">
+<span class="bg-verified-green-soft text-verified-green border border-verified-green px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase">REG. NG</span>
+<span class="bg-primary-container text-white px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase">PRO</span>
+</div>
+</div>
+</div>
+<!-- Practitioner ID Card -->
+<div class="p-4 mx-3 my-3 bg-sand rounded-lg border custom-border">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<h4 class="font-title-md text-sm font-semibold text-on-surface leading-tight">Adaeze Okafor Studio</h4>
+<p class="font-body-sm text-xs text-tertiary">ARCON #3812 · Lagos</p>
+</div>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-verified-green-soft text-verified-green border border-verified-green">
+<span class="material-symbols-outlined text-[11px] mr-0.5" data-icon="verified">verified</span>
+            Valid
+          </span>
+</div>
+<div class="mt-2.5 pt-2 border-t custom-border flex items-center justify-between">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container-lowest text-on-surface border custom-border">
+            Fellow (FNIA)
+          </span>
+<span class="text-[11px] text-tertiary font-numeric-metric">2025 Valid</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="px-3 space-y-1 mt-2">
+<!-- Dashboard -->
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-sand transition-colors font-label-md text-label-md" href="#">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</div>
+</a>
+<!-- Profile -->
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-sand transition-colors font-label-md text-label-md" href="#">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-[20px]" data-icon="badge">badge</span>
+<span>Profile</span>
+</div>
+</a>
+<!-- Projects (ACTIVE) -->
+<a class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container text-primary font-label-md text-label-md font-semibold border-l-4 border-primary" href="#">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="apartment">apartment</span>
+<span>Projects</span>
+</div>
+<span class="bg-primary text-white text-[11px] font-semibold px-2 py-0.5 rounded-full font-numeric-metric">8</span>
+</a>
+<!-- Demo video -->
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-sand transition-colors font-label-md text-label-md" href="#">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-[20px]" data-icon="videocam">videocam</span>
+<span>Demo video</span>
+</div>
+<span class="bg-primary-container text-white text-[10px] font-bold px-1.5 py-0.5 rounded tracking-wide">ACTION</span>
+</a>
+<!-- Leads & Inquiries -->
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-sand transition-colors font-label-md text-label-md" href="#">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
+<span>Leads &amp; Inquiries</span>
+</div>
+<span class="bg-verified-green-soft text-verified-green border border-verified-green text-[10px] font-semibold px-1.5 py-0.2 rounded-full font-numeric-metric">4 new</span>
+</a>
+<!-- Verification -->
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-sand transition-colors font-label-md text-label-md" href="#">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-[20px]" data-icon="gavel">gavel</span>
+<span>Verification</span>
+</div>
+<span class="bg-surface-variant text-tertiary text-[10px] font-medium px-2 py-0.5 rounded-full">Under Review</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Bottom Utilities -->
+<div class="p-3 border-t custom-border bg-surface-container-low space-y-1">
+<a class="flex items-center space-x-2.5 px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface text-xs font-body-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="help_center">help_center</span>
+<span>ARCON Registry Support</span>
+</a>
+<a class="flex items-center space-x-2.5 px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface text-xs font-body-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="menu_book">menu_book</span>
+<span>Practice Guidelines</span>
+</a>
+<a class="flex items-center space-x-2.5 px-3 py-1.5 rounded-lg text-error hover:bg-error-container/30 text-xs font-body-sm transition-colors pt-2" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="logout">logout</span>
+<span>Sign out</span>
+</a>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN APP CANVAS & SCROLLABLE VIEWPORT -->
+<!-- ========================================================================= -->
+<div class="flex-1 flex flex-col h-screen overflow-y-auto bg-paper">
+<!-- STICKY TOP BAR -->
+<header class="sticky top-0 z-20 h-20 bg-surface-container-lowest border-b custom-border px-8 flex items-center justify-between">
+<!-- Left side: Breadcrumb & Chapter -->
+<div class="flex items-center space-x-4">
+<nav class="flex items-center space-x-2 text-xs font-body-sm text-tertiary">
+<span>Practice Studio</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span>Projects</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-on-surface font-medium">New project</span>
+</nav>
+<span class="text-outline-variant">|</span>
+<div class="inline-flex items-center space-x-1.5 px-2.5 py-1 bg-sand rounded-full text-xs font-medium text-tertiary border custom-border">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="location_on">location_on</span>
+<span>Lagos Chapter</span>
+</div>
+</div>
+<!-- Quick Search Bar -->
+<div class="w-80 hidden lg:block">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[18px] text-tertiary" data-icon="search">search</span>
+<input class="w-full bg-sand border custom-border text-on-surface pl-9 pr-4 py-2 text-xs rounded-lg placeholder-tertiary/70 focus:outline-none focus:border-on-surface transition-colors" placeholder="Search monograph projects, drawings..." type="text"/>
+</div>
+</div>
+<!-- Trailing Controls -->
+<div class="flex items-center space-x-4">
+<a class="hidden sm:inline-flex items-center space-x-1.5 text-xs font-label-md text-on-surface hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="article">article</span>
+<span>Monograph Guide</span>
+</a>
+<!-- Notification Bell -->
+<button aria-label="Notifications" class="relative p-2 rounded-lg text-on-surface-variant hover:bg-sand transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary ring-2 ring-surface-container-lowest"></span>
+</button>
+<span class="text-outline-variant">|</span>
+<!-- Action shortcut in topbar -->
+<button class="hidden md:inline-flex items-center px-3.5 py-2 text-xs font-label-md font-medium text-on-surface bg-surface-container-lowest border custom-border rounded-lg hover:bg-sand transition-colors">
+          Preview monograph
+        </button>
+<!-- User Profile Dropdown Pill -->
+<div class="flex items-center space-x-3 pl-2">
+<div class="w-9 h-9 rounded-full bg-sand border custom-border flex items-center justify-center font-semibold text-xs text-on-surface">
+            AO
+          </div>
+<div class="hidden xl:block text-left">
+<p class="text-xs font-semibold text-on-surface leading-tight">Arc. Adaeze Okafor</p>
+<p class="text-[11px] text-tertiary">Principal Partner</p>
+</div>
+<span class="material-symbols-outlined text-[16px] text-tertiary hidden xl:block" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</header>
+<!-- CONTENT BODY (Max 1440px / 7xl container with architectural grid) -->
+<main class="flex-1 px-8 py-8 max-w-7xl w-full mx-auto space-y-8">
+<!-- PAGE TITLE BLOCK -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b custom-border">
+<div class="space-y-1.5">
+<div class="flex items-center space-x-2">
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider">PROJECTS / NEW PROJECT</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-sand text-on-surface border custom-border">
+              Draft · Unsaved modifications
+            </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Create Project Monograph</h1>
+<p class="font-body-md text-body-md text-tertiary max-w-2xl">
+            Document built works, drawings, and environmental specs for the ARCON Nigerian Architecture Registry.
+          </p>
+</div>
+<!-- Top Right Discard / Quick Save -->
+<div class="flex items-center space-x-3">
+<button class="px-4 py-2 text-xs font-label-md font-medium text-on-surface bg-surface-container-lowest border custom-border rounded-lg hover:bg-sand transition-colors">
+            Discard changes
+          </button>
+<button class="px-5 py-2 text-xs font-label-md font-medium text-white bg-terracotta bg-terracotta-hover rounded-lg transition-colors flex items-center space-x-1.5 shadow-none">
+<span class="material-symbols-outlined text-[16px]" data-icon="save">save</span>
+<span>Save Draft</span>
+</button>
+</div>
+</div>
+<!-- TWO-COLUMN WORKSPACE GRID (~68% Left, ~32% Right) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- ================================================================= -->
+<!-- WIDE LEFT COLUMN (Lg: col-span-8) -->
+<!-- ================================================================= -->
+<div class="lg:col-span-8 space-y-8">
+<!-- ------------------------------------------------------------- -->
+<!-- CARD 1: Project Imagery & Monograph Media -->
+<!-- ------------------------------------------------------------- -->
+<section class="bg-surface-container-lowest rounded-xl border custom-border p-6 crosshair-corner">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b custom-border gap-2">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Project Imagery &amp; Monograph Media</h2>
+<p class="font-body-sm text-body-sm text-tertiary mt-0.5">
+                  Drag images to arrange monograph sequence. Tap the star icon to designate the public monograph cover.
+                </p>
+</div>
+<span class="inline-flex items-center text-xs font-medium text-tertiary self-start sm:self-center font-numeric-metric">
+<span class="material-symbols-outlined text-[16px] mr-1 text-tertiary" data-icon="photo_library">photo_library</span>
+                2 Plates Ready
+              </span>
+</div>
+<!-- Dynamic Drag & Drop Reorder Gallery Grid -->
+<div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Tile 1 (Cover image) -->
+<div class="group relative rounded-lg border-2 border-primary/40 bg-sand overflow-hidden flex flex-col">
+<div class="relative aspect-[3/2] overflow-hidden bg-surface-dim">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A modern tropical villa set in Epe Lagos featuring sustainable rammed earth walls and warm timber screening, natural Nigerian sunlight casting structural shadows on terracotta earth blocks, framed by lush tropical greenery and high-end architectural craftsmanship in a high-key light mode." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwyZD08Wfd9R0ECKqyFj9kgGwGxyh2ywP6a1j3HNsWHEf_nhlvIrOTWSeLcJOY1PSrPq0UpmoPrNBPAOeI9TTcQc5T6rtMrhgsZ80MVD-ZSn1SqPwNv3W3bxLt3WcYpgZo8dUHC2sPQ-EFKJFyeh5q0A_DepQoKgxHObjbrm02xmbY89VwgcQ0mX5nNaoVqYzNPxpVKuuBssVkECoiWJZgTm8ELIDttZ3GY8GYK70"/>
+<!-- Cover badge -->
+<div class="absolute top-2.5 left-2.5 inline-flex items-center space-x-1 px-2.5 py-1 rounded bg-terracotta text-white text-[11px] font-semibold tracking-wide shadow-sm">
+<span class="material-symbols-outlined text-[13px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>Cover Image</span>
+</div>
+<!-- Action Overlay -->
+<div class="absolute top-2.5 right-2.5 flex items-center space-x-1.5">
+<button class="w-7 h-7 rounded-md bg-surface-container-lowest/90 hover:bg-surface-container-lowest text-on-surface flex items-center justify-center transition-colors" title="Drag to reorder">
+<span class="material-symbols-outlined text-[15px]" data-icon="drag_indicator">drag_indicator</span>
+</button>
+<button class="w-7 h-7 rounded-md bg-surface-container-lowest/90 hover:bg-error hover:text-white text-on-surface flex items-center justify-center transition-colors" title="Delete image">
+<span class="material-symbols-outlined text-[15px]" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Footer label -->
+<div class="p-2.5 bg-surface-container-lowest border-t custom-border flex items-center justify-between">
+<span class="text-xs font-medium text-on-surface truncate">Epe_Villa_Exterior_Plate1.jpg</span>
+<span class="text-[11px] text-tertiary font-numeric-metric">Hero Monograph Plate · 3.4 MB</span>
+</div>
+</div>
+<!-- Tile 2: Interior View -->
+<div class="group relative rounded-lg border custom-border bg-sand overflow-hidden flex flex-col">
+<div class="relative aspect-[3/2] overflow-hidden bg-surface-dim">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A double-height interior living pavilion inside a Nigerian bioclimatic residence, featuring natural light filtering through warm engineered timber louvers, exposed unbleached earth block masonry, polished concrete flooring with minimal clean furniture, and an integrated central courtyard garden." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA85gq0u4BOkPAcQ6IYBQZfivCXLOey98ddz_luQoiHd8L5cVul8dNnSf8ZKo9-40ZGLhZAomAwK8IbACM7QTQFAC5Wm8S5ShqYpS47HMSaMFVv9GBfPOyMu1oQzsFZKgUN1DFtbOeFKQ-YcmhHbV7uz7w4E-1CoFXw-OutdxT-8ndvQcHAkrml2bDYI9kHEE0igml7p34OQav34ObJstoUj2FuShAiBe9iTEaKIMQ"/>
+<!-- Star Cover Toggle -->
+<button class="absolute top-2.5 left-2.5 inline-flex items-center space-x-1 px-2 py-1 rounded bg-surface-container-lowest/80 hover:bg-surface-container-lowest text-on-surface text-[11px] font-medium transition-colors" title="Make cover">
+<span class="material-symbols-outlined text-[14px]" data-icon="star">star</span>
+<span>Set Cover</span>
+</button>
+<!-- Action Overlay -->
+<div class="absolute top-2.5 right-2.5 flex items-center space-x-1.5">
+<button class="w-7 h-7 rounded-md bg-surface-container-lowest/90 hover:bg-surface-container-lowest text-on-surface flex items-center justify-center transition-colors" title="Drag to reorder">
+<span class="material-symbols-outlined text-[15px]" data-icon="drag_indicator">drag_indicator</span>
+</button>
+<button class="w-7 h-7 rounded-md bg-surface-container-lowest/90 hover:bg-error hover:text-white text-on-surface flex items-center justify-center transition-colors" title="Delete image">
+<span class="material-symbols-outlined text-[15px]" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Footer label -->
+<div class="p-2.5 bg-surface-container-lowest border-t custom-border flex items-center justify-between">
+<span class="text-xs font-medium text-on-surface truncate">Epe_Courtyard_Atrium_02.png</span>
+<span class="text-[11px] text-tertiary font-numeric-metric">Interior Atrium · 2.8 MB</span>
+</div>
+</div>
+<!-- Tile 3: Upload Progress Tile -->
+<div class="relative rounded-lg border custom-border bg-sand p-4 flex flex-col justify-between aspect-[3/2]">
+<div class="flex items-start justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-9 h-9 rounded-md bg-surface-container-lowest border custom-border flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="description">description</span>
+</div>
+<div class="overflow-hidden">
+<p class="text-xs font-medium text-on-surface truncate max-w-[150px]">epe_ground_floor_plate_revB.pdf</p>
+<p class="text-[11px] text-tertiary font-numeric-metric">4.2 MB · Architectural Drawing</p>
+</div>
+</div>
+<button class="text-tertiary hover:text-error transition-colors p-1" title="Cancel upload">
+<span class="material-symbols-outlined text-[16px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Progress block -->
+<div class="space-y-2 my-auto">
+<div class="flex justify-between items-center text-xs">
+<span class="text-[11px] font-medium text-primary flex items-center">
+<span class="inline-block w-2 h-2 rounded-full bg-primary mr-1.5 animate-pulse"></span>
+                      Uploading technical plate...
+                    </span>
+<span class="text-xs font-bold text-on-surface font-numeric-metric">68%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full transition-all duration-300" style="width: 68%;"></div>
+</div>
+</div>
+<div class="text-[11px] text-tertiary flex items-center justify-between pt-1 border-t custom-border">
+<span>Converting vector layers</span>
+<span class="font-numeric-metric">~4s remaining</span>
+</div>
+</div>
+<!-- Tile 4: Upload Dropzone Tile -->
+<div class="border-2 border-dashed custom-border rounded-lg bg-surface-container-low/60 hover:bg-surface-container-low transition-colors flex flex-col items-center justify-center p-6 text-center cursor-pointer aspect-[3/2] group">
+<div class="w-11 h-11 rounded-full bg-surface-container-lowest border custom-border flex items-center justify-center text-tertiary group-hover:text-primary group-hover:border-primary transition-colors mb-3">
+<span class="material-symbols-outlined text-[22px]" data-icon="add_photo_alternate">add_photo_alternate</span>
+</div>
+<p class="text-xs font-semibold text-on-surface">Upload project images or drawings</p>
+<p class="text-[11px] text-tertiary mt-1 px-4 leading-normal">
+                  Drag and drop PNG, JPG, or PDF up to 25MB · High-res 4K recommended
+                </p>
+<button class="mt-3 px-3 py-1 bg-surface-container-lowest border custom-border text-xs font-label-md rounded text-on-surface group-hover:border-on-surface transition-colors">
+                  Browse files
+                </button>
+</div>
+</div>
+<!-- ARCON Standards Notice Helper -->
+<div class="mt-5 p-3 rounded-lg bg-sand border custom-border flex items-start space-x-2.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary flex-shrink-0 mt-0.5" data-icon="info">info</span>
+<p class="text-xs text-on-surface-variant font-body-sm leading-relaxed">
+<strong class="font-semibold text-on-surface">ARCON Registry Standard:</strong> Monographs require at least 3 high-resolution plates depicting building envelope, passive cooling ventilation, and structural detailing to qualify for verified gazette publication.
+              </p>
+</div>
+</section>
+<!-- ------------------------------------------------------------- -->
+<!-- CARD 2: Core Project Details & Narrative -->
+<!-- ------------------------------------------------------------- -->
+<section class="bg-surface-container-lowest rounded-xl border custom-border p-6 crosshair-corner space-y-6">
+<div class="pb-3 border-b custom-border">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Core Project Details &amp; Narrative</h2>
+<p class="font-body-sm text-body-sm text-tertiary mt-0.5">
+                Precise taxonomic categorization for the national registry indexing system.
+              </p>
+</div>
+<div class="space-y-5">
+<!-- Project Title -->
+<div>
+<label class="block font-label-caps text-label-caps text-tertiary uppercase mb-1.5">
+                  Project Title
+                </label>
+<input class="w-full bg-surface-container-lowest border custom-border text-on-surface rounded-lg px-3.5 py-2.5 text-sm font-medium focus:outline-none focus:border-on-surface transition-colors" type="text" value="The Epe Courtyard Villa"/>
+</div>
+<!-- Two Column: Project Type & Typology -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-caps text-label-caps text-tertiary uppercase mb-1.5">
+                    Project Type
+                  </label>
+<select class="w-full bg-surface-container-lowest border custom-border text-on-surface rounded-lg px-3.5 py-2.5 text-sm font-body-md focus:outline-none focus:border-on-surface">
+<option selected="">Coastal Residential</option>
+<option>Civic &amp; Cultural</option>
+<option>Boutique Hospitality</option>
+<option>Sustainable Masterplanning</option>
+<option>Commercial Fitout</option>
+</select>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-tertiary uppercase mb-1.5">
+                    Architectural Style / Typology
+                  </label>
+<select class="w-full bg-surface-container-lowest border custom-border text-on-surface rounded-lg px-3.5 py-2.5 text-sm font-body-md focus:outline-none focus:border-on-surface">
+<option selected="">Tropical Modernism &amp; Rammed Earth</option>
+<option>Rammed Earth &amp; CSEB</option>
+<option>Bioclimatic Modernism</option>
+<option>Vernacular Revival</option>
+</select>
+</div>
+</div>
+<!-- Rich Narrative Textarea with Formatting Bar -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="font-label-caps text-label-caps text-tertiary uppercase">
+                    Project Description / Monograph Narrative
+                  </label>
+<span class="text-[11px] text-tertiary font-numeric-metric">480 / 1,200 words</span>
+</div>
+<div class="border custom-border rounded-lg overflow-hidden bg-surface-container-lowest">
+<!-- Micro Formatting Toolbar -->
+<div class="bg-sand px-3 py-1.5 border-b custom-border flex items-center space-x-1 text-on-surface-variant">
+<button class="p-1 hover:bg-surface-container-lowest rounded transition-colors" title="Bold" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="format_bold">format_bold</span>
+</button>
+<button class="p-1 hover:bg-surface-container-lowest rounded transition-colors" title="Italic" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="format_italic">format_italic</span>
+</button>
+<span class="text-outline-variant text-xs">|</span>
+<button class="p-1 hover:bg-surface-container-lowest rounded transition-colors" title="Bullet List" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="format_list_bulleted">format_list_bulleted</span>
+</button>
+<button class="p-1 hover:bg-surface-container-lowest rounded transition-colors" title="Insert Link" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="link">link</span>
+</button>
+</div>
+<textarea class="w-full p-3.5 text-sm font-body-md text-on-surface bg-surface-container-lowest border-0 focus:ring-0 focus:outline-none resize-none leading-relaxed" rows="5">Situated along the Epe lagoon wetland interface, this residential compound reinterprets the traditional Yoruba courtyard cluster through bioclimatic tropical modernism. The thermal envelope utilizes 300mm stabilized rammed earth blocks sourced directly from the Epe basin, paired with deep overhangs and cross-ventilated timber louvers that eliminate the necessity for daytime mechanical air conditioning.</textarea>
+</div>
+</div>
+<!-- 3-Column Geographic & Timeline Metadata -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+<div>
+<label class="block font-label-caps text-label-caps text-tertiary uppercase mb-1.5">
+                    State Registry
+                  </label>
+<select class="w-full bg-surface-container-lowest border custom-border text-on-surface rounded-lg px-3.5 py-2 text-sm font-body-md focus:outline-none focus:border-on-surface">
+<option selected="">Lagos State</option>
+<option>Abuja FCT</option>
+<option>Rivers State</option>
+<option>Oyo State</option>
+<option>Enugu State</option>
+</select>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-tertiary uppercase mb-1.5">
+                    City / District
+                  </label>
+<input class="w-full bg-surface-container-lowest border custom-border text-on-surface rounded-lg px-3.5 py-2 text-sm font-body-md focus:outline-none focus:border-on-surface" type="text" value="Epe Basin / Lekki Corridor"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-tertiary uppercase mb-1.5">
+                    Year of Completion
+                  </label>
+<input class="w-full bg-surface-container-lowest border custom-border text-on-surface rounded-lg px-3.5 py-2 text-sm font-numeric-metric focus:outline-none focus:border-on-surface" type="text" value="2024"/>
+</div>
+</div>
+<!-- 2-Column Physical Specifications -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+<div>
+<label class="block font-label-caps text-label-caps text-tertiary uppercase mb-1.5">
+                    Gross Floor Area (GFA)
+                  </label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border custom-border text-on-surface rounded-lg px-3.5 py-2 text-sm font-numeric-metric focus:outline-none focus:border-on-surface" type="text" value="1,200 sqm"/>
+<span class="absolute right-3 top-2.5 text-xs text-tertiary">Built</span>
+</div>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-tertiary uppercase mb-1.5">
+                    Primary Structural Material
+                  </label>
+<input class="w-full bg-surface-container-lowest border custom-border text-on-surface rounded-lg px-3.5 py-2 text-sm font-body-md focus:outline-none focus:border-on-surface truncate" type="text" value="Compressed Stabilized Earth Blocks (CSEB) &amp; Engineered Bamboo"/>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- ================================================================= -->
+<!-- NARROW RIGHT COLUMN (Lg: col-span-4) -->
+<!-- ================================================================= -->
+<div class="lg:col-span-4 space-y-6 lg:sticky lg:top-28">
+<!-- ------------------------------------------------------------- -->
+<!-- CARD 1: Publish & Governance Card -->
+<!-- ------------------------------------------------------------- -->
+<div class="bg-surface-container-lowest rounded-xl border custom-border p-5 space-y-5">
+<div class="flex items-center justify-between pb-3 border-b custom-border">
+<h3 class="font-headline-sm text-lg font-medium text-on-surface">Publication Status</h3>
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+</div>
+<!-- Segmented Status Control -->
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-tertiary uppercase">
+                Registry Visibility
+              </label>
+<div class="grid grid-cols-3 gap-1 bg-sand p-1 rounded-lg border custom-border text-center text-xs font-medium">
+<!-- Draft Active -->
+<button class="py-1.5 px-2 rounded-md bg-surface-container-lowest text-on-surface shadow-xs border custom-border font-semibold flex items-center justify-center space-x-1" type="button">
+<span class="material-symbols-outlined text-[13px] text-terracotta" data-icon="check">check</span>
+<span>Draft</span>
+</button>
+<button class="py-1.5 px-2 rounded-md text-tertiary hover:text-on-surface transition-colors" type="button">
+                  Published
+                </button>
+<button class="py-1.5 px-2 rounded-md text-tertiary hover:text-on-surface transition-colors" type="button">
+                  Hidden
+                </button>
+</div>
+</div>
+<p class="text-xs text-tertiary font-body-sm leading-relaxed">
+              Drafts are private to Adaeze Okafor Studio practitioners and ARCON inspectors. Published monographs appear on your public practice folio.
+            </p>
+<!-- Commission Visibility Toggle Switch -->
+<div class="pt-3 border-t custom-border flex items-start justify-between space-x-3">
+<div>
+<p class="text-xs font-semibold text-on-surface leading-tight">Commission Inquiries</p>
+<p class="text-[11px] text-tertiary mt-0.5">Allow direct client briefs originating from this monograph plate.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer flex-shrink-0 mt-0.5">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<!-- Action Buttons -->
+<div class="pt-2 space-y-2.5">
+<button class="w-full h-11 bg-terracotta bg-terracotta-hover text-white text-xs font-label-md font-semibold rounded-lg transition-colors flex items-center justify-center space-x-2 shadow-none">
+<span class="material-symbols-outlined text-[18px]" data-icon="cloud_done">cloud_done</span>
+<span>Save project</span>
+</button>
+<button class="w-full h-10 bg-surface-container-lowest hover:bg-sand border custom-border text-on-surface text-xs font-label-md font-medium rounded-lg transition-colors flex items-center justify-center space-x-1.5">
+<span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span>
+<span>Preview public monograph</span>
+</button>
+<div class="pt-1 text-center">
+<button class="inline-flex items-center space-x-1 text-xs font-body-sm text-error hover:underline transition-all">
+<span class="material-symbols-outlined text-[15px]" data-icon="delete">delete</span>
+<span>Delete project</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ------------------------------------------------------------- -->
+<!-- CARD 2: ARCON Gazette & Regulatory Monograph Checklist -->
+<!-- ------------------------------------------------------------- -->
+<div class="bg-surface-container-lowest rounded-xl border custom-border p-5 space-y-4">
+<div class="flex items-center space-x-2 pb-2.5 border-b custom-border">
+<span class="material-symbols-outlined text-[20px] text-verified-green" data-icon="shield">shield</span>
+<h3 class="font-title-md text-sm font-semibold text-on-surface">Registry Verification Criteria</h3>
+</div>
+<ul class="space-y-3 text-xs">
+<!-- Criterion 1 -->
+<li class="flex items-start space-x-2.5">
+<span class="material-symbols-outlined text-[16px] text-verified-green mt-0.5" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-on-surface leading-snug">Lead Principal Seal (Arc. Adaeze Okafor #3812)</span>
+</li>
+<!-- Criterion 2 -->
+<li class="flex items-start space-x-2.5">
+<span class="material-symbols-outlined text-[16px] text-verified-green mt-0.5" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-on-surface leading-snug">Title &amp; Typology defined</span>
+</li>
+<!-- Criterion 3: Pending -->
+<li class="flex items-start space-x-2.5 bg-sand/70 p-2 rounded-lg border custom-border">
+<span class="material-symbols-outlined text-[16px] text-terracotta mt-0.5" data-icon="schedule">schedule</span>
+<div>
+<span class="text-on-surface font-medium leading-snug">Minimum 3 plates uploaded</span>
+<p class="text-[11px] text-tertiary mt-0.5 font-numeric-metric">2 of 3 complete · upload 1 technical plate</p>
+</div>
+</li>
+<!-- Criterion 4 -->
+<li class="flex items-start space-x-2.5">
+<span class="material-symbols-outlined text-[16px] text-verified-green mt-0.5" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-on-surface leading-snug">Lagos State physical jurisdiction verified</span>
+</li>
+</ul>
+<div class="p-2.5 rounded-lg bg-surface-container-low border custom-border text-[11px] text-tertiary leading-relaxed">
+              Monographs with verified ARCON stamps receive preferred indexing across Lagos and Abuja public registries.
+            </div>
+</div>
+<!-- ------------------------------------------------------------- -->
+<!-- CARD 3: Need Help? Support Contact -->
+<!-- ------------------------------------------------------------- -->
+<div class="bg-surface-container-lowest rounded-xl border custom-border p-4 flex items-center justify-between">
+<div class="space-y-0.5">
+<p class="text-xs font-semibold text-on-surface">Lagos Chapter Practice Desk</p>
+<p class="text-[11px] text-tertiary font-numeric-metric">Desk line +234 (0) 1 462 8920</p>
+</div>
+<a class="w-8 h-8 rounded-full bg-sand border custom-border flex items-center justify-center text-on-surface hover:text-primary transition-colors" href="tel:+23414628920" title="Call support">
+<span class="material-symbols-outlined text-[16px]" data-icon="call">call</span>
+</a>
+</div>
+</div>
+</div>
+</main>
+<!-- ========================================================================= -->
+<!-- STANDARD FOOTER (docked full-width bottom, 4-column layout) -->
+<!-- ========================================================================= -->
+<footer class="mt-16 bg-surface-container-high border-t custom-border w-full">
+<div class="w-full px-8 py-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<!-- Col 1: Identity & Legal Reg -->
+<div class="space-y-3">
+<div class="flex items-center space-x-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">ArchNG</span>
+<span class="bg-verified-green-soft text-verified-green border border-verified-green text-[10px] font-bold px-1.5 py-0.5 rounded">REG</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs leading-relaxed">
+            © 2025 ArchNG. All rights reserved. Registered architectural registry under Nigerian ARCON standards.
+          </p>
+<p class="text-[11px] text-tertiary">
+            Enacted pursuant to ARCON Decree No. 10 (1969) Protocol.
+          </p>
+</div>
+<!-- Col 2: Registry Chapters -->
+<div class="space-y-2.5">
+<h4 class="font-label-caps text-label-caps text-on-surface uppercase tracking-wider">Chapters</h4>
+<ul class="space-y-1.5 font-body-sm text-body-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Lagos Registry</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Abuja Central</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Port Harcourt</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Ibadan Hub</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Enugu District</a></li>
+</ul>
+</div>
+<!-- Col 3: Guidelines & Criteria -->
+<div class="space-y-2.5">
+<h4 class="font-label-caps text-label-caps text-on-surface uppercase tracking-wider">Standards</h4>
+<ul class="space-y-1.5 font-body-sm text-body-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Directory Guidelines</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Verification Criteria</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Fee Schedules</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Press &amp; Monograph</a></li>
+</ul>
+</div>
+<!-- Col 4: Compliance & Practice Desk -->
+<div class="space-y-2.5">
+<h4 class="font-label-caps text-label-caps text-on-surface uppercase tracking-wider">Practice Governance</h4>
+<ul class="space-y-1.5 font-body-sm text-body-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Seal Verification Portal</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Code of Conduct</a></li>
+<li><span class="text-xs text-tertiary">Registry Server: Lagos DC-01</span></li>
+</ul>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

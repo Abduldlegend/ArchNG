@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ArchNG - Profile Editor (Mobile)</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Newsreader (Editorial Serif) & Inter (Clean Sans) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#fdf8f5",
+            "secondary": "#036c4d",
+            "surface-variant": "#e6e2de",
+            "on-secondary-fixed-variant": "#005139",
+            "surface-container-high": "#ece7e4",
+            "surface-container-lowest": "#ffffff",
+            "primary-container": "#b8502d",
+            "surface-container-low": "#f7f3ef",
+            "inverse-primary": "#ffb59e",
+            "tertiary-container": "#737068",
+            "tertiary": "#5a5850",
+            "inverse-surface": "#32302e",
+            "surface-container": "#f2ede9",
+            "primary-fixed": "#ffdbd0",
+            "surface-bright": "#fdf8f5",
+            "on-tertiary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-primary-fixed": "#3a0b00",
+            "on-primary-fixed-variant": "#812807",
+            "secondary-container": "#9ef4cc",
+            "on-background": "#1c1b19",
+            "on-surface": "#1c1b19",
+            "surface-tint": "#a13f1e",
+            "on-primary-container": "#fff2ef",
+            "tertiary-fixed": "#e7e2d8",
+            "on-primary": "#ffffff",
+            "primary-fixed-dim": "#ffb59e",
+            "surface": "#fdf8f5",
+            "secondary-fixed": "#9ef4cc",
+            "primary": "#983917",
+            "on-secondary-fixed": "#002115",
+            "surface-dim": "#ddd9d6",
+            "on-secondary-container": "#127253",
+            "on-tertiary-fixed-variant": "#494740",
+            "on-tertiary-container": "#faf5eb",
+            "on-tertiary-fixed": "#1d1c16",
+            "inverse-on-surface": "#f5f0ec",
+            "surface-container-highest": "#e6e2de",
+            "secondary-fixed-dim": "#82d7b1",
+            "on-error-container": "#93000a",
+            "outline": "#8a726b",
+            "outline-variant": "#ddc0b8",
+            "error": "#ba1a1a",
+            "tertiary-fixed-dim": "#cac6bd",
+            "on-surface-variant": "#57423c",
+            "on-error": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "3rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1.25rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Newsreader"],
+            "headline-sm": ["Newsreader"],
+            "headline-lg-mobile": ["Newsreader"],
+            "label-md": ["Inter"],
+            "headline-md": ["Newsreader"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg-mobile": ["Newsreader"],
+            "body-sm": ["Inter"],
+            "numeric-metric": ["Inter"],
+            "label-caps": ["Inter"],
+            "display-lg": ["Newsreader"],
+            "title-md": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "46px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "numeric-metric": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Architectural Draftsman Accent crosshairs */
+    .crosshair-corner {
+      position: relative;
+    }
+    .crosshair-corner::before {
+      content: "+";
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      color: #8a726b;
+      opacity: 0.6;
+      line-height: 1;
+      pointer-events: none;
+    }
+    /* Hide horizontal scrollbar for clean horizontal nav bar */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen pb-36 font-body-md text-body-md">
+<!-- ======================================================== -->
+<!-- 1. TOP APP SHELL & MOBILE PROVIDER NAVIGATION -->
+<!-- ======================================================== -->
+<header class="sticky top-0 z-40 bg-surface border-b border-outline-variant/60 backdrop-blur-md">
+<!-- Top Mobile Brand Strip -->
+<div class="flex items-center justify-between px-margin-mobile py-space-sm h-16 max-w-md mx-auto">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md tracking-tight text-on-surface font-headline-sm">ArchNG</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#E8F4F0] text-secondary border border-secondary/20 tracking-wider">
+          REG. NG
+        </span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-primary-container text-on-primary-container tracking-wider">
+          PRO
+        </span>
+</div>
+<div class="flex items-center gap-3">
+<!-- Notification with unread dot -->
+<button aria-label="Notifications" class="relative p-1 text-tertiary hover:text-on-surface transition-colors duration-150">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary ring-2 ring-surface"></span>
+</button>
+<!-- Practitioner Avatar -->
+<div class="w-8 h-8 rounded-full border border-outline-variant overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close up professional portrait of Arc Adaeze Okafor, a renowned Nigerian female architect with natural hair tied gracefully, wearing elegant minimal spectacles and architectural linen studio attire against a textured sand plastered wall in Lagos, bathed in warm natural afternoon sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALBecrYC9HI-qlV7wnVcOMpjq01y3wd8olw6og6pAKGPBJO7x5XFPBkS0Gf4LG0_Fb5maxt66NnuUAOcCgoC3vP_FMZxWNhGhqvdJ0vdZcT8E2Ly4lAs4awMtWxeJXRYJsf78lEFFiJVTt-zK1N0F0ro_3CGNtq1GO66n6JE2GyKx2gwU_SLjUXPDNcWww859ebGSGaiuYH_qYt3Z2JSByv5d3sT5-_yI77ljKbpY"/>
+</div>
+</div>
+</div>
+<!-- Editorial Sub-Bar with Dashboard Exit & Public Preview -->
+<div class="border-t border-outline-variant/40 px-margin-mobile py-2.5 flex items-center justify-between bg-surface-container-low max-w-md mx-auto">
+<a class="inline-flex items-center gap-1.5 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-base">arrow_back</span>
+<span>Back to Dashboard</span>
+</a>
+<a class="inline-flex items-center gap-1 font-label-caps text-label-caps text-primary hover:text-primary-container font-semibold transition-colors" href="#">
+<span class="material-symbols-outlined text-[15px]">visibility</span>
+<span>Preview public profile</span>
+</a>
+</div>
+<!-- Horizontal Scrolling Anchor Navigation Strip -->
+<div class="px-margin-mobile py-2 overflow-x-auto no-scrollbar flex items-center gap-2 border-t border-outline-variant/30 bg-surface max-w-md mx-auto">
+<a class="px-3 py-1 rounded-full text-[12px] font-medium bg-on-surface text-surface-container-lowest flex-shrink-0 whitespace-nowrap" href="#section-basics">
+        Basics
+      </a>
+<a class="px-3 py-1 rounded-full text-[12px] font-medium bg-surface-container text-tertiary hover:text-on-surface flex-shrink-0 whitespace-nowrap" href="#section-contact">
+        Contact &amp; Privacy
+      </a>
+<a class="px-3 py-1 rounded-full text-[12px] font-medium bg-surface-container text-tertiary hover:text-on-surface flex-shrink-0 whitespace-nowrap" href="#section-specialties">
+        Specialties
+      </a>
+<a class="px-3 py-1 rounded-full text-[12px] font-medium bg-surface-container text-tertiary hover:text-on-surface flex-shrink-0 whitespace-nowrap" href="#section-experience">
+        Experience
+      </a>
+<a class="px-3 py-1 rounded-full text-[12px] font-medium bg-primary-fixed text-on-primary-fixed-variant border border-outline-variant/50 flex-shrink-0 whitespace-nowrap flex items-center gap-1" href="#section-demo">
+<span>Demo Video</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+</a>
+</div>
+</header>
+<!-- ======================================================== -->
+<!-- MAIN EDITORIAL CANVAS -->
+<!-- ======================================================== -->
+<main class="px-margin-mobile py-space-md max-w-md mx-auto space-y-4">
+<!-- Title Anchor -->
+<div class="pt-1 pb-1">
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider block">Practitioner Administration</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight font-headline-sm">Edit Practice Profile</h1>
+</div>
+<!-- 2. Completeness Progress Banner -->
+<section class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/80 shadow-none relative overflow-hidden">
+<div class="flex items-start justify-between gap-3 mb-2">
+<div>
+<span class="font-label-caps text-label-caps text-secondary font-semibold uppercase tracking-wider">Verification Audit</span>
+<h2 class="font-title-md text-title-md text-on-surface font-title-md mt-0.5">Profile is 75% complete</h2>
+</div>
+<div class="w-9 h-9 rounded-full bg-[#E8F4F0] text-secondary flex items-center justify-center font-semibold text-xs border border-secondary/20">
+          3/4
+        </div>
+</div>
+<!-- Progress Track -->
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden mb-2.5">
+<div class="bg-secondary h-1.5 rounded-full transition-all duration-300" style="width: 75%;"></div>
+</div>
+<div class="flex items-center justify-between text-xs pt-1 border-t border-outline-variant/30">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+          1 pending: Demo Video Walkthrough
+        </span>
+<a class="text-primary font-medium hover:underline flex items-center gap-0.5" href="#section-demo">
+          Complete now →
+        </a>
+</div>
+</section>
+<!-- ======================================================== -->
+<!-- CARD 1: 1. PRACTICE BASICS -->
+<!-- ======================================================== -->
+<section class="crosshair-corner p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/80 space-y-4" id="section-basics">
+<div class="flex items-start justify-between border-b border-outline-variant/40 pb-3">
+<div>
+<span class="font-label-caps text-label-caps text-tertiary block">Section 01</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-headline-sm">Practice Basics</h2>
+</div>
+<!-- ARCON #3812 Verified Badge -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-[#E8F4F0] text-secondary border border-secondary/20">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          ARCON #3812 Verified
+        </span>
+</div>
+<!-- Practice Name -->
+<div class="space-y-1.5">
+<label class="block font-label-caps text-label-caps text-tertiary uppercase" for="practice_name">Full Registered Practice Name</label>
+<div class="relative">
+<input class="w-full h-12 px-3.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-body-md text-body-md focus:border-on-surface focus:ring-0 focus:outline-none transition-colors" id="practice_name" type="text" value="Adaeze Okafor Studio"/>
+<span class="material-symbols-outlined absolute right-3 top-3.5 text-secondary text-base" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<!-- Lead Principal -->
+<div class="space-y-1.5">
+<label class="block font-label-caps text-label-caps text-tertiary uppercase" for="lead_principal">Lead Principal / Architect</label>
+<input class="w-full h-12 px-3.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-body-md text-body-md focus:border-on-surface focus:ring-0 focus:outline-none transition-colors" id="lead_principal" type="text" value="Arc. Adaeze Okafor, FNIA"/>
+</div>
+<!-- Professional Headline -->
+<div class="space-y-1.5">
+<label class="block font-label-caps text-label-caps text-tertiary uppercase" for="headline">Professional Headline</label>
+<input class="w-full h-12 px-3.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-body-md text-body-md focus:border-on-surface focus:ring-0 focus:outline-none transition-colors" id="headline" type="text" value="Principal Partner &amp; Sustainable Vernacular Lead | Epe Corridor &amp; Lagos Island"/>
+</div>
+<!-- Bio / Practice Philosophy -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="block font-label-caps text-label-caps text-tertiary uppercase" for="bio">Bio / Practice Philosophy</label>
+<span class="font-label-caps text-label-caps text-tertiary">348 / 600 characters</span>
+</div>
+<textarea class="w-full p-3.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-body-md text-body-md focus:border-on-surface focus:ring-0 focus:outline-none transition-colors leading-relaxed" id="bio" rows="5">Adaeze Okafor Studio is an award-winning Lagos architectural practice specializing in climate-responsive tropical modernism, rammed-earth masonry, and coastal hydrology resilience. With over 18 years of practice across Ikoyi, Victoria Island, and Epe, our studio integrates indigenous Nigerian craft with rigorous environmental engineering.</textarea>
+</div>
+<!-- Location & Experience (2-col grid) -->
+<div class="grid grid-cols-2 gap-3 pt-1">
+<div class="space-y-1.5">
+<label class="block font-label-caps text-label-caps text-tertiary uppercase" for="state">State Registry</label>
+<input class="w-full h-12 px-3.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-body-md text-body-md focus:border-on-surface focus:ring-0 focus:outline-none" id="state" type="text" value="Lagos State"/>
+</div>
+<div class="space-y-1.5">
+<label class="block font-label-caps text-label-caps text-tertiary uppercase" for="city">Primary Node</label>
+<input class="w-full h-12 px-3.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-body-md text-body-md focus:border-on-surface focus:ring-0 focus:outline-none" id="city" type="text" value="Ikoyi / Lekki"/>
+</div>
+<div class="col-span-2 space-y-1.5">
+<label class="block font-label-caps text-label-caps text-tertiary uppercase" for="experience_years">Years of Continuous Practice</label>
+<input class="w-full h-12 px-3.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-body-md text-body-md focus:border-on-surface focus:ring-0 focus:outline-none" id="experience_years" type="text" value="18 Years"/>
+</div>
+</div>
+<!-- Locked Official Notice Pill -->
+<div class="p-3 bg-surface-container rounded-lg border border-outline-variant/50 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-tertiary text-base mt-0.5" style="font-variation-settings: 'FILL' 1;">lock</span>
+<p class="font-body-sm text-body-sm text-tertiary text-xs leading-tight">
+          ARCON Registration #3812 and NIA Fellowship verified. Official records locked. Submit an administrative ticket to alter council credentials.
+        </p>
+</div>
+</section>
+<!-- ======================================================== -->
+<!-- CARD 2: 2. DIRECT CONTACT DESK & PRIVACY -->
+<!-- ======================================================== -->
+<section class="crosshair-corner p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/80 space-y-4" id="section-contact">
+<div class="border-b border-outline-variant/40 pb-3">
+<span class="font-label-caps text-label-caps text-tertiary block">Section 02</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-headline-sm">Direct Contact Desk &amp; Privacy</h2>
+</div>
+<!-- Sand-tinted Client Privacy Guarantee Notice Box -->
+<div class="p-3.5 bg-surface-container rounded-lg border border-outline-variant/60 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl flex-shrink-0 mt-0.5">shield</span>
+<div>
+<span class="font-label-md text-label-md font-semibold text-on-surface block text-xs uppercase tracking-wide">Client Privacy Guarantee</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs mt-0.5 leading-normal">
+            Direct contact info (email, studio line, WhatsApp) is hidden from public view and only unlocked for clients after a commission request is Accepted.
+          </p>
+</div>
+</div>
+<!-- Practice Email -->
+<div class="space-y-1.5">
+<label class="block font-label-caps text-label-caps text-tertiary uppercase" for="practice_email">Practice Email</label>
+<div class="relative">
+<input class="w-full h-12 pl-10 pr-3.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-body-md text-body-md focus:border-on-surface focus:ring-0 focus:outline-none" id="practice_email" type="email" value="adaeze@okaforstudio.ng"/>
+<span class="material-symbols-outlined absolute left-3 top-3.5 text-tertiary text-base">mail</span>
+</div>
+</div>
+<!-- Studio Desk Phone -->
+<div class="space-y-1.5">
+<label class="block font-label-caps text-label-caps text-tertiary uppercase" for="desk_phone">Studio Desk Phone</label>
+<div class="relative">
+<input class="w-full h-12 pl-10 pr-3.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-body-md text-body-md focus:border-on-surface focus:ring-0 focus:outline-none" id="desk_phone" type="tel" value="+234 (0) 1 462 8920"/>
+<span class="material-symbols-outlined absolute left-3 top-3.5 text-tertiary text-base">call</span>
+</div>
+</div>
+<!-- WhatsApp Direct Mobile -->
+<div class="space-y-1.5">
+<label class="block font-label-caps text-label-caps text-tertiary uppercase" for="whatsapp_phone">WhatsApp Direct Mobile</label>
+<div class="relative">
+<input class="w-full h-12 pl-10 pr-3.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-body-md text-body-md focus:border-on-surface focus:ring-0 focus:outline-none" id="whatsapp_phone" type="tel" value="+234 803 555 0192"/>
+<span class="material-symbols-outlined absolute left-3 top-3.5 text-secondary text-base">chat</span>
+</div>
+</div>
+<!-- Practice Monograph / Website -->
+<div class="space-y-1.5">
+<label class="block font-label-caps text-label-caps text-tertiary uppercase" for="website_url">Practice Monograph / Website</label>
+<div class="relative">
+<input class="w-full h-12 pl-10 pr-3.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-body-md text-body-md focus:border-on-surface focus:ring-0 focus:outline-none" id="website_url" type="url" value="https://okaforstudio.ng"/>
+<span class="material-symbols-outlined absolute left-3 top-3.5 text-tertiary text-base">public</span>
+</div>
+</div>
+<!-- Physical Studio Address -->
+<div class="space-y-1.5">
+<label class="block font-label-caps text-label-caps text-tertiary uppercase" for="studio_address">Physical Studio Address</label>
+<div class="relative">
+<input class="w-full h-12 pl-10 pr-3.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-body-md text-body-md focus:border-on-surface focus:ring-0 focus:outline-none" id="studio_address" type="text" value="Plot 14B, Admiralty Way, Lekki Phase 1, Lagos"/>
+<span class="material-symbols-outlined absolute left-3 top-3.5 text-tertiary text-base">location_on</span>
+</div>
+</div>
+</section>
+<!-- ======================================================== -->
+<!-- CARD 3: 3. ARCHITECTURAL TYPOLOGIES & FOCUS AREAS -->
+<!-- ======================================================== -->
+<section class="crosshair-corner p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/80 space-y-4" id="section-specialties">
+<div class="flex items-start justify-between border-b border-outline-variant/40 pb-3">
+<div>
+<span class="font-label-caps text-label-caps text-tertiary block">Section 03</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-headline-sm">Architectural Typologies</h2>
+</div>
+<span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-primary-fixed text-on-primary-fixed-variant border border-outline-variant/60">
+          7 selected
+        </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs leading-relaxed">
+        Select project typologies your studio actively accepts briefs for. Clients filter by these tags.
+      </p>
+<!-- Active Selected Tags (Terracotta filled pills) -->
+<div class="space-y-2">
+<span class="font-label-caps text-label-caps text-tertiary block text-[10px] uppercase">Active Studio Focus Areas</span>
+<div class="flex flex-wrap gap-2">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-primary-container text-on-primary-container">
+<span>Coastal Residential</span>
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-primary-container text-on-primary-container">
+<span>Rammed Earth &amp; CSEB</span>
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-primary-container text-on-primary-container">
+<span>Tropical Modernism</span>
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-primary-container text-on-primary-container">
+<span>Sustainable Masterplanning</span>
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-primary-container text-on-primary-container">
+<span>Passive Cooling &amp; Bioclimatic</span>
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-primary-container text-on-primary-container">
+<span>Civic &amp; Cultural Pavilions</span>
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-primary-container text-on-primary-container">
+<span>Boutique Hospitality</span>
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+</div>
+<!-- Available Typologies (Outlined pills with +) -->
+<div class="space-y-2 pt-2 border-t border-outline-variant/30">
+<span class="font-label-caps text-label-caps text-tertiary block text-[10px] uppercase">Available Typologies to Add</span>
+<div class="flex flex-wrap gap-2">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-surface-container-lowest border border-outline-variant text-tertiary hover:border-on-surface hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-xs">add</span>
+<span>High-Rise Commercial</span>
+</button>
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-surface-container-lowest border border-outline-variant text-tertiary hover:border-on-surface hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-xs">add</span>
+<span>Interior Architecture &amp; Fitout</span>
+</button>
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-surface-container-lowest border border-outline-variant text-tertiary hover:border-on-surface hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-xs">add</span>
+<span>Industrial &amp; Logistics</span>
+</button>
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-surface-container-lowest border border-outline-variant text-tertiary hover:border-on-surface hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-xs">add</span>
+<span>Heritage Conservation</span>
+</button>
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-surface-container-lowest border border-outline-variant text-tertiary hover:border-on-surface hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-xs">add</span>
+<span>Landscape Urbanism</span>
+</button>
+</div>
+</div>
+</section>
+<!-- ======================================================== -->
+<!-- CARD 4: 4. KEY PRACTICE MILESTONES & EXPERIENCE -->
+<!-- ======================================================== -->
+<section class="crosshair-corner p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/80 space-y-4" id="section-experience">
+<div class="border-b border-outline-variant/40 pb-3">
+<span class="font-label-caps text-label-caps text-tertiary block">Section 04</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-headline-sm">Practice Milestones &amp; Experience</h2>
+</div>
+<div class="space-y-3">
+<!-- Row 1 -->
+<div class="p-3 rounded-lg border border-outline-variant/70 bg-surface-container-low flex items-start justify-between gap-2">
+<div class="space-y-0.5">
+<h3 class="font-title-md text-title-md text-on-surface text-sm">Adaeze Okafor Studio</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs">Principal Architect &amp; Founder</p>
+<span class="font-label-caps text-label-caps text-tertiary text-[11px] block pt-1">2012 – Present · Lagos, NG</span>
+</div>
+<button aria-label="Delete experience" class="p-1.5 text-tertiary hover:text-error transition-colors">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+<!-- Row 2 -->
+<div class="p-3 rounded-lg border border-outline-variant/70 bg-surface-container-low flex items-start justify-between gap-2">
+<div class="space-y-0.5">
+<h3 class="font-title-md text-title-md text-on-surface text-sm">Lagos State Urban Renewal Agency</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs">Senior Technical Advisor</p>
+<span class="font-label-caps text-label-caps text-tertiary text-[11px] block pt-1">2017 – 2021 · Alausa, Ikeja</span>
+</div>
+<button aria-label="Delete experience" class="p-1.5 text-tertiary hover:text-error transition-colors">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+<!-- Row 3 -->
+<div class="p-3 rounded-lg border border-outline-variant/70 bg-surface-container-low flex items-start justify-between gap-2">
+<div class="space-y-0.5">
+<h3 class="font-title-md text-title-md text-on-surface text-sm">Foster &amp; Partners (London/Lagos)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs">Associate Architect</p>
+<span class="font-label-caps text-label-caps text-tertiary text-[11px] block pt-1">2006 – 2012 · West Africa Desk</span>
+</div>
+<button aria-label="Delete experience" class="p-1.5 text-tertiary hover:text-error transition-colors">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</div>
+<!-- Add Experience Button -->
+<button class="w-full py-2.5 px-4 rounded-lg border border-dashed border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-base">add</span>
+<span>+ Add experience row</span>
+</button>
+</section>
+<!-- ======================================================== -->
+<!-- CARD 5: 5. TECHNICAL DEMO VIDEO WALKTHROUGH -->
+<!-- ======================================================== -->
+<section class="crosshair-corner p-4 rounded-xl bg-surface-container-lowest border-2 border-primary-container/40 space-y-4" id="section-demo">
+<div class="space-y-1 border-b border-outline-variant/40 pb-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-primary-fixed text-on-primary-fixed-variant tracking-wider uppercase">
+          REQUIRED FOR 100% VERIFICATION
+        </span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-headline-sm pt-1">Technical Demo Video Walkthrough</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs leading-relaxed">
+        Upload a 15–20 minute walkthrough of your studio's built monographs, detailing structural drawings and passive design strategies.
+      </p>
+<!-- URL Input with Vimeo Verified Badge -->
+<div class="space-y-1.5">
+<label class="block font-label-caps text-label-caps text-tertiary uppercase" for="demo_url">Encrypted Stream Link (Vimeo / YouTube)</label>
+<div class="relative">
+<input class="w-full h-12 pl-3.5 pr-28 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-body-sm text-xs focus:border-on-surface focus:ring-0 focus:outline-none truncate" id="demo_url" type="url" value="https://vimeo.com/manage/videos/948210492"/>
+<div class="absolute right-2 top-2.5 inline-flex items-center gap-1 px-2 py-1 rounded bg-[#E8F4F0] text-secondary text-[11px] font-semibold border border-secondary/20">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            Vimeo Verified
+          </div>
+</div>
+</div>
+<!-- Hint Callout -->
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/40 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-tertiary text-base mt-0.5">info</span>
+<p class="font-body-sm text-body-sm text-tertiary text-xs leading-tight">
+          Use an unlisted link on YouTube or Vimeo. Only clients with accepted commission briefs will be granted secure stream access.
+        </p>
+</div>
+<!-- 16:9 Video Preview Thumbnail Container -->
+<div class="space-y-2">
+<div class="relative aspect-video w-full rounded-lg overflow-hidden border border-outline-variant bg-on-surface">
+<img class="w-full h-full object-cover opacity-80" data-alt="Architectural monograph studio presentation showing a Nigerian architectural drafting table in Lagos with technical blueprints of a rammed earth residence, environmental air flow simulations, and scale timber models under warm studio floodlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhquVzvGPKR618dGXhxwpohtygIh3qqXagF0GmJjhSIhHFIkoaWDYnvzUCczYuwrfo69wkRixMHNU54HOAIAomP4K0dfjfLL6l1RguxsJBpvOPGGHWVm2zj4xGHTyKoqnsLC9BQj2jdRNu0hdVtt_BAJHloo2lb41GJeOT7qz6iGuZ9mjLdCiw2HqTTeLrNeLEURKbKeAiSyIv38-3Sb0jUJI-wVrs8eoZ8Lm2GCc"/>
+<!-- Subtle Dark Overlay -->
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<button aria-label="Play video preview" class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<!-- Top-Left Badge -->
+<div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] font-medium text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary-fixed">verified</span>
+            Ready for ARCON Monograph Index
+          </div>
+<!-- Bottom-Right Duration -->
+<div class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded bg-black/80 text-[10px] font-medium text-white font-mono">
+            21:40 HD
+          </div>
+</div>
+<!-- Video Metadata Summary -->
+<div class="flex items-start justify-between gap-2 pt-1">
+<div>
+<h4 class="font-title-md text-title-md text-on-surface text-xs font-semibold leading-tight">
+              Adaeze Okafor Studio — Rammed Earth Mix Detailing &amp; Coastal Site Strategy
+            </h4>
+<span class="font-label-caps text-label-caps text-tertiary text-[10px] block mt-0.5">Parsed 2 days ago · 1080p ProRes Proxy</span>
+</div>
+<button class="font-label-caps text-label-caps text-primary hover:underline whitespace-nowrap text-[11px] font-semibold">
+            Re-fetch metadata
+          </button>
+</div>
+</div>
+</section>
+</main>
+<!-- ======================================================== -->
+<!-- 4. STICKY FLOATING BOTTOM SAVE BAR (Above Mobile Dock) -->
+<!-- ======================================================== -->
+<div class="fixed bottom-16 left-0 right-0 z-30 px-margin-mobile pb-2 pointer-events-none">
+<div class="max-w-md mx-auto pointer-events-auto">
+<div class="p-3 rounded-xl bg-on-surface text-surface-container-lowest shadow-2xl flex items-center justify-between border border-outline/30 backdrop-blur-lg">
+<!-- Unsaved Changes Dot -->
+<div class="flex items-center gap-2 pl-1">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-md text-label-md text-xs font-medium text-surface-container">3 unsaved changes</span>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg text-xs font-medium text-surface-dim hover:text-white transition-colors">
+            Discard
+          </button>
+<button class="px-4 py-2 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md text-xs font-semibold active:scale-95 transition-all shadow-sm">
+            Save changes
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- ======================================================== -->
+<!-- MOBILE FOOTER ACCORDING TO BRAND SYSTEM -->
+<!-- ======================================================== -->
+<footer class="w-full px-margin-mobile py-space-lg flex flex-col gap-space-sm border-t border-outline-variant/50 bg-surface-container-low max-w-md mx-auto mb-20">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">ArchNG</span>
+<span class="text-xs text-tertiary">| Provider Workspace</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs leading-relaxed">
+      © 2025 ArchNG Platform. Documenting and commissioning Nigerian architecture across Lagos, Abuja FCT, Port Harcourt, Ibadan, and Enugu. Registered ARCON practitioners under Decree No. 10 of 1969.
+    </p>
+<div class="flex flex-wrap gap-x-4 gap-y-1 pt-2 border-t border-outline-variant/30 text-[11px] text-tertiary">
+<a class="hover:underline" href="#">ARCON Directory</a>
+<a class="hover:underline" href="#">Practice Standards</a>
+<a class="hover:underline" href="#">Lagos Studio Index</a>
+<a class="hover:underline" href="#">Terms of Commission</a>
+</div>
+</footer>
+<!-- ======================================================== -->
+<!-- 5. ANCHORED PROVIDER BOTTOM NAVIGATION DOCK -->
+<!-- ======================================================== -->
+<nav class="fixed bottom-0 left-0 w-full z-40 bg-surface/95 backdrop-blur-md flex justify-around items-center px-gutter-mobile py-space-xs border-t border-outline-variant">
+<!-- Tab: Dashboard -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">grid_view</span>
+<span class="font-label-caps text-label-caps text-[10px] mt-0.5">Dashboard</span>
+</a>
+<!-- Tab: Projects -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">apartment</span>
+<span class="font-label-caps text-label-caps text-[10px] mt-0.5">Projects</span>
+</a>
+<!-- Tab: Leads (with badge 4) -->
+<a class="relative flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+<span class="absolute top-0 right-2 w-4 h-4 rounded-full bg-primary text-on-primary text-[9px] font-bold flex items-center justify-center">4</span>
+<span class="font-label-caps text-label-caps text-[10px] mt-0.5">Leads</span>
+</a>
+<!-- Tab: Monograph -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">auto_stories</span>
+<span class="font-label-caps text-label-caps text-[10px] mt-0.5">Monograph</span>
+</a>
+<!-- Tab: Profile (Active Locked Item) -->
+<a class="flex flex-col items-center justify-center text-primary py-1 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-caps text-label-caps text-[10px] mt-0.5 font-bold">Profile</span>
+</a>
+</nav>
+</body></html>

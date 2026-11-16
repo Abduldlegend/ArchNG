@@ -1,0 +1,991 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ArchNG - Verification Queue (Mobile)</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-fixed-variant": "#812807",
+            "inverse-primary": "#ffb59e",
+            "surface-container": "#f2ede9",
+            "inverse-surface": "#32302e",
+            "error": "#ba1a1a",
+            "on-surface-variant": "#57423c",
+            "surface-bright": "#fdf8f5",
+            "on-tertiary-container": "#faf5eb",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#9ef4cc",
+            "on-secondary-fixed": "#002115",
+            "tertiary-container": "#737068",
+            "background": "#fdf8f5",
+            "surface-container-low": "#f7f3ef",
+            "tertiary-fixed-dim": "#cac6bd",
+            "on-primary-container": "#fff2ef",
+            "error-container": "#ffdad6",
+            "secondary-container": "#9ef4cc",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#3a0b00",
+            "on-secondary": "#ffffff",
+            "outline": "#8a726b",
+            "surface-dim": "#ddd9d6",
+            "on-secondary-container": "#127253",
+            "inverse-on-surface": "#f5f0ec",
+            "surface-tint": "#a13f1e",
+            "surface-container-highest": "#e6e2de",
+            "primary-container": "#b8502d",
+            "on-tertiary-fixed": "#1d1c16",
+            "secondary": "#036c4d",
+            "surface-container-high": "#ece7e4",
+            "surface-variant": "#e6e2de",
+            "tertiary": "#5a5850",
+            "on-surface": "#1c1b19",
+            "surface": "#fdf8f5",
+            "primary-fixed": "#ffdbd0",
+            "on-tertiary-fixed-variant": "#494740",
+            "on-background": "#1c1b19",
+            "primary-fixed-dim": "#ffb59e",
+            "on-error": "#ffffff",
+            "on-primary": "#ffffff",
+            "on-error-container": "#93000a",
+            "primary": "#983917",
+            "secondary-fixed-dim": "#82d7b1",
+            "on-secondary-fixed-variant": "#005139",
+            "tertiary-fixed": "#e7e2d8",
+            "outline-variant": "#ddc0b8",
+            /* Warm Editorial custom tokens mapped to project tokens */
+            "editorial-border": "#E3DDD0",
+            "editorial-sand": "#EFEAE0",
+            "editorial-paper": "#F7F4EE",
+            "editorial-green": "#1F7A5A",
+            "editorial-terracotta": "#B8502D"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-md": "1rem",
+            "gutter-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1.25rem",
+            "gutter": "1.5rem",
+            "margin": "3rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem"
+          },
+          fontFamily: {
+            "body-sm": ["Inter", "sans-serif"],
+            "display-lg-mobile": ["Fraunces", "serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "label-caps": ["Inter", "sans-serif"],
+            "headline-md": ["Fraunces", "serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "headline-sm": ["Fraunces", "serif"],
+            "title-md": ["Inter", "sans-serif"],
+            "display-lg": ["Fraunces", "serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "headline-lg": ["Fraunces", "serif"],
+            "headline-lg-mobile": ["Fraunces", "serif"],
+            "numeric-metric": ["Inter", "sans-serif"]
+          },
+          fontSize: {
+            "body-sm": ["13px", { lineHeight: "20px", fontWeight: "400" }],
+            "display-lg-mobile": ["38px", { lineHeight: "46px", letterSpacing: "-0.015em", fontWeight: "400" }],
+            "label-md": ["14px", { lineHeight: "20px", fontWeight: "500" }],
+            "label-caps": ["11px", { lineHeight: "16px", letterSpacing: "0.08em", fontWeight: "600" }],
+            "headline-md": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "400" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "headline-sm": ["22px", { lineHeight: "30px", fontWeight: "500" }],
+            "title-md": ["18px", { lineHeight: "26px", fontWeight: "600" }],
+            "display-lg": ["56px", { lineHeight: "64px", letterSpacing: "-0.02em", fontWeight: "400" }],
+            "body-md": ["15px", { lineHeight: "24px", fontWeight: "400" }],
+            "headline-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.015em", fontWeight: "400" }],
+            "headline-lg-mobile": ["30px", { lineHeight: "38px", letterSpacing: "-0.01em", fontWeight: "400" }],
+            "numeric-metric": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Architectural subtle drafting crosshairs */
+    .crosshair-corner {
+      position: relative;
+    }
+    .crosshair-corner::before {
+      content: "+";
+      position: absolute;
+      top: -6px;
+      left: -5px;
+      font-size: 10px;
+      line-height: 1;
+      color: #8a726b;
+      font-family: monospace;
+      font-weight: 300;
+      pointer-events: none;
+    }
+    .crosshair-corner::after {
+      content: "+";
+      position: absolute;
+      bottom: -6px;
+      right: -5px;
+      font-size: 10px;
+      line-height: 1;
+      color: #8a726b;
+      font-family: monospace;
+      font-weight: 300;
+      pointer-events: none;
+    }
+    /* Hide scrollbar for category tabs */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased font-body-md min-h-screen pb-24 selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- 1. Admin Top App Bar (Mobile Responsive Header) -->
+<header class="sticky top-0 z-40 bg-surface border-b border-outline-variant/60 backdrop-blur-md">
+<!-- Territorial Monitoring Ribbon -->
+<div class="bg-editorial-sand px-margin-mobile py-1 border-b border-outline-variant/40 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-on-surface-variant text-[10px] tracking-wider uppercase font-semibold">Territorial Licensing Stream</span>
+</div>
+<span class="text-[10px] text-tertiary font-body-sm">Lagos · Abuja · PH · Ib · En</span>
+</div>
+<!-- Main Mobile Bar -->
+<div class="flex justify-between items-center px-margin-mobile py-2.5">
+<div class="flex items-center gap-2">
+<a href="{{DATA:SCREEN:SCREEN_8}}" class="font-headline-md text-[22px] font-bold text-on-surface tracking-tight hover:opacity-90">ArchNG</a>
+<div class="flex items-center gap-1">
+<span class="bg-primary-container text-on-primary text-[10px] font-label-caps font-bold px-1.5 py-0.5 rounded tracking-widest uppercase">Admin</span>
+<span class="text-[10px] text-on-surface-variant font-label-caps tracking-wider hidden xs:inline">OVERSIGHT</span>
+</div>
+</div>
+<!-- Right Profile & Notifications -->
+<div class="flex items-center gap-2.5">
+<button aria-label="Notifications" class="relative p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary-container border-2 border-surface"></span>
+</button>
+<div class="flex items-center gap-1.5 pl-1.5 border-l border-outline-variant/50">
+<div class="w-7 h-7 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden flex items-center justify-center">
+<span class="font-label-caps text-[11px] font-bold text-primary">BS</span>
+</div>
+<div class="hidden sm:block text-left">
+<div class="text-[11px] font-semibold text-on-surface leading-tight">Arc. B. Sanusi</div>
+<div class="text-[9px] text-on-surface-variant font-label-caps">Registrar General</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- 2. Header & Statutory Licensing Title -->
+<main class="px-margin-mobile pt-4 flex flex-col gap-4 max-w-md mx-auto">
+<!-- Category & Breadcrumb -->
+<section>
+<div class="flex items-center gap-1.5 text-on-surface-variant text-[11px] font-label-caps tracking-widest uppercase mb-1">
+<span>STATUTORY LICENSING OVERSIGHT</span>
+<span>/</span>
+<span class="text-primary font-bold">Batch 2025-Q1</span>
+</div>
+<div class="flex items-center justify-between gap-2">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-semibold tracking-tight">
+          Practitioner Verification Queue
+        </h1>
+<span class="bg-primary-container text-on-primary text-xs font-semibold px-2 py-0.5 rounded-full shrink-0">
+          12 Pending
+        </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+        ARCON Statutory Council Verification &amp; Licensing Review (Act CAP A19 LFN 2004). Strict legal liability enforcement.
+      </p>
+</section>
+<!-- Search & Filter Controls -->
+<section class="flex flex-col gap-2.5">
+<!-- Search Input -->
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-tertiary text-[18px]" data-icon="search">search</span>
+<input id="verification-search-input" oninput="handleFilterSearch()" class="w-full bg-surface-container-lowest border border-editorial-border rounded-lg pl-9 pr-3 py-2 text-sm text-on-surface placeholder:text-tertiary focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all" placeholder="Search practitioner, firm, or license..." type="text">
+</div>
+<!-- Filter Chips Horizontal Scroll -->
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5"><button id="chip-all" onclick="setFilter('all')" class="filter-chip px-2.5 py-1 rounded-full text-xs font-label-md bg-editorial-sand text-tertiary whitespace-nowrap active:opacity-80 transition-colors">
+  All (379)
+</button>
+<button id="chip-pending" onclick="setFilter('pending')" class="filter-chip px-3 py-1 rounded-full text-xs font-label-md bg-primary-container text-on-primary font-medium whitespace-nowrap active:opacity-80 transition-colors shadow-sm">
+  Pending (12)
+</button>
+<button id="chip-verified" onclick="setFilter('verified')" class="filter-chip px-2.5 py-1 rounded-full text-xs font-label-md bg-editorial-sand text-tertiary whitespace-nowrap active:opacity-80 transition-colors">
+  Verified (348)
+</button>
+<button id="chip-rejected" onclick="setFilter('rejected')" class="filter-chip px-2.5 py-1 rounded-full text-xs font-label-md bg-editorial-sand text-tertiary whitespace-nowrap active:opacity-80 transition-colors">
+  Rejected (19)
+</button></div>
+<!-- Quick Action Buttons -->
+<div class="grid grid-cols-2 gap-2 pt-0.5">
+<button class="flex items-center justify-center gap-1.5 bg-surface-container-lowest border border-editorial-border text-on-surface rounded-lg py-2 px-3 text-xs font-label-md hover:bg-editorial-sand transition-colors active:scale-[0.99]">
+<span class="material-symbols-outlined text-[16px]" data-icon="checklist">checklist</span>
+<span>Bulk Actions</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 bg-surface-container-lowest border border-editorial-border text-on-surface rounded-lg py-2 px-3 text-xs font-label-md hover:bg-editorial-sand transition-colors active:scale-[0.99]">
+<span class="material-symbols-outlined text-[16px]" data-icon="download">download</span>
+<span>Export Gazette Log</span>
+</button>
+</div>
+</section>
+<!-- 3. Focused Verification Review Dossier (Expanded Active Review) -->
+<section class="mt-1 crosshair-corner">
+<!-- Section Divider Tag -->
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="text-xs font-label-caps uppercase tracking-wider font-semibold text-primary">Active Inspection Dossier</span>
+</div>
+<span class="text-[11px] font-label-caps text-on-surface-variant font-mono bg-editorial-sand px-1.5 py-0.5 rounded border border-editorial-border">Item 1 of 12</span>
+</div>
+<div class="bg-surface-container-lowest border border-editorial-border rounded-xl p-4 shadow-sm relative overflow-hidden">
+<!-- Header Info of Firm -->
+<div class="flex items-start justify-between gap-3 border-b border-editorial-border pb-3.5">
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1 text-[11px] font-label-caps tracking-widest text-primary font-bold bg-primary-fixed/40 px-2 py-0.5 rounded">
+<span>EXPEDITED REVIEW</span>
+<span>·</span>
+<span class="text-on-surface-variant">SLA: 48h remaining</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface leading-snug">
+              Arc. Chukwuma Obi &amp; Partners
+            </h2>
+<p class="font-body-sm text-body-sm text-tertiary">
+              Corporate Architectural Practice · Principal: Arc. C. Obi, FNIA
+            </p>
+<div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-on-surface-variant pt-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary" data-icon="location_on">location_on</span>
+                Victoria Island, Lagos
+              </span>
+<span class="font-mono font-medium text-on-surface bg-editorial-sand px-1.5 rounded">ARCON #F-4421</span>
+</div>
+</div>
+<!-- Principal Portrait Crop -->
+<div class="shrink-0 w-14 h-[70px] rounded-lg border border-editorial-border overflow-hidden bg-editorial-sand relative">
+<img class="w-full h-full object-cover" data-alt="A dignified black and white studio portrait of a senior Nigerian male architect wearing a sharp tailored suit against a warm editorial linen backdrop. Soft architectural cross-lighting defines sharp features and thoughtful expression with natural light and refined gallery atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3PS7bFYes88zWFhsmNwzbHmiopZROG_8ycRYEGwXGpP1yE40TrKZqT8XjNp3BZZYJKElxN7wuxvuvbre-dQCGhR7AMlkK9AUuF78fX3yfm-E3SQvb3XJ3sefIx6Pm6LD3FP8_THkgXOMUtQrIB6QcH9XuO2eWnRH47mMW1o6a5CJH5rJOZK3dfiYeXq7ozdBCP-yLOcOdCE3jl9I5bLbRT4KyeerUN_NPolBvtw0">
+<span class="absolute bottom-0 inset-x-0 bg-on-surface/80 text-[8px] text-center text-white py-0.5 font-label-caps">ARCON</span>
+</div>
+</div>
+<!-- Official Statutory Document Preview Card -->
+<div class="mt-3.5 space-y-2">
+<div class="flex items-center justify-between text-xs">
+<span class="font-label-caps uppercase tracking-wider text-tertiary font-semibold">Statutory Certificate Submission</span>
+<button type="button" onclick="openLightboxM3('NG-ARC-2025-0982B', 'Arc. Chukwuma Obi &amp; Partners', 'ARCHITECTS REGISTRATION COUNCIL OF NIGERIA - ANNUAL PRACTICING LICENCE &amp; SEAL (2025)')" class="text-primary hover:underline font-label-md flex items-center gap-0.5 text-xs cursor-pointer">
+  <span>Open full size (PDF)</span>
+  <span class="material-symbols-outlined text-[14px]" data-icon="open_in_full">open_in_full</span>
+</button>
+</div>
+<!-- Certificate Simulation Box -->
+<div class="border border-editorial-border bg-editorial-paper rounded-lg p-3 relative font-serif">
+<!-- Simulated Official ARCON Stamp Header -->
+<div class="flex items-center justify-between border-b border-editorial-border pb-2 mb-2">
+<div class="flex items-center gap-2">
+<!-- ARCON Seal simulation -->
+<div class="w-8 h-8 rounded-full border-2 border-editorial-green/40 flex items-center justify-center bg-white p-0.5 text-editorial-green">
+<span class="material-symbols-outlined text-[18px]" data-icon="verified">verified</span>
+</div>
+<div>
+<div class="text-[10px] font-sans font-bold text-on-surface uppercase tracking-wider leading-tight">ARCHITECTS REGISTRATION COUNCIL OF NIGERIA</div>
+<div class="text-[9px] font-sans text-on-surface-variant font-mono">FORM B: ANNUAL PRACTICING LICENCE &amp; SEAL (2025)</div>
+</div>
+</div>
+<span class="text-[9px] font-sans font-bold bg-secondary-container/50 text-on-secondary-container px-1.5 py-0.5 rounded border border-editorial-green/20">ARCON 2025</span>
+</div>
+<!-- Certificate Metadata Grid -->
+<div class="grid grid-cols-2 gap-2 text-[11px] font-sans">
+<div>
+<span class="text-[9px] uppercase tracking-wider text-tertiary block font-label-caps">Registrant Title</span>
+<span class="font-medium text-on-surface">Chukwuma &amp; Partners</span>
+</div>
+<div>
+<span class="text-[9px] uppercase tracking-wider text-tertiary block font-label-caps">Gazette Entry</span>
+<span class="font-medium text-on-surface font-mono">VOL. 48 / NO. 129</span>
+</div>
+<div>
+<span class="text-[9px] uppercase tracking-wider text-tertiary block font-label-caps">Stamp Serial</span>
+<span class="font-mono text-on-surface">NG-ARC-2025-0982B</span>
+</div>
+<div>
+<span class="text-[9px] uppercase tracking-wider text-tertiary block font-label-caps">Validation Status</span>
+<span class="font-semibold text-editorial-green flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-editorial-green"></span>
+                  Seal Matrix Match
+                </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Supporting Filings Checklist -->
+<div class="mt-3.5 pt-3 border-t border-editorial-border space-y-2">
+<span class="font-label-caps uppercase tracking-wider text-tertiary font-semibold text-[11px] block">Mandatory Filings Checklist</span>
+<div class="space-y-1.5">
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-2 rounded bg-editorial-sand/60 border border-editorial-border text-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-editorial-green text-[18px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-medium text-on-surface">CAC Form 1.1 Incorporation Certificate</span>
+</div>
+<span class="text-[10px] font-mono text-tertiary">RC-149202</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-2 rounded bg-editorial-sand/60 border border-editorial-border text-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-editorial-green text-[18px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-medium text-on-surface">Professional Indemnity Policy (Leadway)</span>
+</div>
+<span class="text-[10px] font-semibold text-on-surface bg-white px-1.5 py-0.5 rounded border border-editorial-border font-mono">₦500M</span>
+</div>
+</div>
+</div>
+<!-- Statutory Decision Action Area -->
+<div class="mt-4 pt-3.5 border-t border-editorial-border space-y-3">
+<!-- Statutory Action Buttons -->
+<div class="grid grid-cols-2 gap-2"><button id="dossier-approve-btn" type="button" onclick="handleDossierApprove()" class="w-full bg-[#1F7A5A] hover:bg-[#18644a] text-white font-label-md text-xs py-2.5 px-3 rounded-lg flex items-center justify-center gap-1.5 active:scale-[0.98] transition-all shadow-sm">
+  <span class="material-symbols-outlined text-[17px]" data-icon="verified_user" id="dossier-approve-icon">verified_user</span>
+  <span id="dossier-approve-text">Approve &amp; Verify</span>
+</button>
+<button id="dossier-toggle-reject-btn" type="button" onclick="toggleDossierReject()" class="w-full bg-white border border-editorial-border text-on-surface hover:bg-editorial-sand font-label-md text-xs py-2.5 px-3 rounded-lg flex items-center justify-center gap-1.5 active:scale-[0.98] transition-all">
+  <span class="material-symbols-outlined text-[17px] text-error" data-icon="cancel">cancel</span>
+  <span>Reject Filing</span>
+</button></div>
+<!-- Statutory Rejection Drawer (Togglable) -->
+<div class="hidden bg-surface-container-low border border-outline-variant p-3 rounded-lg space-y-2 transition-all" id="rejection-drawer"><div class="flex items-center justify-between">
+  <span class="text-[11px] font-label-caps uppercase text-error font-semibold flex items-center gap-1">
+    <span class="material-symbols-outlined text-[14px]" data-icon="gavel">gavel</span>
+    Statutory Reason for Rejection
+  </span>
+  <button type="button" class="text-tertiary text-xs hover:text-on-surface p-1" onclick="toggleDossierReject()">✕</button>
+</div>
+<textarea id="dossier-reject-reason" oninput="handleDossierRejectInput(this.value)" class="w-full bg-white border border-editorial-border rounded text-xs p-2 text-on-surface placeholder:text-tertiary focus:border-error focus:ring-1 focus:ring-error focus:outline-none transition-colors" placeholder="Enter statutory reason (required) e.g. Expired indemnity policy, illegible ARCON stamp, or missing signature..." rows="2"></textarea>
+<div class="flex justify-end gap-2">
+  <button id="dossier-confirm-reject-btn" type="button" disabled="" onclick="handleDossierConfirmReject()" class="bg-error disabled:opacity-40 text-white font-label-caps text-[10px] px-3 py-1.5 rounded uppercase tracking-wider hover:opacity-90 active:scale-95 transition-all cursor-pointer">
+    Confirm Statutory Refusal
+  </button>
+</div></div>
+<!-- Statutory Legal Disclaimer Notice -->
+<div class="bg-editorial-sand/70 p-2.5 rounded-lg border border-editorial-border text-[11px] text-tertiary flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[16px] shrink-0 mt-0.5" data-icon="info">info</span>
+<p class="leading-relaxed">
+              Approval triggers an automated verification certificate dispatch and appends the registrant to the official Lagos State Physical Planning Urban Registry.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Other Pending Queue Items (Touch List) -->
+<section class="mt-2 space-y-2.5"><div class="flex items-center justify-between">
+  <h3 class="font-headline-sm text-base font-semibold text-on-surface">Other Pending Filings</h3>
+  <span class="text-xs text-on-surface-variant font-label-md" id="other-pending-counter">11 more in queue</span>
+</div>
+<!-- Practitioner Card 1 -->
+<article data-status="pending" data-id="#A-5109" data-firm="Studio Sahel Atelier" data-principal="Arc. Amina Al-Hassan" data-hub="Abuja FCT Hub" data-submitted="Submitted 3d ago" data-cac="RC-184029" data-indemnity="₦350M (Custodian)" data-stamp="NG-ARC-2025-1104A" data-gazette="VOL. 48 / NO. 135" onclick="openDrawerD1(this)" class="provider-card bg-surface-container-lowest border border-editorial-border rounded-xl p-3.5 flex items-center justify-between gap-3 hover:border-on-surface transition-all cursor-pointer active:scale-[0.99]">
+  <div class="space-y-1">
+    <div class="flex items-center gap-2">
+      <span class="firm-name font-headline-sm text-sm font-semibold text-on-surface">Studio Sahel Atelier</span>
+      <span class="text-[10px] font-mono bg-editorial-sand px-1.5 py-0.2 rounded text-tertiary border border-editorial-border">#A-5109</span>
+      <span class="status-tag hidden text-[9px] font-semibold px-1.5 py-0.2 rounded"></span>
+    </div>
+    <div class="text-xs text-tertiary flex items-center gap-1.5">
+      <span>Arc. Amina Al-Hassan</span>
+      <span>·</span>
+      <span class="text-on-surface-variant font-medium">Abuja FCT Hub</span>
+    </div>
+    <div class="text-[10px] text-on-surface-variant font-label-caps tracking-wider flex items-center gap-1 text-primary">
+      <span class="material-symbols-outlined text-[13px]" data-icon="schedule">schedule</span>
+      <span>Submitted 3d ago</span>
+    </div>
+  </div>
+  <button type="button" aria-label="Review Dossier" class="shrink-0 p-2 rounded-lg bg-editorial-sand hover:bg-surface-container text-on-surface border border-editorial-border">
+    <span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+  </button>
+</article>
+<!-- Practitioner Card 2 -->
+<article data-status="pending" data-id="#P-3882" data-firm="Niger Delta Eco-Structures Ltd" data-principal="Arc. Ebiere Tari" data-hub="Port Harcourt Hub" data-submitted="Submitted 4d ago" data-cac="RC-094182" data-indemnity="₦400M (AIICO)" data-stamp="NG-ARC-2025-0811C" data-gazette="VOL. 48 / NO. 118" onclick="openDrawerD1(this)" class="provider-card bg-surface-container-lowest border border-editorial-border rounded-xl p-3.5 flex items-center justify-between gap-3 hover:border-on-surface transition-all cursor-pointer active:scale-[0.99]">
+  <div class="space-y-1">
+    <div class="flex items-center gap-2">
+      <span class="firm-name font-headline-sm text-sm font-semibold text-on-surface">Niger Delta Eco-Structures Ltd</span>
+      <span class="text-[10px] font-mono bg-editorial-sand px-1.5 py-0.2 rounded text-tertiary border border-editorial-border">#P-3882</span>
+      <span class="status-tag hidden text-[9px] font-semibold px-1.5 py-0.2 rounded"></span>
+    </div>
+    <div class="text-xs text-tertiary flex items-center gap-1.5">
+      <span>Arc. Ebiere Tari</span>
+      <span>·</span>
+      <span class="text-on-surface-variant font-medium">Port Harcourt Hub</span>
+    </div>
+    <div class="text-[10px] text-on-surface-variant font-label-caps tracking-wider flex items-center gap-1 text-tertiary">
+      <span class="material-symbols-outlined text-[13px]" data-icon="schedule">schedule</span>
+      <span>Submitted 4d ago</span>
+    </div>
+  </div>
+  <button type="button" aria-label="Review Dossier" class="shrink-0 p-2 rounded-lg bg-editorial-sand hover:bg-surface-container text-on-surface border border-editorial-border">
+    <span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+  </button>
+</article>
+<!-- Practitioner Card 3 -->
+<article data-status="pending" data-id="#I-2914" data-firm="Ogun &amp; Balogun Heritage Arch." data-principal="Arc. F. Balogun" data-hub="Ibadan Hub" data-submitted="Submitted 5d ago" data-cac="RC-318491" data-indemnity="₦250M (AXA Mansard)" data-stamp="NG-ARC-2025-0720A" data-gazette="VOL. 48 / NO. 104" onclick="openDrawerD1(this)" class="provider-card bg-surface-container-lowest border border-editorial-border rounded-xl p-3.5 flex items-center justify-between gap-3 hover:border-on-surface transition-all cursor-pointer active:scale-[0.99]">
+  <div class="space-y-1">
+    <div class="flex items-center gap-2">
+      <span class="firm-name font-headline-sm text-sm font-semibold text-on-surface">Ogun &amp; Balogun Heritage Arch.</span>
+      <span class="text-[10px] font-mono bg-editorial-sand px-1.5 py-0.2 rounded text-tertiary border border-editorial-border">#I-2914</span>
+      <span class="status-tag hidden text-[9px] font-semibold px-1.5 py-0.2 rounded"></span>
+    </div>
+    <div class="text-xs text-tertiary flex items-center gap-1.5">
+      <span>Arc. F. Balogun</span>
+      <span>·</span>
+      <span class="text-on-surface-variant font-medium">Ibadan Hub</span>
+    </div>
+    <div class="text-[10px] text-on-surface-variant font-label-caps tracking-wider flex items-center gap-1 text-tertiary">
+      <span class="material-symbols-outlined text-[13px]" data-icon="schedule">schedule</span>
+      <span>Submitted 5d ago</span>
+    </div>
+  </div>
+  <button type="button" aria-label="Review Dossier" class="shrink-0 p-2 rounded-lg bg-editorial-sand hover:bg-surface-container text-on-surface border border-editorial-border">
+    <span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+  </button>
+</article>
+<!-- Practitioner Card 4 -->
+<article data-status="pending" data-id="#E-1190" data-firm="Enugu Atelier for Tropical Arch." data-principal="Arc. K. Nnamani" data-hub="Enugu Hub" data-submitted="Submitted 6d ago" data-cac="RC-552091" data-indemnity="₦300M (Cornerstone)" data-stamp="NG-ARC-2025-0639D" data-gazette="VOL. 48 / NO. 097" onclick="openDrawerD1(this)" class="provider-card bg-surface-container-lowest border border-editorial-border rounded-xl p-3.5 flex items-center justify-between gap-3 hover:border-on-surface transition-all cursor-pointer active:scale-[0.99]">
+  <div class="space-y-1">
+    <div class="flex items-center gap-2">
+      <span class="firm-name font-headline-sm text-sm font-semibold text-on-surface">Enugu Atelier for Tropical Arch.</span>
+      <span class="text-[10px] font-mono bg-editorial-sand px-1.5 py-0.2 rounded text-tertiary border border-editorial-border">#E-1190</span>
+      <span class="status-tag hidden text-[9px] font-semibold px-1.5 py-0.2 rounded"></span>
+    </div>
+    <div class="text-xs text-tertiary flex items-center gap-1.5">
+      <span>Arc. K. Nnamani</span>
+      <span>·</span>
+      <span class="text-on-surface-variant font-medium">Enugu Hub</span>
+    </div>
+    <div class="text-[10px] text-on-surface-variant font-label-caps tracking-wider flex items-center gap-1 text-tertiary">
+      <span class="material-symbols-outlined text-[13px]" data-icon="schedule">schedule</span>
+      <span>Submitted 6d ago</span>
+    </div>
+  </div>
+  <button type="button" aria-label="Review Dossier" class="shrink-0 p-2 rounded-lg bg-editorial-sand hover:bg-surface-container text-on-surface border border-editorial-border">
+    <span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+  </button>
+</article>
+<!-- Pagination / Count Controller -->
+<div class="flex items-center justify-between pt-2 pb-1 border-t border-editorial-border text-xs text-tertiary">
+  <span class="font-body-sm" id="pagination-summary">Showing 1 to 5 of 12 pending</span>
+  <div class="flex items-center gap-1">
+    <button class="px-2.5 py-1 rounded border border-editorial-border bg-surface-container-lowest hover:bg-editorial-sand text-on-surface disabled:opacity-40" disabled="">
+      Prev
+    </button>
+    <button class="px-2.5 py-1 rounded border border-editorial-border bg-surface-container-lowest hover:bg-editorial-sand text-on-surface">
+      Next
+    </button>
+  </div>
+</div></section>
+<!-- ArchNG Compliance Footer -->
+<footer class="mt-6 pt-4 border-t border-editorial-border text-center space-y-3 pb-8">
+<div class="flex items-center justify-center gap-2">
+<span class="font-headline-sm text-base font-bold text-on-surface">ArchNG</span>
+<span class="text-[11px] font-mono text-tertiary">| Federal Republic of Nigeria</span>
+</div>
+<p class="font-body-sm text-[11px] text-tertiary leading-relaxed px-2">
+        © 2025 ArchNG Platform. Documenting and commissioning Nigerian architecture across Lagos, Abuja FCT, Port Harcourt, Ibadan, and Enugu. Registered ARCON practitioners.
+      </p>
+<div class="flex flex-wrap justify-center gap-x-3 gap-y-1 text-[11px] font-label-caps text-on-surface-variant font-medium">
+<a class="hover:text-primary transition-colors underline" href="#arcon">ARCON Directory</a>
+<span>·</span>
+<a class="hover:text-primary transition-colors underline" href="#standards">Practice Standards</a>
+<span>·</span>
+<a class="hover:text-primary transition-colors underline" href="#gazette">Terms of Commission</a>
+</div>
+</footer>
+</main>
+<!-- 5. Admin Mobile Fixed Bottom Navigation Dock -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-mobile py-space-xs bg-surface border-t border-outline-variant/60 shadow-lg"><!-- Tab 1: Dashboard -> S14 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary py-1 active:scale-95 transition-transform" href="{{DATA:SCREEN:SCREEN_8}}">
+  <span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+  <span class="font-label-caps text-[10px] tracking-wide mt-0.5">Dashboard</span>
+</a>
+<!-- Tab 2: Verifications (ACTIVE) -> S15 -->
+<a class="flex flex-col items-center justify-center text-primary py-1 relative active:scale-95 transition-transform font-medium" href="{{DATA:SCREEN:SCREEN_6}}">
+  <div class="relative">
+    <span class="material-symbols-outlined text-[20px]" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+    <span class="absolute -top-1 -right-2.5 bg-primary-container text-on-primary text-[9px] font-bold px-1 rounded-full border border-surface leading-tight" id="tab-pending-badge">12</span>
+  </div>
+  <span class="font-label-caps text-[10px] tracking-wide mt-0.5 font-bold">Verifications</span>
+</a>
+<!-- Tab 3: Projects (Inert with Coming Soon tooltip) -->
+<div class="relative group flex flex-col items-center justify-center text-on-surface-variant/60 py-1 cursor-pointer active:scale-95 transition-transform">
+  <span class="material-symbols-outlined text-[20px]" data-icon="domain">domain</span>
+  <span class="font-label-caps text-[10px] tracking-wide mt-0.5">Projects</span>
+  <span class="absolute -top-8 px-2 py-0.5 bg-on-surface text-surface text-[10px] rounded opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-sm">Coming soon</span>
+</div>
+<!-- Tab 4: Audit (Inert with Coming Soon tooltip) -->
+<div class="relative group flex flex-col items-center justify-center text-on-surface-variant/60 py-1 cursor-pointer active:scale-95 transition-transform">
+  <span class="material-symbols-outlined text-[20px]" data-icon="fact_check">fact_check</span>
+  <span class="font-label-caps text-[10px] tracking-wide mt-0.5">Audit Log</span>
+  <span class="absolute -top-8 px-2 py-0.5 bg-on-surface text-surface text-[10px] rounded opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-sm">Coming soon</span>
+</div>
+<!-- Tab 5: Settings (Inert with Coming Soon tooltip) -->
+<div class="relative group flex flex-col items-center justify-center text-on-surface-variant/60 py-1 cursor-pointer active:scale-95 transition-transform">
+  <span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+  <span class="font-label-caps text-[10px] tracking-wide mt-0.5">Settings</span>
+  <span class="absolute -top-8 px-2 py-0.5 bg-on-surface text-surface text-[10px] rounded opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-sm">Coming soon</span>
+</div></nav><!-- Toast Notification Container -->
+<div id="archng-toast" class="fixed top-14 left-1/2 -translate-x-1/2 z-50 transform -translate-y-12 opacity-0 pointer-events-none transition-all duration-300 max-w-sm w-[90%] bg-on-surface text-surface px-4 py-3 rounded-lg shadow-lg flex items-center gap-2.5 text-xs font-label-md">
+  <span class="material-symbols-outlined text-[18px] text-secondary-fixed shrink-0" id="toast-icon">check_circle</span>
+  <span id="toast-message" class="leading-tight">Provider verified. They've been notified.</span>
+</div>
+
+<!-- Drawer D1: Bottom Sheet Modal & Backdrop -->
+<div id="drawer-d1-backdrop" onclick="closeDrawerD1()" class="fixed inset-0 bg-on-surface/50 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+<div id="drawer-d1" class="fixed inset-x-0 bottom-0 z-50 max-w-md mx-auto bg-surface-container-lowest rounded-t-2xl border-t border-outline-variant shadow-2xl transform translate-y-full transition-transform duration-300 flex flex-col max-h-[88vh] overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="d1-firm-name">
+  <!-- Drawer Drag Handle & Close Header -->
+  <div class="flex items-center justify-between px-4 pt-3 pb-2 border-b border-editorial-border bg-surface-container-low shrink-0">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-primary"></span>
+      <span class="text-[11px] font-label-caps uppercase tracking-wider font-semibold text-primary">Statutory Dossier Review</span>
+      <span id="d1-status-pill" class="bg-primary-fixed/40 text-primary text-[10px] font-mono px-1.5 py-0.2 rounded font-semibold">Pending</span>
+    </div>
+    <button type="button" onclick="closeDrawerD1()" class="p-1 text-tertiary hover:text-on-surface rounded-full hover:bg-surface-container active:scale-90 transition-transform" aria-label="Close Drawer">
+      <span class="material-symbols-outlined text-[20px]">close</span>
+    </button>
+  </div>
+
+  <!-- Drawer Scrollable Body -->
+  <div class="p-4 overflow-y-auto space-y-4 text-left">
+    <!-- Firm Header Info -->
+    <div class="space-y-1">
+      <div class="flex items-center justify-between">
+        <h2 id="d1-firm-name" class="font-headline-sm text-lg font-bold text-on-surface leading-tight">Studio Sahel Atelier</h2>
+        <span id="d1-firm-id" class="text-xs font-mono bg-editorial-sand px-2 py-0.5 rounded text-tertiary border border-editorial-border">#A-5109</span>
+      </div>
+      <p id="d1-firm-principal" class="text-xs text-tertiary">Principal: Arc. Amina Al-Hassan</p>
+      <div class="flex items-center gap-3 text-xs text-on-surface-variant">
+        <span id="d1-firm-hub" class="flex items-center gap-1">
+          <span class="material-symbols-outlined text-[14px] text-tertiary">location_on</span>
+          Abuja FCT Hub
+        </span>
+        <span id="d1-submitted-date" class="font-mono text-[10px] text-tertiary">Submitted 3d ago</span>
+      </div>
+    </div>
+
+    <!-- Document Preview & Open Full Size action -->
+    <div class="border border-editorial-border bg-editorial-paper rounded-lg p-3 space-y-2 font-serif">
+      <div class="flex items-center justify-between border-b border-editorial-border pb-2">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-full border border-editorial-green/40 flex items-center justify-center bg-white text-editorial-green">
+            <span class="material-symbols-outlined text-[16px]">verified</span>
+          </div>
+          <div>
+            <div class="text-[9px] font-sans font-bold text-on-surface uppercase tracking-wider leading-tight">ARCHITECTS REGISTRATION COUNCIL OF NIGERIA</div>
+            <div class="text-[8px] font-sans text-on-surface-variant font-mono">FORM B: ANNUAL PRACTICING LICENCE &amp; SEAL (2025)</div>
+          </div>
+        </div>
+        <button type="button" onclick="triggerD1FullSizeLightbox()" class="text-primary hover:underline text-xs font-sans font-semibold flex items-center gap-1 py-1 px-1.5 rounded hover:bg-editorial-sand transition-colors">
+          <span>Open full size</span>
+          <span class="material-symbols-outlined text-[14px]">open_in_full</span>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2 text-[10px] font-sans pt-1">
+        <div>
+          <span class="text-[8px] uppercase tracking-wider text-tertiary block font-label-caps">Stamp Serial</span>
+          <span id="d1-stamp-serial" class="font-mono font-medium text-on-surface">NG-ARC-2025-1104A</span>
+        </div>
+        <div>
+          <span class="text-[8px] uppercase tracking-wider text-tertiary block font-label-caps">Gazette Entry</span>
+          <span id="d1-gazette-entry" class="font-mono font-medium text-on-surface">VOL. 48 / NO. 135</span>
+        </div>
+        <div>
+          <span class="text-[8px] uppercase tracking-wider text-tertiary block font-label-caps">CAC Registration</span>
+          <span id="d1-cac-code" class="font-mono text-on-surface">RC-184029</span>
+        </div>
+        <div>
+          <span class="text-[8px] uppercase tracking-wider text-tertiary block font-label-caps">Indemnity Cover</span>
+          <span id="d1-indemnity" class="font-mono font-medium text-on-surface">₦350M (Custodian)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions in D1: Approve and verify vs Reject -->
+    <div class="space-y-2 pt-1 border-t border-editorial-border">
+      <div class="grid grid-cols-2 gap-2">
+        <button id="d1-approve-btn" type="button" onclick="handleD1Approve()" class="w-full bg-[#1F7A5A] hover:bg-[#18644a] text-white font-label-md text-xs py-2.5 px-3 rounded-lg flex items-center justify-center gap-1.5 active:scale-[0.98] transition-all shadow-sm">
+          <span class="material-symbols-outlined text-[17px]" id="d1-approve-icon">verified_user</span>
+          <span id="d1-approve-text">Approve &amp; verify</span>
+        </button>
+        <button id="d1-reject-btn" type="button" onclick="toggleD1RejectDrawer()" class="w-full bg-white border border-editorial-border text-on-surface hover:bg-editorial-sand font-label-md text-xs py-2.5 px-3 rounded-lg flex items-center justify-center gap-1.5 active:scale-[0.98] transition-all">
+          <span class="material-symbols-outlined text-[17px] text-error">cancel</span>
+          <span>Reject</span>
+        </button>
+      </div>
+
+      <!-- D1 Rejection Reason Drawer (required input) -->
+      <div id="d1-reject-section" class="hidden bg-surface-container-low border border-outline-variant p-3 rounded-lg space-y-2 transition-all">
+        <div class="flex items-center justify-between">
+          <label for="d1-reject-textarea" class="text-[11px] font-label-caps uppercase text-error font-semibold flex items-center gap-1">
+            <span class="material-symbols-outlined text-[14px]">gavel</span>
+            Rejection Reason (Required)
+          </label>
+          <button type="button" class="text-tertiary text-xs" onclick="toggleD1RejectDrawer()">✕</button>
+        </div>
+        <textarea id="d1-reject-textarea" oninput="handleD1RejectInput(this.value)" class="w-full bg-white border border-editorial-border rounded text-xs p-2 text-on-surface placeholder:text-tertiary focus:border-error focus:ring-1 focus:ring-error focus:outline-none transition-colors" placeholder="State statutory violation, missing ARCON endorsement, or policy gap..." rows="2"></textarea>
+        <div class="flex justify-end">
+          <button id="d1-confirm-reject-btn" type="button" disabled="" onclick="handleD1ConfirmReject()" class="bg-error disabled:opacity-40 text-white font-label-caps text-[10px] px-3 py-1.5 rounded uppercase tracking-wider hover:opacity-90 active:scale-95 transition-all cursor-pointer">
+            Confirm Rejection
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox M3: Statutory Document Preview & Close X -->
+<div id="lightbox-m3" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex flex-col justify-between p-4 opacity-0 pointer-events-none transition-opacity duration-300" role="dialog" aria-modal="true">
+  <!-- Lightbox Header -->
+  <div class="flex items-center justify-between text-white border-b border-white/20 pb-2">
+    <div>
+      <div class="text-xs font-mono text-tertiary-fixed-dim" id="lightbox-m3-id">NG-ARC-2025-0982B</div>
+      <h3 class="text-sm font-semibold tracking-wide" id="lightbox-m3-firm">Document Preview</h3>
+    </div>
+    <button type="button" onclick="closeLightboxM3()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white active:scale-90 transition-transform" aria-label="Close Lightbox">
+      <span class="material-symbols-outlined text-[20px]">close</span>
+    </button>
+  </div>
+
+  <!-- Lightbox Document Body View -->
+  <div class="my-auto flex flex-col items-center justify-center max-w-sm mx-auto w-full">
+    <div class="w-full bg-editorial-paper border-2 border-editorial-border rounded-lg p-5 shadow-2xl font-serif text-on-surface space-y-3">
+      <div class="text-center border-b border-editorial-border pb-3">
+        <div class="w-12 h-12 rounded-full border-2 border-editorial-green/60 mx-auto flex items-center justify-center bg-white text-editorial-green mb-1.5">
+          <span class="material-symbols-outlined text-[24px]">verified</span>
+        </div>
+        <div class="text-[11px] font-sans font-bold tracking-wider uppercase">ARCHITECTS REGISTRATION COUNCIL OF NIGERIA</div>
+        <div class="text-[9px] font-sans text-on-surface-variant font-mono mt-0.5">ESTABLISHED BY DECREE NO. 10 OF 1969 / CAP A19 LFN 2004</div>
+      </div>
+      <div class="text-center space-y-1 py-1">
+        <span class="text-[9px] uppercase tracking-widest text-primary font-bold font-sans">Official Annual Certificate</span>
+        <h4 class="text-base font-bold" id="lightbox-m3-doc-firm">Arc. Chukwuma Obi &amp; Partners</h4>
+        <p class="text-[10px] text-tertiary font-sans">Entitled to engage in architectural practice within the Federal Republic of Nigeria for the year 2025.</p>
+      </div>
+      <div class="border-t border-editorial-border pt-2 grid grid-cols-2 gap-2 text-[10px] font-sans">
+        <div>
+          <span class="text-[8px] uppercase tracking-wider text-tertiary block font-label-caps">Seal Serial</span>
+          <span id="lightbox-m3-doc-serial" class="font-mono font-semibold text-on-surface">NG-ARC-2025-0982B</span>
+        </div>
+        <div class="text-right">
+          <span class="text-[8px] uppercase tracking-wider text-editorial-green block font-label-caps font-bold">Status: Validated</span>
+          <span class="font-mono text-[9px] text-on-surface">ARCON Security Matrix</span>
+        </div>
+      </div>
+    </div>
+    <div class="mt-3 text-center">
+      <span class="text-[11px] text-surface-container-high/70">Pinch or double tap to inspect high-resolution security guilloche pattern</span>
+    </div>
+  </div>
+
+  <!-- Lightbox Footer -->
+  <div class="flex items-center justify-between text-xs text-surface-container-high/80 border-t border-white/20 pt-2">
+    <span id="lightbox-m3-footer-desc">Statutory Filing 2025-Q1</span>
+    <button type="button" onclick="closeLightboxM3()" class="text-white underline text-xs font-label-md">
+      Close viewer
+    </button>
+  </div>
+</div>
+
+<!-- S15 Client Interactive Controller -->
+<script>
+  var activeTargetCard = null;
+  var activeFilter = 'pending';
+
+  function showToast(msg, isError) {
+    var toast = document.getElementById('archng-toast');
+    var msgEl = document.getElementById('toast-message');
+    var iconEl = document.getElementById('toast-icon');
+    if (!toast || !msgEl) return;
+    msgEl.innerText = msg;
+    if (iconEl) {
+      iconEl.innerText = isError ? 'error' : 'check_circle';
+      iconEl.className = isError ? 'material-symbols-outlined text-[18px] text-error shrink-0' : 'material-symbols-outlined text-[18px] text-secondary-fixed shrink-0';
+    }
+    toast.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-12');
+    toast.classList.add('opacity-100', 'translate-y-0');
+    setTimeout(function() {
+      toast.classList.remove('opacity-100', 'translate-y-0');
+      toast.classList.add('opacity-0', 'pointer-events-none', '-translate-y-12');
+    }, 3200);
+  }
+
+  function setFilter(type) {
+    activeFilter = type;
+    var chips = document.querySelectorAll('.filter-chip');
+    chips.forEach(function(chip) {
+      chip.classList.remove('bg-primary-container', 'text-on-primary', 'shadow-sm', 'font-medium');
+      chip.classList.add('bg-editorial-sand', 'text-tertiary');
+    });
+    var activeBtn = document.getElementById('chip-' + type);
+    if (activeBtn) {
+      activeBtn.classList.remove('bg-editorial-sand', 'text-tertiary');
+      activeBtn.classList.add('bg-primary-container', 'text-on-primary', 'shadow-sm', 'font-medium');
+    }
+    applyCardFilters();
+  }
+
+  function handleFilterSearch() {
+    applyCardFilters();
+  }
+
+  function applyCardFilters() {
+    var searchVal = (document.getElementById('verification-search-input')?.value || '').toLowerCase().trim();
+    var cards = document.querySelectorAll('.provider-card');
+    var visibleCount = 0;
+    cards.forEach(function(card) {
+      var status = card.getAttribute('data-status') || 'pending';
+      var text = card.textContent.toLowerCase();
+      var matchesFilter = (activeFilter === 'all') || (status === activeFilter);
+      var matchesSearch = !searchVal || text.indexOf(searchVal) !== -1;
+      if (matchesFilter && matchesSearch) {
+        card.classList.remove('hidden');
+        card.classList.add('flex');
+        visibleCount++;
+      } else {
+        card.classList.remove('flex');
+        card.classList.add('hidden');
+      }
+    });
+    var counter = document.getElementById('other-pending-counter');
+    if (counter) counter.innerText = visibleCount + ' in view';
+  }
+
+  function openDrawerD1(cardElement) {
+    activeTargetCard = cardElement;
+    var firm = cardElement.getAttribute('data-firm') || 'Studio Sahel Atelier';
+    var id = cardElement.getAttribute('data-id') || '#A-5109';
+    var principal = cardElement.getAttribute('data-principal') || 'Arc. Amina Al-Hassan';
+    var hub = cardElement.getAttribute('data-hub') || 'Abuja FCT Hub';
+    var submitted = cardElement.getAttribute('data-submitted') || 'Submitted 3d ago';
+    var stamp = cardElement.getAttribute('data-stamp') || 'NG-ARC-2025-1104A';
+    var gazette = cardElement.getAttribute('data-gazette') || 'VOL. 48 / NO. 135';
+    var cac = cardElement.getAttribute('data-cac') || 'RC-184029';
+    var indemnity = cardElement.getAttribute('data-indemnity') || '₦350M (Custodian)';
+    var status = cardElement.getAttribute('data-status') || 'pending';
+
+    document.getElementById('d1-firm-name').innerText = firm;
+    document.getElementById('d1-firm-id').innerText = id;
+    document.getElementById('d1-firm-principal').innerText = 'Principal: ' + principal;
+    document.getElementById('d1-firm-hub').innerHTML = '<span class="material-symbols-outlined text-[14px] text-tertiary">location_on</span> ' + hub;
+    document.getElementById('d1-submitted-date').innerText = submitted;
+    document.getElementById('d1-stamp-serial').innerText = stamp;
+    document.getElementById('d1-gazette-entry').innerText = gazette;
+    document.getElementById('d1-cac-code').innerText = cac;
+    document.getElementById('d1-indemnity').innerText = indemnity;
+    
+    var statusPill = document.getElementById('d1-status-pill');
+    statusPill.innerText = status.charAt(0).toUpperCase() + status.slice(1);
+    if (status === 'verified') {
+      statusPill.className = 'bg-secondary-container/60 text-editorial-green text-[10px] font-mono px-1.5 py-0.2 rounded font-semibold';
+    } else if (status === 'rejected') {
+      statusPill.className = 'bg-error-container text-error text-[10px] font-mono px-1.5 py-0.2 rounded font-semibold';
+    } else {
+      statusPill.className = 'bg-primary-fixed/40 text-primary text-[10px] font-mono px-1.5 py-0.2 rounded font-semibold';
+    }
+
+    // Reset reject section
+    document.getElementById('d1-reject-section').classList.add('hidden');
+    document.getElementById('d1-reject-textarea').value = '';
+    document.getElementById('d1-confirm-reject-btn').disabled = true;
+
+    // Reset approve button
+    var approveBtn = document.getElementById('d1-approve-btn');
+    var approveText = document.getElementById('d1-approve-text');
+    var approveIcon = document.getElementById('d1-approve-icon');
+    approveBtn.disabled = false;
+    approveText.innerText = 'Approve & verify';
+    approveIcon.innerText = 'verified_user';
+    approveIcon.classList.remove('animate-spin');
+
+    // Open drawer animations
+    var backdrop = document.getElementById('drawer-d1-backdrop');
+    var drawer = document.getElementById('drawer-d1');
+    backdrop.classList.remove('opacity-0', 'pointer-events-none');
+    backdrop.classList.add('opacity-100');
+    drawer.classList.remove('translate-y-full');
+    drawer.classList.add('translate-y-0');
+  }
+
+  function closeDrawerD1() {
+    var backdrop = document.getElementById('drawer-d1-backdrop');
+    var drawer = document.getElementById('drawer-d1');
+    backdrop.classList.remove('opacity-100');
+    backdrop.classList.add('opacity-0', 'pointer-events-none');
+    drawer.classList.remove('translate-y-0');
+    drawer.classList.add('translate-y-full');
+  }
+
+  function triggerD1FullSizeLightbox() {
+    var serial = document.getElementById('d1-stamp-serial').innerText;
+    var firm = document.getElementById('d1-firm-name').innerText;
+    openLightboxM3(serial, firm, 'ARCHITECTS REGISTRATION COUNCIL OF NIGERIA LICENCE 2025');
+  }
+
+  function openLightboxM3(serial, firm, desc) {
+    document.getElementById('lightbox-m3-id').innerText = serial;
+    document.getElementById('lightbox-m3-firm').innerText = firm;
+    document.getElementById('lightbox-m3-doc-firm').innerText = firm;
+    document.getElementById('lightbox-m3-doc-serial').innerText = serial;
+    document.getElementById('lightbox-m3-footer-desc').innerText = desc || 'Statutory Filing 2025-Q1';
+
+    var lb = document.getElementById('lightbox-m3');
+    lb.classList.remove('opacity-0', 'pointer-events-none');
+    lb.classList.add('opacity-100');
+  }
+
+  function closeLightboxM3() {
+    var lb = document.getElementById('lightbox-m3');
+    lb.classList.remove('opacity-100');
+    lb.classList.add('opacity-0', 'pointer-events-none');
+  }
+
+  function toggleD1RejectDrawer() {
+    var sec = document.getElementById('d1-reject-section');
+    sec.classList.toggle('hidden');
+    if (!sec.classList.contains('hidden')) {
+      document.getElementById('d1-reject-textarea').focus();
+    }
+  }
+
+  function handleD1RejectInput(val) {
+    var btn = document.getElementById('d1-confirm-reject-btn');
+    btn.disabled = !(val && val.trim().length > 3);
+  }
+
+  function handleD1Approve() {
+    var approveBtn = document.getElementById('d1-approve-btn');
+    var approveText = document.getElementById('d1-approve-text');
+    var approveIcon = document.getElementById('d1-approve-icon');
+    approveBtn.disabled = true;
+    approveText.innerText = 'Verifying...';
+    approveIcon.innerText = 'sync';
+    approveIcon.classList.add('animate-spin');
+
+    setTimeout(function() {
+      approveIcon.classList.remove('animate-spin');
+      approveIcon.innerText = 'check_circle';
+      approveText.innerText = 'Verified';
+      
+      var statusPill = document.getElementById('d1-status-pill');
+      statusPill.innerText = 'Verified';
+      statusPill.className = 'bg-secondary-container/60 text-editorial-green text-[10px] font-mono px-1.5 py-0.2 rounded font-semibold';
+
+      if (activeTargetCard) {
+        activeTargetCard.setAttribute('data-status', 'verified');
+        var statusTag = activeTargetCard.querySelector('.status-tag');
+        if (statusTag) {
+          statusTag.innerText = 'Verified';
+          statusTag.className = 'status-tag text-[9px] font-semibold px-1.5 py-0.2 rounded bg-secondary-container/60 text-editorial-green';
+        }
+      }
+
+      showToast("Provider verified. They've been notified.", false);
+
+      setTimeout(function() {
+        closeDrawerD1();
+        applyCardFilters();
+      }, 1000);
+    }, 600);
+  }
+
+  function handleD1ConfirmReject() {
+    var statusPill = document.getElementById('d1-status-pill');
+    statusPill.innerText = 'Rejected';
+    statusPill.className = 'bg-error-container text-error text-[10px] font-mono px-1.5 py-0.2 rounded font-semibold';
+
+    if (activeTargetCard) {
+      activeTargetCard.setAttribute('data-status', 'rejected');
+      var statusTag = activeTargetCard.querySelector('.status-tag');
+      if (statusTag) {
+        statusTag.innerText = 'Rejected';
+        statusTag.className = 'status-tag text-[9px] font-semibold px-1.5 py-0.2 rounded bg-error-container text-error';
+      }
+    }
+
+    showToast("Provider rejected. They've been notified.", true);
+    closeDrawerD1();
+    applyCardFilters();
+  }
+
+  function toggleDossierReject() {
+    var drawer = document.getElementById('rejection-drawer');
+    drawer.classList.toggle('hidden');
+  }
+
+  function handleDossierRejectInput(val) {
+    var btn = document.getElementById('dossier-confirm-reject-btn');
+    btn.disabled = !(val && val.trim().length > 3);
+  }
+
+  function handleDossierApprove() {
+    var btn = document.getElementById('dossier-approve-btn');
+    var txt = document.getElementById('dossier-approve-text');
+    var icon = document.getElementById('dossier-approve-icon');
+    btn.disabled = true;
+    txt.innerText = 'Verifying...';
+    icon.innerText = 'sync';
+    icon.classList.add('animate-spin');
+
+    setTimeout(function() {
+      icon.classList.remove('animate-spin');
+      icon.innerText = 'check_circle';
+      txt.innerText = 'Verified';
+      showToast("Provider verified. They've been notified.", false);
+    }, 600);
+  }
+
+  function handleDossierConfirmReject() {
+    toggleDossierReject();
+    showToast("Provider rejected. They've been notified.", true);
+  }
+
+  // Esc key listener for drawer and lightbox
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeDrawerD1();
+      closeLightboxM3();
+    }
+  });
+</script>
+
+
+</body></html>

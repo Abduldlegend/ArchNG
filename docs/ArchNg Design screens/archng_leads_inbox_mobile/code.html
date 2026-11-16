@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ArchNG - Leads Inbox (Mobile)</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter & Newsreader / Fraunces styling -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "error-container": "#ffdad6",
+          "tertiary": "#5a5850",
+          "inverse-surface": "#32302e",
+          "on-secondary": "#ffffff",
+          "secondary-container": "#9ef4cc",
+          "on-secondary-fixed-variant": "#005139",
+          "tertiary-container": "#737068",
+          "tertiary-fixed-dim": "#cac6bd",
+          "surface-container": "#f2ede9",
+          "on-tertiary-container": "#faf5eb",
+          "surface-container-lowest": "#ffffff",
+          "primary-fixed-dim": "#ffb59e",
+          "primary-fixed": "#ffdbd0",
+          "on-background": "#1c1b19",
+          "error": "#ba1a1a",
+          "surface-container-low": "#f7f3ef",
+          "surface-container-highest": "#e6e2de",
+          "on-tertiary-fixed": "#1d1c16",
+          "surface": "#fdf8f5",
+          "surface-container-high": "#ece7e4",
+          "background": "#fdf8f5",
+          "secondary-fixed-dim": "#82d7b1",
+          "inverse-on-surface": "#f5f0ec",
+          "tertiary-fixed": "#e7e2d8",
+          "inverse-primary": "#ffb59e",
+          "on-primary-container": "#fff2ef",
+          "surface-tint": "#a13f1e",
+          "surface-variant": "#e6e2de",
+          "on-secondary-container": "#127253",
+          "primary": "#983917",
+          "outline": "#8a726b",
+          "on-primary-fixed-variant": "#812807",
+          "on-surface": "#1c1b19",
+          "on-tertiary-fixed-variant": "#494740",
+          "on-error": "#ffffff",
+          "secondary": "#036c4d",
+          "surface-bright": "#fdf8f5",
+          "on-tertiary": "#ffffff",
+          "on-primary": "#ffffff",
+          "on-secondary-fixed": "#002115",
+          "on-error-container": "#93000a",
+          "surface-dim": "#ddd9d6",
+          "primary-container": "#b8502d",
+          "on-primary-fixed": "#3a0b00",
+          "secondary-fixed": "#9ef4cc",
+          "on-surface-variant": "#57423c",
+          "outline-variant": "#ddc0b8"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "margin": "3rem",
+          "space-xs": "0.25rem",
+          "space-sm": "0.5rem",
+          "gutter-mobile": "1rem",
+          "gutter": "1.5rem",
+          "space-xl": "2.5rem",
+          "space-lg": "1.5rem",
+          "margin-mobile": "1.25rem",
+          "space-md": "1rem"
+        },
+        "fontFamily": {
+          "label-caps": [
+            "Inter"
+          ],
+          "title-md": [
+            "Inter"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "numeric-metric": [
+            "Inter"
+          ],
+          "body-sm": [
+            "Inter"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "headline-sm": [
+            "Newsreader"
+          ],
+          "label-md": [
+            "Inter"
+          ],
+          "display-lg": [
+            "Newsreader"
+          ],
+          "headline-lg": [
+            "Newsreader"
+          ],
+          "headline-md": [
+            "Newsreader"
+          ],
+          "display-lg-mobile": [
+            "Newsreader"
+          ],
+          "headline-lg-mobile": [
+            "Newsreader"
+          ]
+        },
+        "fontSize": {
+          "label-caps": [
+            "11px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.08em",
+              "fontWeight": "600"
+            }
+          ],
+          "title-md": [
+            "18px",
+            {
+              "lineHeight": "26px",
+              "fontWeight": "600"
+            }
+          ],
+          "body-md": [
+            "15px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "400"
+            }
+          ],
+          "numeric-metric": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-sm": [
+            "13px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "body-lg": [
+            "18px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-sm": [
+            "22px",
+            {
+              "lineHeight": "30px",
+              "fontWeight": "500"
+            }
+          ],
+          "label-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "500"
+            }
+          ],
+          "display-lg": [
+            "56px",
+            {
+              "lineHeight": "64px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg": [
+            "40px",
+            {
+              "lineHeight": "48px",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-md": [
+            "28px",
+            {
+              "lineHeight": "36px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "display-lg-mobile": [
+            "38px",
+            {
+              "lineHeight": "46px",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg-mobile": [
+            "30px",
+            {
+              "lineHeight": "38px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "400"
+            }
+          ]
+        }
+      },
+    },
+  }
+</script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scroll {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .paper-texture {
+      background-color: #F7F4EE;
+    }
+    .hairline-border {
+      border: 1px solid #E3DDD0;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased font-body-md min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Layout Container: strictly constrained to mobile device width -->
+<div class="max-w-md mx-auto min-h-screen flex flex-col bg-surface relative pb-28">
+<!-- 1. Top Provider Header -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-sm px-margin-mobile pt-3 pb-3 border-b border-outline-variant/40">
+<div class="flex items-center justify-between">
+<!-- Brand & Credential Pills -->
+<div class="flex items-center space-x-2">
+<span class="font-['Fraunces'] text-2xl font-bold tracking-tight text-on-surface">ArchNG</span>
+<div class="flex items-center space-x-1.5 pl-1">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase bg-[#E8F4F0] text-[#1F7A5A] border border-[#1F7A5A]/30">REG. NG</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase bg-primary-container text-on-primary">PRO</span>
+</div>
+</div>
+<!-- Action cluster: Notifications & Principal Avatar -->
+<div class="flex items-center space-x-3">
+<button aria-label="Notifications" class="relative p-1.5 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full ring-2 ring-surface"></span>
+</button>
+<div class="flex items-center space-x-1.5 pl-1 border-l border-outline-variant/60">
+<div class="relative w-8 h-8 rounded-full overflow-hidden hairline-border bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Close-up editorial portrait of Arc. Adaeze Okafor, a distinguished Nigerian female principal architect dressed in an elegant tailored charcoal linen blazer, shot with soft studio rim lighting against a warm beige gallery backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChecee1iJCRdg9ttthkPY2T3vWkEKSQvWplmSLoSUQ9cTRGMp94n-xpNlN2yiNiHsn45CkQNb9mn09kt_RAvlhphJmAOaO4cvF89JYdWQIEMINwG-6wyNt_db0YBS9eTzIK-zFmhXPhm9n-iK7MuLbQD4KLGRNYAQ9EYrs1oVmMamwk8yBF3T03AlXsXgHawDa36G_jMah0kB35_r86E7LRRm4OzpvmbtBzdktHq0"/>
+</div>
+<div class="hidden sm:flex flex-col text-left">
+<span class="text-[11px] font-semibold leading-tight text-on-surface">Arc. Adaeze Okafor</span>
+<span class="text-[9px] text-tertiary">FNIA #3812</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Provider Context Breadcrumbs & Title Stack -->
+<div class="mt-3.5 pt-2 border-t border-outline-variant/30 flex flex-col gap-1">
+<div class="flex items-center space-x-1 text-tertiary text-body-sm text-[11px]">
+<span>Practice Studio</span>
+<span class="text-[9px]">/</span>
+<span class="text-on-surface font-medium">Leads &amp; Inquiries</span>
+</div>
+<div class="flex items-center justify-between mt-0.5">
+<h1 class="font-headline-sm-mobile text-headline-sm-mobile text-on-surface font-semibold tracking-tight">Commission Inquiries &amp; Leads</h1>
+</div>
+<div class="flex items-center space-x-2 mt-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-caps font-label-caps bg-primary-container/10 text-primary border border-primary/20">4 New Briefs</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">· 14 Total</span>
+</div>
+</div>
+</header>
+<!-- 2. Horizontal Filter Bar & Quick Search -->
+<section class="px-margin-mobile pt-3 pb-2 space-y-2.5">
+<!-- Search Input -->
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">search</span>
+</span>
+<input class="w-full bg-surface-container-lowest hairline-border rounded-lg pl-9 pr-8 py-2 text-body-sm font-body-sm placeholder:text-tertiary/70 text-on-surface focus:outline-none focus:border-on-surface" placeholder="Search commission briefs, clients, locations..." type="text"/>
+<button class="absolute inset-y-0 right-0 pr-2.5 flex items-center text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+<!-- Filter Pills (Horizontally scrollable) -->
+<div class="flex items-center space-x-2 overflow-x-auto custom-scroll pb-1 -mx-margin-mobile px-margin-mobile">
+<button class="shrink-0 px-3.5 py-1.5 rounded-full text-label-caps font-label-caps bg-primary-container text-on-primary font-medium tracking-wide shadow-sm">
+          All (14)
+        </button>
+<button class="shrink-0 px-3.5 py-1.5 rounded-full text-label-caps font-label-caps bg-surface-container text-on-surface font-medium hairline-border flex items-center space-x-1.5">
+<span>New</span>
+<span class="w-4 h-4 rounded-full bg-primary text-on-primary text-[9px] flex items-center justify-center font-bold">4</span>
+</button>
+<button class="shrink-0 px-3.5 py-1.5 rounded-full text-label-caps font-label-caps bg-surface-container text-on-surface-variant hairline-border">
+          Accepted (6)
+        </button>
+<button class="shrink-0 px-3.5 py-1.5 rounded-full text-label-caps font-label-caps bg-surface-container text-on-surface-variant hairline-border">
+          Declined (2)
+        </button>
+<button class="shrink-0 px-3.5 py-1.5 rounded-full text-label-caps font-label-caps bg-surface-container text-on-surface-variant hairline-border">
+          Completed (2)
+        </button>
+</div>
+</section>
+<!-- 3. Commission Leads Feed / List -->
+<main class="px-margin-mobile space-y-3.5 mt-1">
+<!-- TOP CARD: Active / Expanded Commission Lead -->
+<article class="bg-surface-container-lowest rounded-xl hairline-border p-4 relative shadow-sm border-l-4 border-l-primary-container">
+<!-- Drafting corner accents -->
+<span class="absolute top-2 right-2 text-tertiary/40 font-mono text-[10px] leading-none select-none">+</span>
+<!-- Header: Client & Status Pill -->
+<div class="flex items-start justify-between gap-2">
+<div class="space-y-0.5">
+<div class="flex items-center space-x-1.5">
+<h2 class="font-title-md text-title-md text-on-surface font-bold">Chief Olumide Adeleke</h2>
+<span class="inline-flex items-center text-[#1F7A5A]" title="Verified Commissioning Client">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</span>
+</div>
+<p class="text-body-sm font-body-sm text-tertiary">Adeleke Heritage Holdings · Lagos, Nigeria</p>
+</div>
+<span class="shrink-0 px-2 py-0.5 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-primary-fixed/60 text-primary border border-primary/20">
+            New
+          </span>
+</div>
+<!-- Typology & Location Meta -->
+<div class="mt-2.5 flex items-center space-x-1.5 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-tertiary">villa</span>
+<span class="font-medium text-on-surface">Coastal Residential (Private Residence)</span>
+</div>
+<div class="flex items-center space-x-2 text-body-sm font-body-sm text-tertiary mt-0.5">
+<span class="material-symbols-outlined text-[15px]">location_on</span>
+<span>Ikoyi, Lagos</span>
+<span>·</span>
+<span class="text-primary font-medium">Awaiting Decision (72h window)</span>
+</div>
+<!-- Budget & Timeline Badges -->
+<div class="mt-3 py-2 px-3 bg-surface-container-low rounded-lg hairline-border flex items-center justify-between">
+<div>
+<span class="block text-label-caps font-label-caps text-tertiary">Estimated Budget</span>
+<span class="font-numeric-metric text-numeric-metric text-on-surface font-bold">₦85M – ₦120M</span>
+</div>
+<div class="text-right">
+<span class="block text-label-caps font-label-caps text-tertiary">Received</span>
+<span class="text-body-sm font-body-sm font-medium text-on-surface">2 hours ago</span>
+</div>
+</div>
+<!-- Expanded Brief Excerpt -->
+<div class="mt-3 text-body-sm font-body-sm text-on-surface leading-relaxed border-l-2 border-outline-variant pl-3 italic">
+          “Arc. Adaeze, we have been closely following your studio's work on the Epe Courtyard Villa. We have acquired a prime waterfront parcel in Ikoyi and prioritize passive cooling, rammed-earth masonry, and seamless indoor-outdoor waterfront verandas.”
+        </div>
+<!-- Attached Site Survey Document Chip -->
+<div class="mt-3 flex items-center justify-between p-2.5 rounded-lg bg-surface-container hairline-border">
+<div class="flex items-center space-x-2.5 overflow-hidden">
+<span class="p-1 rounded bg-surface-container-lowest text-primary">
+<span class="material-symbols-outlined text-[20px]">picture_as_pdf</span>
+</span>
+<div class="truncate">
+<p class="text-[12px] font-medium text-on-surface truncate">Ikoyi_Waterfront_Site_Survey_and_Boundary.pdf</p>
+<p class="text-[10px] text-tertiary">3.8 MB · Certified Boundary Survey</p>
+</div>
+</div>
+<button aria-label="Download Attachment" class="shrink-0 p-1 text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+<!-- Compliance Disclosure -->
+<p class="mt-3 text-[11px] leading-tight text-tertiary/90">
+          Accepting shares your studio contact details, portfolio monograph, and video demo walkthrough with this client under ARCON Stage 1 Guidelines.
+        </p>
+<!-- Mobile Action Button Group -->
+<div class="mt-3.5 pt-3 border-t border-outline-variant/40 flex items-center space-x-2">
+<button class="flex-1 bg-primary-container text-on-primary hover:bg-[#9C3E1F] py-2.5 px-3 rounded-lg text-label-md font-label-md font-medium text-center transition-colors shadow-sm flex items-center justify-center space-x-1.5">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Accept request</span>
+</button>
+<button class="px-3.5 py-2.5 rounded-lg hairline-border bg-surface-container-lowest text-on-surface hover:bg-surface-container text-label-md font-label-md font-medium transition-colors">
+            Decline
+          </button>
+<button class="p-2.5 rounded-lg hairline-border bg-surface-container-lowest text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Mark for partner review">
+<span class="material-symbols-outlined text-[20px]">send_to_mobile</span>
+</button>
+</div>
+</article>
+<!-- LEAD CARD 2: Dr. Folake Solanke -->
+<article class="bg-surface-container-lowest rounded-xl hairline-border p-3.5 relative transition-colors hover:border-on-surface/40">
+<div class="flex items-start justify-between gap-2">
+<div>
+<div class="flex items-center space-x-1.5">
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">Dr. Folake Solanke</h3>
+<span class="material-symbols-outlined text-[15px] text-[#1F7A5A]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="text-body-sm font-body-sm text-tertiary">Solanke Bio-Agro Ventures</p>
+</div>
+<span class="shrink-0 px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase bg-primary-fixed/60 text-primary border border-primary/20">
+            New
+          </span>
+</div>
+<div class="mt-2 text-body-sm font-body-sm font-medium text-on-surface">
+          Boutique Agro-Resort &amp; Spa
+        </div>
+<div class="flex items-center justify-between mt-1 text-body-sm font-body-sm text-tertiary">
+<div class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>Moniya, Ibadan, Oyo State</span>
+</div>
+<span class="text-on-surface font-semibold">₦160M</span>
+</div>
+<div class="mt-2.5 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-[11px] text-tertiary">
+<span>Submitted yesterday · 68h remaining</span>
+<button class="text-primary font-medium hover:underline flex items-center space-x-0.5">
+<span>Review brief</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+</div>
+</article>
+<!-- LEAD CARD 3: Engr. Tunde Bakare (Accepted) -->
+<article class="bg-surface-container-lowest rounded-xl hairline-border p-3.5 relative transition-colors">
+<div class="flex items-start justify-between gap-2">
+<div>
+<div class="flex items-center space-x-1.5">
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">Engr. Tunde Bakare</h3>
+<span class="material-symbols-outlined text-[15px] text-[#1F7A5A]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="text-body-sm font-body-sm text-tertiary">Nexus Dev Partners</p>
+</div>
+<span class="shrink-0 px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase bg-[#E8F4F0] text-[#1F7A5A] border border-[#1F7A5A]/30">
+            Accepted
+          </span>
+</div>
+<div class="mt-2 text-body-sm font-body-sm font-medium text-on-surface">
+          Commercial Tech Atelier &amp; Studios
+        </div>
+<div class="flex items-center justify-between mt-1 text-body-sm font-body-sm text-tertiary">
+<div class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>Victoria Island, Lagos</span>
+</div>
+<span class="text-on-surface font-semibold">₦320M</span>
+</div>
+<div class="mt-2.5 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-[11px] text-tertiary">
+<span class="text-[#1F7A5A] font-medium flex items-center space-x-1">
+<span class="material-symbols-outlined text-[13px]">videocam</span>
+<span>Demo walkthrough scheduled</span>
+</span>
+<span class="text-tertiary">3 days ago</span>
+</div>
+</article>
+<!-- LEAD CARD 4: Mrs. Amina Bello-Danjuma -->
+<article class="bg-surface-container-lowest rounded-xl hairline-border p-3.5 relative transition-colors">
+<div class="flex items-start justify-between gap-2">
+<div>
+<div class="flex items-center space-x-1.5">
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">Mrs. Amina Bello-Danjuma</h3>
+<span class="material-symbols-outlined text-[15px] text-[#1F7A5A]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="text-body-sm font-body-sm text-tertiary">The Danjuma Arts Trust</p>
+</div>
+<span class="shrink-0 px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase bg-primary-fixed/60 text-primary border border-primary/20">
+            New
+          </span>
+</div>
+<div class="mt-2 text-body-sm font-body-sm font-medium text-on-surface">
+          Contemporary Civic Arts Pavilion
+        </div>
+<div class="flex items-center justify-between mt-1 text-body-sm font-body-sm text-tertiary">
+<div class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>Maitama, Abuja FCT</span>
+</div>
+<span class="text-on-surface font-semibold">₦240M</span>
+</div>
+<div class="mt-2.5 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-[11px] text-tertiary">
+<span>Submitted 5 days ago</span>
+<button class="text-primary font-medium hover:underline flex items-center space-x-0.5">
+<span>Review brief</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+</div>
+</article>
+<!-- LEAD CARD 5: Senator K. Al-Hassan (Declined) -->
+<article class="bg-surface-container-lowest/80 rounded-xl hairline-border p-3.5 opacity-85 relative">
+<div class="flex items-start justify-between gap-2">
+<div>
+<div class="flex items-center space-x-1.5">
+<h3 class="font-title-md text-title-md text-on-surface/80 font-semibold">Senator K. Al-Hassan</h3>
+</div>
+<p class="text-body-sm font-body-sm text-tertiary">Private Commission</p>
+</div>
+<span class="shrink-0 px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase bg-surface-container-high text-tertiary border border-outline-variant">
+            Declined
+          </span>
+</div>
+<div class="mt-2 text-body-sm font-body-sm font-medium text-on-surface-variant">
+          Diplomatic Residence &amp; Private Majlis
+        </div>
+<div class="flex items-center justify-between mt-1 text-body-sm font-body-sm text-tertiary">
+<span>Asokoro, Abuja FCT</span>
+<span>₦410M</span>
+</div>
+<div class="mt-2 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-[11px] text-tertiary">
+<span>Declined on studio capacity · 1 week ago</span>
+<span class="text-[10px] text-tertiary">Archived</span>
+</div>
+</article>
+<!-- LEAD CARD 6: High Chief Oladipo Fashola (Completed) -->
+<article class="bg-surface-container-lowest rounded-xl hairline-border p-3.5 relative">
+<div class="flex items-start justify-between gap-2">
+<div>
+<div class="flex items-center space-x-1.5">
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">High Chief Oladipo Fashola</h3>
+<span class="material-symbols-outlined text-[15px] text-[#1F7A5A]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="text-body-sm font-body-sm text-tertiary">Lagos Heritage Preservation Board</p>
+</div>
+<span class="shrink-0 px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase bg-surface-container-highest text-on-surface border border-outline-variant">
+            Completed
+          </span>
+</div>
+<div class="mt-2 text-body-sm font-body-sm font-medium text-on-surface">
+          Heritage Restoration &amp; Adaptive Reuse
+        </div>
+<div class="flex items-center justify-between mt-1 text-body-sm font-body-sm text-tertiary">
+<span>Marina, Lagos Island</span>
+<span class="text-on-surface font-semibold">₦190M</span>
+</div>
+<div class="mt-2.5 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-[11px] text-tertiary">
+<span class="text-secondary font-medium">Stage 3 Contract Awarded</span>
+<span>2 weeks ago</span>
+</div>
+</article>
+</main>
+<!-- Regulatory ARCON Notice & ArchNG Platform Footer -->
+<footer class="w-full px-margin-mobile pt-8 pb-12 mt-6 border-t border-outline-variant/50 text-center space-y-2">
+<div class="flex items-center justify-center space-x-1.5 text-tertiary text-xs">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+<span>Registered ARCON Practicing Portal</span>
+</div>
+<p class="text-[11px] text-tertiary leading-relaxed px-2">
+        © 2025 ArchNG Platform. Documenting and commissioning Nigerian architecture across Lagos, Abuja FCT, Port Harcourt, Ibadan, and Enugu. Registered ARCON practitioners.
+      </p>
+<div class="flex justify-center space-x-3 text-[11px] text-primary pt-1">
+<a class="hover:underline" href="#">Practice Standards</a>
+<span>·</span>
+<a class="hover:underline" href="#">Stage 1 Code</a>
+<span>·</span>
+<a class="hover:underline" href="#">Studio Registry</a>
+</div>
+</footer>
+<!-- 4. Provider Bottom Navigation Bar -->
+<!-- Fixed mobile navigation bar adhering to style_shell_layout & style_separation_logic rules -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-mobile py-space-xs bg-surface dark:bg-surface border-t border-outline-variant dark:border-outline shadow-sm max-w-md mx-auto right-0">
+<!-- Nav Item: Dashboard -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="text-label-caps font-label-caps mt-0.5 text-[10px]">Dashboard</span>
+</a>
+<!-- Nav Item: Projects -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">apartment</span>
+<span class="text-label-caps font-label-caps mt-0.5 text-[10px]">Projects</span>
+</a>
+<!-- Nav Item: Leads (ACTIVE MATCH with count badge) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-inverse-primary py-1 relative" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">videocam</span>
+<span class="absolute -top-1 -right-2 px-1 min-w-[14px] h-[14px] rounded-full bg-primary-container text-on-primary text-[9px] font-bold flex items-center justify-center leading-none">
+            4
+          </span>
+</div>
+<span class="text-label-caps font-label-caps mt-0.5 text-[10px] font-bold text-primary">Inquiries</span>
+</a>
+<!-- Nav Item: Monograph / Studio Works -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="text-label-caps font-label-caps mt-0.5 text-[10px]">Monograph</span>
+</a>
+<!-- Nav Item: Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">account_circle</span>
+<span class="text-label-caps font-label-caps mt-0.5 text-[10px]">Profile</span>
+</a>
+</nav>
+</div>
+</body></html>

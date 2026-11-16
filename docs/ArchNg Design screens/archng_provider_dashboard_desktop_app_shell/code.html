@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Practice Workspace · Arc. Adaeze Okafor | ArchNG</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&amp;family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with custom extensions -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#ffdad6",
+            "primary-fixed-dim": "#ffb59e",
+            "secondary-fixed-dim": "#82d7b1",
+            "surface-container-low": "#f7f3ef",
+            "on-tertiary": "#ffffff",
+            "inverse-primary": "#ffb59e",
+            "on-primary-fixed-variant": "#812807",
+            "on-surface-variant": "#57423c",
+            "on-primary": "#ffffff",
+            "tertiary-container": "#737068",
+            "on-primary-fixed": "#3a0b00",
+            "tertiary-fixed": "#e7e2d8",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed-variant": "#494740",
+            "on-error-container": "#93000a",
+            "outline": "#8a726b",
+            "background": "#fdf8f5",
+            "tertiary-fixed-dim": "#cac6bd",
+            "inverse-on-surface": "#f5f0ec",
+            "secondary-container": "#9ef4cc",
+            "on-secondary-container": "#127253",
+            "on-tertiary-container": "#faf5eb",
+            "on-background": "#1c1b19",
+            "surface-bright": "#fdf8f5",
+            "on-secondary-fixed": "#002115",
+            "primary": "#983917",
+            "surface-container": "#f2ede9",
+            "surface-tint": "#a13f1e",
+            "outline-variant": "#ddc0b8",
+            "surface": "#fdf8f5",
+            "surface-dim": "#ddd9d6",
+            "on-error": "#ffffff",
+            "surface-container-highest": "#e6e2de",
+            "on-surface": "#1c1b19",
+            "primary-fixed": "#ffdbd0",
+            "secondary-fixed": "#9ef4cc",
+            "tertiary": "#5a5850",
+            "error": "#ba1a1a",
+            "on-primary-container": "#fff2ef",
+            "on-tertiary-fixed": "#1d1c16",
+            "secondary": "#036c4d",
+            "primary-container": "#b8502d",
+            "on-secondary-fixed-variant": "#005139",
+            "surface-variant": "#e6e2de",
+            "surface-container-lowest": "#ffffff",
+            "inverse-surface": "#32302e",
+            "surface-container-high": "#ece7e4"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "1.25rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem",
+            "gutter-mobile": "1rem",
+            "space-md": "1rem",
+            "margin": "3rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Newsreader", "Fraunces", "serif"],
+            "display-lg": ["Newsreader", "Fraunces", "serif"],
+            "headline-lg": ["Newsreader", "Fraunces", "serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "numeric-metric": ["Inter", "sans-serif"],
+            "title-md": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "headline-md": ["Newsreader", "Fraunces", "serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "label-caps": ["Inter", "sans-serif"],
+            "serif": ["Fraunces", "Newsreader", "serif"],
+            "sans": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "500" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "numeric-metric": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Architectural Draft Marks */
+    .draft-corner {
+      position: relative;
+    }
+    .draft-corner::before {
+      content: "+";
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      font-size: 11px;
+      line-height: 1;
+      font-family: monospace;
+      color: #8a726b;
+      opacity: 0.6;
+    }
+    .draft-corner::after {
+      content: "+";
+      position: absolute;
+      bottom: -6px;
+      right: -6px;
+      font-size: 11px;
+      line-height: 1;
+      font-family: monospace;
+      color: #8a726b;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body class="bg-[#F7F4EE] text-[#1C1B19] antialiased min-h-screen flex font-body-md text-body-md selection:bg-[#B8502D]/10 selection:text-[#B8502D]">
+<!-- FIXED LEFT SIDEBAR (PROVIDER SHELL) -->
+<aside class="w-72 bg-[#FFFFFF] border-r border-[#E3DDD0] flex flex-col justify-between fixed inset-y-0 left-0 z-40">
+<div class="flex flex-col">
+<!-- Top Brand Anchor -->
+<div class="px-6 py-5 border-b border-[#E3DDD0] flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<span class="font-serif text-2xl font-bold tracking-tight text-[#1C1B19]">ArchNG</span>
+<span class="text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 bg-[#EFEAE0] text-[#57423c] rounded border border-[#E3DDD0]">
+            REG. NG
+          </span>
+</div>
+<span class="text-[10px] font-semibold text-[#8a726b] uppercase tracking-widest">PRO</span>
+</div>
+<!-- Practitioner ID Header -->
+<div class="p-5 border-b border-[#E3DDD0] bg-[#F7F4EE]/60">
+<div class="flex items-start space-x-3">
+<div class="relative w-11 h-11 rounded-lg overflow-hidden border border-[#E3DDD0] flex-shrink-0 bg-white">
+<img class="w-full h-full object-cover" data-alt="Close up architectural portrait of Nigerian female architect Adaeze Okafor wearing elegant tortoiseshell spectacles, warm natural lighting inside a minimalist Lagos design studio with drafting boards and mahogany architectural models in soft focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbuuV3RlGw13kI0zS18VVYHRg-P8wsqAD0DXNYqwRz5K5XN4q4x89Fmy5NbtgICDBW-jI3zbFJ97ftsBIfFE1TIpvc-xIvZZh9f-cjbvyJvNCmzGtbYEm172tdiKDRBjp8u9pjOwjdbs8Tp1DeLpiDK-Pgzi6XdUTXBvRyfHwpmbtzktWgZ_z4M9fMieMOmNKawJP2LdntHuuJkcjZcdIb63M653hFQcLryGyimnQ"/>
+</div>
+<div class="min-w-0 flex-1">
+<h2 class="font-serif text-sm font-semibold text-[#1C1B19] truncate leading-tight">Adaeze Okafor Studio</h2>
+<p class="font-body-sm text-[12px] text-[#57423c] truncate mt-0.5">ARCON #3812 · Lagos</p>
+<div class="mt-2 inline-flex items-center space-x-1.5 px-2 py-0.5 rounded-full bg-[#E8F4F0] border border-[#1F7A5A]/25 text-[#1F7A5A] text-[11px] font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1F7A5A]"></span>
+<span>Fellow (FNIA)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation Menu -->
+<nav class="p-3 space-y-1">
+<div class="px-3 py-2 text-[10px] font-bold text-[#8a726b] uppercase tracking-wider">
+          Practice Studio
+        </div>
+<!-- Dashboard (Active) -->
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg bg-[#EFEAE0] text-[#983917] font-medium transition-colors border border-[#E3DDD0]/50" href="#">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-[20px] text-[#983917]">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</div>
+<span class="w-1.5 h-1.5 rounded-full bg-[#983917]"></span>
+</a>
+<!-- Profile -->
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg text-[#57423c] hover:bg-[#F7F4EE] hover:text-[#1C1B19] transition-colors" href="#">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-[20px] text-[#8a726b]">person</span>
+<span class="text-sm">Profile</span>
+</div>
+</a>
+<!-- Projects -->
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg text-[#57423c] hover:bg-[#F7F4EE] hover:text-[#1C1B19] transition-colors" href="#">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-[20px] text-[#8a726b]">apartment</span>
+<span class="text-sm">Projects</span>
+</div>
+<span class="text-xs text-[#8a726b] px-1.5 py-0.5 rounded bg-[#F7F4EE]">8</span>
+</a>
+<!-- Demo video -->
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg text-[#57423c] hover:bg-[#F7F4EE] hover:text-[#1C1B19] transition-colors" href="#">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-[20px] text-[#8a726b]">smart_display</span>
+<span class="text-sm">Demo video</span>
+</div>
+<span class="text-[10px] px-1.5 py-0.5 rounded bg-[#B8502D]/10 text-[#983917] font-semibold">ACTION</span>
+</a>
+<!-- Leads / Inquiries -->
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg text-[#57423c] hover:bg-[#F7F4EE] hover:text-[#1C1B19] transition-colors" href="#">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-[20px] text-[#8a726b]">mail</span>
+<span class="text-sm">Leads &amp; Inquiries</span>
+</div>
+<span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-[#B8502D] text-white">4 new</span>
+</a>
+<!-- Verification -->
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg text-[#57423c] hover:bg-[#F7F4EE] hover:text-[#1C1B19] transition-colors" href="#">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-[20px] text-[#8a726b]">verified_user</span>
+<span class="text-sm">Verification</span>
+</div>
+<span class="text-[11px] px-2 py-0.5 rounded-full bg-[#EFEAE0] text-[#812807] font-medium border border-[#E3DDD0]">Under Review</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Sidebar Section -->
+<div class="p-4 border-t border-[#E3DDD0] bg-[#F7F4EE]/40 space-y-3">
+<div class="p-3 bg-white border border-[#E3DDD0] rounded-lg">
+<div class="flex items-center space-x-2 text-[#1C1B19] font-medium text-xs mb-1">
+<span class="material-symbols-outlined text-sm text-[#983917]">gavel</span>
+<span>ARCON Registry Support</span>
+</div>
+<p class="text-[11px] text-[#57423c] leading-relaxed">
+          Need legal confirmation of seal endorsement? Contact Chapter Desk.
+        </p>
+</div>
+<div class="flex items-center justify-between text-xs text-[#57423c] px-1 pt-1">
+<a class="hover:text-[#1C1B19] underline decoration-[#E3DDD0]" href="#">Practice Guidelines</a>
+<a class="hover:text-[#983917] flex items-center space-x-1" href="#">
+<span>Sign out</span>
+<span class="material-symbols-outlined text-[14px]">logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- MAIN VIEWPORT CANVAS -->
+<main class="ml-72 flex-1 flex flex-col min-h-screen">
+<!-- STICKY TOP APP BAR -->
+<header class="sticky top-0 z-30 bg-[#FFFFFF]/90 backdrop-blur-md border-b border-[#E3DDD0] h-16 flex items-center justify-between px-8">
+<div class="flex items-center space-x-4 w-96">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[#8a726b] text-[18px]">search</span>
+<input class="w-full bg-[#F7F4EE] border border-[#E3DDD0] rounded-lg pl-9 pr-4 py-1.5 text-xs text-[#1C1B19] focus:outline-none focus:border-[#1C1B19] placeholder-[#8a726b] transition-all" placeholder="Search commissions, clients, ARCON ref..." type="text"/>
+</div>
+<div class="h-4 w-[1px] bg-[#E3DDD0]"></div>
+<span class="text-xs text-[#57423c] whitespace-nowrap">Lagos Chapter</span>
+</div>
+<!-- Trailing Action Menu -->
+<div class="flex items-center space-x-4">
+<!-- Help Guide Link -->
+<a class="flex items-center space-x-1.5 text-xs text-[#57423c] hover:text-[#1C1B19] px-2 py-1 rounded transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px] text-[#8a726b]">help_outline</span>
+<span class="hidden md:inline">Monograph Guide</span>
+</a>
+<!-- Notifications Bell -->
+<button aria-label="Notifications" class="relative p-2 text-[#57423c] hover:text-[#1C1B19] transition-colors rounded-lg hover:bg-[#F7F4EE]">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#B8502D] ring-2 ring-white"></span>
+</button>
+<div class="h-6 w-[1px] bg-[#E3DDD0]"></div>
+<!-- Architect Profile Menu -->
+<div class="flex items-center space-x-3 cursor-pointer group pl-1">
+<div class="w-8 h-8 rounded-full border border-[#E3DDD0] overflow-hidden bg-[#EFEAE0]">
+<img class="w-full h-full object-cover" data-alt="Editorial portrait of Nigerian female architect Arc Adaeze Okafor dressed in minimalist black attire against textured concrete studio background in warm sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF0zc0b4xay1QseYJ6flfhzmqXYxss4lKcETjxMLjtvHwbgPcTMxvGe47eCaUJwZPphE9b88PnlWEFMpx5T1u3dV6h8bdeA4ts1BBoHv5qbsfn6Tg2ruZxkuQp9gJdySm2rPxdPZp7ralYGlDskO0xjdSLn6xdwu21pkL8CwJH99L_hGlzhQHx0BLqUFpBFMsAy6ILQ0R7iG6DrSFbiF4ijZ7v4gNb70z74BhTalU"/>
+</div>
+<div class="hidden sm:block text-left">
+<p class="text-xs font-semibold text-[#1C1B19] leading-tight group-hover:text-[#983917] transition-colors">
+              Arc. Adaeze Okafor, FNIA
+            </p>
+<p class="text-[10px] text-[#8a726b]">Principal Partner</p>
+</div>
+<span class="material-symbols-outlined text-[16px] text-[#8a726b] group-hover:text-[#1C1B19]">expand_more</span>
+</div>
+</div>
+</header>
+<!-- WORKSPACE BODY CONTENT -->
+<div class="p-8 max-w-7xl w-full mx-auto space-y-6">
+<!-- EDITORIAL GREETING & CONTEXT HEADER -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-2 border-b border-[#E3DDD0]/70">
+<div>
+<span class="font-label-caps text-label-caps text-[#8a726b] uppercase">PRACTICE DESK · NIGERIAN REGISTRY ECOSYSTEM</span>
+<h1 class="font-serif text-3xl md:text-4xl font-normal text-[#1C1B19] mt-1 tracking-tight">
+            Good morning, Adaeze
+          </h1>
+<p class="font-body-md text-sm text-[#57423c] mt-1">
+            Thursday, 24 October 2025 · Lagos Practice Portal &amp; Technical Monograph Hub
+          </p>
+</div>
+<!-- Quick Actions Row -->
+<div class="flex items-center space-x-3">
+<button class="bg-white border border-[#E3DDD0] text-[#1C1B19] hover:bg-[#EFEAE0] transition-colors px-4 py-2 rounded-lg text-xs font-medium flex items-center space-x-2">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+<span>Edit profile</span>
+</button>
+<button class="bg-white border border-[#E3DDD0] text-[#1C1B19] hover:bg-[#EFEAE0] transition-colors px-4 py-2 rounded-lg text-xs font-medium flex items-center space-x-2">
+<span class="material-symbols-outlined text-[16px]">videocam</span>
+<span>Upload Monograph</span>
+</button>
+<button class="bg-[#B8502D] hover:bg-[#9C3E1F] text-white px-4 py-2 rounded-lg text-xs font-medium flex items-center space-x-2 transition-colors shadow-none">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>+ Add project</span>
+</button>
+</div>
+</div>
+<!-- PROMINENT ARCON VERIFICATION BANNER -->
+<section class="bg-[#FAF6EC] border border-[#E3DDD0] rounded-xl p-5 draft-corner">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start space-x-3.5">
+<div class="w-9 h-9 rounded-lg bg-[#EFEAE0] border border-[#E3DDD0] flex items-center justify-center flex-shrink-0 text-[#983917] mt-0.5">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+<div>
+<div class="flex items-center space-x-2.5">
+<h3 class="font-serif text-base font-semibold text-[#1C1B19]">
+                  Verification pending: we are reviewing your registration
+                </h3>
+<span class="px-2.5 py-0.5 rounded-full bg-[#EFEAE0] text-[#812807] text-[11px] font-semibold border border-[#E3DDD0]">
+                  ARCON Review in Progress
+                </span>
+</div>
+<p class="font-body-md text-xs text-[#57423c] max-w-3xl mt-1 leading-relaxed">
+                Your submitted credentials (ARCON #3812, NIA #1940) are undergoing credential cross-validation against the 2025 Gazette. Verified status unlocks direct video monograph commissioning and escrow-backed milestone payouts.
+              </p>
+</div>
+</div>
+<div class="flex items-center space-x-3 flex-shrink-0">
+<a class="inline-flex items-center text-xs font-semibold text-[#983917] hover:underline decoration-1 underline-offset-4" href="#">
+<span>View status</span>
+<span class="material-symbols-outlined text-[16px] ml-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- METRIC STATS CARDS (ROW 1: 3-COLUMNS) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Stat Card 1 -->
+<div class="bg-white border border-[#E3DDD0] rounded-xl p-6 relative flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-caps text-label-caps text-[#8a726b] uppercase">PROFILE VIEWS</span>
+<span class="inline-flex items-center text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#E8F4F0] text-[#1F7A5A]">
+              +18.4%
+            </span>
+</div>
+<div class="my-4">
+<div class="font-serif text-3xl font-semibold text-[#1C1B19] tracking-tight tabular-nums">1,428</div>
+<p class="text-xs text-[#57423c] mt-0.5">Unique monograph readers vs last month</p>
+</div>
+<!-- Trendline SVG -->
+<div class="pt-2 border-t border-[#E3DDD0]/60 flex items-end justify-between">
+<svg class="w-full h-8 overflow-visible" fill="none" preserveaspectratio="none" viewbox="0 0 200 32">
+<path d="M0 24 C 30 20, 60 28, 90 14 C 120 4, 150 18, 200 6" stroke="#B8502D" stroke-linecap="round" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<path d="M0 24 C 30 20, 60 28, 90 14 C 120 4, 150 18, 200 6 L 200 32 L 0 32 Z" fill="url(#terracotta-grad)" opacity="0.12"></path>
+<defs>
+<lineargradient id="terracotta-grad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#B8502D"></stop>
+<stop offset="100%" stop-color="#B8502D" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-white border border-[#E3DDD0] rounded-xl p-6 relative flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-caps text-label-caps text-[#8a726b] uppercase">SAVES &amp; BOOKMARKS</span>
+<span class="inline-flex items-center text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#E8F4F0] text-[#1F7A5A]">
+              +12% this week
+            </span>
+</div>
+<div class="my-4">
+<div class="font-serif text-3xl font-semibold text-[#1C1B19] tracking-tight tabular-nums">342</div>
+<p class="text-xs text-[#57423c] mt-0.5">Corporate &amp; private brief collectors</p>
+</div>
+<!-- Trendline SVG -->
+<div class="pt-2 border-t border-[#E3DDD0]/60 flex items-end justify-between">
+<svg class="w-full h-8 overflow-visible" fill="none" preserveaspectratio="none" viewbox="0 0 200 32">
+<path d="M0 26 C 40 22, 70 20, 110 18 C 140 16, 170 8, 200 4" stroke="#5a5850" stroke-linecap="round" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<path d="M0 26 C 40 22, 70 20, 110 18 C 140 16, 170 8, 200 4 L 200 32 L 0 32 Z" fill="#5a5850" opacity="0.08"></path>
+</svg>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-white border border-[#E3DDD0] rounded-xl p-6 relative flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-caps text-label-caps text-[#8a726b] uppercase">NEW REQUESTS</span>
+<span class="inline-flex items-center text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#B8502D]/10 text-[#983917]">
+              4 awaiting review
+            </span>
+</div>
+<div class="my-4">
+<div class="font-serif text-3xl font-semibold text-[#1C1B19] tracking-tight tabular-nums">14</div>
+<p class="text-xs text-[#57423c] mt-0.5">Total direct commission inquiries this quarter</p>
+</div>
+<!-- Trendline SVG (Deep Green) -->
+<div class="pt-2 border-t border-[#E3DDD0]/60 flex items-end justify-between">
+<svg class="w-full h-8 overflow-visible" fill="none" preserveaspectratio="none" viewbox="0 0 200 32">
+<path d="M0 28 C 50 26, 80 15, 120 18 C 150 22, 170 10, 200 2" stroke="#1F7A5A" stroke-linecap="round" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<path d="M0 28 C 50 26, 80 15, 120 18 C 150 22, 170 10, 200 2 L 200 32 L 0 32 Z" fill="url(#green-grad)" opacity="0.1"></path>
+<defs>
+<lineargradient id="green-grad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#1F7A5A"></stop>
+<stop offset="100%" stop-color="#1F7A5A" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+</div>
+</section>
+<!-- TWO-COLUMN WORKSPACE GRID (ROW 2: 12-COLUMNS) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT COLUMN: RECENT REQUESTS (SPAN 8) -->
+<div class="lg:col-span-8 bg-white border border-[#E3DDD0] rounded-xl p-6">
+<div class="flex items-center justify-between pb-4 border-b border-[#E3DDD0]">
+<div>
+<h2 class="font-serif text-xl font-medium text-[#1C1B19]">Recent client commission requests</h2>
+<p class="text-xs text-[#57423c] mt-0.5">Private residences, commercial atelièrs, and institutional masterplans</p>
+</div>
+<a class="text-xs font-semibold text-[#983917] hover:underline flex items-center space-x-1" href="#">
+<span>View all requests</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+<!-- Request Rows -->
+<div class="divide-y divide-[#E3DDD0]/80">
+<!-- Row 1: Chief Adeleke -->
+<div class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-[#F7F4EE]/50 px-2 rounded-lg transition-colors">
+<div class="flex items-start space-x-3.5">
+<div class="w-10 h-10 rounded-full bg-[#EFEAE0] border border-[#E3DDD0] flex items-center justify-center font-serif text-sm font-semibold text-[#1C1B19] flex-shrink-0">
+                  OA
+                </div>
+<div>
+<div class="flex items-center space-x-2">
+<h3 class="text-sm font-semibold text-[#1C1B19]">Chief Olumide Adeleke</h3>
+<span class="text-xs text-[#8a726b]">·</span>
+<span class="text-xs font-medium text-[#57423c]">₦85M – ₦120M Est.</span>
+</div>
+<p class="text-xs font-medium text-[#983917] mt-0.5">Coastal Residential (Private Residence)</p>
+<div class="flex items-center space-x-3 text-[11px] text-[#8a726b] mt-1">
+<span class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[12px]">location_on</span>
+<span>Epe Basin, Ikoyi, Lagos</span>
+</span>
+<span>•</span>
+<span>Received 22 Oct</span>
+</div>
+</div>
+</div>
+<div class="flex items-center sm:flex-col sm:items-end justify-between sm:justify-center gap-2 flex-shrink-0">
+<span class="px-2.5 py-0.5 rounded-full bg-[#E8F4F0] text-[#1F7A5A] text-[11px] font-semibold border border-[#1F7A5A]/20">
+                  Accepted
+                </span>
+<a class="text-xs font-medium text-[#1C1B19] hover:text-[#983917] flex items-center space-x-1" href="#">
+<span>Open brief</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Row 2: Dr. Folake Solanke -->
+<div class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-[#F7F4EE]/50 px-2 rounded-lg transition-colors">
+<div class="flex items-start space-x-3.5">
+<div class="w-10 h-10 rounded-full bg-[#F7F4EE] border border-[#E3DDD0] flex items-center justify-center font-serif text-sm font-semibold text-[#983917] flex-shrink-0">
+                  FS
+                </div>
+<div>
+<div class="flex items-center space-x-2">
+<h3 class="text-sm font-semibold text-[#1C1B19]">Dr. Folake Solanke</h3>
+<span class="text-xs text-[#8a726b]">·</span>
+<span class="text-xs font-medium text-[#57423c]">₦210M Masterplan</span>
+</div>
+<p class="text-xs font-medium text-[#983917] mt-0.5">Boutique Agro-Resort &amp; Spa</p>
+<div class="flex items-center space-x-3 text-[11px] text-[#8a726b] mt-1">
+<span class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[12px]">location_on</span>
+<span>Moniya, Ibadan, Oyo State</span>
+</span>
+<span>•</span>
+<span>Received 23 Oct (10 hrs ago)</span>
+</div>
+</div>
+</div>
+<div class="flex items-center sm:flex-col sm:items-end justify-between sm:justify-center gap-2 flex-shrink-0">
+<span class="px-2.5 py-0.5 rounded-full bg-[#B8502D]/15 text-[#983917] text-[11px] font-semibold border border-[#B8502D]/30">
+                  Awaiting Review
+                </span>
+<a class="text-xs font-medium text-[#1C1B19] hover:text-[#983917] flex items-center space-x-1" href="#">
+<span>Open brief</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Row 3: Engr. Tunde Bakare -->
+<div class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-[#F7F4EE]/50 px-2 rounded-lg transition-colors">
+<div class="flex items-start space-x-3.5">
+<div class="w-10 h-10 rounded-full bg-[#EFEAE0] border border-[#E3DDD0] flex items-center justify-center font-serif text-sm font-semibold text-[#5a5850] flex-shrink-0">
+                  TB
+                </div>
+<div>
+<div class="flex items-center space-x-2">
+<h3 class="text-sm font-semibold text-[#1C1B19]">Engr. Tunde Bakare</h3>
+<span class="text-xs text-[#8a726b]">·</span>
+<span class="text-xs font-medium text-[#57423c]">₦350M Commercial Fitout</span>
+</div>
+<p class="text-xs font-medium text-[#983917] mt-0.5">Commercial Tech Atelier &amp; Studios</p>
+<div class="flex items-center space-x-3 text-[11px] text-[#8a726b] mt-1">
+<span class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[12px]">location_on</span>
+<span>Victoria Island, Lagos</span>
+</span>
+<span>•</span>
+<span>Received 19 Oct</span>
+</div>
+</div>
+</div>
+<div class="flex items-center sm:flex-col sm:items-end justify-between sm:justify-center gap-2 flex-shrink-0">
+<span class="px-2.5 py-0.5 rounded-full bg-[#EFEAE0] text-[#812807] text-[11px] font-semibold border border-[#E3DDD0]">
+                  Reviewing
+                </span>
+<a class="text-xs font-medium text-[#1C1B19] hover:text-[#983917] flex items-center space-x-1" href="#">
+<span>Open brief</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Row 4: Senator K. Al-Hassan -->
+<div class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-[#F7F4EE]/50 px-2 rounded-lg transition-colors">
+<div class="flex items-start space-x-3.5">
+<div class="w-10 h-10 rounded-full bg-[#F7F4EE] border border-[#E3DDD0] flex items-center justify-center font-serif text-sm font-semibold text-[#8a726b] flex-shrink-0">
+                  KA
+                </div>
+<div>
+<div class="flex items-center space-x-2">
+<h3 class="text-sm font-semibold text-[#1C1B19]">Senator K. Al-Hassan</h3>
+<span class="text-xs text-[#8a726b]">·</span>
+<span class="text-xs font-medium text-[#57423c]">Private Tender</span>
+</div>
+<p class="text-xs font-medium text-[#57423c] mt-0.5">Diplomatic Residence &amp; Pavilion</p>
+<div class="flex items-center space-x-3 text-[11px] text-[#8a726b] mt-1">
+<span class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[12px]">location_on</span>
+<span>Maitama, Abuja FCT</span>
+</span>
+<span>•</span>
+<span>Closed 16 Oct</span>
+</div>
+</div>
+</div>
+<div class="flex items-center sm:flex-col sm:items-end justify-between sm:justify-center gap-2 flex-shrink-0">
+<span class="px-2.5 py-0.5 rounded-full bg-[#EFEAE0] text-[#5a5850] text-[11px] font-medium border border-[#E3DDD0]">
+                  Declined (Conflict)
+                </span>
+<a class="text-xs font-medium text-[#8a726b] hover:text-[#1C1B19] flex items-center space-x-1" href="#">
+<span>Archive</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Bottom Action Bar -->
+<div class="mt-4 pt-3 border-t border-[#E3DDD0] flex items-center justify-between text-xs text-[#57423c]">
+<span>Showing 4 of 14 active client briefs</span>
+<div class="flex space-x-2">
+<button class="px-2.5 py-1 border border-[#E3DDD0] rounded text-xs hover:bg-[#EFEAE0] transition-colors">Filter by Lagos</button>
+<button class="px-2.5 py-1 border border-[#E3DDD0] rounded text-xs hover:bg-[#EFEAE0] transition-colors">Export CSV</button>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: COMPLETENESS & REGULATORY NOTICE (SPAN 4) -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Card: Profile Completeness -->
+<div class="bg-white border border-[#E3DDD0] rounded-xl p-6">
+<div class="flex items-center justify-between pb-3 border-b border-[#E3DDD0]">
+<h2 class="font-serif text-lg font-medium text-[#1C1B19]">Profile completeness</h2>
+<span class="text-xs font-bold text-[#983917] bg-[#B8502D]/10 px-2 py-0.5 rounded-full">75%</span>
+</div>
+<!-- Progress Bar -->
+<div class="mt-4">
+<div class="w-full bg-[#EFEAE0] h-2 rounded-full overflow-hidden">
+<div class="bg-[#B8502D] h-full rounded-full transition-all duration-500" style="width: 75%"></div>
+</div>
+<p class="text-[11px] text-[#57423c] mt-1.5 flex justify-between">
+<span>3 of 4 regulatory requirements complete</span>
+<span class="font-medium text-[#1C1B19]">1 item remaining</span>
+</p>
+</div>
+<!-- Checklist -->
+<ul class="mt-4 space-y-3">
+<!-- Item 1: Complete -->
+<li class="flex items-start space-x-3 text-xs">
+<span class="w-4 h-4 rounded-full bg-[#E8F4F0] text-[#1F7A5A] flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[13px]">check</span>
+</span>
+<div class="flex-1">
+<span class="font-medium text-[#1C1B19]">Bio &amp; Practice Credentials</span>
+<p class="text-[11px] text-[#8a726b]">ARCON #3812 · NIA #1940 Verified</p>
+</div>
+</li>
+<!-- Item 2: Complete -->
+<li class="flex items-start space-x-3 text-xs">
+<span class="w-4 h-4 rounded-full bg-[#E8F4F0] text-[#1F7A5A] flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[13px]">check</span>
+</span>
+<div class="flex-1">
+<span class="font-medium text-[#1C1B19]">Verified Studio Contacts</span>
+<p class="text-[11px] text-[#8a726b]">Direct landline &amp; Ikoyi chambers logged</p>
+</div>
+</li>
+<!-- Item 3: Complete -->
+<li class="flex items-start space-x-3 text-xs">
+<span class="w-4 h-4 rounded-full bg-[#E8F4F0] text-[#1F7A5A] flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[13px]">check</span>
+</span>
+<div class="flex-1">
+<span class="font-medium text-[#1C1B19]">Three Built Portfolio Showcases</span>
+<p class="text-[11px] text-[#8a726b]">Epe Villa, Ikoyi Residence, Lekki Pavilion</p>
+</div>
+</li>
+<!-- Item 4: Pending Action -->
+<li class="flex items-start space-x-3 text-xs p-2.5 rounded-lg bg-[#FAF6EC] border border-[#E3DDD0]">
+<span class="w-4 h-4 rounded-full border-2 border-[#983917] text-[#983917] flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#983917]"></span>
+</span>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-semibold text-[#983917]">Demo Video Monograph</span>
+<span class="text-[10px] uppercase font-bold text-[#B8502D]">Required</span>
+</div>
+<p class="text-[11px] text-[#57423c] mt-0.5">
+                    Upload a 15–20 min technical project walkthrough to enable public client commissioning.
+                  </p>
+<a class="mt-2 inline-flex items-center space-x-1 text-xs font-semibold text-[#1C1B19] hover:text-[#983917]" href="#">
+<span>Upload video draft</span>
+<span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</a>
+</div>
+</li>
+</ul>
+</div>
+<!-- Card: ARCON Regulatory Notice -->
+<div class="bg-[#F7F4EE] border border-[#E3DDD0] rounded-xl p-5 draft-corner">
+<div class="flex items-center space-x-2 pb-2 border-b border-[#E3DDD0]/70">
+<span class="material-symbols-outlined text-[18px] text-[#812807]">shield</span>
+<h3 class="font-serif text-sm font-semibold text-[#1C1B19]">ARCON Statutory Practice Notice</h3>
+</div>
+<p class="text-xs text-[#57423c] mt-2.5 leading-relaxed">
+              In accordance with Architects (Registration, etc.) Decree No. 10 of 1969, all digital monographs hosted via ArchNG are automatically routed through the Lagos and Abuja District Seal Registries.
+            </p>
+<div class="mt-3 p-3 bg-white rounded-lg border border-[#E3DDD0] text-[11px] text-[#1C1B19] space-y-1">
+<div class="flex justify-between font-medium">
+<span>Escrow Trust Protection</span>
+<span class="text-[#1F7A5A]">Active</span>
+</div>
+<p class="text-[#8a726b] text-[10px]">
+                Milestone drawings retain Nigerian Copyright Commission protection until stage releases occur.
+              </p>
+</div>
+<div class="mt-3 text-right">
+<a class="text-[11px] font-semibold text-[#983917] hover:underline" href="#">
+                Read Decree No. 10 Schedule →
+              </a>
+</div>
+</div>
+</div>
+</section>
+<!-- PORTFOLIO MONOGRAPH SPOTLIGHT BANNER -->
+<section class="bg-white border border-[#E3DDD0] rounded-xl p-6">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#E3DDD0]">
+<div>
+<span class="font-label-caps text-label-caps text-[#8a726b] uppercase">FEATURED GALLERY REEL</span>
+<h2 class="font-serif text-xl font-medium text-[#1C1B19] mt-0.5">Active Monograph Exhibits</h2>
+</div>
+<div class="flex items-center space-x-2">
+<button class="px-3 py-1.5 bg-[#F7F4EE] hover:bg-[#EFEAE0] border border-[#E3DDD0] text-xs font-medium rounded-lg text-[#1C1B19] transition-colors">
+              Reorder exhibits
+            </button>
+<button class="px-3 py-1.5 bg-[#B8502D] hover:bg-[#9C3E1F] text-white text-xs font-medium rounded-lg transition-colors">
+              + New project folio
+            </button>
+</div>
+</div>
+<!-- 3 Projects in Strict 3:2 landscape cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+<!-- Project 1 -->
+<div class="border border-[#E3DDD0] rounded-lg overflow-hidden bg-[#FAF6EC]/30 group hover:border-[#1C1B19] transition-colors">
+<div class="aspect-[3/2] w-full overflow-hidden bg-[#EFEAE0] relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Modernist concrete villa in Epe Lagos overlooking coastal lagoon waters with rhythmic timber louvers, warm late afternoon African sunlight, manicured tropical flora, architectural photograph strictly 3:2 ratio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPrhajd_fWqw2wNL6V36HdPC4XqDDl4nrgi_qWhsr4f3NzvEYlALKELU0QEKl5tt_FSOAn2COnuHp33woICmfOgmsTSmm5lXw4HWTE5ipw-QyFhwqiWwFou9BqGklrKC-oYnc640GE-QqJ7fgLoyKPZ86IlqOz6cfh8nXjP7w6SNvHI9_S53mW3boR8Ze2fxNlh2BKJs2xNDTaGDd0-DdLIJRMjhswWU38rEdKxho"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 bg-white/95 backdrop-blur-sm text-[10px] font-semibold tracking-wider text-[#1C1B19] uppercase rounded border border-[#E3DDD0]">
+                Built 2024
+              </span>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start">
+<h3 class="font-serif text-base font-semibold text-[#1C1B19] group-hover:text-[#983917] transition-colors">Epe Coastal Villa</h3>
+<span class="text-xs font-semibold text-[#1F7A5A]">Live</span>
+</div>
+<p class="text-xs text-[#57423c] mt-1">Epe Basin, Ikoyi corridor · Private Residence</p>
+<div class="mt-3 pt-3 border-t border-[#E3DDD0] flex justify-between items-center text-[11px] text-[#8a726b]">
+<span>2,410 monograph reads</span>
+<span class="font-medium text-[#1C1B19]">Edit details →</span>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="border border-[#E3DDD0] rounded-lg overflow-hidden bg-[#FAF6EC]/30 group hover:border-[#1C1B19] transition-colors">
+<div class="aspect-[3/2] w-full overflow-hidden bg-[#EFEAE0] relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Interior architectural sweep of a luxury Ikoyi duplex apartment showcasing cantilevered terrazzo staircase, high unbleached lime-wash walls, brass joinery, minimalist gallery furniture in warm natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQth-Fq3DjjAVKOBwbjsgMvo_ENHM7-rEm8jMXFO_YR85i9u0CxEo4Ni0HzTlBP7D2ijIHrd_ytS1iiLb92uR0YclO5NXfdlwfebH04NWMKlAmcEDCAwmh996rGNDO0eEy1JT4AENtceFkIF8ykm_7NzhCQMu0_yD5fGQuRRjJ_sIGOXr_zSIWeqZsKK-8sdMKREaC-Wh0Pcrpg2C5skVHjQ5wBiZ8E26qMVHpqpc"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 bg-white/95 backdrop-blur-sm text-[10px] font-semibold tracking-wider text-[#1C1B19] uppercase rounded border border-[#E3DDD0]">
+                Built 2023
+              </span>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start">
+<h3 class="font-serif text-base font-semibold text-[#1C1B19] group-hover:text-[#983917] transition-colors">Ikoyi Residence VI</h3>
+<span class="text-xs font-semibold text-[#1F7A5A]">Live</span>
+</div>
+<p class="text-xs text-[#57423c] mt-1">Alexander Road, Ikoyi · Residential</p>
+<div class="mt-3 pt-3 border-t border-[#E3DDD0] flex justify-between items-center text-[11px] text-[#8a726b]">
+<span>1,890 monograph reads</span>
+<span class="font-medium text-[#1C1B19]">Edit details →</span>
+</div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="border border-[#E3DDD0] rounded-lg overflow-hidden bg-[#FAF6EC]/30 group hover:border-[#1C1B19] transition-colors">
+<div class="aspect-[3/2] w-full overflow-hidden bg-[#EFEAE0] relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Sculptural architectural pavilion built in Lekki Conservation area using rammed earth and Nigerian iroko hardwood beams under clear blue sky, soft atmospheric shadows, pristine architectural monograph capture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDka7gNkyj2xUPm7It1pjj3aWgaRapL_X9Ey3GFrwKhKavbIBpEb8rTKfXXKLnsQJ4RDxBAIgOiJ5yeVLduObSyjHZg7HYwXzkWZ4N-kqa0uNsLQ0W0R5_72AhTFoPN-morRBC4hwpJSIKYT8lqAkcueo4A_eanM8arQVHOhafhwFSztb3TI1Ez1xdpmVAS_BoXvTpaMIQ7UHpmbmeJST4dUIlcH4VnaxZRRDeKnmA"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 bg-white/95 backdrop-blur-sm text-[10px] font-semibold tracking-wider text-[#1C1B19] uppercase rounded border border-[#E3DDD0]">
+                Built 2022
+              </span>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start">
+<h3 class="font-serif text-base font-semibold text-[#1C1B19] group-hover:text-[#983917] transition-colors">Lekki Earth Pavilion</h3>
+<span class="text-xs font-semibold text-[#1F7A5A]">Live</span>
+</div>
+<p class="text-xs text-[#57423c] mt-1">Lekki Phase 1 · Cultural &amp; Botanical</p>
+<div class="mt-3 pt-3 border-t border-[#E3DDD0] flex justify-between items-center text-[11px] text-[#8a726b]">
+<span>3,120 monograph reads</span>
+<span class="font-medium text-[#1C1B19]">Edit details →</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- SHARED FOOTER (Docked full-width bottom from JSON) -->
+<footer class="mt-auto border-t border-[#E3DDD0] bg-[#ECE7E4]">
+<div class="w-full px-10 py-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
+<div>
+<span class="font-serif text-lg font-semibold text-[#1C1B19]">ArchNG</span>
+<p class="text-xs text-[#57423c] mt-2 leading-relaxed">
+            Registered architectural registry under Nigerian ARCON standards. Empowering verified practice studios nationwide.
+          </p>
+<p class="text-[11px] text-[#8a726b] mt-4">
+            © 2025 ArchNG. All rights reserved.
+          </p>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-[#57423c] uppercase mb-3">Zonal Registries</h4>
+<ul class="space-y-1.5 text-xs text-[#57423c]">
+<li><a class="hover:text-[#983917] transition-colors" href="#">Lagos Registry</a></li>
+<li><a class="hover:text-[#983917] transition-colors" href="#">Abuja Central</a></li>
+<li><a class="hover:text-[#983917] transition-colors" href="#">Port Harcourt</a></li>
+<li><a class="hover:text-[#983917] transition-colors" href="#">Ibadan Hub</a></li>
+<li><a class="hover:text-[#983917] transition-colors" href="#">Enugu District</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-[#57423c] uppercase mb-3">Professional Practice</h4>
+<ul class="space-y-1.5 text-xs text-[#57423c]">
+<li><a class="hover:text-[#983917] transition-colors" href="#">Directory Guidelines</a></li>
+<li><a class="hover:text-[#983917] transition-colors" href="#">Verification Criteria</a></li>
+<li><a class="hover:text-[#983917] transition-colors" href="#">Fee Schedules</a></li>
+<li><a class="hover:text-[#983917] transition-colors" href="#">Press &amp; Monograph</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-[#57423c] uppercase mb-3">Regulatory &amp; Legal</h4>
+<ul class="space-y-1.5 text-xs text-[#57423c]">
+<li><a class="hover:text-[#983917] transition-colors" href="#">ARCON Decree Compliance</a></li>
+<li><a class="hover:text-[#983917] transition-colors" href="#">Client Escrow Trust</a></li>
+<li><a class="hover:text-[#983917] transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-[#983917] transition-colors" href="#">Lagos Chapter Hotline</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

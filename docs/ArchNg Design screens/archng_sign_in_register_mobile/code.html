@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign in &amp; Register | ArchNG — Curated Nigerian Architecture</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed-dim": "#82d7b1",
+            "on-primary-fixed-variant": "#812807",
+            "on-error": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "error": "#ba1a1a",
+            "surface-container-highest": "#e6e2de",
+            "tertiary": "#5a5850",
+            "on-primary-container": "#fff2ef",
+            "surface-container-high": "#ece7e4",
+            "outline": "#8a726b",
+            "on-background": "#1c1b19",
+            "inverse-primary": "#ffb59e",
+            "primary-fixed-dim": "#ffb59e",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#9ef4cc",
+            "primary": "#983917",
+            "error-container": "#ffdad6",
+            "secondary": "#036c4d",
+            "on-surface": "#1c1b19",
+            "inverse-on-surface": "#f5f0ec",
+            "tertiary-fixed-dim": "#cac6bd",
+            "background": "#fdf8f5",
+            "on-error-container": "#93000a",
+            "primary-container": "#b8502d",
+            "surface-variant": "#e6e2de",
+            "surface": "#fdf8f5",
+            "on-secondary-fixed-variant": "#005139",
+            "surface-bright": "#fdf8f5",
+            "inverse-surface": "#32302e",
+            "on-tertiary-fixed": "#1d1c16",
+            "on-secondary-fixed": "#002115",
+            "primary-fixed": "#ffdbd0",
+            "surface-dim": "#ddd9d6",
+            "surface-tint": "#a13f1e",
+            "surface-container-low": "#f7f3ef",
+            "secondary-fixed": "#9ef4cc",
+            "on-tertiary-container": "#faf5eb",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed": "#e7e2d8",
+            "on-tertiary-fixed-variant": "#494740",
+            "on-secondary-container": "#127253",
+            "outline-variant": "#ddc0b8",
+            "surface-container": "#f2ede9",
+            "on-surface-variant": "#57423c",
+            "on-primary-fixed": "#3a0b00",
+            "on-primary": "#ffffff",
+            "tertiary-container": "#737068"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "1.25rem",
+            "margin": "3rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter-mobile": "1rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Newsreader", "serif"],
+            "title-md": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "headline-lg": ["Newsreader", "serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "headline-sm": ["Newsreader", "serif"],
+            "headline-lg-mobile": ["Newsreader", "serif"],
+            "numeric-metric": ["Inter", "sans-serif"],
+            "label-caps": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "display-lg-mobile": ["Newsreader", "serif"],
+            "headline-md": ["Newsreader", "serif"],
+            "label-md": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "numeric-metric": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "46px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .crosshair-corner {
+      position: relative;
+    }
+    .crosshair-corner::before {
+      content: '+';
+      position: absolute;
+      top: -7px;
+      left: -6px;
+      font-family: monospace;
+      font-size: 11px;
+      color: #8a726b;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    .crosshair-corner::after {
+      content: '+';
+      position: absolute;
+      top: -7px;
+      right: -6px;
+      font-family: monospace;
+      font-size: 11px;
+      color: #8a726b;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top App Bar (Task-Focused: features Close/Back navigation and contextual help) -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-sm border-b border-outline-variant/40 px-margin-mobile h-16 flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<a aria-label="Go back to directory" class="w-10 h-10 -ml-2 rounded-lg flex items-center justify-center text-on-surface hover:bg-surface-container active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</a>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-md text-headline-sm text-on-surface tracking-tight font-medium">ArchNG</span>
+<span class="text-[9px] tracking-widest font-semibold px-1.5 py-0.5 rounded bg-secondary/10 text-secondary border border-secondary/20">REG. NG</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1" href="#how-it-works">
+<span class="material-symbols-outlined text-[16px]">help_outline</span>
+<span>Guide</span>
+</a>
+</div>
+</header>
+<!-- Main Content Container -->
+<main class="flex-1 w-full max-w-xl mx-auto px-margin-mobile pt-space-md pb-space-xl flex flex-col gap-space-lg">
+<!-- Compact Architectural Photographic Monograph Banner (Adapting Desktop Left Panel) -->
+<section class="relative rounded-xl overflow-hidden border border-outline-variant/60 bg-inverse-surface text-inverse-on-surface shadow-none crosshair-corner">
+<div class="relative h-44 w-full">
+<img class="w-full h-full object-cover opacity-45 mix-blend-luminosity filter contrast-125" data-alt="A striking minimalist tropical modernist residence in Ikoyi Lagos with clean off-white cantilevered concrete planes, warm terracotta clay breeze blocks, and deep tropical timber pergolas. Soft natural morning sunlight casts measured shadows over structural architectural drafting lines and lush verdant Nigerian foliage in high editorial monograph style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB94S22Wx2xPF0LEpCnEzbjkDYVDuB2rYKfXl2WbmHt1mJG_seHS7UvwPovbYF972bBl6h2Wu2qYWNUGfDICM9yZhjJSNf6sg2fYYdOxKvJrQ8iLmPlmWQZFt8tE9B3s2dGuVYNzrNnzuYgnqdiD8tmZ7c5_Az63ta1tvOm6WvdfgsR6W_ZrU3UWJUSjdPbrpoKjRZ8xg9HOK-Rnjn4J3m_WJ7l_pmsnnfAL_5Okps"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-inverse-surface/80 to-transparent"></div>
+<div class="absolute inset-0 bg-primary/10 mix-blend-color"></div>
+<!-- Coordinates & Certified Monograph Tag -->
+<div class="absolute top-space-sm left-space-md right-space-md flex items-center justify-between text-[11px] font-label-caps tracking-widest text-inverse-on-surface/80">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span>
+            ARCON MONOGRAPH
+          </span>
+<span class="font-mono text-[10px] opacity-75">13°42'N · 04°28'E</span>
+</div>
+<!-- Evocative Quote & Plate Citation -->
+<div class="absolute bottom-space-md left-space-md right-space-md flex flex-col gap-1">
+<p class="font-headline-sm italic text-[15px] leading-snug text-white/95">
+            "Architecture is not merely building walls; it is curating light, breeze, and living memory in the tropical landscape."
+          </p>
+<div class="flex items-center justify-between text-[10px] text-white/60 tracking-wider font-label-caps pt-1 border-t border-white/10">
+<span>ARCHNG MONOGRAPH SERIES</span>
+<span class="text-white/80">PLATE IV — IKOYI</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Authentication Card Canvas -->
+<div class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-space-md sm:p-space-lg shadow-none relative">
+<!-- Institutional Trust Badge -->
+<div class="flex items-center justify-between gap-2 pb-space-sm border-b border-surface-container-high mb-space-md">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[11px] font-label-caps">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>ARCON Certified Gateway</span>
+</div>
+<span class="text-[11px] text-on-surface-variant font-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+          256-Bit SSL
+        </span>
+</div>
+<!-- Header Typography -->
+<div class="mb-space-md">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight font-normal">Welcome to ArchNG</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Connect with certified Nigerian architects and discover verified built projects.</p>
+</div>
+<!-- Segmented Interactive Tabs -->
+<div class="grid grid-cols-2 p-1 bg-surface-container rounded-lg mb-space-lg text-center" role="tablist">
+<button aria-selected="true" class="py-2 px-3 text-label-md font-label-md rounded-md transition-all duration-150 bg-surface-container-lowest text-on-surface shadow-sm font-semibold border border-outline-variant/30" id="tab-btn-signin" onclick="switchAuthTab('signin')" role="tab" type="button">
+          Sign in
+        </button>
+<button aria-selected="false" class="py-2 px-3 text-label-md font-label-md rounded-md transition-all duration-150 text-on-surface-variant hover:text-on-surface" id="tab-btn-register" onclick="switchAuthTab('register')" role="tab" type="button">
+          Create account
+        </button>
+</div>
+<!-- TAB 1: SIGN IN FORM -->
+<div class="space-y-space-md" id="panel-signin" role="tabpanel">
+<form class="space-y-space-md" onsubmit="event.preventDefault();">
+<!-- Corporate Email with Inline Error Display -->
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<label class="block text-label-caps font-label-caps text-on-surface-variant" for="signin-email">
+                Corporate or Professional Email
+              </label>
+<span class="text-[11px] text-primary font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">error</span>
+                Invalid domain
+              </span>
+</div>
+<div class="relative">
+<input aria-describedby="email-error-text" aria-invalid="true" class="w-full h-12 bg-surface-container-lowest border-2 border-primary-container rounded-lg px-3.5 pr-10 font-body-md text-on-surface focus:outline-none focus:ring-0 focus:border-primary text-[14px]" id="signin-email" type="email" value="arc.olumide@adeleke-unverified"/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-primary">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+</div>
+<p class="mt-1.5 text-body-sm font-body-sm text-primary flex items-start gap-1" id="email-error-text">
+<span class="material-symbols-outlined text-[14px] mt-0.5">info</span>
+<span>Please enter a valid work or corporate email address (e.g., name@firm.ng)</span>
+</p>
+</div>
+<!-- Password Field -->
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<label class="block text-label-caps font-label-caps text-on-surface-variant" for="signin-password">
+                Password
+              </label>
+<a class="text-body-sm font-body-sm text-primary hover:underline transition-all" href="#">Forgot password?</a>
+</div>
+<div class="relative">
+<input class="w-full h-12 bg-surface-container-lowest border border-outline-variant/80 rounded-lg px-3.5 pr-11 font-body-md text-on-surface focus:outline-none focus:border-on-surface text-[14px] placeholder:text-on-surface-variant/50" id="signin-password" placeholder="••••••••••••" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute inset-y-0 right-0 pr-3 flex items-center text-on-surface-variant hover:text-on-surface" onclick="togglePasswordVisibility('signin-password', 'pwd-toggle-icon')" type="button">
+<span class="material-symbols-outlined text-[20px]" id="pwd-toggle-icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me Checkbox -->
+<div class="flex items-center gap-2.5 pt-0.5">
+<input class="w-4 h-4 rounded border-outline-variant text-primary-container focus:ring-primary-container focus:ring-offset-0 bg-surface-container-lowest" id="remember-me" type="checkbox"/>
+<label class="text-body-sm font-body-sm text-on-surface select-none" for="remember-me">
+              Remember me on this mobile device
+            </label>
+</div>
+<!-- Primary CTA Button -->
+<button class="w-full min-h-[48px] bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md rounded-lg flex items-center justify-center gap-2 py-3 px-6 active:opacity-90 transition-all shadow-none mt-2" type="submit">
+<span>Sign in to ArchNG</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</form>
+<!-- Institutional Directory Notice Box -->
+<div class="p-3.5 rounded-lg bg-surface-container border border-outline-variant/50 flex items-start gap-3 mt-space-md">
+<div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<div class="flex-1">
+<p class="font-label-caps text-[10px] text-secondary tracking-widest uppercase font-bold">ARCON Practitioner Auth</p>
+<p class="font-body-sm text-[12px] text-on-surface-variant leading-relaxed mt-0.5">
+              Registered ARCON architects can also authenticate using registered folio credentials and digital seals.
+            </p>
+</div>
+</div>
+<div class="text-center pt-2">
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            Don't have an account? 
+            <button class="text-primary font-medium hover:underline ml-1" onclick="switchAuthTab('register')">Create an account</button>
+</p>
+</div>
+</div>
+<!-- TAB 2: CREATE ACCOUNT FORM (Initial state hidden) -->
+<div class="hidden space-y-space-md" id="panel-register" role="tabpanel">
+<form class="space-y-space-md" onsubmit="event.preventDefault();">
+<!-- Role Selector -->
+<div>
+<label class="block text-label-caps font-label-caps text-on-surface-variant mb-1.5">I am registering as</label>
+<div class="grid grid-cols-2 gap-2">
+<label class="border border-primary-container bg-primary-fixed/20 p-2.5 rounded-lg cursor-pointer flex items-center gap-2 text-left">
+<input checked="" class="text-primary-container focus:ring-0" name="account-role" type="radio" value="client"/>
+<span class="font-label-md text-xs text-on-surface font-medium">Looking for architect</span>
+</label>
+<label class="border border-outline-variant/60 p-2.5 rounded-lg cursor-pointer flex items-center gap-2 text-left hover:bg-surface-container">
+<input class="text-primary-container focus:ring-0" name="account-role" type="radio" value="architect"/>
+<span class="font-label-md text-xs text-on-surface font-medium">Registered Architect</span>
+</label>
+</div>
+</div>
+<!-- Full Name -->
+<div>
+<label class="block text-label-caps font-label-caps text-on-surface-variant mb-1.5" for="reg-fullname">
+              Full Legal Name
+            </label>
+<input class="w-full h-12 bg-surface-container-lowest border border-outline-variant/80 rounded-lg px-3.5 font-body-md text-on-surface focus:outline-none focus:border-on-surface text-[14px]" id="reg-fullname" placeholder="e.g. Olumide Adeleke" type="text"/>
+</div>
+<!-- Corporate Email -->
+<div>
+<label class="block text-label-caps font-label-caps text-on-surface-variant mb-1.5" for="reg-email">
+              Corporate / Work Email
+            </label>
+<input class="w-full h-12 bg-surface-container-lowest border border-outline-variant/80 rounded-lg px-3.5 font-body-md text-on-surface focus:outline-none focus:border-on-surface text-[14px]" id="reg-email" placeholder="name@firm.ng or client@organization.com" type="email"/>
+</div>
+<!-- Phone Number (+234) -->
+<div>
+<label class="block text-label-caps font-label-caps text-on-surface-variant mb-1.5" for="reg-phone">
+              Phone Number
+            </label>
+<div class="flex">
+<span class="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-outline-variant/80 bg-surface-container text-on-surface-variant text-[13px] font-mono">
+                +234
+              </span>
+<input class="w-full h-12 bg-surface-container-lowest border border-outline-variant/80 rounded-r-lg px-3.5 font-body-md text-on-surface focus:outline-none focus:border-on-surface text-[14px]" id="reg-phone" placeholder="803 000 0000" type="tel"/>
+</div>
+</div>
+<!-- Password -->
+<div>
+<label class="block text-label-caps font-label-caps text-on-surface-variant mb-1.5" for="reg-password">
+              Create Password
+            </label>
+<input class="w-full h-12 bg-surface-container-lowest border border-outline-variant/80 rounded-lg px-3.5 font-body-md text-on-surface focus:outline-none focus:border-on-surface text-[14px]" id="reg-password" placeholder="Minimum 8 characters" type="password"/>
+</div>
+<!-- Primary Submit Button -->
+<button class="w-full min-h-[48px] bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md rounded-lg flex items-center justify-center gap-2 py-3 px-6 active:opacity-90 transition-all shadow-none" type="submit">
+<span>Create ArchNG Account</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<!-- Terms Citation -->
+<p class="text-[11px] text-on-surface-variant text-center leading-normal pt-1">
+            By continuing, you agree to ArchNG Terms of Service and ARCON Practice Standards guidelines for architectural commissions.
+          </p>
+</form>
+<div class="text-center pt-2">
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            Already registered? 
+            <button class="text-primary font-medium hover:underline ml-1" onclick="switchAuthTab('signin')">Sign in</button>
+</p>
+</div>
+</div>
+</div>
+<!-- Architectural Registry Footnote Pill -->
+<div class="flex items-center justify-center gap-2 text-center text-[12px] text-tertiary">
+<span class="material-symbols-outlined text-[15px] text-secondary">gavel</span>
+<span>Empowered by Architects Registration Council of Nigeria Decree 1969</span>
+</div>
+</main>
+<!-- Mobile Footer adhering to Design System & Shared Components Rules -->
+<footer class="w-full px-margin-mobile py-space-xl flex flex-col gap-space-md border-t border-outline-variant bg-surface-container-low mt-auto">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">ArchNG</span>
+<span class="text-[10px] tracking-widest font-semibold px-2 py-0.5 rounded-full bg-secondary/15 text-secondary">ARCON COMPLIANT</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+        © 2025 ArchNG Platform. Documenting and commissioning Nigerian architecture across Lagos, Abuja FCT, Port Harcourt, Ibadan, and Enugu. Registered ARCON practitioners.
+      </p>
+</div>
+<!-- Jurisdictional and Practice Links -->
+<div class="flex flex-wrap gap-x-4 gap-y-2 pt-2 border-t border-outline-variant/40 text-[12px] font-label-caps text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">ARCON Directory</a>
+<a class="hover:text-primary transition-colors" href="#">Practice Standards</a>
+<a class="hover:text-primary transition-colors" href="#">Lagos Studio Index</a>
+<a class="hover:text-primary transition-colors" href="#">Abuja Registry</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Commission</a>
+</div>
+<div class="text-[11px] text-on-surface-variant/70 font-mono pt-1">
+      PORTAL GATEWAY · VER: 2.4.8-MOBILE · LAGOS / ABUJA
+    </div>
+</footer>
+<!-- Light Vanilla JavaScript Micro-Interactions -->
+<script>
+    function switchAuthTab(target) {
+      const signinBtn = document.getElementById('tab-btn-signin');
+      const registerBtn = document.getElementById('tab-btn-register');
+      const signinPanel = document.getElementById('panel-signin');
+      const registerPanel = document.getElementById('panel-register');
+
+      if (target === 'signin') {
+        signinBtn.classList.add('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm', 'font-semibold', 'border', 'border-outline-variant/30');
+        signinBtn.classList.remove('text-on-surface-variant');
+        signinBtn.setAttribute('aria-selected', 'true');
+
+        registerBtn.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm', 'font-semibold', 'border', 'border-outline-variant/30');
+        registerBtn.classList.add('text-on-surface-variant');
+        registerBtn.setAttribute('aria-selected', 'false');
+
+        signinPanel.classList.remove('hidden');
+        registerPanel.classList.add('hidden');
+      } else {
+        registerBtn.classList.add('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm', 'font-semibold', 'border', 'border-outline-variant/30');
+        registerBtn.classList.remove('text-on-surface-variant');
+        registerBtn.setAttribute('aria-selected', 'true');
+
+        signinBtn.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm', 'font-semibold', 'border', 'border-outline-variant/30');
+        signinBtn.classList.add('text-on-surface-variant');
+        signinBtn.setAttribute('aria-selected', 'false');
+
+        registerPanel.classList.remove('hidden');
+        signinPanel.classList.add('hidden');
+      }
+    }
+
+    function togglePasswordVisibility(inputId, iconId) {
+      const input = document.getElementById(inputId);
+      const icon = document.getElementById(iconId);
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.textContent = 'visibility_off';
+      } else {
+        input.type = 'password';
+        icon.textContent = 'visibility';
+      }
+    }
+  </script>
+</body></html>

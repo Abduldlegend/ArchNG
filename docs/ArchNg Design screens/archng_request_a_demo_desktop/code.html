@@ -1,0 +1,475 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Request a Monograph &amp; Video Demo | ArchNG</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Newsreader:wght@100..900&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed": "#002115",
+            "surface-container": "#f2ede9",
+            "surface-bright": "#fdf8f5",
+            "on-background": "#1c1b19",
+            "on-tertiary-fixed": "#1d1c16",
+            "inverse-surface": "#32302e",
+            "on-surface-variant": "#57423c",
+            "on-error-container": "#93000a",
+            "secondary": "#036c4d",
+            "on-tertiary-container": "#faf5eb",
+            "background": "#fdf8f5",
+            "surface-container-high": "#ece7e4",
+            "on-secondary-container": "#127253",
+            "outline-variant": "#ddc0b8",
+            "inverse-on-surface": "#f5f0ec",
+            "on-error": "#ffffff",
+            "outline": "#8a726b",
+            "inverse-primary": "#ffb59e",
+            "surface-tint": "#a13f1e",
+            "secondary-container": "#9ef4cc",
+            "on-secondary-fixed-variant": "#005139",
+            "secondary-fixed-dim": "#82d7b1",
+            "surface-variant": "#e6e2de",
+            "error-container": "#ffdad6",
+            "surface-dim": "#ddd9d6",
+            "on-surface": "#1c1b19",
+            "on-primary": "#ffffff",
+            "primary-container": "#b8502d",
+            "on-primary-container": "#fff2ef",
+            "primary-fixed": "#ffdbd0",
+            "tertiary": "#5a5850",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f7f3ef",
+            "surface-container-highest": "#e6e2de",
+            "surface": "#fdf8f5",
+            "on-primary-fixed-variant": "#812807",
+            "on-secondary": "#ffffff",
+            "tertiary-container": "#737068",
+            "tertiary-fixed-dim": "#cac6bd",
+            "tertiary-fixed": "#e7e2d8",
+            "on-primary-fixed": "#3a0b00",
+            "secondary-fixed": "#9ef4cc",
+            "primary": "#983917",
+            "primary-fixed-dim": "#ffb59e",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed-variant": "#494740",
+            "surface-container-lowest": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin": "3rem",
+            "gutter-mobile": "1rem",
+            "margin-mobile": "1.25rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "numeric-metric": ["Inter"],
+            "body-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "title-md": ["Inter"],
+            "label-md": ["Inter"],
+            "display-lg": ["Newsreader"],
+            "label-caps": ["Inter"],
+            "headline-lg": ["Newsreader"],
+            "display-lg-mobile": ["Newsreader"],
+            "body-lg": ["Inter"],
+            "headline-lg-mobile": ["Newsreader"],
+            "headline-md": ["Newsreader"],
+            "headline-sm": ["Newsreader"]
+          },
+          "fontSize": {
+            "numeric-metric": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-hairline {
+      border: 1px solid #E3DDD0;
+    }
+    .drafting-cross {
+      position: relative;
+    }
+    .drafting-cross::before {
+      content: "+";
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      line-height: 1;
+      color: #8a726b;
+      font-weight: 300;
+    }
+    .drafting-cross::after {
+      content: "+";
+      position: absolute;
+      bottom: -8px;
+      right: -8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      line-height: 1;
+      color: #8a726b;
+      font-weight: 300;
+    }
+  </style>
+</head>
+<body class="bg-[#F7F4EE] text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TOP APP BAR (from Shared Component JSON) -->
+<header class="bg-surface docked full-width top-0 sticky z-50 border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-space-xl max-w-7xl mx-auto h-20">
+<!-- Brand Anchor -->
+<div class="flex items-center gap-3">
+<a class="font-headline-md text-headline-md text-on-surface tracking-tight hover:opacity-90 transition-opacity" href="#">
+          ArchNG
+        </a>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] tracking-widest font-mono bg-[#EFEAE0] text-tertiary border border-[#E3DDD0] uppercase">
+          REG. NG
+        </span>
+</div>
+<!-- Navigation Links (Active mapping: Architects is primary ecosystem parent) -->
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-primary font-title-md text-title-md border-b-2 border-primary pb-1 transition duration-150 ease-in-out" href="#">
+          Architects
+        </a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-150" href="#">
+          Projects
+        </a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-150" href="#">
+          How it works
+        </a>
+</nav>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center space-x-4">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-150 px-3 py-2" href="#">
+          Sign in
+        </a>
+<a class="bg-primary-container text-on-primary font-label-md text-label-md px-5 py-2.5 rounded-lg hover:bg-[#9C3E1F] transition duration-150 ease-in-out font-medium" href="#">
+          Join as an architect
+        </a>
+</div>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-6 md:px-space-xl py-8">
+<!-- Breadcrumb & Back Navigation -->
+<div class="mb-8">
+<nav class="flex items-center space-x-2 text-body-sm font-body-sm text-tertiary mb-3">
+<a class="hover:text-primary transition-colors" href="#">Architects</a>
+<span>/</span>
+<a class="hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_31}}">Adaeze Okafor Studio</a>
+<span>/</span>
+<span class="text-on-surface font-medium">Request a Demo</span>
+</nav>
+<a class="inline-flex items-center gap-1.5 text-body-sm font-body-sm text-primary hover:underline group mb-4" href="{{DATA:SCREEN:SCREEN_31}}">
+<span class="material-symbols-outlined text-base group-hover:-translate-x-0.5 transition-transform" data-icon="arrow_back">arrow_back</span>
+        Back to Architect Profile
+      </a>
+<!-- Page Header -->
+<div class="max-w-3xl">
+<h1 class="font-display-lg text-headline-lg md:text-[44px] text-on-surface leading-tight tracking-tight mb-3">
+          Request a Monograph &amp; Video Demo
+        </h1>
+<p class="font-body-lg text-body-lg text-tertiary">
+          Submit your project brief to Adaeze Okafor Studio to unlock direct consultation and the full technical walkthrough.
+        </p>
+</div>
+</div>
+<!-- Drafting Division Line -->
+<div class="w-full border-t border-[#E3DDD0] mb-10"></div>
+<!-- Two-Column Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT COLUMN: Inquiry Form Card -->
+<section class="lg:col-span-7 bg-[#FFFFFF] rounded-xl custom-hairline p-8 md:p-10 drafting-cross relative">
+<div class="mb-8 border-b border-[#E3DDD0] pb-6">
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider block mb-1">Confidential Submission</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Commission Specification</h2>
+<p class="font-body-sm text-body-sm text-tertiary mt-1">
+            Provide details of your plot, scope, and timeline. All project briefings are encrypted and transmitted directly to the lead partner's desk.
+          </p>
+</div>
+<form class="space-y-6" onsubmit="event.preventDefault();">
+<!-- Field 1: Project Typology -->
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-tertiary" for="typology">
+              Project Typology
+            </label>
+<div class="relative">
+<select class="w-full h-12 bg-white rounded-lg border border-[#E3DDD0] px-4 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container appearance-none transition-colors cursor-pointer" id="typology">
+<option selected="">Coastal Residential</option>
+<option>Urban Residence</option>
+<option>Multi-family Living</option>
+<option>Commercial &amp; Civic</option>
+<option>Hospitality &amp; Pavilion</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-tertiary">
+<span class="material-symbols-outlined text-lg" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Field 2: Location Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- State Select -->
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-tertiary" for="state">
+                State / Territory
+              </label>
+<div class="relative">
+<select class="w-full h-12 bg-white rounded-lg border border-[#E3DDD0] px-4 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container appearance-none transition-colors cursor-pointer" id="state">
+<option selected="">Lagos State</option>
+<option>Abuja FCT</option>
+<option>Rivers State</option>
+<option>Oyo State</option>
+<option>Enugu State</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-tertiary">
+<span class="material-symbols-outlined text-lg" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<!-- City / Area Input with Active Focus State -->
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-tertiary" for="city">
+                City or District
+              </label>
+<div class="relative">
+<input class="w-full h-12 bg-white rounded-lg border-2 border-primary-container ring-2 ring-primary-container/20 px-4 font-body-md text-body-md text-on-surface focus:outline-none transition-all" id="city" placeholder="e.g. Epe Basin, Ikoyi, Victoria Island" type="text" value="Epe Basin, Ikoyi">
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-primary-container">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</div>
+</div>
+<span class="text-[11px] font-body-sm text-tertiary block">Active input field focus indicator demonstrated.</span>
+</div>
+</div>
+<!-- Field 3: Target Project Budget -->
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-tertiary">
+              Target Project Budget (Naira)
+            </label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3"><label class="budget-option cursor-pointer border border-[#E3DDD0] rounded-lg p-3.5 hover:bg-[#F7F4EE] transition-all bg-white flex flex-col justify-between"><input class="sr-only" name="budget" type="radio" value="under-5m" onchange="updateBudget(this)"><div class="flex items-center justify-between mb-1"><span class="font-numeric-metric text-[16px] text-on-surface block">Under ₦5m</span><span class="indicator hidden w-2 h-2 rounded-full bg-primary-container"></span></div><span class="font-body-sm text-[12px] text-tertiary leading-tight block">Small renovation / advisory</span></label><label class="budget-option cursor-pointer border-2 border-primary-container bg-[#FFF8F6] rounded-lg p-3.5 ring-1 ring-primary-container/30 transition-all flex flex-col justify-between relative shadow-sm"><input checked="" class="sr-only" name="budget" type="radio" value="5m-20m" onchange="updateBudget(this)"><div class="flex items-center justify-between mb-1"><span class="font-numeric-metric text-[16px] text-primary-container block">₦5m to ₦20m</span><span class="indicator w-2 h-2 rounded-full bg-primary-container"></span></div><span class="font-body-sm text-[12px] text-on-surface-variant leading-tight block">Substantial build / schematic design</span></label><label class="budget-option cursor-pointer border border-[#E3DDD0] rounded-lg p-3.5 hover:bg-[#F7F4EE] transition-all bg-white flex flex-col justify-between"><input class="sr-only" name="budget" type="radio" value="over-20m" onchange="updateBudget(this)"><div class="flex items-center justify-between mb-1"><span class="font-numeric-metric text-[16px] text-on-surface block">Over ₦20m</span><span class="indicator hidden w-2 h-2 rounded-full bg-primary-container"></span></div><span class="font-body-sm text-[12px] text-tertiary leading-tight block">Full architectural commission &amp; supervision</span></label></div>
+</div>
+<!-- Field 4: Message / Brief with Validation Error -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="block font-label-caps text-label-caps text-tertiary" for="brief">
+                Project Brief &amp; Site Ambitions
+              </label>
+<span id="validation-flag" class="font-body-sm text-body-sm text-error font-medium">Validation Flag</span>
+</div>
+<!-- Textarea in validation error state -->
+<div class="relative">
+<textarea class="w-full bg-white rounded-lg border-2 border-error ring-1 ring-error/20 p-4 font-body-md text-body-md text-on-surface focus:outline-none transition-colors" id="brief" placeholder="Describe your site topography, development intent, environmental conditions, and desired timeline..." rows="4" oninput="handleBriefInput(this)">Plot 14, Epe lagoon edge.</textarea>
+</div>
+<!-- Error message & counter row -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pt-1"><div id="validation-msg" class="flex items-center gap-1.5 text-error text-[12px] font-body-sm"><span class="material-symbols-outlined text-[16px]" data-icon="error">error</span><span id="validation-text">Message must provide at least 50 characters describing your plot location and scope (currently 24/500 characters).</span></div><span id="validation-flag" class="font-body-sm text-body-sm text-error font-medium">Validation Flag</span></div>
+</div>
+<!-- Helper Notice Box -->
+<div class="bg-[#EFEAE0] rounded-lg p-4 border border-[#E3DDD0] flex items-start gap-3.5">
+<span class="material-symbols-outlined text-tertiary text-xl shrink-0 mt-0.5" data-icon="lock">lock</span>
+<div class="text-body-sm font-body-sm text-on-surface-variant">
+<p class="font-medium text-on-surface mb-0.5">Two-Way Verification Protocol</p>
+              The architect reviews your project request. Direct contact details, CAD specifications, and the recorded video monograph unlock automatically once approved by the principal partner.
+            </div>
+</div>
+<!-- Form Actions -->
+<div class="pt-4 flex items-center justify-between border-t border-[#E3DDD0]">
+<div class="flex items-center space-x-6">
+<button id="send-request-btn" class="bg-primary-container text-white px-7 py-3 rounded-lg font-label-md text-label-md font-semibold hover:bg-[#9C3E1F] focus:ring-2 focus:ring-offset-2 focus:ring-primary-container transition-all flex items-center gap-2 disabled:opacity-80" type="button" onclick="handleSendRequest(this)"><span id="btn-text" class="flex items-center gap-2"><span>Send request</span><span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span></span><span id="btn-spinner" class="hidden items-center gap-2"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span>Sending briefing...</span></span></button>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface underline transition-colors" href="{{DATA:SCREEN:SCREEN_31}}">
+                Cancel
+              </a>
+</div>
+<div class="hidden sm:flex items-center gap-2 text-tertiary text-body-sm">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="verified_user">verified_user</span>
+<span class="text-xs">ARCON Encrypted</span>
+</div>
+</div>
+</form>
+</section>
+<!-- RIGHT COLUMN: Sticky Summary & Locked Demo Preview -->
+<aside class="lg:col-span-5 sticky top-28 space-y-6">
+<!-- Recipient Architect Card -->
+<div class="bg-[#FFFFFF] rounded-xl custom-hairline p-6 relative">
+<div class="flex items-center justify-between mb-4 border-b border-[#E3DDD0] pb-3">
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider">
+              Recipient Architect
+            </span>
+<span class="text-xs font-mono text-tertiary">PROFILE REF: AO-2025</span>
+</div>
+<!-- Architect Details Snippet -->
+<div class="flex items-start gap-4 mb-5">
+<div class="relative shrink-0">
+<img class="w-16 h-16 rounded-full object-cover border border-[#E3DDD0]" data-alt="Dignified editorial portrait photograph of female Nigerian architect Adaeze Okafor dressed in minimalist architectural linen attire against a warm neutral studio concrete background with soft high-key directional lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh6KxNpBDZ7tNxAgOFkuoQzapRWKryIuB8dioIsLAF9LX7qleT9fTzPy6uc0S_xYZwKALc87HEdY1SjcnYgFnlM7tUVwvIHgb7cpLk-Kwjv3fqgOJKSyntCwy24Hb-Gjvf4AdiRiWoQc6bdc3GdAwOMpF5PaXaZJXSlw01sV1uadQCn78sNbikQmkrzuHGHtazd8WmLAq1d2wjfV6v7RcTsNtrIChhCxf5ti4KM4s">
+<span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-[#1F7A5A] border-2 border-white flex items-center justify-center text-white" title="Verified Professional">
+<span class="material-symbols-outlined text-[10px]" data-icon="check">check</span>
+</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-[20px] text-on-surface font-medium leading-snug"><a href="{{DATA:SCREEN:SCREEN_31}}" class="hover:text-primary transition-colors hover:underline">Adaeze Okafor Studio</a></h3>
+<!-- Deep Green ARCON Verification Pill -->
+<div class="mt-1.5 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#E8F4F0] border border-[#1F7A5A]/30 text-[#1F7A5A] text-[11px] font-medium">
+<span class="material-symbols-outlined text-[13px]" data-icon="verified">verified</span>
+<span>ARCON Verified #3812 · NIA Fellow</span>
+</div>
+<p class="font-body-sm text-body-sm text-tertiary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span>
+                Ikoyi, Lagos State, Nigeria
+              </p>
+</div>
+</div>
+<!-- Practice Metrics Row -->
+<div class="grid grid-cols-3 gap-2 py-3 px-3 bg-[#F7F4EE] rounded-lg border border-[#E3DDD0] text-center mb-6">
+<div>
+<span class="font-numeric-metric text-[15px] text-on-surface block">14 Yrs</span>
+<span class="font-body-sm text-[11px] text-tertiary">Practice</span>
+</div>
+<div class="border-x border-[#E3DDD0]">
+<span class="font-numeric-metric text-[15px] text-on-surface block">18 Works</span>
+<span class="font-body-sm text-[11px] text-tertiary">Built Portfolio</span>
+</div>
+<div>
+<span class="font-numeric-metric text-[15px] text-on-surface block">₦850M</span>
+<span class="font-body-sm text-[11px] text-tertiary">Avg. Scale</span>
+</div>
+</div>
+<!-- Locked Video Demo Section -->
+<div class="space-y-3">
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider block">
+              Requested Asset Preview
+            </span>
+<!-- 16:9 Aspect Video Container with Scrim & Lock Overlay -->
+<div class="relative w-full aspect-video rounded-lg overflow-hidden border border-[#E3DDD0] bg-[#1C1B19] group">
+<!-- Blurred Preview Image -->
+<img class="w-full h-full object-cover filter blur-[2px] opacity-60 scale-105" data-alt="Architectural monograph presentation preview showing technical drawings, rammed earth cross-sections, and coastal luxury residential blueprints laid out on an oak drafting table under warm natural daylight, with subtle photographic depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzOGcSBCXbMDB1-Jhk1BoLP63RQSSKS8aXG7lMyPHjur5OwecTJdOM4abO89JVy6CFUuUrWgx_CEssIoTZ2EGkikXK00VYH6OB4ONSq_TR15RzdwPADiaDszkeSmcEXiEBFUcNNfloS2GzYsW6gGmK5S10Z1BSZ_VzXEUCZ_l8odMRKKp0VdiNC_ZBldCabBXlDMhzIe91JxJb8AYc-tlXT57w_ihsdIh6_MhRMVw">
+<!-- Dark Scrim Overlay -->
+<div class="absolute inset-0 bg-[#1C1B19]/50 flex flex-col items-center justify-center p-4 text-center">
+<!-- Lock Icon Badge -->
+<div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center text-white mb-2 shadow-sm">
+<span class="material-symbols-outlined text-2xl" data-icon="lock">lock</span>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1C1B19]/80 backdrop-blur-md text-white text-[12px] font-medium border border-white/20">
+<span class="material-symbols-outlined text-sm text-[#FFB59E]" data-icon="lock_clock">lock_clock</span>
+                  Locked • Unlocks upon request approval
+                </span>
+</div>
+</div>
+<!-- Video Metadata Caption -->
+<div class="space-y-1.5 pt-1">
+<h4 class="font-title-md text-[14px] font-semibold text-on-surface leading-snug">
+                Demo Video (21:40) — Technical Monograph, Rammed Earth Mix Detailing &amp; Working Drawings
+              </h4>
+<p class="font-body-sm text-[12px] text-tertiary leading-relaxed">
+                Protected architectural intellectual property. Upon studio review and mutual alignment, full video walkthrough and direct WhatsApp/phone lines will be accessible.
+              </p>
+</div>
+</div>
+<!-- Assurance Footnote -->
+<div class="mt-6 pt-4 border-t border-[#E3DDD0] flex items-center justify-between text-[11px] text-tertiary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary" data-icon="gavel">gavel</span>
+              ARCON Practice Decree 1969
+            </span>
+<span class="font-mono">ArchNG Escrow Protocol</span>
+</div>
+</div>
+<!-- Additional Quality Assurance / Trust Micro-Card -->
+<div class="bg-[#EFEAE0] rounded-xl custom-hairline p-5">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#B8502D] text-xl shrink-0" data-icon="verified">verified</span>
+<div>
+<p class="font-title-md text-[13px] font-semibold text-on-surface mb-1">Standard Regulatory Process</p>
+<p class="font-body-sm text-[12px] text-tertiary leading-relaxed">
+                ArchNG verifies Nigerian licensure and continuous ARCON compliance. All project negotiations preserve clients’ statutory protections under Nigerian building codes.
+              </p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- DOCKED FOOTER (from Shared Component JSON) -->
+<footer class="bg-surface-container-high docked full-width bottom border-t border-outline-variant mt-20">
+<div class="w-full px-space-xl py-space-xl max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Col 1: Brand & Credential -->
+<div class="space-y-3">
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight block">ArchNG</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs leading-relaxed">
+          The curated architectural register for high-specification Nigerian civil and residential commissions.
+        </p>
+<span class="inline-block text-[11px] font-mono text-tertiary border border-[#E3DDD0] bg-[#F7F4EE] px-2 py-0.5 rounded">
+          ARCON COMPLIANT #NG-8890
+        </span>
+</div>
+<!-- Col 2: Hub Locations -->
+<div>
+<h4 class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider mb-4">Regional Chapters</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors duration-150 block" href="#">Lagos Registry</a></li>
+<li><a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors duration-150 block" href="#">Abuja Central</a></li>
+<li><a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors duration-150 block" href="#">Port Harcourt</a></li>
+<li><a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors duration-150 block" href="#">Ibadan Hub</a></li>
+<li><a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors duration-150 block" href="#">Enugu District</a></li>
+</ul>
+</div>
+<!-- Col 3: Governance & Criteria -->
+<div>
+<h4 class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider mb-4">Registry Standards</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors duration-150 block" href="#">Directory Guidelines</a></li>
+<li><a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors duration-150 block" href="#">Verification Criteria</a></li>
+<li><a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors duration-150 block" href="#">Fee Schedules</a></li>
+<li><a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors duration-150 block" href="#">Press &amp; Monograph</a></li>
+<li><a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors duration-150 block" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<!-- Col 4: Escrow & Legal Notice -->
+<div class="space-y-3">
+<h4 class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider mb-4">Legal Disclaimer</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          © 2025 ArchNG. All rights reserved. Registered architectural registry under Nigerian ARCON standards.
+        </p>
+<div class="pt-2 flex items-center space-x-2 text-tertiary">
+<span class="material-symbols-outlined text-base" data-icon="policy">policy</span>
+<span class="text-xs">Decree 1969 Regulated</span>
+</div>
+</div>
+</div>
+</footer>
+
+
+<script>function updateBudget(radio) { document.querySelectorAll('.budget-option').forEach(function(opt) { opt.className = 'budget-option cursor-pointer border border-[#E3DDD0] rounded-lg p-3.5 hover:bg-[#F7F4EE] transition-all bg-white flex flex-col justify-between'; var title = opt.querySelector('.font-numeric-metric'); if (title) { title.className = 'font-numeric-metric text-[16px] text-on-surface block'; } var ind = opt.querySelector('.indicator'); if (ind) { ind.classList.add('hidden'); } var desc = opt.querySelector('.font-body-sm'); if (desc) { desc.className = 'font-body-sm text-[12px] text-tertiary leading-tight block'; } }); var parent = radio.closest('.budget-option'); if (parent) { parent.className = 'budget-option cursor-pointer border-2 border-primary-container bg-[#FFF8F6] rounded-lg p-3.5 ring-1 ring-primary-container/30 transition-all flex flex-col justify-between relative shadow-sm'; var activeTitle = parent.querySelector('.font-numeric-metric'); if (activeTitle) { activeTitle.className = 'font-numeric-metric text-[16px] text-primary-container block'; } var activeInd = parent.querySelector('.indicator'); if (activeInd) { activeInd.classList.remove('hidden'); } var activeDesc = parent.querySelector('.font-body-sm'); if (activeDesc) { activeDesc.className = 'font-body-sm text-[12px] text-on-surface-variant leading-tight block'; } } } function handleBriefInput(el) { var len = el.value.length; var counter = document.getElementById('char-counter'); var valText = document.getElementById('validation-text'); var valMsg = document.getElementById('validation-msg'); var valFlag = document.getElementById('validation-flag'); if (counter) { counter.innerText = len + ' / 500 characters'; } if (len >= 50) { el.classList.remove('border-error', 'ring-error/20'); el.classList.add('border-[#E3DDD0]'); if (valFlag) { valFlag.classList.add('hidden'); } if (valMsg) { valMsg.className = 'flex items-center gap-1.5 text-secondary text-[12px] font-body-sm'; valMsg.innerHTML = '<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span><span>Project briefing meets required initial fidelity standard.</span>'; } if (counter) { counter.className = 'text-tertiary font-mono text-[12px] text-right font-medium'; } } else { el.classList.add('border-error', 'ring-error/20'); el.classList.remove('border-[#E3DDD0]'); if (valFlag) { valFlag.classList.remove('hidden'); } if (valMsg) { valMsg.className = 'flex items-center gap-1.5 text-error text-[12px] font-body-sm'; valMsg.innerHTML = '<span class="material-symbols-outlined text-[16px]" data-icon="error">error</span><span>Message must provide at least 50 characters describing your plot location and scope (currently ' + len + '/500 characters).</span>'; } if (counter) { counter.className = 'text-error font-mono text-[12px] text-right font-medium'; } } } function handleSendRequest(btn) { var btnText = document.getElementById('btn-text'); var btnSpinner = document.getElementById('btn-spinner'); if (btnText) btnText.classList.add('hidden'); if (btnSpinner) { btnSpinner.classList.remove('hidden'); btnSpinner.classList.add('inline-flex'); } btn.disabled = true; setTimeout(function() { window.location.href = '{{DATA:SCREEN:SCREEN_21}}'; }, 600); }</script></body></html>

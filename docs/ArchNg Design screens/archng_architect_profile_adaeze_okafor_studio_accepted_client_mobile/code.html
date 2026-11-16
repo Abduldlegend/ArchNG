@@ -1,0 +1,506 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Adaeze Okafor Studio | ArchNG</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed": "#ffdbd0",
+            "secondary": "#036c4d",
+            "primary-container": "#b8502d",
+            "on-secondary-container": "#127253",
+            "error": "#ba1a1a",
+            "tertiary": "#5a5850",
+            "surface": "#fdf8f5",
+            "on-tertiary-fixed": "#1d1c16",
+            "surface-tint": "#a13f1e",
+            "surface-bright": "#fdf8f5",
+            "error-container": "#ffdad6",
+            "on-surface-variant": "#57423c",
+            "inverse-primary": "#ffb59e",
+            "on-tertiary-container": "#faf5eb",
+            "tertiary-container": "#737068",
+            "on-error": "#ffffff",
+            "background": "#fdf8f5",
+            "on-primary-fixed": "#3a0b00",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#f5f0ec",
+            "tertiary-fixed-dim": "#cac6bd",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed-variant": "#005139",
+            "surface-container-low": "#f7f3ef",
+            "on-secondary-fixed": "#002115",
+            "surface-container-highest": "#e6e2de",
+            "tertiary-fixed": "#e7e2d8",
+            "surface-container-lowest": "#ffffff",
+            "surface-container": "#f2ede9",
+            "surface-dim": "#ddd9d6",
+            "on-tertiary-fixed-variant": "#494740",
+            "surface-container-high": "#ece7e4",
+            "secondary-fixed": "#9ef4cc",
+            "on-primary-fixed-variant": "#812807",
+            "outline-variant": "#ddc0b8",
+            "secondary-container": "#9ef4cc",
+            "on-background": "#1c1b19",
+            "on-surface": "#1c1b19",
+            "inverse-surface": "#32302e",
+            "on-primary-container": "#fff2ef",
+            "surface-variant": "#e6e2de",
+            "secondary-fixed-dim": "#82d7b1",
+            "outline": "#8a726b",
+            "on-secondary": "#ffffff",
+            "primary-fixed-dim": "#ffb59e",
+            "primary": "#983917",
+            "on-tertiary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "1.25rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem",
+            "margin": "3rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Newsreader", "serif"],
+            "headline-sm": ["Newsreader", "serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "label-caps": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "display-lg-mobile": ["Newsreader", "serif"],
+            "headline-md": ["Newsreader", "serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "display-lg": ["Newsreader", "serif"],
+            "numeric-metric": ["Inter", "sans-serif"],
+            "headline-lg-mobile": ["Newsreader", "serif"],
+            "title-md": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "46px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "numeric-metric": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .crosshair-corner {
+      position: relative;
+    }
+    .crosshair-corner::before {
+      content: '+';
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      font-family: monospace;
+      font-size: 10px;
+      line-height: 10px;
+      color: #8a726b;
+      opacity: 0.6;
+    }
+    .crosshair-corner::after {
+      content: '+';
+      position: absolute;
+      bottom: -6px;
+      right: -6px;
+      font-family: monospace;
+      font-size: 10px;
+      line-height: 10px;
+      color: #8a726b;
+      opacity: 0.6;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased font-body-md min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Sticky Navigation Bar (TopAppBar Component) -->
+<header class="sticky top-0 z-40 w-full bg-surface border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-margin-mobile py-space-sm h-16 max-w-screen-md mx-auto">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Go back" class="p-2 -ml-2 rounded text-on-surface hover:bg-surface-container active:opacity-80 transition-colors">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<a href="#s01" class="text-headline-md font-headline-md text-on-surface tracking-tight hover:opacity-90 transition-opacity">ArchNG</a>
+</div>
+<div class="flex items-center gap-space-xs">
+<button aria-label="Share profile" class="p-2 text-on-surface-variant hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+<button aria-label="Save firm" class="p-2 text-on-surface-variant hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+</button>
+<a class="text-label-md font-label-md text-primary hover:bg-surface-container px-2 py-1 rounded transition-colors ml-1" href="#join">
+          Join as architect
+        </a>
+</div>
+</div>
+</header>
+<main class="max-w-screen-md mx-auto pb-28">
+<!-- Accepted Client Status Banner -->
+<a href="#s08" class="block bg-secondary-fixed/30 border-b border-secondary/20 px-margin-mobile py-3.5 flex items-start gap-3 hover:bg-secondary-fixed/40 transition-colors group cursor-pointer"><div class="mt-0.5 rounded-full bg-secondary text-on-secondary p-1 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check</span></div><div class="space-y-1 flex-1"><div class="flex items-center gap-2"><span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-secondary/15 text-secondary"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>Accepted</span><span class="text-body-sm font-body-sm text-tertiary">Ref #REQ-2025-8842</span></div><p class="text-body-sm font-body-sm text-on-surface leading-snug group-hover:text-primary transition-colors">Your request was accepted. You can now see direct contact details and access the full technical demo video.</p></div><span class="material-symbols-outlined text-tertiary group-hover:text-primary text-[20px] shrink-0 self-center">chevron_right</span></a>
+<!-- Cover Showcase & Architect Identity -->
+<section class="relative bg-surface">
+<!-- 3:2 Architectural Hero Cover -->
+<div class="relative w-full aspect-[3/2] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Editorial photograph of The Epe Courtyard Villa in Lagos showing rich textured rammed earth exterior walls, floor to ceiling teak wood louvers, minimalist reflecting pool, warm afternoon tropical sun, quiet monumental elegance, high-end monograph quality architectural framing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwPRw3PinJcYiUrkSc8GvO0s77GAIxhYWxgzJijZjD0uL3_4QyH3EmAPcx5vA4H0UWNL5AEGEy8D44MCGj9tbwOT2kqDDEhneaLT153hfA5v13HL3DMlQv6PT4kBBgZrfeTH10zvLWGcMJNsPAFkLAldKPJwNgKSnAt1xbFtAs80vxZPsOmiwf4fv3efmsI-zRetzdeHQcGI0BJ5TCYERY4mWwySRHLxjgPlwIBNk">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
+<!-- Monograph Study Tag -->
+<div class="absolute top-4 left-margin-mobile flex items-center gap-2">
+<span class="bg-surface/90 backdrop-blur-sm px-2.5 py-1 rounded text-label-caps font-label-caps text-on-surface tracking-wider uppercase border border-outline-variant">
+            Monograph Case No. 04
+          </span>
+</div>
+<div class="absolute bottom-4 left-margin-mobile right-margin-mobile text-white">
+<span class="text-[11px] uppercase tracking-wider text-white/80 font-mono">Cover Study</span>
+<h3 class="font-headline-sm text-headline-sm text-white drop-shadow-sm">The Epe Courtyard Villa</h3>
+</div>
+</div>
+<!-- Overlapping Architect Identity Profile -->
+<div class="px-margin-mobile relative -mt-12 pt-2">
+<div class="flex items-end justify-between">
+<div class="relative">
+<div class="w-24 h-24 rounded-full ring-4 ring-surface bg-surface-container overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Monochrome 4:5 editorial studio portrait of Principal Architect Adaeze Okafor, framed against natural linen backdrop, wearing structural linen attire, serene confident professional expression, warm studio natural lighting, architectural monograph dignity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgJA2FRhmbajU9GkawJpN1ZpkXqRCSrDrqkZd9nXpB6JI9JWm1PQIqOAt6GdHTbUIdtZIMpXpZLs-TOBYimnOGcfC94FWSKhhKGzGgDtt6p4xkIm9G3QDOIM_BioEcPAq-yiXoi0qDfp55OVSsM92Or0yfroo_YW_f6SoUDmeO6q2IC2eGtSBuJQJD6531JXPHOfS96bT_us21tfR6CbvX98b7Pa2H8DK9R7_WiYo">
+</div>
+<div class="absolute bottom-0 right-0 bg-secondary text-white rounded-full p-1 border-2 border-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 pb-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[12px] font-semibold bg-[#e8f4f0] text-[#1F7A5A] border border-[#1F7A5A]/20">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+              ARCON Verified #3812
+            </span>
+<span class="px-2 py-1 rounded-full text-label-caps font-label-caps bg-surface-container-high text-tertiary">
+              NIA FELLOW
+            </span>
+</div>
+</div>
+<div class="mt-4 space-y-2">
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight">Adaeze Okafor Studio</h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Pioneering climate-responsive coastal residential architecture &amp; rammed earth masonry in West Africa.
+          </p>
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-tertiary pt-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>Ikoyi, Lagos State, Nigeria • West Africa Desk</span>
+</div>
+</div>
+<!-- 3-Column Tabular Metric Bar -->
+<div class="grid grid-cols-3 gap-2 mt-5 py-3 border-y border-outline-variant bg-surface-container-low/50 rounded-lg px-2">
+<div class="text-center">
+<span class="block font-numeric-metric text-numeric-metric text-on-surface">14 Yrs</span>
+<span class="block text-label-caps font-label-caps text-tertiary mt-0.5">PRACTICE</span>
+</div>
+<div class="text-center border-x border-outline-variant">
+<span class="block font-numeric-metric text-numeric-metric text-on-surface">18</span>
+<span class="block text-label-caps font-label-caps text-tertiary mt-0.5">BUILT WORKS</span>
+</div>
+<div class="text-center">
+<span class="block font-numeric-metric text-numeric-metric text-on-surface">₦850M</span>
+<span class="block text-label-caps font-label-caps text-tertiary mt-0.5">AVG. SCALE</span>
+</div>
+</div>
+<!-- Specialty Chips -->
+<div class="flex flex-wrap gap-1.5 mt-4">
+<span class="px-3 py-1 rounded-full text-label-caps font-label-caps bg-surface-container text-tertiary">Rammed Earth</span>
+<span class="px-3 py-1 rounded-full text-label-caps font-label-caps bg-surface-container text-tertiary">Tropical Modernism</span>
+<span class="px-3 py-1 rounded-full text-label-caps font-label-caps bg-surface-container text-tertiary">High-End Residential</span>
+<span class="px-3 py-1 rounded-full text-label-caps font-label-caps bg-surface-container text-tertiary">Passive Ventilation</span>
+</div>
+<!-- Secondary Action: Dossier Download -->
+<button class="w-full mt-4 flex items-center justify-center gap-2 py-2.5 px-4 bg-surface-container-lowest border border-outline-variant rounded-lg text-label-md font-label-md text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">description</span>
+<span>Download Firm Dossier PDF (24MB)</span>
+</button>
+</div>
+</section>
+<!-- UNLOCKED DIRECT STUDIO CHANNEL CARD -->
+<section class="px-margin-mobile mt-8">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 sm:p-5 relative crosshair-corner shadow-none">
+<!-- Header -->
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-secondary">lock_open</span>
+<span class="text-label-caps font-label-caps tracking-wider text-tertiary uppercase">DIRECT STUDIO CHANNEL</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#e8f4f0] text-[#1F7A5A]">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Accepted
+          </span>
+</div>
+<div class="mt-3.5 space-y-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Architect Direct Line &amp; Video Demo</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Your commission request has been approved. You now have unrestricted direct studio access.
+          </p>
+</div>
+<!-- 16:9 Unlocked Video Demo Player -->
+<div class="mt-4 relative aspect-video rounded-lg overflow-hidden border border-outline-variant bg-surface-container-highest group cursor-pointer select-none" onclick="const overlay = this.querySelector('.video-overlay'); const playBtn = this.querySelector('.play-icon'); const prog = this.querySelector('.progress-bar'); const isPlaying = overlay.dataset.playing === 'true'; if (isPlaying) { overlay.dataset.playing = 'false'; playBtn.textContent = 'play_arrow'; prog.classList.add('hidden'); } else { overlay.dataset.playing = 'true'; playBtn.textContent = 'pause'; prog.classList.remove('hidden'); }"><img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Video still frame of Principal Architect Adaeze Okafor pointing to 1:50 scale architectural physical models and blueprint working drawings inside her light-filled minimalist Lagos studio, soft coastal natural lighting, highly focused professional presentation atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn_rfZoeztCpglfu37rSPQnNBYWM1_bUBmR_0KDDpUv66mB5y5lW4kJ2UKXU2HPU7wUIBmGnkF0ZE0q5OQizLI1SHNXzn7TUfW2cnaxMSGJoTClFueEEOEQ9yq-CKMnzliNEN5f3P7QQLHDB6tz9_iDk4t5Wzv19eUmv3749ZOUfJ_urY6QrovX2Tt3RKP2wTnnom6Hsf9G1YvFiCnEJJGzvXWo3qp5fBfVtkXmwU"><div class="video-overlay absolute inset-0 bg-black/35 flex items-center justify-center transition-colors" data-playing="false"><div class="w-12 h-12 rounded-full bg-surface/90 text-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-[28px] ml-0.5 play-icon" style="font-variation-settings: 'FILL' 1;">play_arrow</span></div></div><div class="progress-bar hidden absolute bottom-0 left-0 right-0 h-1 bg-surface-container-highest"><div class="h-full bg-primary w-2/5"></div></div><div class="absolute bottom-2.5 right-2.5 bg-black/80 text-white px-2 py-0.5 rounded text-[11px] font-mono tracking-wide">21:40</div></div>
+<p class="mt-2 text-body-sm font-body-sm text-tertiary italic">
+          21:40 • Technical Monograph, Rammed Earth Mix Detailing &amp; Working Drawings
+        </p>
+<!-- Direct Studio Contact Actions -->
+<div class="mt-4 pt-3.5 border-t border-outline-variant space-y-2.5">
+<!-- Direct Email with Copy -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-tertiary">mail</span>
+<div>
+<span class="block text-label-caps font-label-caps text-tertiary">STUDIO EMAIL</span>
+<span class="text-body-sm font-body-sm text-on-surface font-medium select-all">adaeze@okafor-studio.ng</span>
+</div>
+</div>
+<button class="p-1.5 rounded hover:bg-surface-container active:scale-95 text-tertiary transition-colors cursor-pointer" title="Copy email" onclick="navigator.clipboard?.writeText('adaeze@okafor-studio.ng'); const t = document.getElementById('archng-toast'); if (t) { t.textContent = 'Studio email copied'; t.classList.remove('opacity-0', 'translate-y-2'); setTimeout(() =&gt; t.classList.add('opacity-0', 'translate-y-2'), 2000); }"><span class="material-symbols-outlined text-[18px]">content_copy</span></button>
+</div>
+<!-- Office Direct -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-tertiary">call</span>
+<div>
+<span class="block text-label-caps font-label-caps text-tertiary">OFFICE DIRECT</span>
+<span class="text-body-sm font-body-sm text-on-surface font-medium">+234 1 892 4401</span>
+</div>
+</div>
+<a class="text-label-md font-label-md text-primary font-medium px-2 py-1 hover:underline" href="tel:+23418924401">
+              Call
+            </a>
+</div>
+<!-- WhatsApp Direct -->
+<button type="button" class="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#1F7A5A] text-white rounded-lg text-label-md font-label-md hover:bg-[#127253] active:opacity-80 active:scale-95 transition-all shadow-sm cursor-pointer" onclick="event.preventDefault(); const t = document.getElementById('archng-toast'); if (t) { t.textContent = 'Connecting to WhatsApp (+234 803 555 0192)...'; t.classList.remove('opacity-0', 'translate-y-2'); setTimeout(() =&gt; t.classList.add('opacity-0', 'translate-y-2'), 2200); }"><span class="material-symbols-outlined text-[18px]">chat</span><span>Chat on WhatsApp (+234 803 555 0192)</span></button>
+<!-- Primary Terracotta Action -->
+<button class="w-full py-3 px-4 bg-primary text-on-primary rounded-lg text-label-md font-label-md hover:bg-primary-container transition-colors shadow-sm font-medium">
+            Schedule Consultation Call
+          </button>
+<!-- Secondary Action -->
+<button class="w-full py-2.5 px-4 bg-surface-container-lowest border border-outline-variant rounded-lg text-label-md font-label-md text-on-surface hover:bg-surface-container transition-colors">
+            Download Direct Brief Dossier
+          </button>
+</div>
+<!-- ArchNG Assurance Note -->
+<div class="mt-4 pt-3 border-t border-outline-variant flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary mt-0.5" style="font-variation-settings: 'FILL' 1;">shield</span>
+<p class="text-body-sm font-body-sm text-tertiary leading-snug">
+            ARCON Registered Practitioner Escrow Protected. Includes free initial 20-minute feasibility video consultation.
+          </p>
+</div>
+<!-- Green status footer bar -->
+<div class="mt-3 py-1.5 px-2.5 rounded bg-secondary-fixed/40 text-secondary text-[11px] font-medium flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          Direct studio communication channel active
+        </div>
+</div>
+</section>
+<!-- Editorial Monograph Tabs & Practice Bio -->
+<section class="mt-8 px-margin-mobile">
+<!-- Inline Tabs -->
+<div class="flex border-b border-outline-variant">
+<button class="py-2.5 px-4 text-label-md font-label-md text-primary border-b-2 border-primary font-semibold -mb-px">
+          Overview
+        </button>
+<button class="py-2.5 px-4 text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-colors">
+          Projects (18)
+        </button>
+<button class="py-2.5 px-4 text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-colors">
+          Experience &amp; Monograph
+        </button>
+</div>
+<!-- Practice Bio -->
+<div class="mt-5 space-y-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Design Philosophy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Adaeze Okafor Studio operates at the vital intersection of high-modernist spatial efficiency and West African vernacular tectonic memory. Utilising refined local laterite subsoils, crushed granite aggregates, and treated Nigerian hardwood louvers, the studio formulates residences that reject air-conditioned hermetic sealing in favor of naturally cooled cross-ventilation shafts.
+        </p>
+<!-- Pullout Monograph Quote -->
+<blockquote class="my-6 p-4 border-l-2 border-primary bg-surface-container-low rounded-r-lg">
+<p class="font-headline-sm italic text-on-surface leading-snug text-[18px]">
+            “True architectural longevity in the tropics begins when a building learns to breathe with the coastal wind rather than fighting it.”
+          </p>
+<cite class="block mt-2 font-label-caps text-tertiary uppercase not-italic">
+            — Adaeze Okafor, ARCON / NIA Principal
+          </cite>
+</blockquote>
+<!-- 4-Item Regulatory Milestone Grid -->
+<div class="grid grid-cols-2 gap-2.5 mt-5">
+<div class="p-3 bg-surface-container-lowest border border-outline-variant rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span>
+<h4 class="font-title-md text-[14px] leading-tight text-on-surface mt-1">100% ARCON</h4>
+<p class="text-body-sm font-body-sm text-tertiary mt-0.5">Regulatory Licensure</p>
+</div>
+<div class="p-3 bg-surface-container-lowest border border-outline-variant rounded-lg">
+<span class="material-symbols-outlined text-primary text-[20px]">military_tech</span>
+<h4 class="font-title-md text-[14px] leading-tight text-on-surface mt-1">4 Design Awards</h4>
+<p class="text-body-sm font-body-sm text-tertiary mt-0.5">West Africa Architecture</p>
+</div>
+<div class="p-3 bg-surface-container-lowest border border-outline-variant rounded-lg">
+<span class="material-symbols-outlined text-tertiary text-[20px]">home_work</span>
+<h4 class="font-title-md text-[14px] leading-tight text-on-surface mt-1">14 Residences</h4>
+<p class="text-body-sm font-body-sm text-tertiary mt-0.5">Lagos &amp; Abuja Built</p>
+</div>
+<div class="p-3 bg-surface-container-lowest border border-outline-variant rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[20px]">construction</span>
+<h4 class="font-title-md text-[14px] leading-tight text-on-surface mt-1">4 Under Build</h4>
+<p class="text-body-sm font-body-sm text-tertiary mt-0.5">Active Site Supervision</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Curated Portfolio / Selected Built Projects Stack -->
+<section class="mt-10 px-margin-mobile">
+<div class="flex items-center justify-between mb-4">
+<div>
+<span class="text-label-caps font-label-caps text-tertiary uppercase">SELECTED BUILT WORKS</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Curated Portfolio</h3>
+</div>
+<span class="text-body-sm font-body-sm text-tertiary">4 of 18 shown</span>
+</div>
+<div class="space-y-5">
+<!-- Project 1 -->
+<a href="#s05" class="block bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden group hover:border-primary transition-colors cursor-pointer"><div class="w-full aspect-[3/2] overflow-hidden bg-surface-container relative"><img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Architectural photograph of The Epe Courtyard Villa featuring monumental terracotta rammed earth structural walls, shaded internal courtyard with native ferns, reflecting pool casting ripples on unbleached concrete soffits, pristine midday architectural photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbHDCk7Js8HVWoFIv3DUvjShn3jVzAxVcKBlIdjg4X_ONvsYJ-6xcFPsZ-eojT8WqoX57KKdPhZFYKx7u_qrt4lOi5wzzVy2HCntmYpc8Q3mWqHxun3XeK3T6hsHb0kH4YnNhPQMxIFPDwmKeVRMrA3j7hmGabDXkfEBBYwufn5K7g3mDzpj5NRKhFaxmT1cnA71kACGcYj2-ICruXUYGXwTWsrS_peZStCqeRnx4"><div class="absolute bottom-2.5 right-2.5 bg-surface/90 backdrop-blur-sm px-2 py-0.5 rounded text-[11px] font-mono border border-outline-variant">Completed 2024</div></div><div class="p-4 space-y-2"><div class="flex items-start justify-between"><div><h4 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">The Epe Courtyard Villa</h4><p class="text-body-sm font-body-sm text-tertiary">Epe Lagoon Basin, Lagos State</p></div><span class="font-numeric-metric text-[15px] text-on-surface font-semibold">₦450,000,000</span></div><div class="flex items-center gap-2 pt-1 border-t border-outline-variant text-body-sm font-body-sm text-tertiary"><span>620 m² GFA</span><span>•</span><span class="px-2 py-0.5 rounded-full text-[11px] bg-surface-container text-tertiary">Rammed Earth</span><span class="px-2 py-0.5 rounded-full text-[11px] bg-surface-container text-tertiary">Passive Solar</span></div></div></a>
+<!-- Project 2 -->
+<a href="#s05" class="block bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden group hover:border-primary transition-colors cursor-pointer"><div class="w-full aspect-[3/2] overflow-hidden bg-surface-container relative"><img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Exterior sweep of Victoria Island Penthouse and Sky Terrace overlooking the Atlantic coastline, featuring dark bronze motorized brise-soleil sun louvers, travertine terrace flooring, lush tropical container garden, twilight blue hour sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIPpCaz2zyCrKhD3FpnFNX7YpsE57HlQmh02mzVSgj8AlhOmB_1GvJKi8XZol9mU8tQ7FZnID690k_E-l9rtjM4oL1FB_iQuC-Ae2V0RZ_mm13Gh_Vrmt9lCt4OrYUy0DHs6L1bzCEzDRMFkNR36jMqNuyn-JDeNZJikC20e7D8ypoLgTQ1sHm9DBTU_o9oQwIs0GHGzhXEVrXCL8xE7HOkDHPhLQWEXlDuJu7TEM"><div class="absolute bottom-2.5 right-2.5 bg-surface/90 backdrop-blur-sm px-2 py-0.5 rounded text-[11px] font-mono border border-outline-variant">Completed 2023</div></div><div class="p-4 space-y-2"><div class="flex items-start justify-between"><div><h4 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Victoria Island Penthouse &amp; Sky Terrace</h4><p class="text-body-sm font-body-sm text-tertiary">Victoria Island, Lagos</p></div><span class="font-numeric-metric text-[15px] text-on-surface font-semibold">₦380,000,000</span></div><div class="flex items-center gap-2 pt-1 border-t border-outline-variant text-body-sm font-body-sm text-tertiary"><span>440 m² GFA</span><span>•</span><span class="px-2 py-0.5 rounded-full text-[11px] bg-surface-container text-tertiary">Brise-Soleil</span><span class="px-2 py-0.5 rounded-full text-[11px] bg-surface-container text-tertiary">Oceanfront</span></div></div></a>
+<!-- Project 3 -->
+<a href="#s05" class="block bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden group hover:border-primary transition-colors cursor-pointer"><div class="w-full aspect-[3/2] overflow-hidden bg-surface-container relative"><img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Editorial capture of Banana Island Eco-Sanctuary residence with dramatic cantilevered iroko timber overhangs, integrated green living roofs, rainwater harvesting cascades, high-key architectural publication light quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg1ed1Zm07Q08iPYzDeLtNfo_hkPNYksrYYkyHjZuccLTcQqKNWKRfwxphU5SeOY6P1bGCP7gIZmeYIzsGeIU1ig3i6LWatq8sryIK1B6Oh_QE2l3ibCPUuuvTMbI-Ds0lAafZZ805aEstwWPqLDnL-NWctic7W8E1h4kXthnU6rBpHiKHCqH-W_NfFmFPIhVfpKvSgsMEAtwczRq1nFo-ZG9yqb9rS1uVkzakafQ"><div class="absolute bottom-2.5 right-2.5 bg-surface/90 backdrop-blur-sm px-2 py-0.5 rounded text-[11px] font-mono border border-outline-variant">Completed 2022</div></div><div class="p-4 space-y-2"><div class="flex items-start justify-between"><div><h4 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Banana Island Eco-Sanctuary</h4><p class="text-body-sm font-body-sm text-tertiary">Ikoyi, Lagos</p></div><span class="font-numeric-metric text-[15px] text-on-surface font-semibold">₦1,200,000,000</span></div><div class="flex items-center gap-2 pt-1 border-t border-outline-variant text-body-sm font-body-sm text-tertiary"><span>1,150 m² GFA</span><span>•</span><span class="px-2 py-0.5 rounded-full text-[11px] bg-surface-container text-tertiary">Cantilever Timber</span><span class="px-2 py-0.5 rounded-full text-[11px] bg-surface-container text-tertiary">Rainwater Catchment</span></div></div></a>
+<!-- Project 4 -->
+<a href="#s05" class="block bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden group hover:border-primary transition-colors cursor-pointer"><div class="w-full aspect-[3/2] overflow-hidden bg-surface-container relative"><img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Civic architectural pavilion in Ilubirin Lagos showing curved sustainable glued laminated timber ribbing, porous oyster-shell aggregate aggregate flooring, diffused daylighting through woven canopy, quiet dignified civic presence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC99_TtDgseUHRusGEIsWPZ7l3rzJUmWhu7y-rZTQ4EtppqpClQ5cD8W24o9mfMdvi9TyKVse-o6A-j4G7QnCBQQeTe60xu11K7z1Khyny-gZDfZQu8qU3pXekezRaWAUtpXDv5V_5QHS-NjVaHIgTTrDIeQCu_UW3fYgUIWBsWstI2QYJqZSvKgaC-OFc9SD_UDLIIz1Gbzx-OQk4QDGv3_xZfvPUCG8RmnLaqFh8"><div class="absolute bottom-2.5 right-2.5 bg-surface/90 backdrop-blur-sm px-2 py-0.5 rounded text-[11px] font-mono border border-outline-variant">Completed 2021</div></div><div class="p-4 space-y-2"><div class="flex items-start justify-between"><div><h4 class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Ilubirin Botanical Pavilion</h4><p class="text-body-sm font-body-sm text-tertiary">Lagos Island, Lagos</p></div><span class="font-numeric-metric text-[15px] text-on-surface font-semibold">₦290,000,000</span></div><div class="flex items-center gap-2 pt-1 border-t border-outline-variant text-body-sm font-body-sm text-tertiary"><span>510 m² GFA</span><span>•</span><span class="px-2 py-0.5 rounded-full text-[11px] bg-surface-container text-tertiary">Civic Culture</span><span class="px-2 py-0.5 rounded-full text-[11px] bg-surface-container text-tertiary">Sustainable Timber</span></div></div></a>
+<!-- View all projects action -->
+<button class="w-full py-3 bg-surface-container border border-outline-variant rounded-lg text-label-md font-label-md text-on-surface hover:bg-surface-container-highest transition-colors flex items-center justify-center gap-1.5">
+<span>View all 18 projects</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Career Timeline & Regulatory Licensure -->
+<section class="mt-10 px-margin-mobile space-y-5">
+<div class="border-t border-outline-variant pt-6">
+<span class="text-label-caps font-label-caps text-tertiary uppercase">CAREER MONOGRAPH</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Practice Pedigree</h3>
+</div>
+<!-- Timeline Nodes -->
+<div class="space-y-4 pl-3 border-l-2 border-outline-variant ml-2">
+<div class="relative pl-4">
+<div class="w-2.5 h-2.5 rounded-full bg-primary absolute -left-[21px] top-1.5 ring-4 ring-surface"></div>
+<span class="text-label-caps font-label-caps text-primary">2021 — PRESENT</span>
+<h4 class="font-title-md text-[15px] text-on-surface">Principal &amp; Founder</h4>
+<p class="text-body-sm font-body-sm text-tertiary">Adaeze Okafor Studio • Lagos &amp; Abuja</p>
+</div>
+<div class="relative pl-4">
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary absolute -left-[21px] top-1.5 ring-4 ring-surface"></div>
+<span class="text-label-caps font-label-caps text-tertiary">2017 — 2021</span>
+<h4 class="font-title-md text-[15px] text-on-surface">Senior Associate Architect</h4>
+<p class="text-body-sm font-body-sm text-tertiary">James Cubitt Architects • Lagos</p>
+</div>
+<div class="relative pl-4">
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary absolute -left-[21px] top-1.5 ring-4 ring-surface"></div>
+<span class="text-label-caps font-label-caps text-tertiary">2013 — 2017</span>
+<h4 class="font-title-md text-[15px] text-on-surface">Project Architect</h4>
+<p class="text-body-sm font-body-sm text-tertiary">Foster + Partners • London &amp; Overseas Projects</p>
+</div>
+</div>
+<!-- Institutional Licensure & Degrees Card -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-4 space-y-3">
+<span class="text-label-caps font-label-caps text-tertiary uppercase">INSTITUTIONAL LICENSURE &amp; EDUCATION</span>
+<div class="space-y-2 text-body-sm font-body-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="text-on-surface font-medium">ARCON Registered Architect (License F/3812)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">school</span>
+<span class="text-on-surface font-medium">M.Arch Architectural Association (AA), London</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">school</span>
+<span class="text-on-surface font-medium">B.Arch (First Class Hons), University of Lagos</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Platform Footer (Footer Component from Shared Anchors) -->
+<footer class="w-full px-margin-mobile py-space-xl flex flex-col gap-space-lg mb-16 bg-surface-container-low border-t border-outline-variant max-w-screen-md mx-auto">
+<div class="space-y-2">
+<span class="text-headline-sm font-headline-sm text-on-surface tracking-tight">ArchNG</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+        © 2025 ArchNG Platform. Documenting and commissioning Nigerian architecture across Lagos, Abuja FCT, Port Harcourt, Ibadan, and Enugu. Registered ARCON practitioners.
+      </p>
+</div>
+<!-- Editorial Links -->
+<div class="flex flex-wrap gap-x-4 gap-y-2 pt-2 border-t border-outline-variant text-label-caps font-label-caps">
+<a class="text-on-surface-variant hover:text-primary underline transition-colors" href="#arcon">ARCON Directory</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-colors" href="#standards">Practice Standards</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-colors" href="#lagos">Lagos Studio Index</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-colors" href="#abuja">Abuja Registry</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-colors" href="#terms">Terms of Commission</a>
+</div>
+</footer>
+<!-- Docked Mobile Bottom Navigation Bar (BottomNavBar Component) -->
+<!-- Active state strictly mapped to Directory destination as mandated for viewing an Architect Profile -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-mobile py-space-xs bg-surface border-t border-outline-variant shadow-none">
+<!-- Destination 1: Discover -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 hover:text-primary active:scale-95 transition-all" href="#s01">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+<span class="text-label-caps font-label-caps mt-0.5">Discover</span>
+</a>
+<!-- Destination 2: Directory (ACTIVE for Architect Profile) -->
+<a class="flex flex-col items-center justify-center text-primary py-1 active:scale-95 transition-all font-medium" href="#s02">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">apartment</span>
+<span class="text-label-caps font-label-caps mt-0.5 font-semibold">Directory</span>
+</a>
+<!-- Destination 3: Saved -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 hover:text-primary active:scale-95 transition-all" href="#saved">
+<span class="material-symbols-outlined text-[22px]">bookmark</span>
+<span class="text-label-caps font-label-caps mt-0.5">Saved</span>
+</a>
+<!-- Destination 4: Inquiries -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 hover:text-primary active:scale-95 transition-all" href="#s08">
+<span class="material-symbols-outlined text-[22px]">videocam</span>
+<span class="text-label-caps font-label-caps mt-0.5">Inquiries</span>
+</a>
+</nav>
+
+
+<div id="archng-toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 px-4 py-2 bg-on-surface text-surface rounded-lg text-body-sm shadow-lg pointer-events-none transition-all duration-300 opacity-0 transform translate-y-2">Copied to clipboard</div></body></html>

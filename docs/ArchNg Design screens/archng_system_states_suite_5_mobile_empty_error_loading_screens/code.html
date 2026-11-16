@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ArchNG System States Suite</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#5a5850",
+            "surface-variant": "#e6e2de",
+            "error-container": "#ffdad6",
+            "surface-bright": "#fdf8f5",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#ddd9d6",
+            "primary-fixed": "#ffdbd0",
+            "primary": "#983917",
+            "on-secondary-fixed-variant": "#005139",
+            "on-surface-variant": "#57423c",
+            "on-tertiary-fixed": "#1d1c16",
+            "inverse-surface": "#32302e",
+            "surface": "#fdf8f5",
+            "background": "#fdf8f5",
+            "on-surface": "#1c1b19",
+            "primary-container": "#b8502d",
+            "surface-container-highest": "#e6e2de",
+            "surface-tint": "#a13f1e",
+            "secondary-fixed": "#9ef4cc",
+            "outline": "#8a726b",
+            "on-primary-container": "#fff2ef",
+            "on-primary-fixed-variant": "#812807",
+            "error": "#ba1a1a",
+            "outline-variant": "#ddc0b8",
+            "on-tertiary-fixed-variant": "#494740",
+            "on-primary-fixed": "#3a0b00",
+            "tertiary-fixed": "#e7e2d8",
+            "on-primary": "#ffffff",
+            "surface-container": "#f2ede9",
+            "primary-fixed-dim": "#ffb59e",
+            "on-secondary-fixed": "#002115",
+            "tertiary-fixed-dim": "#cac6bd",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-container": "#127253",
+            "inverse-primary": "#ffb59e",
+            "secondary-container": "#9ef4cc",
+            "on-tertiary-container": "#faf5eb",
+            "inverse-on-surface": "#f5f0ec",
+            "surface-container-low": "#f7f3ef",
+            "surface-container-high": "#ece7e4",
+            "on-error": "#ffffff",
+            "secondary": "#036c4d",
+            "on-tertiary": "#ffffff",
+            "on-background": "#1c1b19",
+            "secondary-fixed-dim": "#82d7b1",
+            "on-error-container": "#93000a",
+            "tertiary-container": "#737068"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "3rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "1rem",
+            "margin-mobile": "1.25rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "headline-lg-mobile": ["Newsreader"],
+            "headline-sm": ["Newsreader"],
+            "display-lg": ["Newsreader"],
+            "display-lg-mobile": ["Newsreader"],
+            "body-md": ["Inter"],
+            "headline-lg": ["Newsreader"],
+            "label-md": ["Inter"],
+            "numeric-metric": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Newsreader"],
+            "title-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-caps": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg-mobile": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+            "headline-sm": ["22px", {"lineHeight": "30px", "fontWeight": "500"}],
+            "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+            "display-lg-mobile": ["38px", {"lineHeight": "46px", "letterSpacing": "-0.015em", "fontWeight": "400"}],
+            "body-md": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "400"}],
+            "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+            "numeric-metric": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "body-sm": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "headline-md": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+            "title-md": ["18px", {"lineHeight": "26px", "fontWeight": "600"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .drafting-cross {
+      position: relative;
+    }
+    .drafting-cross::before {
+      content: '+';
+      position: absolute;
+      font-family: monospace;
+      font-size: 11px;
+      color: #8a726b;
+      opacity: 0.6;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .cross-tl::before { top: -6px; left: -5px; }
+    .cross-tr::before { top: -6px; right: -5px; }
+    .cross-bl::before { bottom: -6px; left: -5px; }
+    .cross-br::before { bottom: -6px; right: -5px; }
+
+    @keyframes architectural-shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .skeleton-wave {
+      position: relative;
+      overflow: hidden;
+      background-color: #ece7e4;
+    }
+    .skeleton-wave::after {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      transform: translateX(-100%);
+      background-image: linear-gradient(
+        90deg,
+        rgba(253, 248, 245, 0) 0,
+        rgba(253, 248, 245, 0.45) 50%,
+        rgba(253, 248, 245, 0) 100%
+      );
+      animation: architectural-shimmer 1.75s infinite ease-in-out;
+      content: '';
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top App Bar (Shared Components standard) -->
+<header class="bg-surface text-primary docked full-width top-0 sticky z-40 border-b border-outline-variant/60 shadow-none">
+<div class="flex justify-between items-center w-full px-margin-mobile py-space-sm h-16 max-w-md mx-auto">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Open Navigation Menu" class="p-1.5 -ml-1.5 text-on-surface hover:bg-surface-container rounded-lg active:opacity-80 transition-colors" type="button">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-md text-headline-md text-on-surface tracking-tight font-normal">ArchNG</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-semibold tracking-wider bg-surface-container-high text-on-surface-variant uppercase border border-outline-variant/40">ARCON REG</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-2 text-on-surface hover:bg-surface-container rounded-lg active:opacity-80 transition-colors" title="Notifications" type="button">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+</button>
+<button class="text-label-md font-label-md text-primary-container hover:bg-surface-container px-2.5 py-1.5 rounded-lg active:opacity-80 transition-colors" type="button">
+          Join as architect
+        </button>
+</div>
+</div>
+<!-- Mobile State Switcher Hub (Interactive Controller) -->
+<div class="border-t border-outline-variant/40 bg-surface-container-low px-margin-mobile py-2.5">
+<div class="max-w-md mx-auto">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-primary">tune</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">SYSTEM STATES SUITE</span>
+</div>
+<span class="font-label-caps text-[10px] text-tertiary uppercase tracking-widest" id="stateCounter">STATE 1 OF 5</span>
+</div>
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar">
+<button class="state-pill whitespace-nowrap px-3 py-1.5 rounded-full text-[12px] font-medium border transition-colors bg-on-surface text-surface-container-lowest border-on-surface" id="tab-zero-search" onclick="switchState('zero-search', 1)">
+            01 Directory Empty
+          </button>
+<button class="state-pill whitespace-nowrap px-3 py-1.5 rounded-full text-[12px] font-medium border border-outline-variant/70 text-on-surface-variant bg-surface hover:bg-surface-container transition-colors" id="tab-zero-requests" onclick="switchState('zero-requests', 2)">
+            02 My Requests Empty
+          </button>
+<button class="state-pill whitespace-nowrap px-3 py-1.5 rounded-full text-[12px] font-medium border border-outline-variant/70 text-on-surface-variant bg-surface hover:bg-surface-container transition-colors" id="tab-skeleton-loading" onclick="switchState('skeleton-loading', 3)">
+            03 Skeleton Loading
+          </button>
+<button class="state-pill whitespace-nowrap px-3 py-1.5 rounded-full text-[12px] font-medium border border-outline-variant/70 text-on-surface-variant bg-surface hover:bg-surface-container transition-colors" id="tab-upload-failed" onclick="switchState('upload-failed', 4)">
+            04 Upload Failed
+          </button>
+<button class="state-pill whitespace-nowrap px-3 py-1.5 rounded-full text-[12px] font-medium border border-outline-variant/70 text-on-surface-variant bg-surface hover:bg-surface-container transition-colors" id="tab-error-404" onclick="switchState('error-404', 5)">
+            05 404 Folio Missing
+          </button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="flex-grow w-full max-w-md mx-auto px-margin-mobile pt-5 pb-28">
+<!-- ========================================================================= -->
+<!-- STATE 1: DIRECTORY EMPTY SEARCH (ZERO STATE) -->
+<!-- ========================================================================= -->
+<section class="state-view flex flex-col gap-space-lg" id="state-zero-search">
+<!-- Search context & chips -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-3.5 drafting-cross cross-tl cross-br">
+<div class="flex items-center gap-2 px-3 py-2 bg-surface-container-low rounded-lg border border-outline-variant/60">
+<span class="material-symbols-outlined text-[18px] text-tertiary">search</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium truncate">Vernacular Bamboo Eco-resort</span>
+<button aria-label="Clear keyword" class="ml-auto text-tertiary hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="flex flex-wrap items-center gap-1.5 mt-2.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium bg-surface-container text-on-surface border border-outline-variant/70">
+            Cross River
+            <span class="material-symbols-outlined text-[12px] cursor-pointer">close</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium bg-surface-container text-on-surface border border-outline-variant/70">
+            Budget: ₦200M+
+            <span class="material-symbols-outlined text-[12px] cursor-pointer">close</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium bg-surface-container text-on-surface border border-outline-variant/70">
+            Residential + Hospitality
+            <span class="material-symbols-outlined text-[12px] cursor-pointer">close</span>
+</span>
+</div>
+</div>
+<!-- Zero state message block -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-space-lg text-center flex flex-col items-center">
+<!-- Drafting Compass Motif -->
+<div class="w-14 h-14 rounded-full bg-surface-container-low border border-outline-variant/70 flex items-center justify-center text-primary-container mb-space-md">
+<span class="material-symbols-outlined text-[28px]">architecture</span>
+</div>
+<span class="font-label-caps text-label-caps text-primary uppercase mb-1">REGISTRY QUERY • ZERO MATCHES</span>
+<h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight mb-space-sm max-w-xs">
+          No verified practices match your current criteria
+        </h1>
+<p class="font-body-md text-body-md text-tertiary leading-relaxed mb-space-lg text-center">
+          We couldn’t find ARCON-certified architectural practices registered in <span class="text-on-surface font-medium">Cross River</span> specializing in bamboo vernacular within the specified ₦200M+ capital tier.
+        </p>
+<!-- CTAs -->
+<div class="flex flex-col gap-2.5 w-full">
+<button class="w-full bg-primary-container hover:bg-[#9c3e1f] text-on-primary font-label-md text-label-md py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors active:opacity-90" type="button">
+<span class="material-symbols-outlined text-[18px]">filter_alt_off</span>
+            Clear all filters
+          </button>
+<button class="w-full bg-surface-container-lowest border border-outline-variant hover:bg-surface-container-low text-on-surface font-label-md text-label-md py-2.5 px-4 rounded-lg transition-colors active:opacity-90" type="button">
+            Browse full directory (842 Practices)
+          </button>
+</div>
+</div>
+<!-- Architectural Search Advisory Box (Sand #EFEAE0) -->
+<div class="bg-surface-container-high/60 border border-outline-variant rounded-xl p-4 flex gap-3.5">
+<span class="material-symbols-outlined text-[20px] text-primary shrink-0 mt-0.5">lightbulb</span>
+<div>
+<h2 class="font-title-md text-[14px] leading-5 text-on-surface mb-1">Architectural Search Advisory</h2>
+<p class="font-body-sm text-body-sm text-tertiary leading-relaxed">
+            Vernacular bamboo and bio-climatic construction practices frequently cross-operate between Lagos, Calabar, and Enugu. Broadening your regional filter to neighboring South-South or South-East zones returns active commissions.
+          </p>
+</div>
+</div>
+<!-- Suggested Specialty Chips -->
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider">SUGGESTED MONOGRAPH SPECIALTIES</span>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 rounded-full text-body-sm text-on-surface bg-surface-container-low border border-outline-variant/70 hover:border-on-surface transition-colors" type="button">
+            Earth &amp; Rammed Wall
+          </button>
+<button class="px-3 py-1.5 rounded-full text-body-sm text-on-surface bg-surface-container-low border border-outline-variant/70 hover:border-on-surface transition-colors" type="button">
+            Sustainable Tropical Modernism
+          </button>
+<button class="px-3 py-1.5 rounded-full text-body-sm text-on-surface bg-surface-container-low border border-outline-variant/70 hover:border-on-surface transition-colors" type="button">
+            Heritage Adaptive Reuse
+          </button>
+<button class="px-3 py-1.5 rounded-full text-body-sm text-on-surface bg-surface-container-low border border-outline-variant/70 hover:border-on-surface transition-colors" type="button">
+            Coastal Residential
+          </button>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 2: MY REQUESTS EMPTY (CLIENT INQUIRIES ZERO STATE) -->
+<!-- ========================================================================= -->
+<section class="state-view hidden flex-col gap-space-lg" id="state-zero-requests">
+<!-- Monograph Request Zero Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-space-lg text-center flex flex-col items-center drafting-cross cross-tl cross-br">
+<div class="w-16 h-16 rounded-full bg-surface-container-low border border-outline-variant/80 flex items-center justify-center text-primary-container mb-space-md">
+<span class="material-symbols-outlined text-[32px]">videocam_off</span>
+</div>
+<span class="font-label-caps text-label-caps text-primary uppercase mb-1">CLIENT COMMISSIONING DOSSIER</span>
+<h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight mb-space-sm max-w-xs">
+          You haven't requested a demo yet
+        </h1>
+<p class="font-body-md text-body-md text-tertiary leading-relaxed mb-space-lg max-w-sm">
+          ArchNG allows institutional developers and private clients to request private monograph inspections, BIM model walkthroughs, and direct video briefings with lead chartered partners.
+        </p>
+<a class="w-full bg-primary-container hover:bg-[#9c3e1f] text-on-primary font-label-md text-label-md py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors active:opacity-90" href="#state-zero-search" onclick="switchState('zero-search', 1); return false;">
+          Browse Verified Architects
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- 3-Step Guided Protocol -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-tertiary uppercase">COMMISSIONING PROTOCOL</span>
+<span class="font-label-caps text-[10px] text-secondary font-semibold uppercase tracking-wider">ARCON STANDARD</span>
+</div>
+<!-- Step 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex gap-3.5 items-start">
+<div class="w-7 h-7 rounded-full bg-surface-container text-on-surface font-numeric-metric text-[12px] flex items-center justify-center font-bold shrink-0 border border-outline-variant/60">
+            01
+          </div>
+<div>
+<h2 class="font-title-md text-[14px] leading-snug text-on-surface mb-0.5">Discover &amp; Shortlist Portfolios</h2>
+<p class="font-body-sm text-body-sm text-tertiary leading-normal">
+              Examine verified monographs across Lagos, Abuja, and Port Harcourt. Bookmark practices aligned with your site topography and capital envelope.
+            </p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex gap-3.5 items-start">
+<div class="w-7 h-7 rounded-full bg-surface-container text-on-surface font-numeric-metric text-[12px] flex items-center justify-center font-bold shrink-0 border border-outline-variant/60">
+            02
+          </div>
+<div>
+<h2 class="font-title-md text-[14px] leading-snug text-on-surface mb-0.5">Request Monograph Walkthrough</h2>
+<p class="font-body-sm text-body-sm text-tertiary leading-normal">
+              Select 30-minute private video consultations. Principal architects present structural schematics, material palettes, and past regulatory approvals.
+            </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex gap-3.5 items-start">
+<div class="w-7 h-7 rounded-full bg-surface-container text-on-surface font-numeric-metric text-[12px] flex items-center justify-center font-bold shrink-0 border border-outline-variant/60">
+            03
+          </div>
+<div>
+<h2 class="font-title-md text-[14px] leading-snug text-on-surface mb-0.5">Direct ARCON Contract Engagement</h2>
+<p class="font-body-sm text-body-sm text-tertiary leading-normal">
+              Proceed under standard NIA/ARCON engagement frameworks with licensed professional indemnity and statutory local planning permits.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 3: SKELETON LOADING STATE -->
+<!-- ========================================================================= -->
+<section class="state-view hidden flex-col gap-space-md" id="state-skeleton-loading">
+<!-- Status Notice -->
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-caps text-label-caps text-tertiary uppercase">SYNCHRONIZING WITH ARCON REGISTRY...</span>
+</div>
+<span class="font-label-caps text-[11px] text-tertiary">200 OK</span>
+</div>
+<!-- Skeleton Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex flex-col gap-3.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-full skeleton-wave shrink-0"></div>
+<div class="flex flex-col gap-1.5">
+<div class="w-36 h-4 skeleton-wave rounded"></div>
+<div class="w-24 h-3 skeleton-wave rounded"></div>
+</div>
+</div>
+<div class="w-16 h-5 skeleton-wave rounded-full"></div>
+</div>
+<!-- 3:2 Media Thumbnail Placeholder Grid -->
+<div class="grid grid-cols-3 gap-2">
+<div class="aspect-[3/2] skeleton-wave rounded-lg"></div>
+<div class="aspect-[3/2] skeleton-wave rounded-lg"></div>
+<div class="aspect-[3/2] skeleton-wave rounded-lg"></div>
+</div>
+<!-- Tag pills -->
+<div class="flex items-center gap-2 pt-1">
+<div class="w-20 h-5 skeleton-wave rounded-full"></div>
+<div class="w-28 h-5 skeleton-wave rounded-full"></div>
+<div class="w-16 h-5 skeleton-wave rounded-full ml-auto"></div>
+</div>
+<!-- Button Skeleton -->
+<div class="w-full h-10 skeleton-wave rounded-lg mt-1"></div>
+</div>
+<!-- Skeleton Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex flex-col gap-3.5 opacity-80">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-full skeleton-wave shrink-0"></div>
+<div class="flex flex-col gap-1.5">
+<div class="w-40 h-4 skeleton-wave rounded"></div>
+<div class="w-28 h-3 skeleton-wave rounded"></div>
+</div>
+</div>
+<div class="w-16 h-5 skeleton-wave rounded-full"></div>
+</div>
+<!-- 3:2 Single Hero Media Thumbnail -->
+<div class="aspect-[3/2] skeleton-wave rounded-lg w-full"></div>
+<div class="flex items-center gap-2 pt-1">
+<div class="w-24 h-5 skeleton-wave rounded-full"></div>
+<div class="w-20 h-5 skeleton-wave rounded-full"></div>
+</div>
+<div class="w-full h-10 skeleton-wave rounded-lg mt-1"></div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 4: IMAGE UPLOAD FAILED & RETRY -->
+<!-- ========================================================================= -->
+<section class="state-view hidden flex-col gap-space-lg" id="state-upload-failed">
+<!-- Monograph Upload Context Header -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-3.5 flex items-center justify-between">
+<div>
+<span class="font-label-caps text-[10px] text-tertiary uppercase">MONOGRAPH SUBMISSION DOSSIER</span>
+<h2 class="font-title-md text-[15px] text-on-surface">The Epe Courtyard Villa</h2>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-primary/10 text-primary uppercase">Draft Folio</span>
+</div>
+<!-- Inline Error Container -->
+<div class="bg-surface-container-lowest border-2 border-error/70 rounded-xl p-4 flex flex-col gap-3.5 drafting-cross cross-tl cross-br">
+<!-- Error alert head -->
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-full bg-error-container text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">error_outline</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-[11px] text-error font-bold uppercase tracking-wider">TRANSMISSION ERROR • ARCON-STORAGE-504</span>
+</div>
+<h3 class="font-title-md text-[15px] text-on-surface mt-0.5">Asset rejected during ingest</h3>
+</div>
+</div>
+<!-- File Info Card -->
+<div class="bg-surface-container-low rounded-lg p-3 border border-outline-variant/60 flex items-center justify-between">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<span class="material-symbols-outlined text-[22px] text-on-surface-variant">photo_library</span>
+<div class="overflow-hidden">
+<p class="font-body-sm text-[13px] font-medium text-on-surface truncate">epe_courtyard_exterior_cantilever_raw_4k.tiff</p>
+<p class="font-label-caps text-[11px] text-tertiary">48.6 MB • TIFF UNCOMPRESSED</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-error shrink-0">cancel</span>
+</div>
+<!-- Specific diagnostic statement -->
+<p class="font-body-sm text-body-sm text-error bg-error-container/40 p-2.5 rounded-lg border border-error/20 leading-relaxed">
+          Upload failed: File exceeds the maximum 35MB monograph limit or connection timed out over cellular uplink.
+        </p>
+<!-- CTAs -->
+<div class="flex flex-col gap-2 pt-1">
+<button class="w-full bg-primary-container hover:bg-[#9c3e1f] text-on-primary font-label-md text-label-md py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors active:opacity-90" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+            Retry upload
+          </button>
+<button class="w-full bg-surface-container-lowest border border-outline-variant hover:bg-surface-container text-on-surface font-label-md text-label-md py-2.5 px-4 rounded-lg transition-colors active:opacity-90" type="button">
+            Choose another file
+          </button>
+</div>
+</div>
+<!-- File Specification Advisory -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4">
+<h4 class="font-label-caps text-label-caps text-tertiary uppercase mb-2">MONOGRAPH ASSET SPECIFICATIONS</h4>
+<ul class="font-body-sm text-body-sm text-on-surface-variant space-y-1.5">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+            Accepted formats: JPEG, PNG, or WebP format
+          </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+            Maximum single asset payload: 35.0 MB
+          </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+            Preferred resolution: 3840 × 2560px (Standard 3:2 landscape)
+          </li>
+<li class="flex items-center gap-2 text-tertiary">
+<span class="material-symbols-outlined text-[16px]">info</span>
+            Raw CMYK/TIFF files must be pre-converted for browser rendering
+          </li>
+</ul>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 5: 404 NOT FOUND PAGE -->
+<!-- ========================================================================= -->
+<section class="state-view hidden flex-col gap-space-lg" id="state-error-404">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-space-lg text-center flex flex-col items-center drafting-cross cross-tl cross-br cross-tr cross-bl">
+<!-- Status Code Pill -->
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider bg-surface-container text-on-surface-variant uppercase border border-outline-variant/70 mb-space-md">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+          ARCON STATUS 404 / FOLIO NOT LOCATED
+        </span>
+<!-- Architectural Monograph Heading -->
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight mb-space-sm leading-tight">
+          This structure hasn’t been built yet.
+        </h1>
+<p class="font-body-md text-body-md text-tertiary leading-relaxed mb-space-lg max-w-xs">
+          The requested monograph, architect portfolio dossier, or planning permit number is either unlisted, decommissioned by the practice, or permanently relocated.
+        </p>
+<!-- Main Action Buttons -->
+<div class="flex flex-col gap-2.5 w-full">
+<a class="w-full bg-primary-container hover:bg-[#9c3e1f] text-on-primary font-label-md text-label-md py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors active:opacity-90" href="#state-zero-search" onclick="switchState('zero-search', 1); return false;">
+<span class="material-symbols-outlined text-[18px]">home</span>
+            Return to Home Directory
+          </a>
+<button class="w-full bg-surface-container-lowest border border-outline-variant hover:bg-surface-container-low text-on-surface font-label-md text-label-md py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors active:opacity-90" onclick="switchState('zero-search', 1)" type="button">
+<span class="material-symbols-outlined text-[18px]">search</span>
+            Search Registry
+          </button>
+</div>
+</div>
+<!-- Quick Territorial Registry Links -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4">
+<span class="font-label-caps text-label-caps text-tertiary uppercase mb-2.5 block">TERRITORIAL CHAPTER INDEX</span>
+<div class="divide-y divide-outline-variant/40">
+<a class="py-2.5 flex items-center justify-between text-body-sm text-on-surface hover:text-primary transition-colors" href="#">
+<span>Lagos State ARCON Chapter</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">chevron_right</span>
+</a>
+<a class="py-2.5 flex items-center justify-between text-body-sm text-on-surface hover:text-primary transition-colors" href="#">
+<span>Abuja FCT Central Registry</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">chevron_right</span>
+</a>
+<a class="py-2.5 flex items-center justify-between text-body-sm text-on-surface hover:text-primary transition-colors" href="#">
+<span>National Practice Standards &amp; Scales of Fees</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">chevron_right</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Mobile Footer (Shared Components standard) -->
+<footer class="w-full px-margin-mobile py-space-lg flex flex-col gap-space-md border-t border-outline-variant/60 bg-surface-container-low text-on-surface-variant max-w-md mx-auto mb-16">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-[18px] text-on-surface font-normal">ArchNG</span>
+<span class="font-label-caps text-[10px] text-secondary font-semibold uppercase tracking-wider">Statutory ARCON Body</span>
+</div>
+<p class="font-body-sm text-body-sm text-tertiary leading-relaxed">
+      © 2025 ArchNG Platform. Documenting and commissioning Nigerian architecture across Lagos, Abuja FCT, Port Harcourt, Ibadan, and Enugu. Registered ARCON practitioners.
+    </p>
+<div class="flex flex-wrap gap-x-4 gap-y-1 pt-1 font-label-caps text-label-caps text-tertiary">
+<a class="hover:text-primary underline transition-colors" href="#">ARCON Directory</a>
+<a class="hover:text-primary underline transition-colors" href="#">Practice Standards</a>
+<a class="hover:text-primary underline transition-colors" href="#">Lagos Studio Index</a>
+<a class="hover:text-primary underline transition-colors" href="#">Abuja Registry</a>
+<a class="hover:text-primary underline transition-colors" href="#">Terms of Commission</a>
+</div>
+</footer>
+<!-- Bottom Navigation Bar (Shared Components standard, active tab locked to Directory) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-mobile py-space-xs bg-surface border-t border-outline-variant/60 shadow-none">
+<!-- Discover -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-95 transition-transform duration-150 hover:text-primary" href="#">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+<span class="font-label-caps text-label-caps mt-0.5">Discover</span>
+</a>
+<!-- Directory (Active for System State / Registry Inspection) -->
+<a class="flex flex-col items-center justify-center text-primary py-1 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">apartment</span>
+<span class="font-label-caps text-label-caps font-semibold mt-0.5">Directory</span>
+</a>
+<!-- Saved -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-95 transition-transform duration-150 hover:text-primary" href="#">
+<span class="material-symbols-outlined text-[22px]">bookmark</span>
+<span class="font-label-caps text-label-caps mt-0.5">Saved</span>
+</a>
+<!-- Inquiries -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-95 transition-transform duration-150 hover:text-primary" href="#">
+<span class="material-symbols-outlined text-[22px]">videocam</span>
+<span class="font-label-caps text-label-caps mt-0.5">Inquiries</span>
+</a>
+</nav>
+<!-- Interactive State Controller Script -->
+<script>
+    function switchState(stateId, stateIndex) {
+      // Hide all states
+      const views = document.querySelectorAll('.state-view');
+      views.forEach(v => {
+        v.classList.add('hidden');
+        v.classList.remove('flex');
+      });
+
+      // Show selected state
+      const target = document.getElementById('state-' + stateId);
+      if (target) {
+        target.classList.remove('hidden');
+        target.classList.add('flex');
+      }
+
+      // Update switcher pills
+      const pills = document.querySelectorAll('.state-pill');
+      pills.forEach(p => {
+        p.classList.remove('bg-on-surface', 'text-surface-container-lowest', 'border-on-surface');
+        p.classList.add('border-outline-variant/70', 'text-on-surface-variant', 'bg-surface');
+      });
+
+      const activePill = document.getElementById('tab-' + stateId);
+      if (activePill) {
+        activePill.classList.remove('border-outline-variant/70', 'text-on-surface-variant', 'bg-surface');
+        activePill.classList.add('bg-on-surface', 'text-surface-container-lowest', 'border-on-surface');
+      }
+
+      // Update indicator text
+      const counter = document.getElementById('stateCounter');
+      if (counter) {
+        counter.textContent = 'STATE ' + stateIndex + ' OF 5';
+      }
+
+      // Scroll smoothly to top of main view
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body></html>

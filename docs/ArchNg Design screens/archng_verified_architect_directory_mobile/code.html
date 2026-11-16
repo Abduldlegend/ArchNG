@@ -1,0 +1,776 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ArchNG • Official Directory of Registered Architects</title>
+<!-- Fonts: Newsreader for editorial serif headlines & Inter for precision typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed-dim": "#82d7b1",
+            "surface-container": "#f2ede9",
+            "tertiary": "#5a5850",
+            "surface-tint": "#a13f1e",
+            "on-secondary-fixed-variant": "#005139",
+            "surface-variant": "#e6e2de",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed-variant": "#494740",
+            "on-secondary-container": "#127253",
+            "on-primary-fixed-variant": "#812807",
+            "error-container": "#ffdad6",
+            "on-background": "#1c1b19",
+            "surface-container-high": "#ece7e4",
+            "on-primary-fixed": "#3a0b00",
+            "on-error": "#ffffff",
+            "surface-bright": "#fdf8f5",
+            "background": "#fdf8f5",
+            "error": "#ba1a1a",
+            "on-primary-container": "#fff2ef",
+            "surface": "#fdf8f5",
+            "tertiary-container": "#737068",
+            "tertiary-fixed": "#e7e2d8",
+            "on-surface": "#1c1b19",
+            "on-surface-variant": "#57423c",
+            "primary-container": "#b8502d",
+            "outline": "#8a726b",
+            "surface-container-low": "#f7f3ef",
+            "primary-fixed": "#ffdbd0",
+            "outline-variant": "#ddc0b8",
+            "inverse-primary": "#ffb59e",
+            "inverse-on-surface": "#f5f0ec",
+            "surface-container-highest": "#e6e2de",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed": "#1d1c16",
+            "secondary-container": "#9ef4cc",
+            "tertiary-fixed-dim": "#cac6bd",
+            "on-tertiary-container": "#faf5eb",
+            "surface-container-lowest": "#ffffff",
+            "on-error-container": "#93000a",
+            "inverse-surface": "#32302e",
+            "primary": "#983917",
+            "secondary": "#036c4d",
+            "surface-dim": "#ddd9d6",
+            "secondary-fixed": "#9ef4cc",
+            "primary-fixed-dim": "#ffb59e",
+            "on-secondary-fixed": "#002115",
+            "on-primary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-mobile": "1rem",
+            "margin": "3rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1.25rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Newsreader", "serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "headline-lg-mobile": ["Newsreader", "serif"],
+            "headline-sm": ["Newsreader", "serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "label-caps": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "numeric-metric": ["Inter", "sans-serif"],
+            "headline-lg": ["Newsreader", "serif"],
+            "headline-md": ["Newsreader", "serif"],
+            "display-lg": ["Newsreader", "serif"],
+            "title-md": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["38px", { "lineHeight": "46px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "500" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "numeric-metric": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .drafting-crosshair {
+      position: relative;
+    }
+    .drafting-crosshair::before {
+      content: "+";
+      position: absolute;
+      font-family: monospace;
+      font-size: 11px;
+      line-height: 1;
+      color: #8a726b;
+      opacity: 0.6;
+    }
+    /* Hide scrollbar for horizontal chips */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen pb-20">
+<!-- TOP APP BAR (Shared Components JSON Anchor) -->
+<header class="bg-surface text-primary docked full-width top-0 sticky z-40 border-b border-outline-variant flat no shadows">
+<div class="flex justify-between items-center w-full px-margin-mobile py-space-sm h-16">
+<div class="flex items-center gap-2">
+<button aria-label="Menu" class="text-on-surface p-1 hover:bg-surface-container transition-colors duration-150 rounded">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<a class="text-headline-md font-headline-md text-on-surface tracking-tight font-bold" href="#s01">ArchNG</a>
+</div>
+<div class="flex items-center gap-2">
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary px-2 py-1.5 transition-colors" href="#">Sign in</a>
+<button class="bg-primary-container text-on-primary text-label-md font-label-md px-3.5 py-1.5 rounded-lg active:opacity-80 transition-opacity" onclick="window.location.hash = 's06'">
+          Join as architect
+        </button>
+</div>
+</div>
+</header>
+<!-- MAIN VIEWPORT CONTAINER -->
+<main class="max-w-md mx-auto px-margin-mobile pt-space-lg">
+<!-- SECTION INTRO & TITLE -->
+<section class="mb-space-lg">
+<div class="flex items-center gap-1.5 mb-space-xs">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-tertiary tracking-widest uppercase">
+          OFFICIAL REGISTER • ARCON CERTIFIED 2025
+        </span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-medium tracking-tight mb-space-xs">
+        Architects
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        148 registered practitioners across Nigeria verified for high-value residential and civic commissions.
+      </p>
+</section>
+<!-- CONTROLS TOOLBAR -->
+<div class="flex items-center gap-space-sm mb-space-md">
+<!-- Filter Trigger Button with Active Count -->
+<button class="flex-1 flex items-center justify-between bg-surface-container-lowest border border-outline-variant px-space-md py-2.5 rounded-lg active:opacity-80 transition-colors shadow-sm" onclick="document.getElementById('filterDrawer').classList.remove('hidden')">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="tune">tune</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Filters</span>
+</div>
+<span class="inline-flex items-center justify-center bg-primary text-on-primary text-xs font-semibold px-2 py-0.5 rounded-full" id="filterBadgeCount">
+          4
+        </span>
+</button>
+<!-- Sort Selection Dropdown -->
+<div class="relative flex-1">
+<select class="w-full appearance-none bg-surface-container-lowest border border-outline-variant px-space-md py-2.5 rounded-lg font-label-md text-label-md text-on-surface pr-8 focus:outline-none focus:border-on-surface shadow-sm cursor-pointer"><option>Most relevant</option><option selected="">Verified first</option><option>Most experienced</option></select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-tertiary text-lg" data-icon="unfold_more">unfold_more</span>
+</div>
+</div>
+<!-- HORIZONTALLY SCROLLABLE ACTIVE FILTER CHIPS -->
+<div id="activeFilterChips" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 mb-space-lg"><div class="inline-flex items-center gap-1.5 bg-on-surface text-surface-bright px-3 py-1 rounded-full text-xs font-medium shrink-0"><span>Lagos State</span><button aria-label="Remove Lagos State filter" class="hover:text-primary-fixed" onclick="this.parentElement.remove(); updateFilterBadge();"><span class="material-symbols-outlined text-sm leading-none" data-icon="close">close</span></button></div><div class="inline-flex items-center gap-1.5 bg-surface-container text-on-surface px-3 py-1 rounded-full text-xs font-medium border border-outline-variant shrink-0"><span>Tropical Modernism</span><button aria-label="Remove Tropical Modernism filter" class="hover:text-primary" onclick="this.parentElement.remove(); updateFilterBadge();"><span class="material-symbols-outlined text-sm leading-none" data-icon="close">close</span></button></div><div class="inline-flex items-center gap-1.5 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-semibold shrink-0"><span class="material-symbols-outlined text-xs leading-none" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span><span>Verified only</span><button aria-label="Remove Verified filter" class="hover:text-on-surface" onclick="this.parentElement.remove(); updateFilterBadge();"><span class="material-symbols-outlined text-sm leading-none" data-icon="close">close</span></button></div><div class="inline-flex items-center gap-1.5 bg-surface-container text-on-surface px-3 py-1 rounded-full text-xs font-medium border border-outline-variant shrink-0"><span>10+ Years</span><button aria-label="Remove 10+ Years filter" class="hover:text-primary" onclick="this.parentElement.remove(); updateFilterBadge();"><span class="material-symbols-outlined text-sm leading-none" data-icon="close">close</span></button></div><button class="text-primary font-label-caps text-label-caps uppercase underline tracking-wider shrink-0 px-2 py-1" onclick="clearAllFilters()">Reset</button></div>
+<!-- PRACTITIONER CARDS STREAM (Mobile Feed) -->
+<div class="space-y-space-lg">
+<!-- CARD 1: Adaeze Okafor Studio -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm relative group cursor-pointer" onclick="if (!event.target.closest('button, a')) { window.location.hash = 's03'; }">
+<!-- Drafting corner glyphs -->
+<span class="absolute top-2 left-2 text-tertiary/40 font-mono text-[10px] select-none z-10">+</span>
+<span class="absolute top-2 right-2 text-tertiary/40 font-mono text-[10px] select-none z-10">+</span>
+<!-- Image Container with 3:2 Ratio & Badges -->
+<div class="relative aspect-[3/2] w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Modern architectural villa in Ikoyi Lagos with tropical rammed earth walls, expansive cantilevered timber balconies, surrounded by native palm flora under warm golden equatorial daylight, captured in a clean editorial architectural photography style with balanced neutral tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7Kf5u8VuyrwRL4xnrW8tLe_3dkm2mwVgQaccX0uq0BQT-p07FQbUUBCom_3XugQ2LBnbSWEwRD2d9I8vrRRBTJJU0G3lQHThob1UdPeodmpKjSdBmvFXlWT6PswpqbSxYitx8v69UREnKFZGZ-7MDEeQ6SHMq4wGBUbZ6XmTlbwbNkb1oTT4u9vjYUk5lJCJZyPZmI5LWPU5QgQ3l4Rb7D4656Eq3_is_FwUJhNI">
+<!-- Video Demo Available Pill -->
+<div class="absolute top-3 left-3 bg-surface-container-lowest/95 backdrop-blur-sm border border-outline-variant/60 px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-primary text-xs" data-icon="videocam">videocam</span>
+<span class="font-label-caps text-[10px] text-on-surface tracking-wider font-semibold">VIDEO DEMO AVAILABLE</span>
+</div>
+<!-- ARCON Verified Badge Top-Right -->
+<div class="absolute top-3 right-3 bg-secondary-container/95 backdrop-blur-sm text-on-secondary-container border border-secondary/20 px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-[10px] tracking-wider font-bold">ARCON #3812</span>
+</div>
+</div>
+<!-- Practitioner Meta Header -->
+<div class="p-space-md border-b border-outline-variant/40">
+<div class="flex items-start gap-3">
+<img class="w-12 h-14 object-cover rounded-lg border border-outline-variant shrink-0" data-alt="Editorial black and white studio portrait of Nigerian lead architect Adaeze Okafor dressed in minimalist black attire against a neutral textured studio background, serene and authoritative gaze." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWeTU04UwGEm1kxp2Nws9f22ydCmnzn-oTcY7AuHIt6fZRwCUbJOmJYSdAz4FO6AoNAlec_QXBSBrCJdxeIBGPKm6x3uddn8Vgt9Pelsi2z4cL2Uoc0yES3zlPCNDbjimEUxySO764nJRKY1fk45fnSPnADJ0GTfnRjVMnV7bB9tJlTzGhid9BYgq-EIq_quY_Nq7XaLqP_71r5CiwumiF_QMFzeyX9W4ZjXufNe8">
+<div class="flex-1 min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Adaeze Okafor Studio</h2>
+<div class="flex items-center gap-1 text-tertiary mt-0.5">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Ikoyi, Lagos State</span>
+</div>
+</div>
+</div>
+<!-- Metrics Row (Tabular Figures) -->
+<div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-surface-container bg-surface-container-low/60 rounded-lg p-2.5 text-center">
+<div>
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Experience</span>
+<span class="font-numeric-metric text-sm font-semibold text-on-surface">14 yrs</span>
+</div>
+<div class="border-x border-outline-variant/40">
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Built Works</span>
+<span class="font-numeric-metric text-sm font-semibold text-on-surface">18 projects</span>
+</div>
+<div>
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Avg. Scale</span>
+<span class="font-numeric-metric text-sm font-semibold text-primary">₦850m</span>
+</div>
+</div>
+<!-- Tags -->
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-xs font-medium">Rammed Earth</span>
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-xs font-medium">Tropical Modernism</span>
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-xs font-medium">High-End Residential</span>
+</div>
+</div>
+<!-- Action CTAs -->
+<div class="p-space-md bg-surface-container-lowest flex items-center gap-2">
+<a class="flex-1 text-center py-2.5 px-3 border border-outline-variant text-on-surface font-label-md text-label-md rounded-lg hover:bg-surface-container transition-colors" href="#s03">
+            Monograph
+          </a>
+<button class="flex-1 bg-primary-container text-on-primary font-label-md text-label-md py-2.5 px-3 rounded-lg hover:bg-primary transition-colors flex items-center justify-center gap-1.5 active:opacity-90" onclick="window.location.hash = 's03'">
+<span class="material-symbols-outlined text-sm" data-icon="videocam">videocam</span>
+<span>Request Demo</span>
+</button>
+</div>
+</article>
+<!-- CARD 2: Tunde Bakare Architects -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm relative cursor-pointer" onclick="if (!event.target.closest('button, a')) { window.location.hash = 's03'; }">
+<div class="relative aspect-[3/2] w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Dramatic architectural civic center in Maitama Abuja constructed from raw board-marked concrete and local polished Abuja granite masonry, featuring monumental geometric cutouts in soft afternoon Nigerian sunshine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe3iliGjlNA0SrIUbBAJ9huSooRMW8Vmq2vAT1AqoCyD8iiDivuDP4KMVEt-1CKR1sJTWU78-yxdMEhG9641WRfmYnXu2IS6Ep0oP1n9ZdyVZRV4-bAUdLbqbhK192dB4dUE2-kqorg0Cwq9YJozm8ZUx5413EVoWhYYrX6Qg2LUky1udjVFief_iPxKZYY4rVxxtIMetSCeiL63ZRKw0DbrH74lMbkOCgcXMErRE">
+<div class="absolute top-3 right-3 bg-secondary-container/95 backdrop-blur-sm text-on-secondary-container border border-secondary/20 px-2.5 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-[10px] tracking-wider font-bold">ARCON #2140</span>
+</div>
+</div>
+<div class="p-space-md border-b border-outline-variant/40">
+<div class="flex items-start gap-3">
+<img class="w-12 h-14 object-cover rounded-lg border border-outline-variant shrink-0" data-alt="Distinguished mature Nigerian male architect Tunde Bakare looking directly at the camera with framed glasses in an architectural studio drafting office with white paper blueprints in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPAyIzPC2R4R_r8N91vO_BKm89EgHhlVKgziN1n8qr0rZ3MGbBaSqnaunwMOmTFHU8tfQt0Llfo7Ci15EYvvMzABNED8Y65u6GKwZYUo4FFoGqFXyPdDoQaxcBNU2_cX8arNcWhye41Rov8Zq5Do1kwwNO8I3O7XlnV7UTgfDtfi-4kv2QpfX-SDvSI0Kp-elmfQwq9g4d51Rs89iwXJT7YgUJs6iviU8z1DiK4Pw">
+<div class="flex-1 min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Tunde Bakare Architects</h2>
+<div class="flex items-center gap-1 text-tertiary mt-0.5">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Maitama, Abuja FCT</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-surface-container bg-surface-container-low/60 rounded-lg p-2.5 text-center">
+<div>
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Experience</span>
+<span class="font-numeric-metric text-sm font-semibold text-on-surface">18 yrs</span>
+</div>
+<div class="border-x border-outline-variant/40">
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Built Works</span>
+<span class="font-numeric-metric text-sm font-semibold text-on-surface">34 projects</span>
+</div>
+<div>
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Avg. Scale</span>
+<span class="font-numeric-metric text-sm font-semibold text-primary">₦2.4b</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-xs font-medium">Brutalist Tropical</span>
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-xs font-medium">Stone Masonry</span>
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-xs font-medium">Civic &amp; Embassy</span>
+</div>
+</div>
+<div class="p-space-md bg-surface-container-lowest flex items-center gap-2">
+<a class="flex-1 text-center py-2.5 px-3 border border-outline-variant text-on-surface font-label-md text-label-md rounded-lg hover:bg-surface-container transition-colors" href="#s03">
+            Monograph
+          </a>
+<button class="flex-1 bg-primary-container text-on-primary font-label-md text-label-md py-2.5 px-3 rounded-lg hover:bg-primary transition-colors flex items-center justify-center gap-1.5 active:opacity-90" onclick="window.location.hash = 's03'">
+<span class="material-symbols-outlined text-sm" data-icon="videocam">videocam</span>
+<span>Request Demo</span>
+</button>
+</div>
+</article>
+<!-- CARD 3: Onyeka & Chidi Associates -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm relative cursor-pointer" onclick="if (!event.target.closest('button, a')) { window.location.hash = 's03'; }">
+<div class="relative aspect-[3/2] w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Luxury waterfront residential pavilion in Port Harcourt Rivers State combining sustainable iroko timber louvers and glass curtain walls reflecting tranquil mangrove water surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkVbNcpomwkPkn2o67dnp-u9mcfBY6Z2Q2KsXK_7jm3_Ytx8nfeEKxu0bL3Cmcz3lsQuuLNHNPFdQrpD7R2BkBxB-90Yis3GV38WkiIlcj2VjONXoATjTvJjOzL4sKziI3YZF3GHD2h45FScPJAnJ4PKAKZu6k5z8XRITnZEHA-DfPdTtf7b7gtIG-3DLrVgtgK36E7XPK_JqcfmPsIhyNWgyugaRjeWWFmsZY3jA">
+<div class="absolute top-3 right-3 bg-secondary-container/95 backdrop-blur-sm text-on-secondary-container border border-secondary/20 px-2.5 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-[10px] tracking-wider font-bold">ARCON #4902</span>
+</div>
+</div>
+<div class="p-space-md border-b border-outline-variant/40">
+<div class="flex items-start gap-3">
+<img class="w-12 h-14 object-cover rounded-lg border border-outline-variant shrink-0" data-alt="Portrait of two collaborative design partners Chidi and Onyeka seated together at an oak design review conference table in a modern airy design studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDchATNeRXYklKoGZ-2kJjv3l-sYrpaOV2SlCvW72EVAm_E_XekZ5HK-_SIYkay7Ror6BWj_IeMBtzWehh0Or-3SJnVk_-OMwFmo43ba-spI_oibaKY8FILg27GPs2bEYw2vELvY_89i9fTQt2yginoDQI9cXurVbzshrp6-YoMO_E9Y7xYExwev8SI3J0ELv-NyEkDOPSr0OqJl_vtVg0o7STQ847vX5pxQKTbEkk">
+<div class="flex-1 min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Onyeka &amp; Chidi Associates</h2>
+<div class="flex items-center gap-1 text-tertiary mt-0.5">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Port Harcourt, Rivers</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-surface-container bg-surface-container-low/60 rounded-lg p-2.5 text-center">
+<div>
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Experience</span>
+<span class="font-numeric-metric text-sm font-semibold text-on-surface">11 yrs</span>
+</div>
+<div class="border-x border-outline-variant/40">
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Built Works</span>
+<span class="font-numeric-metric text-sm font-semibold text-on-surface">15 projects</span>
+</div>
+<div>
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Avg. Scale</span>
+<span class="font-numeric-metric text-sm font-semibold text-primary">₦620m</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-xs font-medium">Biophilic</span>
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-xs font-medium">Timber Joinery</span>
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-xs font-medium">Delta Ecology</span>
+</div>
+</div>
+<div class="p-space-md bg-surface-container-lowest flex items-center gap-2">
+<a class="flex-1 text-center py-2.5 px-3 border border-outline-variant text-on-surface font-label-md text-label-md rounded-lg hover:bg-surface-container transition-colors" href="#s03">
+            Monograph
+          </a>
+<button class="flex-1 bg-primary-container text-on-primary font-label-md text-label-md py-2.5 px-3 rounded-lg hover:bg-primary transition-colors flex items-center justify-center gap-1.5 active:opacity-90" onclick="window.location.hash = 's03'">
+<span class="material-symbols-outlined text-sm" data-icon="videocam">videocam</span>
+<span>Request Demo</span>
+</button>
+</div>
+</article>
+<!-- CARD 4: Folake Adeleke Design Atelier -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm relative cursor-pointer" onclick="if (!event.target.closest('button, a')) { window.location.hash = 's03'; }">
+<div class="relative aspect-[3/2] w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Sculptural multi-family contemporary apartment block in Victoria Island Lagos featuring ceramic brise-soleil facade screens casting intricate geometric shadow lines on pure white plaster surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSpetiIVDL7JKPdImb5zvgiW4JyOcHaB8Rj87rN9Tier4aas-8p7mN8LqzZ1toIQbOp7NtQ2aC9enlCCGJ5hnCjb3cBgwaSLgOYBWLpZeYyMM8V02FFvAn7lY_KQa4xY9xIk5TSY2JWlVttuezC6RhQtNJ1aVO7LoMhrEvTpVMwHl5TCvp2_u1JZPOiNn45xaLUI-5RVGuy214g1DSjj-YcLCrBtJR1Hf_ArMyosM">
+<div class="absolute top-3 right-3 bg-secondary-container/95 backdrop-blur-sm text-on-secondary-container border border-secondary/20 px-2.5 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-[10px] tracking-wider font-bold">ARCON #5521</span>
+</div>
+</div>
+<div class="p-space-md border-b border-outline-variant/40">
+<div class="flex items-start gap-3">
+<img class="w-12 h-14 object-cover rounded-lg border border-outline-variant shrink-0" data-alt="Editorial portrait of architect Folake Adeleke standing beside a minimalist architectural foam study model, elegant contemporary professional style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkdS0HHByHzf22oDxgUFUUVINOPv521-1r0MeZTVL3dOavmccA_blh9VjocKrOsd0fE08_B45OXsR5zoipepN6pLEToDkwFMP1ij-1ProQZ0whZq7B0XFQNKY-qWwJ6BsdCNtkkdA0BUxsGZqhaUM3wdZltddJ7WvbJUkyBlw190eEZJoL6JmtxkCIwKBlvp3WbIHoyHxcGPTycoFRbu0BApUXt6pF0ybcbuMTVJU">
+<div class="flex-1 min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Folake Adeleke Design Atelier</h2>
+<div class="flex items-center gap-1 text-tertiary mt-0.5">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Victoria Island, Lagos</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-surface-container bg-surface-container-low/60 rounded-lg p-2.5 text-center">
+<div>
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Experience</span>
+<span class="font-numeric-metric text-sm font-semibold text-on-surface">9 yrs</span>
+</div>
+<div class="border-x border-outline-variant/40">
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Built Works</span>
+<span class="font-numeric-metric text-sm font-semibold text-on-surface">12 projects</span>
+</div>
+<div>
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Avg. Scale</span>
+<span class="font-numeric-metric text-sm font-semibold text-primary">₦410m</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-xs font-medium">Micro-Climate Design</span>
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-xs font-medium">Boutique Hospitality</span>
+</div>
+</div>
+<div class="p-space-md bg-surface-container-lowest flex items-center gap-2">
+<a class="flex-1 text-center py-2.5 px-3 border border-outline-variant text-on-surface font-label-md text-label-md rounded-lg hover:bg-surface-container transition-colors" href="#s03">
+            Monograph
+          </a>
+<button class="flex-1 bg-primary-container text-on-primary font-label-md text-label-md py-2.5 px-3 rounded-lg hover:bg-primary transition-colors flex items-center justify-center gap-1.5 active:opacity-90" onclick="window.location.hash = 's03'">
+<span class="material-symbols-outlined text-sm" data-icon="videocam">videocam</span>
+<span>Request Demo</span>
+</button>
+</div>
+</article>
+<!-- CARD 5: Aliyu Bello Works -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm relative cursor-pointer" onclick="if (!event.target.closest('button, a')) { window.location.hash = 's03'; }">
+<div class="relative aspect-[3/2] w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Hillside luxury residence in Guzape Abuja with terraced infinity swimming pools overlooking the city skyline at twilight, warm low ambient lighting accenting natural clay plaster walls." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBse2FWmeY03dIdfBgJEPfQKTrLH-NQSEMNA2hiJ_-WPqdEhdcthk2WKc5Rm1-AHd0OPsGb09W_kYybjKrw63Sx9kI0Ga_PoQ3L1KwSUx2eXcX5ywqQnl83PA63TbuWodk0Nbxb0_vtfTTO-haIBVk9DGxYch-fWhp9aZ_0QgbQLSyC3cOAKvs1t3zpw_KMs702hPkxHORGonDd7-ubufbh1yiFH2YUan-wpZ6m2cs">
+<div class="absolute top-3 right-3 bg-secondary-container/95 backdrop-blur-sm text-on-secondary-container border border-secondary/20 px-2.5 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-[10px] tracking-wider font-bold">ARCON #1890</span>
+</div>
+</div>
+<div class="p-space-md border-b border-outline-variant/40">
+<div class="flex items-start gap-3">
+<img class="w-12 h-14 object-cover rounded-lg border border-outline-variant shrink-0" data-alt="Clean corporate portrait of architect Aliyu Bello in dark slate linen tunic against a neutral warm grey wall." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcXYLhNPhwd1cXiEk2AAq-bXAV8nM1nyqqeQTWn67_T8LG79tXLNhnWKss37EJDsuOnWr7J84Y_Jp9DMCMQ-yNj6oKnfvvN27_1pvFnsxpEfkQ6wfeK9_zlQhhIQnTnXvDGgjXiAtJRuRFJgGCkxI1tdp1noG8ckbtYrHGk7aQ8CWmbhbeI48twQ7HF3UEQY08590n_vJ5p9LKHPiSFcXM0zXB2rHoAGwo0GXwZ94">
+<div class="flex-1 min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Aliyu Bello Works</h2>
+<div class="flex items-center gap-1 text-tertiary mt-0.5">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Guzape, Abuja FCT</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-surface-container bg-surface-container-low/60 rounded-lg p-2.5 text-center">
+<div>
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Experience</span>
+<span class="font-numeric-metric text-sm font-semibold text-on-surface">16 yrs</span>
+</div>
+<div class="border-x border-outline-variant/40">
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Built Works</span>
+<span class="font-numeric-metric text-sm font-semibold text-on-surface">26 projects</span>
+</div>
+<div>
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Avg. Scale</span>
+<span class="font-numeric-metric text-sm font-semibold text-primary">₦1.2b</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-xs font-medium">Topographic Architecture</span>
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-xs font-medium">Passive Cooling</span>
+</div>
+</div>
+<div class="p-space-md bg-surface-container-lowest flex items-center gap-2">
+<a class="flex-1 text-center py-2.5 px-3 border border-outline-variant text-on-surface font-label-md text-label-md rounded-lg hover:bg-surface-container transition-colors" href="#s03">
+            Monograph
+          </a>
+<button class="flex-1 bg-primary-container text-on-primary font-label-md text-label-md py-2.5 px-3 rounded-lg hover:bg-primary transition-colors flex items-center justify-center gap-1.5 active:opacity-90" onclick="window.location.hash = 's03'">
+<span class="material-symbols-outlined text-sm" data-icon="videocam">videocam</span>
+<span>Request Demo</span>
+</button>
+</div>
+</article>
+<!-- CARD 6: Demola Olajuwon Practice -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm relative cursor-pointer" onclick="if (!event.target.closest('button, a')) { window.location.hash = 's03'; }">
+<div class="relative aspect-[3/2] w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="University library expansion project in Bodija Ibadan featuring deep cantilevered clay roof planes and open courtyard breezeways surrounded by mature mahogany trees." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfOdpha_m1arr288B6V0q5kan6rr1nFz2x_LNLNN_pD44SRAYKSyhNa0Xo51PeNE46QgCJpyVpP8UV1kHQLf77UdKry0vSpVU-yeQvkL6gYC8QLJfktlCrkQbXxeihlEQElWuCeDhRkeKQb5FgQzpug5_rsKBBX_n8LHWH50uNQvdpw1U-u-5FqFKN1318qHRrY_d6C1daThQk0YHRxMs-LzfMZFuS2MAHUj-EzYo">
+<div class="absolute top-3 right-3 bg-secondary-container/95 backdrop-blur-sm text-on-secondary-container border border-secondary/20 px-2.5 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-[10px] tracking-wider font-bold">ARCON #0914</span>
+</div>
+</div>
+<div class="p-space-md border-b border-outline-variant/40">
+<div class="flex items-start gap-3">
+<img class="w-12 h-14 object-cover rounded-lg border border-outline-variant shrink-0" data-alt="Portrait of senior architectural fellow Demola Olajuwon with silver hair sitting in a sunlit architectural library room surrounded by design volumes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpKDbB5UCL8fcS6CWj2aONWTtnL_oQKZ3KLsuKI7W4i-vgBTyMpTqsEJJJQOjWMJXzNW0gcD-AdPFoSoG5Jf1cfMAQBwM4H4eimee1_p9E_xbT8ThG_KQZJI2nxK6qAYV6gOv-54ETUOoo3dd7O54Q69Dy8rjWfp3KM0nk46UNdYysI9wDgaulqnHeWyhyzD3MpHazIo_ukgtoLhQgYCEsXrmH8L1Zo8p02kob5wk">
+<div class="flex-1 min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Demola Olajuwon Practice</h2>
+<div class="flex items-center gap-1 text-tertiary mt-0.5">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Bodija, Ibadan, Oyo</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-surface-container bg-surface-container-low/60 rounded-lg p-2.5 text-center">
+<div>
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Experience</span>
+<span class="font-numeric-metric text-sm font-semibold text-on-surface">22 yrs</span>
+</div>
+<div class="border-x border-outline-variant/40">
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Built Works</span>
+<span class="font-numeric-metric text-sm font-semibold text-on-surface">48 projects</span>
+</div>
+<div>
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Avg. Scale</span>
+<span class="font-numeric-metric text-sm font-semibold text-primary">₦980m</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-xs font-medium">Academic &amp; Civic</span>
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-xs font-medium">Courtyard Typology</span>
+</div>
+</div>
+<div class="p-space-md bg-surface-container-lowest flex items-center gap-2">
+<a class="flex-1 text-center py-2.5 px-3 border border-outline-variant text-on-surface font-label-md text-label-md rounded-lg hover:bg-surface-container transition-colors" href="#s03">
+            Monograph
+          </a>
+<button class="flex-1 bg-primary-container text-on-primary font-label-md text-label-md py-2.5 px-3 rounded-lg hover:bg-primary transition-colors flex items-center justify-center gap-1.5 active:opacity-90" onclick="window.location.hash = 's03'">
+<span class="material-symbols-outlined text-sm" data-icon="videocam">videocam</span>
+<span>Request Demo</span>
+</button>
+</div>
+</article>
+<!-- CARD 7: Chinedu Eze & Partners -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm relative cursor-pointer" onclick="if (!event.target.closest('button, a')) { window.location.hash = 's03'; }">
+<div class="relative aspect-[3/2] w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Modern residential estate villa in Independence Layout Enugu with red sandstone cladding and contemporary ironwork entry gates under soft afternoon light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH8rVMwf3fVqRPYo9HTI5UF5HAQgIILSqx_LbZih9uPd9GffG9ZFs66B6_9Sw0oiRfx5bW1OMB7rQEermrZkMc7p7ijLuXNkXs3kjdcy3XVNLHG3rNw84iiHYiVSbRFsKUiPQcy4awBJpuqK5L7z_vQkI6ji54UjIgexN4uTbniL2EoTaiPQU-kCsSPLR-mXy9Mw0q8vkipQD0PJB4jEHg-xxr-yvsDHBGszgVrK0">
+<div class="absolute top-3 right-3 bg-secondary-container/95 backdrop-blur-sm text-on-secondary-container border border-secondary/20 px-2.5 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-[10px] tracking-wider font-bold">ARCON #3308</span>
+</div>
+</div>
+<div class="p-space-md border-b border-outline-variant/40">
+<div class="flex items-start gap-3">
+<img class="w-12 h-14 object-cover rounded-lg border border-outline-variant shrink-0" data-alt="Headshot of Nigerian principal architect Chinedu Eze looking thoughtfully away from camera in a clean light-filled office studio with drafting tools on the table." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAawBanZMxtqX5cCDsQ60KFbHuODWIlt1_PyseFD5yO5HB2nJPK9cvVVWxByp29dapAUaB7V28l5qAoyrWWZtl4hn3MD8_7QoomN3ouFF4pjtXzmvuX8s_Z-Xk6GBJdm256I8A7gBCXlyCVuElB_Jcd_TlX7ZuP5ZquqKzN6t07stQDm9g8D1lKo8yk5u3Um3H49elGfnX94SYbLrB6yXMuBxx1mp2HivLv28bzCsg">
+<div class="flex-1 min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Chinedu Eze &amp; Partners</h2>
+<div class="flex items-center gap-1 text-tertiary mt-0.5">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Independence Layout, Enugu</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-surface-container bg-surface-container-low/60 rounded-lg p-2.5 text-center">
+<div>
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Experience</span>
+<span class="font-numeric-metric text-sm font-semibold text-on-surface">12 yrs</span>
+</div>
+<div class="border-x border-outline-variant/40">
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Built Works</span>
+<span class="font-numeric-metric text-sm font-semibold text-on-surface">19 projects</span>
+</div>
+<div>
+<span class="block font-label-caps text-[10px] text-tertiary tracking-wider uppercase">Avg. Scale</span>
+<span class="font-numeric-metric text-sm font-semibold text-primary">₦540m</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-xs font-medium">Stone Masonry</span>
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-xs font-medium">Private Villas</span>
+</div>
+</div>
+<div class="p-space-md bg-surface-container-lowest flex items-center gap-2">
+<a class="flex-1 text-center py-2.5 px-3 border border-outline-variant text-on-surface font-label-md text-label-md rounded-lg hover:bg-surface-container transition-colors" href="#s03">
+            Monograph
+          </a>
+<button class="flex-1 bg-primary-container text-on-primary font-label-md text-label-md py-2.5 px-3 rounded-lg hover:bg-primary transition-colors flex items-center justify-center gap-1.5 active:opacity-90" onclick="window.location.hash = 's03'">
+<span class="material-symbols-outlined text-sm" data-icon="videocam">videocam</span>
+<span>Request Demo</span>
+</button>
+</div>
+</article>
+</div>
+<!-- MOBILE PAGINATION -->
+<div class="mt-space-xl pt-space-md border-t border-outline-variant flex flex-col items-center gap-3">
+<div id="paginationNav" class="flex items-center gap-1"><button id="pagePrevBtn" aria-label="Previous page" class="w-9 h-9 flex items-center justify-center rounded-lg border border-outline-variant text-tertiary disabled:opacity-30" disabled="" onclick="changePage(currentPage - 1)"><span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span></button><button class="page-num-btn w-9 h-9 flex items-center justify-center rounded-lg bg-on-surface text-surface-bright font-numeric-metric text-xs font-semibold" data-page="1" onclick="changePage(1)">1</button><button class="page-num-btn w-9 h-9 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container font-numeric-metric text-xs" data-page="2" onclick="changePage(2)">2</button><button class="page-num-btn w-9 h-9 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container font-numeric-metric text-xs" data-page="3" onclick="changePage(3)">3</button><span class="px-1 text-tertiary">...</span><button class="page-num-btn w-9 h-9 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container font-numeric-metric text-xs" data-page="17" onclick="changePage(17)">17</button><button id="pageNextBtn" aria-label="Next page" class="w-9 h-9 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container" onclick="changePage(currentPage + 1)"><span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span></button></div>
+<p class="font-body-sm text-body-sm text-tertiary">
+        Showing 1–9 of 148 registered architects
+      </p>
+</div>
+</main>
+<!-- MOBILE FILTER BOTTOM SHEET / MODAL (Interactive Drawer) -->
+<div class="hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex flex-col justify-end" id="filterDrawer">
+<!-- Click backdrop to dismiss -->
+<div class="flex-1" onclick="document.getElementById('filterDrawer').classList.add('hidden')"></div>
+<!-- Sheet Panel -->
+<div class="bg-surface-container-lowest rounded-t-2xl max-h-[751px] flex flex-col border-t border-outline-variant shadow-2xl overflow-hidden">
+<!-- Drag handle -->
+<div class="w-full flex justify-center pt-3 pb-1">
+<div class="w-10 h-1 bg-tertiary-fixed-dim rounded-full"></div>
+</div>
+<!-- Sheet Header -->
+<div class="px-margin-mobile py-2 border-b border-outline-variant/60 flex items-center justify-between"><div class="flex items-center gap-2"><button aria-label="Close filters" class="text-on-surface p-1 rounded hover:bg-surface-container" onclick="document.getElementById('filterDrawer').classList.add('hidden')"><span class="material-symbols-outlined text-lg leading-none" data-icon="close">close</span></button><h3 class="font-headline-sm text-headline-sm text-on-surface">Filters</h3></div><button class="text-tertiary text-sm hover:text-on-surface" onclick="clearAllFilters()">Clear all</button></div>
+<!-- Sheet Scrollable Content -->
+<div class="p-margin-mobile overflow-y-auto space-y-space-lg">
+<!-- ARCON Verified Toggle -->
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/30">
+<div>
+<span class="block font-label-md text-label-md font-semibold text-on-surface">ARCON Verified Only</span>
+<span class="block font-body-sm text-xs text-tertiary">Only display council-licensed practices</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<!-- State Registry Selector -->
+<div>
+<label class="block font-label-caps text-label-caps uppercase text-tertiary mb-1.5">State Chapter Registry</label>
+<select class="w-full bg-surface-container-low border border-outline-variant rounded-lg p-3 font-body-md text-body-md text-on-surface">
+<option selected="">Lagos State (72 Studios)</option>
+<option>Abuja FCT (38 Studios)</option>
+<option>Rivers State (16 Studios)</option>
+<option>Oyo State (12 Studios)</option>
+<option>Enugu State (10 Studios)</option>
+</select>
+</div>
+<!-- Specialty Checklist -->
+<div>
+<label class="block font-label-caps text-label-caps uppercase text-tertiary mb-2">Practice Typologies</label>
+<div class="space-y-2.5">
+<label class="flex items-center gap-3">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-primary h-4 w-4" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface">High-End Residential</span>
+</label>
+<label class="flex items-center gap-3">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-primary h-4 w-4" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface">Civic &amp; Institutional</span>
+</label>
+<label class="flex items-center gap-3">
+<input class="rounded border-outline-variant text-primary focus:ring-primary h-4 w-4" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface">Boutique Hospitality</span>
+</label>
+<label class="flex items-center gap-3">
+<input class="rounded border-outline-variant text-primary focus:ring-primary h-4 w-4" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface">Mixed-Use Commercial</span>
+</label>
+</div>
+</div>
+<!-- Experience Slider -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<label class="font-label-caps text-label-caps uppercase text-tertiary">Minimum Experience</label>
+<span class="font-numeric-metric text-xs font-semibold text-primary">10+ Years</span>
+</div>
+<input class="w-full accent-primary h-1.5 bg-surface-container rounded-lg appearance-none cursor-pointer" max="25" min="1" type="range" value="10">
+<div class="flex justify-between text-[11px] text-tertiary mt-1">
+<span>Entry (1 yr)</span>
+<span>Master (20+ yrs)</span>
+</div>
+</div>
+<!-- Architectural Idioms / Style Tags -->
+<div>
+<label class="block font-label-caps text-label-caps uppercase text-tertiary mb-2">Architectural Idioms</label>
+<div class="flex flex-wrap gap-2">
+<span class="bg-on-surface text-surface-bright px-3 py-1 rounded-full text-xs font-medium cursor-pointer">Tropical Modernism</span>
+<span class="bg-surface-container border border-outline-variant text-on-surface px-3 py-1 rounded-full text-xs font-medium cursor-pointer">Rammed Earth</span>
+<span class="bg-surface-container border border-outline-variant text-on-surface px-3 py-1 rounded-full text-xs font-medium cursor-pointer">Brutalist</span>
+<span class="bg-surface-container border border-outline-variant text-on-surface px-3 py-1 rounded-full text-xs font-medium cursor-pointer">Biophilic</span>
+<span class="bg-surface-container border border-outline-variant text-on-surface px-3 py-1 rounded-full text-xs font-medium cursor-pointer">Timber Joinery</span>
+</div>
+</div>
+</div>
+<!-- Sticky Apply Button in Sheet -->
+<div class="p-margin-mobile border-t border-outline-variant bg-surface-container-lowest">
+<button class="w-full bg-primary-container text-on-primary py-3 px-4 rounded-lg font-label-md text-label-md font-semibold active:opacity-90 shadow-sm flex items-center justify-center gap-2" onclick="document.getElementById('filterDrawer').classList.add('hidden')">
+<span>Apply Filters (148 Results)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- FOOTER (Shared Components JSON Anchor) -->
+<footer class="w-full px-margin-mobile py-space-xl flex flex-col gap-space-lg mb-16 bg-surface-container-low border-t border-outline-variant mt-space-xl">
+<div>
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold tracking-tight block mb-2">ArchNG</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+        © 2025 ArchNG Platform. Documenting and commissioning Nigerian architecture across Lagos, Abuja FCT, Port Harcourt, Ibadan, and Enugu. Registered ARCON practitioners.
+      </p>
+</div>
+<!-- Regional Chapters Summary -->
+<div class="grid grid-cols-2 gap-3 py-space-md border-y border-outline-variant/60 font-body-sm text-xs text-tertiary">
+<div>
+<strong class="block text-on-surface font-medium mb-1">State Chapters</strong>
+<p>Lagos: 72 Studios</p>
+<p>Abuja FCT: 38 Studios</p>
+<p>Port Harcourt: 16 Studios</p>
+</div>
+<div>
+<strong class="block text-on-surface font-medium mb-1">Regional Nodes</strong>
+<p>Ibadan: 12 Studios</p>
+<p>Enugu: 10 Studios</p>
+<p>ARCON Registry: Active</p>
+</div>
+</div>
+<!-- Footer Links -->
+<div class="flex flex-wrap gap-x-4 gap-y-2">
+<a class="text-on-surface-variant hover:text-primary underline transition-colors duration-150 text-xs" href="#">ARCON Directory</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-colors duration-150 text-xs" href="#">Practice Standards</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-colors duration-150 text-xs" href="#">Lagos Studio Index</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-colors duration-150 text-xs" href="#">Abuja Registry</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-colors duration-150 text-xs" href="#">Terms of Commission</a>
+</div>
+</footer>
+<!-- BOTTOM NAVBAR (Shared Components JSON Anchor - Mobile Specific) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-mobile py-space-xs bg-surface border-t border-outline-variant">
+<!-- Tab 1: Discover -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-95 transition-transform duration-150 hover:text-primary" href="#s01">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="text-label-caps font-label-caps mt-0.5">Discover</span>
+</a>
+<!-- Tab 2: Directory (ACTIVE STATE LOCK for this directory screen) -->
+<a class="flex flex-col items-center justify-center text-primary py-1 active:scale-95 transition-transform duration-150" href="#s02">
+<span class="material-symbols-outlined" data-icon="apartment" data-weight="fill" style="font-variation-settings: 'FILL' 1;">apartment</span>
+<span class="text-label-caps font-label-caps font-bold mt-0.5">Directory</span>
+</a>
+<!-- Tab 3: Saved -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-95 transition-transform duration-150 hover:text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span class="text-label-caps font-label-caps mt-0.5">Saved</span>
+</a>
+<!-- Tab 4: Inquiries -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-95 transition-transform duration-150 hover:text-primary" href="#s08">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+<span class="text-label-caps font-label-caps mt-0.5">Inquiries</span>
+</a>
+</nav>
+
+
+<script>
+let currentPage = 1;
+function changePage(pageNum) {
+  const maxPage = 17;
+  if (pageNum < 1 || pageNum > maxPage) return;
+  currentPage = pageNum;
+  document.querySelectorAll('.page-num-btn').forEach(btn => {
+    const p = parseInt(btn.getAttribute('data-page'));
+    if (p === currentPage) {
+      btn.className = 'page-num-btn w-9 h-9 flex items-center justify-center rounded-lg bg-on-surface text-surface-bright font-numeric-metric text-xs font-semibold';
+    } else {
+      btn.className = 'page-num-btn w-9 h-9 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container font-numeric-metric text-xs';
+    }
+  });
+  const prevBtn = document.getElementById('pagePrevBtn');
+  const nextBtn = document.getElementById('pageNextBtn');
+  if (prevBtn) prevBtn.disabled = (currentPage === 1);
+  if (nextBtn) nextBtn.disabled = (currentPage === maxPage);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateFilterBadge() {
+  const container = document.getElementById('activeFilterChips');
+  const badge = document.getElementById('filterBadgeCount');
+  if (!container || !badge) return;
+  const chipCount = container.querySelectorAll('.inline-flex').length;
+  badge.textContent = chipCount;
+  if (chipCount === 0) {
+    badge.style.display = 'none';
+  } else {
+    badge.style.display = 'inline-flex';
+  }
+}
+
+function clearAllFilters() {
+  const container = document.getElementById('activeFilterChips');
+  if (container) {
+    container.innerHTML = '<span class="text-xs text-tertiary italic py-1">No active filters</span>';
+  }
+  const badge = document.getElementById('filterBadgeCount');
+  if (badge) {
+    badge.textContent = '0';
+    badge.style.display = 'none';
+  }
+  const drawer = document.getElementById('filterDrawer');
+  if (drawer) {
+    drawer.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+    drawer.classList.add('hidden');
+  }
+}
+</script></body></html>

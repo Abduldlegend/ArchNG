@@ -1,0 +1,604 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ArchNG Admin Dashboard — ARCON Registry Oversight</title>
+<!-- Google Fonts: Newsreader (Editorial Serif) & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-container": "#faf5eb",
+            "on-primary-fixed": "#3a0b00",
+            "inverse-primary": "#ffb59e",
+            "secondary-fixed": "#9ef4cc",
+            "on-secondary-fixed": "#002115",
+            "error-container": "#ffdad6",
+            "surface-dim": "#ddd9d6",
+            "surface-container": "#f2ede9",
+            "on-tertiary-fixed": "#1d1c16",
+            "secondary-fixed-dim": "#82d7b1",
+            "on-secondary": "#ffffff",
+            "on-surface-variant": "#57423c",
+            "outline-variant": "#ddc0b8",
+            "surface-container-highest": "#e6e2de",
+            "surface-container-lowest": "#ffffff",
+            "inverse-surface": "#32302e",
+            "surface-container-low": "#f7f3ef",
+            "primary-fixed": "#ffdbd0",
+            "surface-bright": "#fdf8f5",
+            "on-primary-fixed-variant": "#812807",
+            "background": "#fdf8f5",
+            "on-primary": "#ffffff",
+            "on-background": "#1c1b19",
+            "outline": "#8a726b",
+            "surface": "#fdf8f5",
+            "secondary": "#036c4d",
+            "on-secondary-fixed-variant": "#005139",
+            "tertiary": "#5a5850",
+            "on-error": "#ffffff",
+            "primary-container": "#b8502d",
+            "surface-container-high": "#ece7e4",
+            "secondary-container": "#9ef4cc",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed-variant": "#494740",
+            "inverse-on-surface": "#f5f0ec",
+            "tertiary-fixed": "#e7e2d8",
+            "on-secondary-container": "#127253",
+            "tertiary-fixed-dim": "#cac6bd",
+            "primary": "#983917",
+            "surface-variant": "#e6e2de",
+            "primary-fixed-dim": "#ffb59e",
+            "on-surface": "#1c1b19",
+            "on-primary-container": "#fff2ef",
+            "surface-tint": "#a13f1e",
+            "on-error-container": "#93000a",
+            "tertiary-container": "#737068"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter-mobile": "1rem",
+            "margin": "3rem",
+            "margin-mobile": "1.25rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "title-md": ["Inter"],
+            "display-lg": ["Newsreader"],
+            "headline-lg-mobile": ["Newsreader"],
+            "label-caps": ["Inter"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-lg": ["Newsreader"],
+            "label-md": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-md": ["Newsreader"],
+            "display-lg-mobile": ["Newsreader"],
+            "numeric-metric": ["Inter"],
+            "headline-sm": ["Newsreader"]
+          },
+          "fontSize": {
+            "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "46px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "numeric-metric": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .drafting-crosshair {
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      pointer-events: none;
+    }
+    .drafting-crosshair::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 0;
+      width: 9px;
+      height: 1px;
+      background-color: #8a726b;
+      opacity: 0.45;
+    }
+    .drafting-crosshair::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 4px;
+      width: 1px;
+      height: 9px;
+      background-color: #8a726b;
+      opacity: 0.45;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen pb-28 selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Administrative Top Bar -->
+<header class="sticky top-0 z-40 bg-surface border-b border-outline-variant/60 shadow-sm backdrop-blur-md bg-surface/95">
+<div class="px-margin-mobile py-space-sm flex items-center justify-between">
+<!-- Wordmark & Authority Badge -->
+<div class="flex items-center gap-2.5">
+<button aria-label="Open administrative navigation drawer" class="p-1 -ml-1 text-on-surface hover:text-primary transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+<div>
+<div class="flex items-center gap-1.5"><a href="{{DATA:SCREEN:SCREEN_8}}" class="flex items-center gap-1.5"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">ArchNG</span><span class="bg-primary text-on-primary font-label-caps text-label-caps px-1.5 py-0.5 rounded tracking-wider">ADMIN</span></a></div>
+<p class="font-label-caps text-[10px] tracking-widest text-tertiary">REGISTRY OVERSIGHT</p>
+</div>
+</div>
+<!-- Registrar General Profile & Notification Trigger -->
+<div class="flex items-center gap-2.5">
+<!-- Notification Pill -->
+<button aria-label="Audit and review alerts" class="relative p-1.5 rounded-lg text-tertiary hover:bg-surface-container transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary-container ring-2 ring-surface"></span>
+</button>
+<!-- Registrar Avatar & Online State -->
+<div class="flex items-center pl-1 border-l border-outline-variant/40">
+<div class="relative">
+<img alt="Arc. Babatunde Sanusi" class="w-9 h-9 rounded-full object-cover border border-outline-variant" data-alt="Distinguished Nigerian senior male architect Arc. Babatunde Sanusi in bespoke charcoal trad attire with spectacles, warm studio lighting, neutral architectural backdrop, dignified executive portrait." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9542WJUzuJKn8tlxSU6GBNAziTLnQDm4FaGio2ajo_Brll-9zMdqFI4IB6yrQuq0-SZFfhSiJJyaseN9KmAbY9bRzpNSiy342c_ZctW6GndptEclectWGFmC8zci2xb3jvZQ1pPlOXQ7rSk3D_Tph6ciBPEGMNkx-CyjqJifuMJmv_v6bnp6dfXpuhoHUdLrlbswh3va5RTzKIGZTVC4W849ezJsVBOKiKnlW5FU">
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-secondary rounded-full ring-2 ring-surface" title="ARCON Registrar Active"></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Territorial Chapter Ribbon (Mobile Horizontally Scrollable) -->
+<div class="px-margin-mobile pb-2 pt-0 flex items-center justify-between border-t border-outline-variant/30 text-body-sm">
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary inline-block shrink-0 animate-pulse"></span>
+<span class="font-label-caps text-[10px] text-tertiary uppercase tracking-wider shrink-0">Jurisdiction:</span>
+<span class="font-label-caps text-[10px] text-on-surface font-semibold shrink-0">All Chapters Active</span>
+<span class="text-outline-variant shrink-0">·</span>
+<span class="font-label-caps text-[10px] text-tertiary shrink-0">Lagos / Abuja / PH / Ibadan / Enugu</span>
+</div>
+</div>
+</header>
+<!-- Main Canvas Canvas Container -->
+<main class="px-margin-mobile pt-space-lg space-y-space-xl max-w-md mx-auto">
+<!-- Overview & Dossier Controls Section -->
+<section class="space-y-space-md">
+<div class="space-y-1">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span class="font-label-caps text-label-caps uppercase text-primary">Federal Statutory Monitor</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight">Overview</h1>
+<p class="font-body-sm text-body-sm text-tertiary leading-relaxed">
+          Nigerian Architectural Practice Registry &amp; ARCON Compliance Oversight.
+        </p>
+</div>
+<!-- Controls Row: Date Picker & Export Dossier -->
+<div class="flex flex-col gap-2 pt-1">
+<div class="relative w-full">
+<div class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-3 py-2 flex items-center justify-between text-on-surface cursor-pointer shadow-none" onclick="const d = document.getElementById('date-range-dropdown'); if(d) d.classList.toggle('hidden');">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary">calendar_today</span>
+<span class="font-body-sm text-body-sm font-medium">Oct 1 – Oct 31, 2025</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="font-label-caps text-[10px] uppercase bg-surface-container px-1.5 py-0.5 rounded">30D</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</div>
+</div>
+<div id="date-range-dropdown" class="hidden absolute top-full left-0 right-0 mt-1 bg-surface-container-lowest border border-outline-variant rounded-lg shadow-sm z-50 p-2 space-y-1 text-body-sm"><button type="button" onclick="this.closest('#date-range-dropdown').classList.add('hidden')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container text-on-surface font-medium">Oct 1 – Oct 31, 2025 (Current)</button><button type="button" onclick="this.closest('#date-range-dropdown').classList.add('hidden')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container text-tertiary">Sep 1 – Sep 30, 2025 (Last 30D)</button><button type="button" onclick="this.closest('#date-range-dropdown').classList.add('hidden')" class="w-full text-left px-3 py-1.5 rounded hover:bg-surface-container text-tertiary">Q3 2025 (Quarterly Gazette)</button></div></div>
+<button class="w-full bg-surface-container-lowest border border-outline-variant hover:border-on-surface active:bg-surface-container text-on-surface font-label-md text-label-md py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">download</span>
+<span>Export Dossier (Gazette PDF)</span>
+</button>
+</div>
+</section>
+<!-- KPI Metric Bento Grid (2x2 Mobile) -->
+<section class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-tertiary tracking-widest uppercase">Registry Metrics</span>
+<span class="font-label-caps text-[10px] text-secondary font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Synchronized
+        </span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- KPI 1 -->
+<div class="relative bg-surface-container-lowest border border-outline-variant rounded-xl p-3.5 flex flex-col justify-between overflow-hidden">
+<div class="drafting-crosshair top-1 left-1"></div>
+<div class="drafting-crosshair bottom-1 right-1"></div>
+<div>
+<div class="flex items-center justify-between text-tertiary mb-1">
+<span class="material-symbols-outlined text-[18px]">groups</span>
+<span class="font-label-caps text-[10px] text-secondary font-semibold bg-secondary-fixed/50 px-1 rounded">+14.2%</span>
+</div>
+<p class="font-label-caps text-[10px] text-tertiary uppercase tracking-wider">Registered Users</p>
+</div>
+<div class="mt-3">
+<span class="font-numeric-metric text-numeric-metric text-on-surface font-bold tracking-tight">4,892</span>
+<p class="font-body-sm text-[11px] text-tertiary mt-0.5">vs last month</p>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="relative bg-surface-container-lowest border border-outline-variant rounded-xl p-3.5 flex flex-col justify-between overflow-hidden">
+<div class="drafting-crosshair top-1 left-1"></div>
+<div class="drafting-crosshair bottom-1 right-1"></div>
+<div>
+<div class="flex items-center justify-between text-tertiary mb-1">
+<span class="material-symbols-outlined text-[18px] text-secondary">verified</span>
+<span class="font-label-caps text-[10px] text-secondary font-semibold bg-secondary-fixed/50 px-1 rounded">+8 this mo.</span>
+</div>
+<p class="font-label-caps text-[10px] text-tertiary uppercase tracking-wider">Verified ARCON</p>
+</div>
+<div class="mt-3">
+<span class="font-numeric-metric text-numeric-metric text-on-surface font-bold tracking-tight">348</span>
+<p class="font-body-sm text-[11px] text-secondary font-medium mt-0.5 truncate">Seal Active Registry</p>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="relative bg-surface-container-lowest border border-outline-variant rounded-xl p-3.5 flex flex-col justify-between overflow-hidden">
+<div class="drafting-crosshair top-1 left-1"></div>
+<div class="drafting-crosshair bottom-1 right-1"></div>
+<div>
+<div class="flex items-center justify-between text-tertiary mb-1">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span class="font-label-caps text-[10px] text-on-surface font-semibold bg-surface-container px-1 rounded">+32 new</span>
+</div>
+<p class="font-label-caps text-[10px] text-tertiary uppercase tracking-wider">Monographs</p>
+</div>
+<div class="mt-3">
+<span class="font-numeric-metric text-numeric-metric text-on-surface font-bold tracking-tight">1,284</span>
+<p class="font-body-sm text-[11px] text-tertiary mt-0.5 truncate">Gazetted practice folios</p>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="relative bg-surface-container-lowest border border-outline-variant rounded-xl p-3.5 flex flex-col justify-between overflow-hidden">
+<div class="drafting-crosshair top-1 left-1"></div>
+<div class="drafting-crosshair bottom-1 right-1"></div>
+<div>
+<div class="flex items-center justify-between text-tertiary mb-1">
+<span class="material-symbols-outlined text-[18px] text-primary">draw</span>
+<span class="font-label-caps text-[10px] text-primary font-semibold bg-primary-fixed/60 px-1 rounded">7 Review</span>
+</div>
+<p class="font-label-caps text-[10px] text-tertiary uppercase tracking-wider">Commissions</p>
+</div>
+<div class="mt-3">
+<span class="font-numeric-metric text-numeric-metric text-on-surface font-bold tracking-tight">92</span>
+<p class="font-body-sm text-[11px] text-primary font-medium mt-0.5 truncate">Pending fee scale check</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Pending ARCON Practitioner Verification Section -->
+<section class="space-y-space-md">
+<!-- Section Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Practitioner Queue</h2>
+<span class="bg-primary text-on-primary font-label-caps text-[11px] px-2 py-0.5 rounded-full font-bold">12 Pending</span>
+</div>
+<a class="font-label-caps text-label-caps text-primary hover:underline flex items-center" href="{{DATA:SCREEN:SCREEN_6}}">
+          View all (12) →
+        </a>
+</div>
+<!-- Verification Cards List -->
+<div class="space-y-3">
+<!-- Practitioner 1 -->
+<div class="relative bg-surface-container-lowest border border-outline-variant rounded-xl p-4 transition-all duration-150 hover:border-on-surface">
+<div class="flex items-start justify-between gap-3">
+<div class="space-y-1">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-caps text-[10px] bg-secondary-fixed/40 text-on-secondary-container px-1.5 py-0.5 rounded font-semibold uppercase">Lagos Chapter</span>
+<span class="font-label-caps text-[10px] text-tertiary">· Corporate Practice</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface leading-snug">Arc. Chukwuma Obi &amp; Partners</h3>
+<p class="font-body-sm text-body-sm text-tertiary font-mono">License #F-4421</p>
+</div>
+<span class="shrink-0 font-label-caps text-[10px] text-tertiary bg-surface-container px-2 py-1 rounded">2d ago</span>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/40 flex items-center justify-between gap-3">
+<div class="flex items-center gap-1 text-[11px] text-secondary font-medium">
+<span class="material-symbols-outlined text-[14px]">format_image_left</span>
+<span>NCS Registered</span>
+</div>
+<a href="{{DATA:SCREEN:SCREEN_6}}" class="bg-primary-container text-on-primary font-label-md text-label-md px-3.5 py-1.5 rounded-lg hover:bg-primary transition-colors flex items-center gap-1.5"><span>Review dossier</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+</div>
+</div>
+<!-- Practitioner 2 -->
+<div class="relative bg-surface-container-lowest border border-outline-variant rounded-xl p-4 transition-all duration-150 hover:border-on-surface">
+<div class="flex items-start justify-between gap-3">
+<div class="space-y-1">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-caps text-[10px] bg-secondary-fixed/40 text-on-secondary-container px-1.5 py-0.5 rounded font-semibold uppercase">Abuja FCT Hub</span>
+<span class="font-label-caps text-[10px] text-tertiary">· Principal Fellow</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface leading-snug">Studio Sahel Atelier</h3>
+<p class="font-body-sm text-body-sm text-tertiary">Arc. Fatima Aliyu · <span class="font-mono">#A-5109</span></p>
+</div>
+<span class="shrink-0 font-label-caps text-[10px] text-tertiary bg-surface-container px-2 py-1 rounded">4d ago</span>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/40 flex items-center justify-between gap-3">
+<div class="flex items-center gap-1 text-[11px] text-tertiary">
+<span class="material-symbols-outlined text-[14px]">history_edu</span>
+<span>Seal Dossier Attached</span>
+</div>
+<a href="{{DATA:SCREEN:SCREEN_6}}" class="bg-primary-container text-on-primary font-label-md text-label-md px-3.5 py-1.5 rounded-lg hover:bg-primary transition-colors flex items-center gap-1.5"><span>Review dossier</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+</div>
+</div>
+<!-- Practitioner 3 -->
+<div class="relative bg-surface-container-lowest border border-outline-variant rounded-xl p-4 transition-all duration-150 hover:border-on-surface">
+<div class="flex items-start justify-between gap-3">
+<div class="space-y-1">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-caps text-[10px] bg-secondary-fixed/40 text-on-secondary-container px-1.5 py-0.5 rounded font-semibold uppercase">Port Harcourt Hub</span>
+<span class="font-label-caps text-[10px] text-tertiary">· Coastal Vernacular</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface leading-snug">Delta Vernacular Architects</h3>
+<p class="font-body-sm text-body-sm text-tertiary">Arc. Efe Oghenekaro · <span class="font-mono">#P-3882</span></p>
+</div>
+<span class="shrink-0 font-label-caps text-[10px] text-tertiary bg-surface-container px-2 py-1 rounded">6d ago</span>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/40 flex items-center justify-between gap-3">
+<div class="flex items-center gap-1 text-[11px] text-primary font-medium">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+<span>Pending Indemnity Policy</span>
+</div>
+<a href="{{DATA:SCREEN:SCREEN_6}}" class="bg-primary-container text-on-primary font-label-md text-label-md px-3.5 py-1.5 rounded-lg hover:bg-primary transition-colors flex items-center gap-1.5"><span>Review dossier</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+</div>
+</div>
+<!-- Practitioner 4 -->
+<div class="relative bg-surface-container-lowest border border-outline-variant rounded-xl p-4 transition-all duration-150 hover:border-on-surface">
+<div class="flex items-start justify-between gap-3">
+<div class="space-y-1">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-caps text-[10px] bg-secondary-fixed/40 text-on-secondary-container px-1.5 py-0.5 rounded font-semibold uppercase">Ibadan Hub</span>
+<span class="font-label-caps text-[10px] text-tertiary">· Earth &amp; Timber</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface leading-snug">Oluyole Design Collaborative</h3>
+<p class="font-body-sm text-body-sm text-tertiary">Arc. Segun Adeleke · <span class="font-mono">#I-2914</span></p>
+</div>
+<span class="shrink-0 font-label-caps text-[10px] text-tertiary bg-surface-container px-2 py-1 rounded">9d ago</span>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/40 flex items-center justify-between gap-3">
+<div class="flex items-center gap-1 text-[11px] text-tertiary">
+<span class="material-symbols-outlined text-[14px]">folder_special</span>
+<span>ARCON Fee Schedule Validated</span>
+</div>
+<a href="{{DATA:SCREEN:SCREEN_6}}" class="bg-primary-container text-on-primary font-label-md text-label-md px-3.5 py-1.5 rounded-lg hover:bg-primary transition-colors flex items-center gap-1.5"><span>Review dossier</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+</div>
+</div>
+<!-- Practitioner 5 -->
+<div class="relative bg-surface-container-lowest border border-outline-variant rounded-xl p-4 transition-all duration-150 hover:border-on-surface">
+<div class="flex items-start justify-between gap-3">
+<div class="space-y-1">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-caps text-[10px] bg-secondary-fixed/40 text-on-secondary-container px-1.5 py-0.5 rounded font-semibold uppercase">Enugu District</span>
+<span class="font-label-caps text-[10px] text-tertiary">· Eco-Passive Hub</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface leading-snug">Coal City Eco-Structures</h3>
+<p class="font-body-sm text-body-sm text-tertiary">Arc. Nneka Eze · <span class="font-mono">#E-6017</span></p>
+</div>
+<span class="shrink-0 font-label-caps text-[10px] text-error font-medium bg-error-container/40 px-2 py-1 rounded">11d ago</span>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/40 flex items-center justify-between gap-3">
+<div class="flex items-center gap-1 text-[11px] text-error font-medium">
+<span class="material-symbols-outlined text-[14px]">priority_high</span>
+<span>SLA Overdue Review</span>
+</div>
+<a href="{{DATA:SCREEN:SCREEN_6}}" class="bg-primary-container text-on-primary font-label-md text-label-md px-3.5 py-1.5 rounded-lg hover:bg-primary transition-colors flex items-center gap-1.5"><span>Review dossier</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+</div>
+</div>
+</div>
+<!-- Regulatory Statutory Callout Notice -->
+<div class="bg-surface-container-high/60 border border-outline-variant/60 rounded-xl p-3.5 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">policy</span>
+<div class="text-body-sm text-[12px] text-on-surface-variant leading-relaxed">
+<span class="font-semibold text-on-surface">SLA Requirement:</span> All submissions require stamped physical/cryptographic seal comparison against the ARCON Master Registry Book. Target SLA is <strong>72 Working Hours</strong> under Section 14 Architects Registration Act.
+        </div>
+</div>
+</section>
+<!-- Recent System Activity Audit Section -->
+<section class="space-y-space-md">
+<!-- Activity Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">System Activity</h2>
+<span class="flex items-center gap-1 font-label-caps text-[10px] text-secondary bg-secondary-fixed/50 px-2 py-0.5 rounded-full font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span> REAL-TIME
+          </span>
+</div>
+<a class="font-label-caps text-label-caps text-tertiary hover:text-on-surface flex items-center gap-0.5" href="#audit-log">
+<span>Log</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+</div>
+<!-- Timeline Cards -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 divide-y divide-outline-variant/40">
+<!-- Activity 1 -->
+<div class="pb-3.5 flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed/60 text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<p class="font-label-md text-label-md text-on-surface font-semibold truncate">New provider application</p>
+<span class="font-label-caps text-[10px] text-tertiary shrink-0">2h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-tertiary mt-0.5">
+<span class="text-on-surface font-medium">Arc. Chukwuma Obi</span> submitted license and gazette credentials for corporate listing.
+            </p>
+</div>
+</div>
+<!-- Activity 2 -->
+<div class="py-3.5 flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed/60 text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">assignment_turned_in</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<p class="font-label-md text-label-md text-on-surface font-semibold truncate">Commission accepted</p>
+<span class="font-label-caps text-[10px] text-tertiary shrink-0">4h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-tertiary mt-0.5">
+<span class="text-on-surface font-medium">Adaeze Okafor Studio</span> accepted formal design brief for <span class="italic">Chief Olumide Adeleke</span> residential villa.
+            </p>
+</div>
+</div>
+<!-- Activity 3 -->
+<div class="py-3.5 flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed/70 text-primary-container flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">visibility_off</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<p class="font-label-md text-label-md text-on-surface font-semibold truncate">Project hidden</p>
+<span class="font-label-caps text-[10px] text-tertiary shrink-0">Yesterday</span>
+</div>
+<p class="font-body-sm text-body-sm text-tertiary mt-0.5">
+<span class="text-on-surface font-medium">'Victoria Island Penthouse'</span> automatically delisted due to unverified structural engineer seal.
+            </p>
+</div>
+</div>
+<!-- Activity 4 -->
+<div class="py-3.5 flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-error-container text-error flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<p class="font-label-md text-label-md text-error font-semibold truncate">User suspended</p>
+<span class="font-label-caps text-[10px] text-tertiary shrink-0">2d ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-tertiary mt-0.5">
+              Firm account suspended pending review for unauthorized non-ARCON scale fee solicitations.
+            </p>
+</div>
+</div>
+<!-- Activity 5 -->
+<div class="pt-3.5 flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">auto_stories</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<p class="font-label-md text-label-md text-on-surface font-semibold truncate">Monograph gazetted</p>
+<span class="font-label-caps text-[10px] text-tertiary shrink-0">3d ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-tertiary mt-0.5">
+<span class="text-on-surface font-medium">'The Epe Courtyard Villa'</span> approved and deposited into Nigerian National Architecture Folio.
+            </p>
+</div>
+</div>
+</div>
+<!-- Audit Link -->
+<div class="text-center pt-1">
+<a class="font-body-sm text-body-sm text-primary font-medium hover:underline inline-flex items-center gap-1" href="#full-audit-log">
+<span>View full compliance audit log</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Official ARCON Regulatory Footer (Shared Component Guidance) -->
+<footer class="w-full px-margin-mobile py-space-xl flex flex-col gap-space-lg mb-16 bg-surface-container-low border-t border-outline-variant/60 text-on-surface mt-16">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-on-surface">ArchNG</span>
+<span class="text-tertiary font-label-caps text-[10px] border border-outline-variant px-1.5 py-0.5 rounded">STATUTORY REGISTER</span>
+</div>
+<p class="font-body-sm text-body-sm text-tertiary leading-relaxed">
+        © 2025 ArchNG Platform. Documenting and commissioning Nigerian architecture across Lagos, Abuja FCT, Port Harcourt, Ibadan, and Enugu. Registered ARCON practitioners.
+      </p>
+</div>
+<!-- Administrative Quick Links -->
+<div class="grid grid-cols-2 gap-2 text-body-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1" href="#arcon">ARCON Directory</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1" href="#practice-standards">Practice Standards</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1" href="#lagos-index">Lagos Studio Index</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1" href="#abuja-registry">Abuja Registry</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1 col-span-2" href="#terms">Terms of Commission</a>
+</div>
+<div class="pt-2 border-t border-outline-variant/40 flex items-center justify-between text-tertiary">
+<span class="font-label-caps text-[10px]">FEDERAL REPUBLIC OF NIGERIA</span>
+<span class="font-label-caps text-[10px] font-mono">SYS-BUILD 2.8.4</span>
+</div>
+</footer>
+<!-- Admin Mobile Bottom Navigation Bar (Deterministic Shared Component) -->
+<nav aria-label="Administrative navigation bar" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-mobile py-space-xs bg-surface border-t border-outline-variant/80 shadow-[0_-4px_12px_rgba(0,0,0,0.03)]">
+<!-- Item 1: Dashboard (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-primary py-1 group" href="{{DATA:SCREEN:SCREEN_8}}">
+<div class="relative px-3 py-0.5 rounded-full bg-primary-fixed/50">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+</div>
+<span class="font-label-caps text-label-caps text-primary font-bold mt-1">Dashboard</span>
+</a>
+<!-- Item 2: Verification Queue with Badge -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 group hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_6}}">
+<div class="relative px-3 py-0.5">
+<span class="material-symbols-outlined text-[22px]">verified</span>
+<span class="absolute -top-1 right-1 bg-primary text-on-primary font-label-caps text-[9px] px-1 rounded-full font-bold">12</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-1">Verifications</span>
+</a>
+<!-- Item 3: Projects -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 group hover:text-primary transition-colors" href="#projects" title="Coming soon">
+<div class="relative px-3 py-0.5">
+<span class="material-symbols-outlined text-[22px]">apartment</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-1">Projects</span>
+</a>
+<!-- Item 4: Audit -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 group hover:text-primary transition-colors" href="#audit" title="Coming soon">
+<div class="relative px-3 py-0.5">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-1">Audit</span>
+</a>
+<!-- Item 5: Settings -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 group hover:text-primary transition-colors" href="#settings" title="Coming soon">
+<div class="relative px-3 py-0.5">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-1">Settings</span>
+</a>
+</nav>
+
+
+</body></html>
