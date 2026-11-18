@@ -71,7 +71,7 @@ export function ArchitectCard({ architect, className }: { architect: Architect; 
           </Link>
           <Link
             to={`/request-demo/${architect.slug}`}
-            className="inline-flex h-10 flex-1 items-center justify-center gap-1.5 rounded-lg border border-terracotta bg-terracotta text-body-sm text-white transition-colors hover:border-terracotta-dark hover:bg-terracotta-dark"
+            className="inline-flex h-10 flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-lg border border-terracotta bg-terracotta text-body-sm text-white transition-colors hover:border-terracotta-dark hover:bg-terracotta-dark"
           >
             Request demo
             <Icon name="arrow_outward" className="text-[15px]" />
