@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { Link, NavLink, Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useApp } from "../context/context";
 import { cn } from "../lib/cn";
-import { Badge, Icon, LinkButton } from "./ui";
+import { Badge, Button, Icon, LinkButton } from "./ui";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -40,9 +40,16 @@ function Brand({ compact = false }: { compact?: boolean }) {
 }
 
 function PublicHeader() {
-  const { signedIn, role } = useApp();
+  const { signedIn, role, signOut } = useApp();
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
   const accountTo = role === "architect" ? "/provider" : role === "admin" ? "/admin" : "/requests";
+
+  const handleSignOut = async () => {
+    setOpen(false);
+    await signOut().catch(() => undefined);
+    navigate("/");
+  };
 
   useEffect(() => {
     if (!open) return;
@@ -85,10 +92,23 @@ function PublicHeader() {
               <Icon name="search" />
             </Link>
             {signedIn ? (
-              <LinkButton to={accountTo} variant="secondary" size="sm">
-                <Icon name="account_circle" className="text-[18px]" />
-                My account
-              </LinkButton>
+              <>
+                <LinkButton to={accountTo} variant="secondary" size="sm">
+                  <Icon name="account_circle" className="text-[18px]" />
+                  My account
+                </LinkButton>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="px-2 lg:px-3.5"
+                  onClick={() => void handleSignOut()}
+                  aria-label="Sign out"
+                  title="Sign out"
+                >
+                  <Icon name="logout" className="text-[18px]" />
+                  <span className="hidden lg:inline">Sign out</span>
+                </Button>
+              </>
             ) : (
               <LinkButton to="/signin" variant="secondary" size="sm">
                 Sign in
@@ -150,6 +170,16 @@ function PublicHeader() {
                 {signedIn ? "My account" : "Sign in"}
                 <Icon name="person" className="text-[18px] text-stone" />
               </Link>
+              {signedIn && (
+                <button
+                  type="button"
+                  onClick={() => void handleSignOut()}
+                  className="flex items-center justify-between border-b border-hairline py-4 text-left text-title text-ink"
+                >
+                  Sign out
+                  <Icon name="logout" className="text-[18px] text-stone" />
+                </button>
+              )}
             </nav>
             <LinkButton to="/register" className="mt-6 w-full" size="lg" variant="primary">
               Join as an architect
