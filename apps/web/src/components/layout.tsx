@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { Link, NavLink, Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useApp } from "../context/context";
 import { cn } from "../lib/cn";
-import { Badge, Button, Icon, LinkButton } from "./ui";
+import { Badge, Button, Dialog, Icon, LinkButton } from "./ui";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -39,15 +39,62 @@ function Brand({ compact = false }: { compact?: boolean }) {
   );
 }
 
+function SignOutDialog({
+  open,
+  busy,
+  onClose,
+  onConfirm,
+}: {
+  open: boolean;
+  busy: boolean;
+  onClose: () => void;
+  onConfirm: () => void;
+}) {
+  return (
+    <Dialog
+      open={open}
+      onClose={onClose}
+      title="Sign out?"
+      subtitle="You can sign back in at any time."
+      width="max-w-md"
+      footer={
+        <div className="flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+          <Button variant="secondary" onClick={onClose} disabled={busy}>
+            Cancel
+          </Button>
+          <Button variant="dark" onClick={onConfirm} disabled={busy}>
+            <Icon name="logout" className="text-[18px]" />
+            {busy ? "Signing out…" : "Sign out"}
+          </Button>
+        </div>
+      }
+    >
+      <p className="text-body text-stone">
+        Your requests, saved practices and profile will stay in your account. You will need to sign in again to
+        access them.
+      </p>
+    </Dialog>
+  );
+}
+
 function PublicHeader() {
   const { signedIn, role, signOut } = useApp();
   const [open, setOpen] = useState(false);
+  const [signOutOpen, setSignOutOpen] = useState(false);
+  const [signingOut, setSigningOut] = useState(false);
   const navigate = useNavigate();
   const accountTo = role === "architect" ? "/provider" : role === "admin" ? "/admin" : "/requests";
 
-  const handleSignOut = async () => {
+  const requestSignOut = () => {
     setOpen(false);
+    setSignOutOpen(true);
+  };
+
+  const handleSignOut = async () => {
+    setSigningOut(true);
     await signOut().catch(() => undefined);
+    setSigningOut(false);
+    setSignOutOpen(false);
     navigate("/");
   };
 
@@ -101,7 +148,7 @@ function PublicHeader() {
                   variant="ghost"
                   size="sm"
                   className="px-2 lg:px-3.5"
-                  onClick={() => void handleSignOut()}
+                  onClick={requestSignOut}
                   aria-label="Sign out"
                   title="Sign out"
                 >
@@ -173,7 +220,7 @@ function PublicHeader() {
               {signedIn && (
                 <button
                   type="button"
-                  onClick={() => void handleSignOut()}
+                  onClick={requestSignOut}
                   className="flex items-center justify-between border-b border-hairline py-4 text-left text-title text-ink"
                 >
                   Sign out
@@ -187,6 +234,15 @@ function PublicHeader() {
           </div>
         </div>
       )}
+
+      <SignOutDialog
+        open={signOutOpen}
+        busy={signingOut}
+        onClose={() => {
+          if (!signingOut) setSignOutOpen(false);
+        }}
+        onConfirm={() => void handleSignOut()}
+      />
     </>
   );
 }
@@ -352,7 +408,17 @@ const providerNav = [
 
 export function ProviderShell() {
   const { user, role, signedIn, providerProfile, signOut, notify } = useApp();
+  const [signOutOpen, setSignOutOpen] = useState(false);
+  const [signingOut, setSigningOut] = useState(false);
   const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    setSigningOut(true);
+    await signOut().catch(() => undefined);
+    setSigningOut(false);
+    setSignOutOpen(false);
+    navigate("/");
+  };
 
   if (!signedIn) return <Navigate to="/signin" replace />;
   if (role !== "architect") return <Navigate to={role === "admin" ? "/admin" : "/requests"} replace />;
@@ -410,9 +476,7 @@ export function ProviderShell() {
           </Link>
           <button
             type="button"
-            onClick={() => {
-              void signOut().then(() => navigate("/"));
-            }}
+            onClick={() => setSignOutOpen(true)}
             className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-body-sm text-stone hover:bg-card hover:text-ink"
           >
             <Icon name="logout" className="text-[18px]" />
@@ -458,6 +522,15 @@ export function ProviderShell() {
           <Outlet />
         </main>
       </div>
+
+      <SignOutDialog
+        open={signOutOpen}
+        busy={signingOut}
+        onClose={() => {
+          if (!signingOut) setSignOutOpen(false);
+        }}
+        onConfirm={() => void handleSignOut()}
+      />
     </div>
   );
 }
