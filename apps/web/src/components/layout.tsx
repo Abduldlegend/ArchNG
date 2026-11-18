@@ -541,7 +541,18 @@ const adminNav = [
 ];
 
 export function AdminShell() {
-  const { user, role, signedIn, notify } = useApp();
+  const { user, role, signedIn, signOut, notify } = useApp();
+  const [signOutOpen, setSignOutOpen] = useState(false);
+  const [signingOut, setSigningOut] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    setSigningOut(true);
+    await signOut().catch(() => undefined);
+    setSigningOut(false);
+    setSignOutOpen(false);
+    navigate("/");
+  };
 
   const initials =
     user?.name
@@ -617,12 +628,29 @@ export function AdminShell() {
               <Icon name="public" className="text-[18px]" />
               Public registry
             </Link>
+            <button
+              type="button"
+              onClick={() => setSignOutOpen(true)}
+              className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-body-sm text-stone hover:bg-card hover:text-ink"
+            >
+              <Icon name="logout" className="text-[18px]" />
+              Sign out
+            </button>
           </div>
         </aside>
         <main className="min-w-0 flex-1">
           <Outlet />
         </main>
       </div>
+
+      <SignOutDialog
+        open={signOutOpen}
+        busy={signingOut}
+        onClose={() => {
+          if (!signingOut) setSignOutOpen(false);
+        }}
+        onConfirm={() => void handleSignOut()}
+      />
     </div>
   );
 }
