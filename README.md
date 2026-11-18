@@ -1,130 +1,89 @@
 # ArchNG
 
-A frontend prototype for the **Nigerian Architectural Registry & Commissioning Monograph** — a verified directory of ARCON-registered practices, a commissioning workflow for clients, a practice workspace for architects, and a registrar console for the council.
+ArchNG is a verified architecture marketplace for Nigeria. The repository contains the Express/Prisma API, the shared Zod contract package, and the integrated React/Vite client.
 
-Built with React 19, TypeScript, Vite, Tailwind CSS v4, and React Router v7. This is a client-side prototype: all data is mocked and persisted to `localStorage` — there is no backend.
+## Repository layout
 
-## Getting started
+```text
+backend/             Express 5 API (@archng/api)
+  prisma/            schema, migrations and seed
+  src/               routes, controllers, services, serializers
+  tests/             Vitest + Supertest integration tests
+apps/web/            React client (@archng/web)
+packages/shared/     TypeScript Zod schemas and enums (@archng/shared)
+```
+
+## Requirements
+
+- Node.js 20.19+ and npm 10+
+- PostgreSQL 16+ (local service or Docker)
+- Optional: Docker for `docker compose up -d`
+
+## Quick start
 
 ```bash
 npm install
+Copy-Item backend/.env.example backend/.env
+# Edit DATABASE_URL and JWT secrets in backend/.env
+docker compose up -d
+npm run db:migrate
+npm run db:seed
 npm run dev
 ```
 
-Open the local URL printed by Vite (usually `http://localhost:5173`).
+The API runs at `http://localhost:4000`; the web app runs at `http://localhost:5173`; Swagger UI is at `http://localhost:4000/api/docs`.
 
-### Scripts
+If you use a native PostgreSQL install instead of Docker, create `archng` and `archng_test` databases and point `DATABASE_URL` / `TEST_DATABASE_URL` at them.
 
-| Command | Description |
+## Seed accounts
+
+All seed accounts use `Password123!`.
+
+| Role | Email |
 | --- | --- |
-| `npm run dev` | Start the Vite dev server |
-| `npm run build` | Type-check with `tsc -b` and build for production |
-| `npm run preview` | Preview the production build |
-| `npm run lint` | Run Oxlint |
+| Admin | `admin@archng.test` |
+| Client | `client@archng.test` |
+| Provider | `adaeze@archng.test` |
 
-## Demo access
+The seed mirrors the current UI: six verified practices, four monographs, four client requests, four leads for Adaeze Okafor Studio, verification cases, specialties, favorites and plate metadata.
 
-Authentication is simulated. Use any valid-looking email and a password of 8+ characters. Choose an access role on the sign-in screen:
+Seeded verification document links under `/uploads/seed/...` are placeholders and do not resolve to files.
 
-| Role | Destination |
+## Useful commands
+
+| Command | Purpose |
 | --- | --- |
-| Client | `/requests` |
-| Architect | `/provider` |
-| Council | `/admin` |
+| `npm run dev` | Watch shared package, run the API and start the web client |
+| `npm run build` | Build shared types, syntax-check the API and build the web client |
+| `npm run lint` | Lint shared, backend and web source |
+| `npm test` | Run shared schema tests, reset `archng_test`, migrate and run API tests |
+| `npm run db:migrate` | Create/apply a development migration |
+| `npm run db:seed` | Seed the development database |
+| `npm run db:reset` | Destructive reset followed by seed prompt |
+| `npm run db:studio` | Open Prisma Studio |
 
-The seed data includes an accepted request (`r1`) for Adaeze Okafor Studio, so signing in as a client unlocks that practice's full monograph and request detail.
+## API overview
 
-State is stored under these `localStorage` keys:
+- `POST /api/v1/auth/register`, `/login`, `/refresh`, `/logout`; `GET /auth/me`
+- `GET /api/v1/providers`, `/providers/:slug`, `/providers/:slug/gated`
+- `GET /api/v1/projects`, `/projects/:idOrSlug`
+- `GET /api/v1/specialties`
+- `POST /api/v1/demo-requests`
+- Client: `/api/v1/me/demo-requests`, `/me/favorites`
+- Provider: `/api/v1/me/provider-profile`, `/me/demo-video`, `/me/provider/stats`, `/me/projects`, `/me/leads`
+- Admin: `/api/v1/admin/stats`, `/admin/verifications`, `/admin/providers`, `/admin/users`, `/admin/projects`, `/admin/specialties`, `/admin/activity`
+- Uploads: `POST /api/v1/uploads/sign` (provider/admin); local upload `PUT /api/v1/uploads/local/:token`
 
-- `archng.role`
-- `archng.signedIn`
-- `archng.requests`
-- `archng.saved`
+Access tokens are returned in the response body. Refresh tokens live in an httpOnly cookie scoped to `/api/v1/auth` and rotate on every refresh.
 
-Clear site data to reset the prototype to its seed state.
+## Tests
 
-## Routes
+`npm test` runs the shared Zod contract tests, resets the test database, applies migrations, and runs Supertest flows for discovery, auth rotation, request gating, provider project CRUD, demo video validation, favorites, uploads and admin actions.
 
-### Public
+Tests read `backend/.env.test`. Copy `backend/.env.test.example` and point `TEST_DATABASE_URL` at your test database. `TEST_DATABASE_URL` must contain `test`; the reset script refuses to run otherwise.
 
-| Route | Screen |
-| --- | --- |
-| `/` | Discover — hero, search, curated studios, featured monograph, how it works |
-| `/architects` | Directory — search and filters (`q`, `state`, `typology` sync to the URL) |
-| `/architects/:slug` | Architect monograph, locked until a client has an accepted request |
-| `/architects/:slug/accepted` | Architect monograph with the accepted-request view unlocked |
-| `/saved` | Saved practices (device-local reading list) |
-| `/projects/:slug` | Project monograph — specs, gallery, plate index |
-| `/request-demo/:slug` | Commission request form with validation and success state |
-| `/requests` | Client request list |
-| `/requests/:id` | Request detail — status timeline and unlock state |
-| `/system-states` | Fallback states — directory empty, requests empty, loading skeletons, upload failure, and 404 |
-| `*` | Not found |
+## Frontend
 
-### Auth
+`apps/web/` is the integrated React client (`@archng/web`). It uses the API client in `apps/web/src/lib/api.ts`, API-backed context state, real auth and route guards. Copy `apps/web/.env.example` to `.env` only when overriding the default local API/asset URLs.
 
-| Route | Screen |
-| --- | --- |
-| `/signin` | Sign in |
-| `/register` | Create account |
-
-### Architect workspace
-
-| Route | Screen |
-| --- | --- |
-| `/provider` | Practice dashboard — stats, activity, recent requests |
-| `/provider/profile` | Profile editor with simulated document upload |
-| `/provider/projects/:id/edit` | Project editor |
-| `/provider/leads` | Leads inbox with accept/decline actions |
-
-### Council console
-
-| Route | Screen |
-| --- | --- |
-| `/admin` | Registrar dashboard |
-| `/admin/verification` | Verification queue, dossier dialog, Form B preview, approve/reject |
-
-## Project structure
-
-```text
-src/
-├── App.tsx                 # Route tree and providers
-├── main.tsx                # App entry point
-├── index.css               # Tailwind v4 theme tokens and global utilities
-├── data.ts                 # Types, imagery, and all seed data
-├── components/
-│   ├── ui.tsx              # Buttons, inputs, badges, dialog, toast, states
-│   ├── cards.tsx           # Architect, project, request, and lead cards
-│   └── layout.tsx          # Public, provider, and admin shells
-├── context/
-│   ├── context.ts          # Context types and useApp hook
-│   └── AppContext.tsx      # Provider, persisted state, and actions
-├── features/
-│   ├── Discover.tsx
-│   ├── Directory.tsx
-│   ├── ArchitectProfile.tsx
-│   ├── ProjectDetail.tsx
-│   ├── Auth.tsx
-│   ├── RequestDemo.tsx
-│   ├── Requests.tsx
-│   ├── Provider.tsx
-│   ├── Admin.tsx
-│   └── SystemStates.tsx
-└── lib/
-    ├── cn.ts               # Class combiner
-    └── format.ts           # Naira, date, and initials formatting
-```
-
-## Design system
-
-- Warm editorial palette defined as Tailwind v4 `@theme` tokens in `src/index.css`.
-- Primary terracotta `#B8502D`; ink `#1C1B19`; warm surface `#FDF8F5`; verified green `#1F7A5A`.
-- Newsreader for display type, Inter for body and UI, Material Symbols for icons (loaded in `index.html`).
-- Light theme only.
-- Shared primitives live in `src/components/ui.tsx`; layout shells and page headers live in `src/components/layout.tsx`.
-
-## Reference material
-
-- `docs/archng_unified_design.md_specification.md` — the 16-screen specification.
-- `docs/DESIGN.md` — design notes and tokens.
-- `docs/ArchNg Design screens/` — desktop and mobile visual references.
+Frontend integration smoke tests can use the seed accounts above. Public provider data follows backend visibility rules; contact details, videos and registration numbers unlock for admins, owners, or clients with accepted/completed requests.

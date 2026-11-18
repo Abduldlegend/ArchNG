@@ -1,0 +1,266 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  PROVIDER
+  ADMIN
+}
+
+enum AccountStatus {
+  ACTIVE
+  SUSPENDED
+}
+
+enum VerificationStatus {
+  UNVERIFIED
+  PENDING
+  VERIFIED
+  REJECTED
+}
+
+enum ProjectStatus {
+  DRAFT
+  PUBLISHED
+  HIDDEN
+}
+
+enum ProjectImageKind {
+  PHOTO
+  PLATE
+}
+
+enum RequestStatus {
+  REQUESTED
+  ACCEPTED
+  DECLINED
+  CANCELLED
+  COMPLETED
+}
+
+enum FeeTier {
+  TIER_50M
+  TIER_80M
+  TIER_100M
+  TIER_150M
+  TIER_250M
+  TIER_300M
+}
+
+model User {
+  id            String           @id @default(uuid()) @db.Uuid
+  name          String
+  email         String           @unique
+  passwordHash  String
+  role          Role             @default(USER)
+  status        AccountStatus    @default(ACTIVE)
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+  provider      ProviderProfile?
+  demoRequests  DemoRequest[]
+  favorites     Favorite[]
+  refreshTokens RefreshToken[]
+
+  @@index([role, status])
+}
+
+model ProviderProfile {
+  id                      String             @id @default(uuid()) @db.Uuid
+  userId                  String             @unique @db.Uuid
+  slug                    String             @unique
+  firm                    String
+  headline                String?
+  bio                     String             @default("")
+  city                    String
+  state                   String
+  yearsExperience Int               @default(0)
+  worksCount     Int               @default(0)
+  feeTier                 FeeTier            @default(TIER_50M)
+  portraitUrl             String?
+  coverUrl                String?
+  contactEmail            String?
+  contactPhone            String?
+  whatsapp                String?
+  website                 String?
+  showEmailToAccepted     Boolean            @default(true)
+  showPhoneToAccepted     Boolean            @default(false)
+  publishResponseWindow   Boolean            @default(true)
+  demoVideoUrl            String?
+  demoVideoSource         String?
+  registrationNumber      String?
+  licenceExpiresAt        DateTime?
+  verificationStatus      VerificationStatus @default(UNVERIFIED)
+  verificationNote        String?
+  verificationSubmittedAt DateTime?
+  verificationReviewedAt  DateTime?
+  published               Boolean            @default(false)
+  acceptingLeads          Boolean            @default(true)
+  profileViews            Int                @default(0)
+  createdAt               DateTime           @default(now())
+  updatedAt               DateTime           @updatedAt
+
+  user                  User                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  experiences           Experience[]
+  projects              Project[]
+  specialties           Specialty[]
+  demoRequests          DemoRequest[]
+  favorites             Favorite[]
+  verificationDocuments VerificationDocument[]
+
+  @@index([published, verificationStatus])
+  @@index([state])
+  @@index([feeTier])
+  @@index([yearsExperience])
+  @@index([acceptingLeads])
+}
+
+model Experience {
+  id           String   @id @default(uuid()) @db.Uuid
+  providerId   String   @db.Uuid
+  title        String
+  organisation String
+  year         Int
+  description  String   @default("")
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  provider ProviderProfile @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([providerId, order])
+}
+
+model Specialty {
+  id   String @id @default(uuid()) @db.Uuid
+  name String @unique
+  slug String @unique
+
+  providers ProviderProfile[]
+}
+
+model Project {
+  id           String        @id @default(uuid()) @db.Uuid
+  providerId   String        @db.Uuid
+  title        String
+  slug         String        @unique
+  typology     String
+  city         String
+  state        String
+  year         Int
+  gfa          String
+  budget       Decimal       @db.Decimal(14, 2)
+  structural   String        @default("")
+  climate      String        @default("")
+  summary      String
+  status       ProjectStatus @default(DRAFT)
+  adminHidden  Boolean       @default(false)
+  coverImageId String?       @unique @db.Uuid
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  provider   ProviderProfile @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  images     ProjectImage[]  @relation("ProjectImages")
+  coverImage ProjectImage?   @relation("ProjectCover", fields: [coverImageId], references: [id], onDelete: SetNull)
+
+  @@index([providerId, status])
+  @@index([status, adminHidden])
+  @@index([state])
+  @@index([typology])
+  @@index([year])
+}
+
+model ProjectImage {
+  id         String           @id @default(uuid()) @db.Uuid
+  projectId  String           @db.Uuid
+  url        String
+  publicId   String?
+  kind       ProjectImageKind @default(PHOTO)
+  alt        String?
+  isCover    Boolean          @default(false)
+  order      Int              @default(0)
+  plateLabel String?
+  plateTitle String?
+  plateYear  String?
+  plateScale String?
+  createdAt  DateTime         @default(now())
+
+  project  Project  @relation("ProjectImages", fields: [projectId], references: [id], onDelete: Cascade)
+  coverFor Project? @relation("ProjectCover")
+
+  @@index([projectId, order])
+  @@index([projectId, kind])
+}
+
+model DemoRequest {
+  id                   String        @id @default(uuid()) @db.Uuid
+  userId               String        @db.Uuid
+  providerId           String        @db.Uuid
+  projectType          String
+  state                String
+  location             String?
+  budgetRange          String
+  brief                String
+  status               RequestStatus @default(REQUESTED)
+  providerNote         String?
+  videoAccessGrantedAt DateTime?
+  createdAt            DateTime      @default(now())
+  updatedAt            DateTime      @updatedAt
+
+  user     User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  provider ProviderProfile @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([userId, status])
+  @@index([providerId, status])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model Favorite {
+  id         String   @id @default(uuid()) @db.Uuid
+  userId     String   @db.Uuid
+  providerId String   @db.Uuid
+  createdAt  DateTime @default(now())
+
+  user     User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  provider ProviderProfile @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, providerId])
+  @@index([providerId])
+}
+
+model VerificationDocument {
+  id         String             @id @default(uuid()) @db.Uuid
+  providerId String             @db.Uuid
+  name       String
+  fileType   String?
+  url        String
+  publicId   String?
+  status     VerificationStatus @default(PENDING)
+  uploadedAt DateTime           @default(now())
+
+  provider ProviderProfile @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([providerId])
+}
+
+model RefreshToken {
+  id        String    @id @default(uuid()) @db.Uuid
+  userId    String    @db.Uuid
+  tokenHash String    @unique
+  expiresAt DateTime
+  revokedAt DateTime?
+  userAgent String?
+  ip        String?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}

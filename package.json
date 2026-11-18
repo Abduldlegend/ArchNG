@@ -1,28 +1,33 @@
 {
-  "name": "react-tailwind-app",
+  "name": "archng",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "workspaces": [
+    "packages/*",
+    "backend",
+    "apps/*"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "oxlint",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@tailwindcss/vite": "^4.3.5",
-    "react": "^19.3.1",
-    "react-dom": "^19.3.1",
-    "react-router-dom": "^7.18.5",
-    "tailwindcss": "^4.3.5"
+    "predev": "npm run build -w @archng/shared",
+    "dev": "concurrently -k -n shared,api,web -c blue,green,magenta \"npm:dev:shared\" \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:shared": "npm run dev -w @archng/shared",
+    "dev:api": "npm run dev -w @archng/api",
+    "dev:web": "npm run dev -w @archng/web",
+    "build": "npm run build -w @archng/shared && npm run build -w @archng/api && npm run build -w @archng/web",
+    "test": "npm run test -w @archng/shared && npm run test -w @archng/api",
+    "test:watch": "npm run test:watch -w @archng/api",
+    "lint": "npm run lint -w @archng/shared && npm run lint -w @archng/api && npm run lint -w @archng/web",
+    "db:migrate": "npm run db:migrate -w @archng/api",
+    "db:seed": "npm run db:seed -w @archng/api",
+    "db:reset": "npm run db:reset -w @archng/api",
+    "db:studio": "npm run db:studio -w @archng/api"
   },
   "devDependencies": {
-    "@types/node": "^24.19.2",
-    "@types/react": "^19.3.0",
-    "@types/react-dom": "^19.3.0",
-    "@vitejs/plugin-react": "^6.1.2",
-    "oxlint": "^1.90.0",
-    "typescript": "~7.0.2",
-    "vite": "^8.3.6"
+    "concurrently": "^9.2.1"
+  },
+  "engines": {
+    "node": ">=20.19.0",
+    "npm": ">=10"
   }
 }
