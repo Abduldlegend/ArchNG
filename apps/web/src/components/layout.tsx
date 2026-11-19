@@ -78,7 +78,8 @@ function SignOutDialog({
 }
 
 function PublicHeader() {
-  const { signedIn, role, signOut } = useApp();
+  const { ready, signedIn, role, signOut } = useApp();
+  const showPublicLinks = ready && !signedIn;
   const [open, setOpen] = useState(false);
   const [signOutOpen, setSignOutOpen] = useState(false);
   const [signingOut, setSigningOut] = useState(false);
@@ -114,22 +115,24 @@ function PublicHeader() {
           <div className="flex items-center gap-6">
             <Brand />
           </div>
-          <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
-            {publicNav.map((item) => (
-              <NavLink
-                key={item.label}
-                to={item.to}
-                className={({ isActive }) =>
-                  cn(
-                    "text-label transition-colors hover:text-terracotta",
-                    isActive ? "text-ink" : "text-stone",
-                  )
-                }
-              >
-                {item.label}
-              </NavLink>
-            ))}
-          </nav>
+          {showPublicLinks && (
+            <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
+              {publicNav.map((item) => (
+                <NavLink
+                  key={item.label}
+                  to={item.to}
+                  className={({ isActive }) =>
+                    cn(
+                      "text-label transition-colors hover:text-terracotta",
+                      isActive ? "text-ink" : "text-stone",
+                    )
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              ))}
+            </nav>
+          )}
           <div className="hidden items-center gap-2.5 md:flex">
             <Link
               to="/architects"
@@ -161,10 +164,12 @@ function PublicHeader() {
                 Sign in
               </LinkButton>
             )}
-            <LinkButton to="/register" size="sm">
-              Join as an architect
-              <Icon name="north_east" className="text-[15px]" />
-            </LinkButton>
+            {showPublicLinks && (
+              <LinkButton to="/register" size="sm">
+                Join as an architect
+                <Icon name="north_east" className="text-[15px]" />
+              </LinkButton>
+            )}
           </div>
           <button
             type="button"
@@ -198,17 +203,18 @@ function PublicHeader() {
               </button>
             </div>
             <nav className="mt-6 flex flex-col" aria-label="Mobile">
-              {publicNav.map((item) => (
-                <Link
-                  key={item.label}
-                  to={item.to}
-                  onClick={() => setOpen(false)}
-                  className="flex items-center justify-between border-b border-hairline py-4 text-title text-ink"
-                >
-                  {item.label}
-                  <Icon name="arrow_outward" className="text-[18px] text-stone" />
-                </Link>
-              ))}
+              {showPublicLinks &&
+                publicNav.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={item.to}
+                    onClick={() => setOpen(false)}
+                    className="flex items-center justify-between border-b border-hairline py-4 text-title text-ink"
+                  >
+                    {item.label}
+                    <Icon name="arrow_outward" className="text-[18px] text-stone" />
+                  </Link>
+                ))}
               <Link
                 to={signedIn ? accountTo : "/signin"}
                 onClick={() => setOpen(false)}
@@ -228,9 +234,11 @@ function PublicHeader() {
                 </button>
               )}
             </nav>
-            <LinkButton to="/register" className="mt-6 w-full" size="lg" variant="primary">
-              Join as an architect
-            </LinkButton>
+            {showPublicLinks && (
+              <LinkButton to="/register" className="mt-6 w-full" size="lg" variant="primary">
+                Join as an architect
+              </LinkButton>
+            )}
           </div>
         </div>
       )}
