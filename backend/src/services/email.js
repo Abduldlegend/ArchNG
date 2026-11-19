@@ -59,6 +59,19 @@ export const emailVerificationDecision = async (provider, status, note) => {
   });
 };
 
+export const emailWelcome = async (user) => {
+  const isProvider = user.role === "PROVIDER";
+  await sendEmail({
+    to: user.email,
+    subject: isProvider ? "Your ArchNG practice account is ready" : "Welcome to ArchNG",
+    text: isProvider
+      ? `Hello ${user.name},\n\nYour ArchNG practice account${
+          user.provider?.firm ? ` for ${user.provider.firm}` : ""
+        } has been created successfully.\n\nComplete your practice profile and submit your verification documents so the review team can assess your listing.\n\nArchNG`
+      : `Hello ${user.name},\n\nYour ArchNG client account has been created successfully.\n\nYou can now browse verified practices and send a commission request when you are ready.\n\nArchNG`,
+  });
+};
+
 export const emailNewRequest = async ({ provider, client, request }) => {
   await sendEmail({
     to: provider.user?.email || provider.contactEmail,

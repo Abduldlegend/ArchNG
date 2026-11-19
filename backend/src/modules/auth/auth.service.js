@@ -1,6 +1,7 @@
 import argon2 from "argon2";
 import { env } from "../../config/env.js";
 import { prisma } from "../../config/prisma.js";
+import { emailWelcome } from "../../services/email.js";
 import { conflict, forbidden, unauthorized, unprocessable } from "../../utils/errors.js";
 import { slugify, uniqueSlug } from "../../utils/strings.js";
 import {
@@ -91,6 +92,7 @@ export const register = async (input, req) => {
     select: userWithProvider,
   });
 
+  await emailWelcome(user);
   const session = await startSession(user, req);
   return { user, session };
 };
