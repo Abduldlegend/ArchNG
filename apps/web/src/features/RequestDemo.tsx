@@ -122,7 +122,7 @@ export default function RequestDemo() {
         brief: `${brief.trim()}\n\nPreferred consultation slot: ${slot}`,
       });
       setSubmittedId(id);
-      notify("Commission request submitted. The studio has 72 hours to respond.");
+      notify("Commission request submitted. The studio has 48 hours to respond.");
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (submitError) {
       setError(submitError instanceof Error ? submitError.message : "Unable to submit this request. Try again.");
@@ -137,7 +137,7 @@ export default function RequestDemo() {
         <PageHeader
           eyebrow="Request received"
           title="Your brief is with the studio"
-          description="The practice has 72 hours to accept or decline. You can track the request from your client portal."
+          description="The practice has 48 hours to accept or decline. You can track the request from your client portal."
         />
         <section className="py-10 md:py-14">
           <div className="container-page max-w-2xl">
@@ -149,7 +149,7 @@ export default function RequestDemo() {
                 <div>
                   <p className="text-label text-verified">Commission request submitted</p>
                   <p className="text-body-sm text-verified/80">
-                    Reference <span className="tnum">{submittedId.toUpperCase()}</span> · 72-hour response window
+                    Reference <span className="tnum">{submittedId.toUpperCase()}</span> · 48-hour response window
                   </p>
                 </div>
               </div>
@@ -347,7 +347,7 @@ export default function RequestDemo() {
                   ["ARCON", architect.arcon.replace("ARCON ", "")],
                   ["Experience", `${architect.years} years`],
                   ["Commission tier", architect.feeTier],
-                  ["Response window", "72 hours"],
+                  ["Response window", "48 hours"],
                 ].map(([label, value]) => (
                   <div key={label} className="flex items-center justify-between gap-3 border-b border-hairline pb-2 last:border-0 last:pb-0">
                     <dt className="text-stone">{label}</dt>

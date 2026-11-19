@@ -59,7 +59,7 @@ export function MyRequests() {
               onChange={setTab}
               className="border-b-0"
             />
-            <span className="hidden text-body-sm text-stone sm:inline">Response window: 72 hours</span>
+            <span className="hidden text-body-sm text-stone sm:inline">Response window: 48 hours</span>
           </div>
 
           {filtered.length > 0 ? (

@@ -336,7 +336,7 @@ describe("auth and gating", () => {
     expect(reused.status).toBe(401);
   });
 
-  it("creates a request, accepts it and unlocks gated contact details", async () => {
+  it("creates a request, accepts and completes it, and unlocks gated contact details", async () => {
     const createResponse = await request(app)
       .post("/api/v1/demo-requests")
       .set(auth(clientToken))
@@ -396,6 +396,26 @@ describe("auth and gating", () => {
 
     const anonymous = await request(app).get("/api/v1/providers/ada-test-studio/gated");
     expect(anonymous.status).toBe(401);
+
+    const completed = await request(app)
+      .patch(`/api/v1/me/leads/${fixture.requestId}`)
+      .set(auth(providerToken))
+      .send({ status: "COMPLETED" });
+    expect(completed.status).toBe(200);
+    expect(completed.body.data.status).toBe("Completed");
+
+    const completedRequest = await request(app)
+      .get(`/api/v1/me/demo-requests/${fixture.requestId}`)
+      .set(auth(clientToken));
+    expect(completedRequest.status).toBe(200);
+    expect(completedRequest.body.data.status).toBe("Completed");
+    expect(completedRequest.body.data.videoAccessGranted).toBe(true);
+
+    const terminalTransition = await request(app)
+      .patch(`/api/v1/me/leads/${fixture.requestId}`)
+      .set(auth(providerToken))
+      .send({ status: "DECLINED", note: "Too late to decline." });
+    expect(terminalTransition.status).toBe(409);
   });
 });
 

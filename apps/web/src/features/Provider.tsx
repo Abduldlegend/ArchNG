@@ -261,7 +261,7 @@ export function ProviderDashboard() {
               </div>
               <div className="mt-4 rounded-lg bg-surface-low p-3 text-body-sm text-stone">
                 <Icon name="info" className="mr-1 text-[16px] text-terracotta" />
-                The council recommends responding within the 72-hour window to maintain verified status.
+                The council recommends responding within the 48-hour window to maintain verified status.
               </div>
             </Card>
 
@@ -1060,8 +1060,10 @@ export function LeadsInbox() {
   const [tab, setTab] = useState("Pending");
   const filtered = leads.filter((lead) => lead.status === tab);
   const pending = leads.filter((lead) => lead.status === "Pending").length;
-  const decided = leads.filter((lead) => lead.status === "Accepted" || lead.status === "Declined").length;
-  const accepted = leads.filter((lead) => lead.status === "Accepted").length;
+  const decided = leads.filter(
+    (lead) => lead.status === "Accepted" || lead.status === "Declined" || lead.status === "Completed",
+  ).length;
+  const accepted = leads.filter((lead) => lead.status === "Accepted" || lead.status === "Completed").length;
   const responseRate = decided > 0 ? Math.round((accepted / decided) * 100) : 0;
 
   return (
@@ -1069,7 +1071,7 @@ export function LeadsInbox() {
       <PageHeader
         eyebrow="Leads & inquiries"
         title="Commission briefing inbox"
-        description="Review client briefs, attached surveys, and the 72-hour decision window. Accepted requests unlock your contact desk."
+        description="Review client briefs, attached surveys, and the 48-hour decision window. Accepted requests unlock your contact desk."
         action={
           <div className="flex items-center gap-3">
             <Badge tone="warning">
@@ -1105,6 +1107,11 @@ export function LeadsInbox() {
                     const note = window.prompt("Add a short note for the client before declining:");
                     if (note?.trim()) void decideLead(lead.id, "Declined", note.trim());
                   }}
+                  onComplete={() => {
+                    if (window.confirm("Mark this commission as completed? This closes the request.")) {
+                      void decideLead(lead.id, "Completed");
+                    }
+                  }}
                 />
               ))}
             </div>
@@ -1122,7 +1129,7 @@ export function LeadsInbox() {
         <aside className="space-y-6">
           <Card className="p-5">
             <Eyebrow>Decision window</Eyebrow>
-            <p className="mt-2 font-serif text-headline-md text-ink">72 hours per brief</p>
+            <p className="mt-2 font-serif text-headline-md text-ink">48 hours per brief</p>
             <p className="mt-2 text-body-sm text-stone">
               Accepting a request unlocks the full client dossier and opens the direct contact desk. Declining returns
               the brief to the client with a note.

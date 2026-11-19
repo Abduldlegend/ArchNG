@@ -308,7 +308,7 @@ export default function ArchitectProfile() {
                   </div>
                   <div className="flex items-center justify-between gap-3">
                     <dt className="text-stone">Response window</dt>
-                    <dd className="text-ink">72 hours</dd>
+                    <dd className="text-ink">48 hours</dd>
                   </div>
                   <div className="flex items-center justify-between gap-3">
                     <dt className="text-stone">Demo fee</dt>

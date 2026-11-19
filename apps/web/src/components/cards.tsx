@@ -181,10 +181,12 @@ export function LeadCard({
   lead,
   onAccept,
   onDecline,
+  onComplete,
 }: {
   lead: Lead;
   onAccept: () => void;
   onDecline: () => void;
+  onComplete?: () => void;
 }) {
   const urgent = lead.deadline === "4h" || lead.deadline === "18h";
   return (
@@ -221,13 +223,20 @@ export function LeadCard({
             </Button>
           </div>
         ) : (
-          <Badge tone={lead.status === "Declined" || lead.status === "Cancelled" ? "danger" : "verified"}>
-            <Icon
-              name={lead.status === "Declined" || lead.status === "Cancelled" ? "cancel" : "check_circle"}
-              className="text-[14px]"
-            />
-            {lead.status}
-          </Badge>
+          <div className="flex flex-wrap items-center justify-end gap-2">
+            {lead.status === "Accepted" && onComplete && (
+              <Button size="sm" onClick={onComplete}>
+                Mark completed
+              </Button>
+            )}
+            <Badge tone={lead.status === "Declined" || lead.status === "Cancelled" ? "danger" : "verified"}>
+              <Icon
+                name={lead.status === "Declined" || lead.status === "Cancelled" ? "cancel" : "check_circle"}
+                className="text-[14px]"
+              />
+              {lead.status}
+            </Badge>
+          </div>
         )}
       </div>
     </Card>
